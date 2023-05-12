@@ -1,0 +1,143 @@
+.login-btn {
+  padding: 10px;
+  font-family: "Poppins";
+  font-size: 12px;
+  background: #ea9528;
+  border-radius: 8px;
+
+  border: none;
+  padding: 10px;
+  color: #2c2b44;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+.login-bg-con {
+  background: #fff9f0;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+}
+.login-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: auto; */
+  /* padding: 10px; */
+  margin-top: 20rem;
+}
+
+.login-img-section {
+  width: 100%;
+  height: 316px;
+
+}
+
+.login-img-section img {
+  width: 100%;
+  height: 100%;
+}
+.login-subpart-one {
+  background: #2c2b44;
+  border-radius: 25px;
+  width: 620px;
+
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.sub-part-head h1 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 0.18em;
+
+  color: #ffffff;
+}
+.logo-bar {
+  margin-right: 2rem;
+  left: 0px;
+}
+.logo-bars-con {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+.login-subpart-one h3 {
+  text-align: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.18em;
+
+  color: rgba(255, 255, 255, 0.38);
+  margin-top: 4rem;
+
+  /* flex-grow: 1; */
+}
+.login-input-main {
+  display: flex;
+  flex-direction: column;
+}
+.login-input-con {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: rgba(255, 255, 255, 0.38);
+  padding: 10px 10px 10px 0px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.38);
+  margin-bottom: 2rem;
+}
+
+.login-visible-con {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: rgba(255, 255, 255, 0.38);
+  padding: 10px 10px 10px 0px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.38);
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-visible-con input {
+  background: transparent;
+  border: none;
+}
+
+.account-con {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+.already-txt {
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: rgba(255, 255, 255, 0.12);
+}
+.create-login-txt {
+  color: #ea9528;
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 20px;
+  line-height: 24px;
+  margin-left: 0.5rem;
+}

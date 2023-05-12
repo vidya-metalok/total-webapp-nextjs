@@ -1,0 +1,109 @@
+.league-main-container {
+  display: flex;
+  flex-direction: column;
+  /* background: #232234; */
+  background: #1f1c2d;
+  border-radius: 7px;
+  /* padding: 15px; */
+  font-family: "Poppins";
+  max-width: 1102px;
+  margin-bottom: 10px;
+}
+
+.league-card:hover {
+  background: #2c2b44;
+}
+
+.batches-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.live-score-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.league-live-btn {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 11.5238px;
+  line-height: 23px;
+  /* or 200% */
+
+  letter-spacing: 0.01em;
+  color: #ea9528;
+
+  border: 1px solid #ea9528;
+  border-radius: 6px;
+  padding: 0px 6px 0px 6px;
+  margin-bottom: 10px;
+  background: transparent;
+}
+.all-cards-container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+.league-tags-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  /* justify-content: space-around; */
+}
+
+.ipl-active {
+  color: #ffffff;
+}
+.ipl-not-active {
+  color: #9492a0;
+}
+
+.t20-desc {
+  color: white;
+  text-align: center;
+  font-size: 14px;
+}
+
+.league-tags-container p {
+  margin-right: 1.5rem;
+  text-align: center;
+}
+.drop-down-container {
+  display: flex;
+  align-items: center;
+}
+
+.league-main-section {
+  background: #232234;
+  padding: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 7px;
+}
+
+.match-card-section {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+}
+
+.match-card-section::-webkit-scrollbar {
+  width: 0px;
+}
+.league-card {
+  background-color: #232234;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  /* min-width: 43%; */
+  width: 256px;
+  margin: auto;
+  margin-bottom: 20px;
+  color: white;
+  height: 231px;
+  font-family: "Poppins";
+  margin-right: 10px;
+}

@@ -1,0 +1,527 @@
+.totalamt-section {
+  /* width: 1053px; */
+  border-radius: 7px;
+  /* width: 1050px; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  /* padding: 20px; */
+  /* margin: 40px auto; */
+}
+/* .totalamt-child1 {
+   display: flex; 
+}  */
+
+.totalamt-subparent1,
+.totalamt-subparent2,
+.totalamt-subparent3 {
+  background: #232234;
+  border-radius: 7px;
+
+  display: flex;
+  /* align-items: center; */
+
+  justify-content: center;
+  flex-direction: column;
+  margin: 2px;
+}
+.totalamt-subparent1 {
+  width: 259px;
+  height: 106px;
+}
+
+.totalamt-subparent2 {
+  width: 208px;
+  height: 106px;
+}
+.totalamt-subparent3 {
+  width: 204px;
+  height: 106px;
+}
+
+.totalamt-subparent2,
+.totalamt-subparent3 {
+  padding-left: 14px;
+}
+.totalamt-subparent1 {
+  padding-left: 18px;
+}
+
+.totalamt-child2 {
+  width: 356px;
+  height: 284px;
+  background: #232234;
+  border-radius: 7px;
+  margin: auto;
+
+  padding: 20px 0px 20px 0px;
+}
+
+.totalamt-parent {
+  display: flex;
+}
+
+.totalamt-child1-0 {
+  display: flex;
+}
+.totalamt-child1-2 {
+  display: flex;
+}
+
+.totalamt-subparent4,
+.totalamt-subparent5 {
+  width: 338px;
+  height: 169px;
+
+  background: #232234;
+  border-radius: 7px;
+
+  margin: 5px 2px 2px 2px;
+}
+
+.subparentsubchild1,
+.subparentsubchild3,
+.subparentsubchild5 {
+  display: flex;
+  gap: 10px;
+  /* margin-bottom: 10px; */
+}
+.subparentsubchild1 p,
+.subparentsubchild3 p,
+.subparentsubchild5 p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px; 
+  letter-spacing: 0.01em; 
+  color: #9492a0; 
+  opacity: 0.5;
+}
+
+.subparentsubchild2,
+.subparentsubchild4,
+.subparentsubchild6 {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.subparentsubchild2 p:nth-child(1),
+.subparentsubchild4 p:nth-child(1),
+.subparentsubchild6 p:nth-child(1) {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 31px;
+  text-align: center;
+  letter-spacing: -0.312463px;
+
+  color: #cccccc;
+}
+.subparentsubchild2 p:nth-child(2),
+.subparentsubchild4 p:nth-child(2),
+.subparentsubchild6 p:nth-child(2) {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  text-align: center;
+  letter-spacing: -0.312463px;
+
+  color: #0bbb70;
+}
+
+.totalamt-subparent4,
+.totalamt-subparent5 {
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+}
+
+.todays-pl .today-text {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px; 
+  letter-spacing: 0.01em; 
+  color: #9492A0;
+  opacity: 0.5;
+}
+.today-amount {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  /* identical to box height */
+
+  letter-spacing: -0.312463px;
+
+  color: #0bbb70;
+  margin-top: 20px;
+}
+
+.todays-pl img {
+  margin-bottom: 20px;
+  margin-top: 6px;
+}
+
+.today-team-names {
+  display: flex;
+  gap: 35px;
+}
+
+.today-team-names p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
+
+  letter-spacing: -0.312463px;
+
+  color: #cccccc;
+}
+.today-team-names p:nth-child(1) {
+  border-left: 2px solid #0bbb70;
+  padding-left: 3px;
+}
+
+.today-team-names p:nth-child(2) {
+  border-left: 2px solid #ec3e47;
+  padding-left: 5px;
+}
+.quick-trade {
+  margin-left: 40px;
+}
+
+.quick-trade-amt {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  margin-top: 10px;
+}
+.quick-trade-amt h2 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+
+  color: #ea9528;
+}
+
+.quick-trade-amt p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+
+  color: #5d6166;
+}
+
+.quick-trade-amt h3 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 100%;
+  color: rgba(93, 97, 102, 0.65);
+}
+
+.quick-trade-child {
+  position: relative;
+  display: flex;
+  margin: 22px 0px 0px 0px;
+}
+
+.dropdown-trade {
+  background: none;
+  border: none;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 171% */
+
+  color: #5d6166;
+  outline: none;
+}
+
+.dropdown-trade option {
+  border: none;
+}
+
+.quick-trade-subchild {
+  display: flex;
+}
+
+.drop-img {
+  width: 50px;
+  height: 50px;
+}
+
+.quick-trade-subchild {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  width: 40%;
+  margin-right: 20px;
+}
+.quick-trade-suchild2 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  width: 40%;
+}
+
+.quick-trade-suchild2 input {
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  font-family: "Poppins";
+  cursor: pointer;
+}
+
+.quick-trade-child2 {
+  position: relative;
+  display: flex;
+}
+.quick-trade-child5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.continue-btn {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+
+  /* identical to box height, or 160% */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #000000;
+
+  width: 140px;
+  height: 32px;
+
+  background: #ea9528;
+  border-radius: 12px;
+  margin: auto;
+  border: none;
+  margin-top: 20px;
+}
+
+.quick-trade-heading {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.dropdown-trade option {
+  font-family: "Poppins";
+}
+
+.select-img {
+  border: 3px solid red;
+  width: 30px;
+}
+
+@media (max-width: 1400px) {
+  .totalamt-parent {
+    flex-direction: column;
+  }
+  .totalamt-section {
+    width: auto;
+  }
+}
+
+@media (max-width: 1048px) {
+  .totalamt-child1-0 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .totalamt-child1-2 {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .totalamt-subparent4,
+  .totalamt-subparent5 {
+    margin: auto;
+    margin-left: 13px;
+    margin-bottom: 13px;
+    width: 96%;
+  }
+}
+
+/* new added */
+
+.quick {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 26px;
+  color: #ea9528;
+}
+
+.quick-trade-amt h6 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ea9528 !important;
+}
+/* .quick-trade-amt p {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff !important;
+  opacity: 0.75 !important;
+} */
+.token-rcv-text {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color:  #5D6166;
+  margin-bottom:0px;
+}
+.w-usdt {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 31px !important;
+  text-align: center;
+  letter-spacing: -0.312463px;
+  color: #cccccc !important;
+  margin-left: -5%;
+}
+
+.token-names-select{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #5D6166;
+  /* width: 70px; */
+
+}
+
+.select-opt{
+  display: flex;
+  gap:18px;
+}
+
+.pop-select{
+  position:absolute;
+  background: grey;
+  margin-Top: 30px;
+  width:86px;
+  border-radius:4px;
+  z-index: 5;
+}
+
+/* new added 09-05-23 */
+.pop-select div{
+  cursor: pointer;
+}
+.subparentsubchild5{
+  margin-top: 20px;
+}
+
+
+@media screen and (min-width: 991px) and (max-width:1340px){
+  .totalamt-subparent3{
+    width: 200px;
+  } 
+} 
+
+@media screen and (min-width: 991px) and (max-width:1025px){
+  .totalamt-subparent4, .totalamt-subparent5{
+    width: 250px;
+  }
+  .todays-pl img {
+    width: 96%;
+    margin-bottom: 10px;
+  }
+  .totalamt-subparent3 {
+    width: 152px;
+  }
+  .subparentsubchild5 p {
+    font-size: 12px;
+    margin-left: -3%;
+  }
+  .subparentsubchild6 p:nth-child(1){
+    font-size: 20px;
+  }
+  .today-text{
+    margin-top: 20px;
+  } 
+  .subparentsubchild6{
+    margin-top: -12PX;
+  }
+}
+@media screen and (min-width: 1030px) and (max-width:1090px){
+  .totalamt-subparent4, .totalamt-subparent5{
+    width: 280px;
+  }
+  .todays-pl img {
+    width: 96%;
+    margin-bottom: 10px;
+  }
+  .totalamt-subparent3 {
+    width: 152px;
+  }
+  .subparentsubchild5 p {
+    font-size: 12px;
+    margin-left: -3%;
+  }
+  .subparentsubchild6 p:nth-child(1){
+    font-size: 20px;
+  }
+  .today-text{
+    margin-top: 20px;
+  } 
+  .subparentsubchild6{
+    margin-top: -12PX;
+  }
+}
+
+/* new added 11-05-23*/
+@media screen and (min-width: 991px) and (max-width:1090px){
+  .quick-trade{
+    width: 60%;
+  }
+  .quick-trade-amt {
+    width: 90%;
+  }
+}

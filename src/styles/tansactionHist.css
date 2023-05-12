@@ -1,0 +1,163 @@
+.transaction-tabs-div {
+  display: flex;
+
+  justify-content: space-between;
+
+  font-family: "Poppins";
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  font-size: 18px;
+
+  line-height: 27px;
+
+  /* identical to box height */
+
+  color: #ffffff;
+
+  opacity: 0.75;
+}
+
+.topnews-div {
+  display: flex;
+
+  display: inline-block;
+}
+
+.topnews-subdiv {
+  margin: 0rem;
+
+  justify-content: center;
+
+  position: relative;
+}
+
+.subdiv-topnew-img {
+  width: 187.27px;
+
+  height: 225.97px;
+}
+
+.topnews-subdiv-child {
+  position: absolute;
+
+  align-items: center;
+
+  text-align: center;
+
+  /* top:3rem; */
+
+  bottom: 1.5rem;
+}
+
+.topnews-subdiv-child h4 {
+  font-family: "Poppins";
+
+  font-style: normal;
+
+  font-weight: 700;
+
+  font-size: 11.2361px;
+
+  line-height: 17px;
+
+  color: #ffffff;
+}
+.topnews-subdiv-child p {
+  font-family: "Poppins";
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  font-size: 10.6119px;
+
+  line-height: 16px;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+.transaction-send-res{
+  border:1px solid #f7a721;
+  border-radius: 50%;
+  padding:4px;
+}
+
+.hist-active {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.hist-not-active {
+  color: #ffffff;
+  opacity: 0.25;
+}
+.hist-not-active::after {
+  content: "";
+  width: 100%;
+  left: 0px;
+  bottom: -2px;
+  top: 10px;
+  position: absolute;
+  border-bottom: 2px solid white;
+}
+
+
+/* dashboard history css  */
+
+.dash-trans-date h3{
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 12px ;
+line-height: 14px;
+
+letter-spacing: -0.312463px;
+
+color: rgba(255, 255, 255, 0.65);
+
+opacity: 0.5;
+}
+
+.dash-token-value h4{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.312463px;
+  
+  color: #0BBB70;
+  
+  opacity: 0.75;
+}
+
+.dash-token-value h5{
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 300;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height */
+
+letter-spacing: -0.312463px;
+
+color: #CCCCCC;
+}
+
+.topnews-scroll::-webkit-scrollbar{
+  width: 0px;
+}
+
+.top-news-input{
+  background: none;
+  border: none;
+  border-bottom:1px solid white;
+  width: 70%;
+  outline: none;
+  margin-left:10px;
+  color:white;
+}
