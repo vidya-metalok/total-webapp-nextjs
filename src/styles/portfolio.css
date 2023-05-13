@@ -1,7 +1,7 @@
 .holding-con {
   display: flex;
   align-items: center;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
 }
 .bar-chart-con {
   border: 1px solid #232234;

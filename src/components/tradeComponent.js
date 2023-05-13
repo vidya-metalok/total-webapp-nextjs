@@ -318,7 +318,7 @@ const TradeComponent = () => {
     <div className="candle-live-score">
       <div className="batting-con">
         <div>
-          <Image src={sunrisersImage} alt="" height={40} width={60} />
+          <Image src={sunrisersImage} alt="" height={60} width={40} />
 
 
         </div>

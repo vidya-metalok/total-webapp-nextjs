@@ -108,7 +108,7 @@
   flex-direction: row; 
   justify-content: space-around;
   align-items: center;
-  margin-top: 12%;
+  margin-top: 13%;
   /* margin-top: 2rem; */
 }
 .token-container h1 {
@@ -497,8 +497,8 @@ table {
 }
 
 /* new added 11-05-23 */
-@media screen and (min-width: 1025px) and (max-width:1400px){
+@media screen and (min-width: 1025px) and (max-width:1920px){
   .side-tok-height{
-     margin-top: -10%;
+     margin-top: -6%;
   }
 }

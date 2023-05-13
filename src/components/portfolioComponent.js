@@ -394,7 +394,7 @@ const PortFolioComponent = () => {
 
                     <div>
                         <div className='holding-con'>
-                            <div className="totalamt-subparent3">
+                            <div className="totalamt-subparent3" style={{width:'214px'}}>
                                 <div className="subparentsubchild5">
                                     <Image
                                         src={empty}
