@@ -424,11 +424,11 @@
   margin-bottom:0px;
 }
 .w-usdt {
-  font-family: "Lato";
+  font-family: "poppins" !important;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
-  line-height: 31px !important;
+  line-height: 23px !important;
   text-align: center;
   letter-spacing: -0.312463px;
   color: #cccccc !important;

@@ -78,12 +78,12 @@ const LeagueComponent = () => {
                             <div>
                                 <Image src={teamAImgUrl} alt="image" height={50} width={50} />
 
-                                <p>$256.72</p>
+                                <p className="total-holding-val">$256.72</p>
                             </div>
                             <p> VS </p>
                             <div>
                                 <Image src={teamBImgUrl} alt="image" height={50} width={50} />
-                                <p>$58.7</p>
+                                <p className="teams-holding-val">$58.7</p>
                             </div>
                         </div>
                     </div>
@@ -204,11 +204,7 @@ const LeagueComponent = () => {
 
                     )
                 }
-
-
-            </div>
-            <div className="drop-down-container  d-flex flex-direction-column">
-                <div className="row">
+<div className="drop-down-container  d-flex flex-direction-column">               <div className="row">
 
 
                     <div className="col-12 col-sm-12  col-md-6 col-lg-6">
@@ -221,7 +217,7 @@ const LeagueComponent = () => {
                     </div>
                 </div>
             </div>
-
+            </div>
             {/* <TransactionHistoryComponent /> */}
             <HistoryDashboard/>
         </div >

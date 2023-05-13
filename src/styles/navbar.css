@@ -29,6 +29,8 @@ nav {
 
   opacity: 0.65;
   text-transform: uppercase;
+  margin:auto;
+  margin-left:7px;
 }
 
 .nav-links-container a {

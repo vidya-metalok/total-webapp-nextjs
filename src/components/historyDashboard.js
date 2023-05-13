@@ -9,10 +9,14 @@ import qs from "qs";
 import abi from "../../abis/abi.json";// import deposit from "../../public/images/Arrow 1.png";
 // import withdraw from "../../public/images/arrow2.png";
 // import status from "../../public/images/status-img.jpeg";
-var withdraw = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/arrow2.png";
-var status = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/status-img.jpeg";
-var deposit = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/Arrow 1.png";
+// var withdraw = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/arrow2.png";
 
+var status = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/status-img.jpeg";
+
+// var deposit = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/Arrow 1.png";
+ 
+import deposit from "../../public/images/Arrow 1.png"
+import withdraw from "../../public/images/arrow2.png"
 import cskdhoni from "../../public/images/cskdhoni.png";
 
 import hydekohili from "../../public/images/hydekohili.png";
@@ -67,25 +71,26 @@ const HistoryDashboard = () => {
         var minutes = "0" + date.getMinutes();
         // Seconds part from the timestamp
         var months = [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
         ];
         var year = date.getFullYear();
         var month = months[date.getMonth()];
         var day = date.getDate();
-        var formattedDate = day + "/" + month + "/" + year;
+        var formattedDate = month + "/" + day + "/" + year;
         // Will display time in 10:30 format
         var formattedTime = hours + ":" + minutes.substr(-2);
+
 
         return (
             <>

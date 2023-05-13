@@ -236,7 +236,7 @@ color: rgba(255, 255, 255, 0.45);
 }
 .trans-type-con {
   display: flex;
-  align-items: center;
+  align-items: start;
   /* justify-content: space-between; */
   padding-top: 20px;
 }

@@ -107,3 +107,28 @@
   font-family: "Poppins";
   margin-right: 10px;
 }
+
+.total-holding-val{
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+
+color: #0BBB70;
+}
+
+
+.teams-holding-val{
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+
+color: #EC3E47;
+}
