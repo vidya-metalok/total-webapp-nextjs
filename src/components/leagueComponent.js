@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import BuySellComponent from "./buySellComponent";
 // import TransactionHistoryComponent from "./transactionHistoryComponent";
 import HistoryDashboard from "./historyDashboard";
+import RsvcSellComponent from "./rsvcComponent";
 
 const LeagueComponent = () => {
     const [activeMatches, setactiveMatches] = useState("ipl")
@@ -216,14 +217,14 @@ const LeagueComponent = () => {
 
                     </div>
                     <div className="col-12  col-sm-12 col-md-6 col-lg-6">
-                        <BuySellComponent />
+                        <RsvcSellComponent />
 
                     </div>
                 </div>
             </div>
 
             {/* <TransactionHistoryComponent /> */}
-            <HistoryDashboard/>
+            <HistoryDashboard />
         </div >
     );
 };

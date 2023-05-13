@@ -100,9 +100,9 @@ const TransactionHistoryComponent = () => {
 
                         <h3 className="trans-type">
                             {web3.utils.toChecksumAddress(toAddress) == userWallet ? (
-                                <Image src={deposit} alt="image" height={28} width={28} className='transaction-send-res'/>
+                                <Image src={deposit} alt="image" height={28} width={28} className='transaction-send-res' />
                             ) : (
-                                <Image src={withdraw} alt="image" height={28} width={28} className='transaction-send-res'/>
+                                <Image src={withdraw} alt="image" height={28} width={28} className='transaction-send-res' />
                             )}
                         </h3>
 
@@ -368,7 +368,7 @@ const TransactionHistoryComponent = () => {
             </div> */}
             <div className="">
                 <div className="transaction-tabs-div">
-                <div onClick={matchClick} style={{ position: 'relative' }}>
+                    <div onClick={matchClick} style={{ position: 'relative' }}>
                         <h3 className={`${histTabClass}`}>Transaction History</h3>
 
                     </div>
@@ -381,9 +381,9 @@ const TransactionHistoryComponent = () => {
                 {historyclick && (
                     <div>
                         <div className="transaction-main">
-                            <div className='table-responsive' style={{height:"500px"}}>
+                            <div className='table-responsive' style={{ height: "500px" }}>
                                 <table>
-                                    <tr>
+                                    <tr style={{ marginBottom: "10px !important" }}>
                                         <th>Transaction Type</th>
                                         <th>Tokens</th>
                                         <th>Amount</th>

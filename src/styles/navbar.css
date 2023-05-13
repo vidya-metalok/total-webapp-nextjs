@@ -12,29 +12,35 @@ nav {
 }
 .nav-logo-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
   width: 20%;
+  cursor: pointer;
 }
-.nav-logo-container h2 {
-  font-family: "Poppins";
+.nav-logo-container :nth-last-child(1) {
+  /* font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 24px; */
   /* identical to box height */
-
+  /* 
   letter-spacing: -0.312463px;
 
   color: #ffffff;
 
   opacity: 0.65;
-  text-transform: uppercase;
+  text-transform: uppercase; */
+  margin-left: 11px !important;
 }
 
 .nav-links-container a {
   text-decoration: none;
   display: inline-block;
   position: relative;
+}
+.nav-links-container a:hover {
+  color: #9492a0;
 }
 
 .active-link {
@@ -82,6 +88,7 @@ nav {
   align-items: center;
   width: 70%;
   font-family: "Poppins";
+  font-weight: 400;
 }
 
 .nav-links-container a p {

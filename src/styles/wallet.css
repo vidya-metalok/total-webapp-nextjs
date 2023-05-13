@@ -14,23 +14,23 @@
   width: 290px;
 }
 .wallet-card p {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
-  line-height: 26px; 
+  line-height: 26px;
   letter-spacing: -0.312463px;
-  color: #CCCCCC;
+  color: #cccccc;
 }
 
-.wallet-card h3 { 
-  font-family: 'Lato';
+.wallet-card h3 {
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 19px; 
+  line-height: 19px;
   letter-spacing: -0.312463px;
-  color: #0BBB70;
+  color: #0bbb70;
 }
 .wallet-card-2 {
   background: #232234;
@@ -70,13 +70,13 @@
 }
 .img-con p {
   margin-left: 0.5rem;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 18px; 
+  line-height: 18px;
   letter-spacing: 0.01em;
-  color: #9492A0;
+  color: #9492a0;
   opacity: 0.5;
   margin-top: 3%;
 }
@@ -104,17 +104,16 @@
 }
 
 .buy-sell-main-con .text-card p {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 16px; 
+  line-height: 16px;
   display: flex;
   align-items: center;
   color: rgba(93, 97, 102, 0.8);
   opacity: 0.4;
-  width: 80%; 
-  
+  width: 80%;
 }
 
 .buy-btn {
@@ -146,12 +145,12 @@
   margin-bottom: 1rem;
 }
 .wallet-info h3 {
-  font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 19px;
-color: #5D6166;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #5d6166;
 }
 .wallet-info p {
   /* font-family: 'Poppins';
@@ -162,16 +161,15 @@ color: #5D6166;
   display: flex; 
   color: rgba(255, 255, 255, 0.75) !important; */
 
-  font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 24px;
-display: flex;
-align-items: center;
-text-align: right;
-color: rgba(255, 255, 255, 0.45);
-  
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.45);
 }
 .wallet-child2 {
   display: flex;
@@ -181,9 +179,8 @@ color: rgba(255, 255, 255, 0.45);
   height: 299px; */
   background: #232234;
   border-radius: 7px;
-  position: relative; 
+  position: relative;
   padding: 24px 0px 4px 0px;
-
 }
 .hr-line {
   transform: rotateY(0deg) rotate(-90deg);
@@ -214,11 +211,9 @@ color: rgba(255, 255, 255, 0.45);
   justify-content: space-between;
   align-items: center;
 }
-.his-img-con img{
- margin-top: -15px;
+.his-img-con img {
+  margin-top: -15px;
 }
-
-
 
 .type-img {
   border: 1px solid #f7a721;
@@ -251,7 +246,7 @@ color: rgba(255, 255, 255, 0.45);
   align-items: center;
 }
 .history-titles h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -267,12 +262,12 @@ color: rgba(255, 255, 255, 0.45);
   font-size: 16px;
 }
 .transaction-main th {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 21px;
-  color: #9492A0;
+  color: #9492a0;
   opacity: 0.5;
 }
 @media (min-width: 900px) {
@@ -284,7 +279,7 @@ color: rgba(255, 255, 255, 0.45);
 }
 .trans-type-con p {
   color: #9492a0;
-  font-family: "Poppins";
+  font-family: "PoppinsRegular";
   font-style: "SeminBold";
   font-size: 14px;
 }
@@ -311,7 +306,7 @@ color: rgba(255, 255, 255, 0.45);
   font-family: "Poppins";
 }
 .trans-type {
-  font-family: "Poppins";
+  font-family: "PoppinsRegular";
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -349,107 +344,100 @@ color: rgba(255, 255, 255, 0.45);
 }
 
 /* new added  */
-.wallet{
+.wallet {
   margin-top: 2%;
 }
 
+.amt-out-show {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 33px;
 
-.amt-out-show{
-  font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 22px;
-line-height: 33px;
-
-color:#c9c9cd;
+  color: #c9c9cd;
 }
 
-.amt-out-show::placeholder{
- color: #c9c9cd;
+.amt-out-show::placeholder {
+  color: #c9c9cd;
 }
-.will-receive-heading{
-  font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 12.7336px;
-line-height: 17px;
+.will-receive-heading {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12.7336px;
+  line-height: 17px;
 
-color: #FFFFFF;
+  color: #ffffff;
 
-opacity: 0.75;
-margin:20px 0px;
-}
-
-.onw-quial{
-  font-family: 'Poppins';
-font-style: normal;
-font-weight: 300;
-font-size: 10px;
-color: #EA9528;
-margin:0px;
-margin-left:22px;
-margin-top: 4px;
+  opacity: 0.75;
+  margin: 20px 0px;
 }
 
+.onw-quial {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  color: #ea9528;
+  margin: 0px;
+  margin-left: 22px;
+  margin-top: 4px;
+}
 
 /* new added 10-05-23 */
-@media screen and (min-width: 991px) and (max-width:1340px){
-  .wallet-card{
+@media screen and (min-width: 991px) and (max-width: 1340px) {
+  .wallet-card {
     width: 200px;
   }
 }
-@media screen and (min-width: 991px) and (max-width:1025px){
-  .wallet-card{
+@media screen and (min-width: 991px) and (max-width: 1025px) {
+  .wallet-card {
     width: 150px;
     height: 106px;
   }
-  .img-con p{
+  .img-con p {
     font-size: 12px !important;
   }
   .wallet-card p {
-     font-size: 20px;
+    font-size: 20px;
   }
 }
-@media screen and (min-width: 1030px) and (max-width:1090px){
-  .wallet-card{
+@media screen and (min-width: 1030px) and (max-width: 1090px) {
+  .wallet-card {
     width: 170px;
     height: 106px;
   }
-  .img-con p{
+  .img-con p {
     font-size: 12px !important;
   }
   .wallet-card p {
-     font-size: 20px;
+    font-size: 20px;
   }
 }
 
 /* new added 11-05-23 */
-@media screen and (min-width: 991px) and (max-width: 1340px){
-  .t-wallet{
+@media screen and (min-width: 991px) and (max-width: 1340px) {
+  .t-wallet {
     width: 100%;
   }
 }
 
-@media screen and (min-width: 991px) and (max-width:1090px){
-  .buy-sell-main-con{
+@media screen and (min-width: 991px) and (max-width: 1090px) {
+  .buy-sell-main-con {
     width: 65%;
   }
-  .select-token{
+  .select-token {
     font-size: 13px;
   }
   .wallet-info p {
     font-size: 12px;
   }
-  .onw-quial{
+  .onw-quial {
     margin-top: 2%;
     margin-left: 10px;
   }
-  .wallet-card h3{
+  .wallet-card h3 {
     margin-top: -5%;
   }
 }
-
-
-
-
-

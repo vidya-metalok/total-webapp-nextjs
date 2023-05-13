@@ -51,6 +51,7 @@
   align-items: center;
   text-align: center;
   /* justify-content: space-around; */
+  cursor: pointer;
 }
 
 .ipl-active {

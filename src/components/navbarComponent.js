@@ -40,6 +40,7 @@ import { getPublic } from "@toruslabs/eccrypto";
 import { useRouter } from 'next/router';
 // import { loginServer, postAvatarURL } from "../services/userService";
 // import { loginServer } from "../../services/userService";
+import sportsTxt from "../../public/images/SPORTSVERSE.svg"
 
 const NavBarComponent = () => {
     const [depositeOpen, setdepositeOpen] = useState(false)
@@ -235,13 +236,14 @@ const NavBarComponent = () => {
             <nav className="nav-main-container">
                 <div className='logo-link-container'>
                     <div className='nav-logo-container' onClick={() => router.push("/dashboardpage")}>
-                        <Image src={sportsverseLogo} alt="" height={30} width={30} />
-                        <h2>sportsverse</h2>
+                        <Image src={sportsverseLogo} alt="web-app-logo" height={34} width={26} />
+                        {/* <h2>sportsverse</h2> */}
+                        <Image src={sportsTxt} alt="" height={24} width={109} />
                     </div>
                     <div className='nav-links-container'>
                         <Link href="/dashboardpage" passHref className={router.pathname === '/dashboardpage' ? 'active-link' : 'inactive-link'}>
                             {/* <p>Dashboard</p> */}
-                            <p className="nav_links_onhover">Dashboard</p>
+                            <p>Dashboard</p>
 
                         </Link>
                         <Link href="/tradepage" passHref className={router.pathname === '/tradepage' ? 'active-link' : 'inactive-link'}>
@@ -298,8 +300,8 @@ const NavBarComponent = () => {
                     </div>
                     <div className='icon-container'>
                         <Image src={helpLineIcon} alt="" height={30} width={30} />
-                        <Image src={notificationIcon} alt="" height={30} width={30} />
-                        <Image src={profileIcon} alt="" height={20} width={20} onClick={() => setopenLogout(true)} />
+                        <Image src={notificationIcon} alt="" height={27} width={36} />
+                        <Image src={profileIcon} alt="" height={35} width={35} onClick={() => setopenLogout(true)} />
 
 
                     </div>
@@ -312,7 +314,7 @@ const NavBarComponent = () => {
 
             </nav>
             <div className="logout-main-con" style={{ display: openLogout ? "block" : "none", position: "absolute", marginTop: "30px" }} >
-            {/* <div className='logout-nav' style={{ border: "2px solid red" }} onClick={logoutCls}>  </div> */}
+                {/* <div className='logout-nav' style={{ border: "2px solid red" }} onClick={logoutCls}>  </div> */}
 
 
                 <div>
@@ -349,7 +351,7 @@ const NavBarComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className='logout-nav'  style={{display: openLogout ? "block" : "none", }} onClick={logoutCls}></div>
+            <div className='logout-nav' style={{ display: openLogout ? "block" : "none", }} onClick={logoutCls}></div>
 
 
             {depositeOpen && (
