@@ -355,7 +355,7 @@
   font-size: 15px;
   line-height: 8px;
   text-transform: uppercase;
-  color: #9492a0;
+  color: white;
   padding-bottom: 0px;
   width: 50%;
   display: flex;
@@ -422,7 +422,7 @@
 }
 
 .buy-heading {
-  font-family: "Poppins";
+  font-family: "PoppinsRegular";
   font-style: normal;
   font-weight: 500;
   font-size: 21px;
@@ -651,6 +651,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: 15px;
 }
 .batting-text h3 {
   font-family: "Poppins";

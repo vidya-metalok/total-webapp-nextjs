@@ -11,6 +11,9 @@ import BuySellComponent from "./buySellComponent";
 import upImg from "../../public/images/uparrow.png"
 import downImg from "../../public/images/downarrow.png"
 import liveUpdateBar from "../../public/images/live-update-bar.svg"
+import TradeSrhLogo from "../../public/images/pngkit_rcb-logo-svg.svg"
+import liveRcbsImg from '../../public/images/live-rcb-img.svg'
+
 
 
 
@@ -121,9 +124,9 @@ const TradeComponent = () => {
             Match 4<br /> Chinna Swamy
           </h3>
           <div className="live-location-img">
-            <Image src={sunrisersImage} alt="" height={20} width={20} />
+            <Image src={TradeSrhLogo} alt="" height={37} width={48} />
             <h3>vs</h3>
-            <Image src={bangaloreImage} alt="" height={20} width={20} />
+            <Image src={liveRcbsImg} alt="" height={39} width={24} />
           </div>
         </div>
         <div className="batters-section">
@@ -161,8 +164,8 @@ const TradeComponent = () => {
             </h4>
           </div>
           <div className="d-flex gap-3 live-overs-line">
-          <Image src={liveUpdateBar} alt="" height={30} width={30} />
-            
+            <Image src={liveUpdateBar} alt="" height={30} width={30} />
+
             <div className="live-overs">
               <h3>Overs</h3>
               <h4>
@@ -318,7 +321,8 @@ const TradeComponent = () => {
     <div className="candle-live-score">
       <div className="batting-con">
         <div>
-          <Image src={sunrisersImage} alt="" height={60} width={40} />
+        <Image src={TradeSrhLogo} alt="" height={46} width={61} />
+
 
 
         </div>
@@ -365,7 +369,7 @@ const TradeComponent = () => {
     <div className="candle-live-score">
       <div className="batting-con">
         <div>
-          <Image src={bangaloreImage} alt="" height={40} width={60} />
+          <Image src={liveRcbsImg} alt="" height={53} width={34} />
 
 
         </div>
@@ -413,10 +417,10 @@ const TradeComponent = () => {
 
 </div>
 
-      <div className="container trade-team-main-section ">
+      <div className="container-fluid trade-team-main-section ">
         {trade_teams.map((team_data, index) => (
           <div className="trade-team-parent" key={index}>
-            <Image src={team_data.team_img} alt="" height={20} width={20} />
+            <Image src={team_data.team_img} alt="" height={36.5} width={36.5} />
 
             <div className="trade-team-child2">
               <h3>{team_data.team_key}</h3>

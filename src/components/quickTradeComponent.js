@@ -612,7 +612,7 @@ const Dashboardcenter = () => {
                                         <p>Total sportsverse Holdings</p>
                                     </div>
                                     <div className="subparentsubchild2">
-                                        <p>₹ {totalHoldings}</p>
+                                        <p>₹{totalHoldings}</p>
                                         <p>+9.2%</p>
                                     </div>
                                 </div>
@@ -629,7 +629,7 @@ const Dashboardcenter = () => {
                                     <p>Total Invested</p>
                                 </div>
                                 <div className="subparentsubchild4">
-                                    <p>₹ {totalHoldings}</p>
+                                    <p>₹{totalHoldings}</p>
                                     {/* <p>+9.2%</p> */}
                                 </div>
                             </div>
@@ -693,26 +693,26 @@ const Dashboardcenter = () => {
 
 
                                     <div className="select-opt" onClick={selectClick}>
-                                   {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={20} width={20} />}
+                                        {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={20} width={20} />}
 
-                                        <h3 className="token-names-select" style={{marginLeft:tokenImage ? "-12px" : '0px'}}>{tokenName}</h3>
+                                        <h3 className="token-names-select" style={{ marginLeft: tokenImage ? "-12px" : '0px' }}>{tokenName}</h3>
 
                                         <div
                                             style={{
                                                 display: opt ? "none" : "block",
-                                               
+
 
                                             }}
                                             className="pop-select"
                                         >
                                             {tokenDetails.map((each, index) => (
-                                                <div onClick={() => storeTokenIn(each.tokenImg, each.tokenName, each.tokenIn)} key={index} style={{paddingLeft:"8px"}} >
+                                                <div onClick={() => storeTokenIn(each.tokenImg, each.tokenName, each.tokenIn)} key={index} style={{ paddingLeft: "8px" }} >
                                                     <Image
                                                         src={each.tokenImg}
                                                         alt="ffgdfdf"
                                                         height={20}
                                                         width={20}
-                                                        style={{marginRight:'6px'}}
+                                                        style={{ marginRight: '6px' }}
                                                     />
 
                                                     {each.tokenName}
@@ -739,7 +739,7 @@ const Dashboardcenter = () => {
                                 <p className="token-rcv-text">You will Receive</p>
 
 
-                                
+
                                 <div className="quick-trade-child2">
 
                                     <div className="quick-trade-subchild">

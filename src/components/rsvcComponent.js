@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import qs from "qs"
 
 
-const BuySellComponent = () => {
+const RsvcSellComponent = () => {
 
     const [amount, setAmount] = useState("")
     const USDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F';
@@ -199,14 +199,14 @@ const BuySellComponent = () => {
         <div className=' '>
             <div className='buy-sell-section'>
                 <div className='buy-sell'>
-                    <h1 className={`${buyHeading}`} onClick={onClickBuyTab}>Buy HSVC </h1>
+                    <h1 className={`${buyHeading}`} onClick={onClickBuyTab}>Buy RSVC </h1>
                     <h3 className={`${sellHeading}`} onClick={onClickSellTab}
-                    >Sell HSVC </h3>
+                    >Sell RSVC </h3>
                 </div>
                 <div className='tokens-teamname'>
                     <h2 onClick={buy_decrement}>-</h2>
                     <h1>
-                        <input type="number" value={battinginput} onChange={(e) => setInput(e.target.value)} placeholder="Tokens HSVC" />
+                        <input type="number" value={battinginput} onChange={(e) => setInput(e.target.value)} placeholder="Tokens RSVC" />
                     </h1>
                     <h2 onClick={buy_sellincrement}>+</h2>
                 </div>
@@ -215,25 +215,22 @@ const BuySellComponent = () => {
                     <h1>
                         <input type="number" value={amount} placeholder="Amount USDT" />
 
-
                     </h1>
-
-
                     <h2 onClick={buy_sellincrement}>+</h2>
                 </div>
                 {selectedBuyTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }}>
-                    Buy HSVC
+                    Buy RSVC
                 </div>}
 
 
                 {selectedSellTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }}>
-                    Sell HSVC
+                    Sell RSVC
                 </div>}
 
             </div>
-        </div >
+        </div>
     )
 }
 
 
-export default BuySellComponent
+export default RsvcSellComponent

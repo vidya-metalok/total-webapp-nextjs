@@ -31,6 +31,8 @@ import { useRouter } from 'next/router';
 import Web3 from 'web3';
 import abi from "../../abis/abi.json"
 import { useSelector } from 'react-redux';
+import liveRiseImg from "../../public/images/live-score-sunrise.svg"
+import liveRcbsImg from '../../public/images/live-rcb-img.svg'
 
 
 
