@@ -200,7 +200,7 @@ const Dashboardcenter = () => {
 
     }
     const setOnClickTwo = () => {
-        setopt2(!opt2) 
+        setopt2(!opt2)
         setopt(true)
 
     }
@@ -735,7 +735,7 @@ const Dashboardcenter = () => {
                             </div>
 
 
-                            <div>
+                            <div style={{ marginTop: "22px" }}>
                                 <p className="token-rcv-text">You will Receive</p>
 
 
@@ -745,14 +745,14 @@ const Dashboardcenter = () => {
                                     <div className="quick-trade-subchild">
                                         {/* <Image src={rajasthanRoyals} alt="" height={20} width={20} /> */}
                                         <div className="select-opt" onClick={setOnClickTwo}>
-                                            
-                                        {tokenOutImage && <Image src={tokenOutImage} alt="ffgdfdf" height={20} width={20} />}
+
+                                            {tokenOutImage && <Image src={tokenOutImage} alt="ffgdfdf" height={20} width={20} />}
 
                                             <h1 className="token-names-select" style={{marginLeft:tokenOutImage ? "-12px" : '0px'}}>{tokenOutName}</h1>
                                             <div
                                                 style={{
                                                     display: opt2 ? "none" : "block",
-                                                 
+
 
                                                 }}
                                                 className="pop-select"

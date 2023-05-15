@@ -2,7 +2,10 @@
   display: flex;
 
   justify-content: space-between;
-
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.transaction-tabs-div h3 {
   font-family: "Poppins";
 
   font-style: normal;
@@ -110,16 +113,16 @@
 
 .dash-trans-date h3{
   font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
+  font-style: normal;
+  font-weight: 400;
 font-size: 12px ;
-line-height: 14px;
+  line-height: 14px;
 
-letter-spacing: -0.312463px;
+  letter-spacing: -0.312463px;
 
-color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.65);
 
-opacity: 0.5;
+  opacity: 0.5;
 }
 
 .dash-token-value h4 {
@@ -129,9 +132,9 @@ opacity: 0.5;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.312463px;
-  
+
   color: #0BBB70;
-  
+
   opacity: 0.75;
 }
 
@@ -160,4 +163,34 @@ opacity: 0.5;
   outline: none;
   margin-left: 10px;
   color: white;
+}
+.trans-setting-con {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
+  position: relative;
+  margin-left: 20px;
+}
+.trans-settings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.trans-settings :nth-last-child(1) {
+  margin-left: 10px;
+}
+.trans-setting-con p {
+  color: #ea9528;
+  margin: 0px;
+}
+.trans-list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: #ea9528;
+  top: 30px;
+  left: 90px;
 }

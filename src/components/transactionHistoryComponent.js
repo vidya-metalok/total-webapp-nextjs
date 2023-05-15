@@ -16,11 +16,15 @@ var deposit = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-ima
 import cskdhoni from "../../public/images/cskdhoni.png";
 
 import hydekohili from "../../public/images/hydekohili.png";
+import transSettings from "../../public/images/setting-4.png"
+import transArr from "../../public/images/trans-hist-arr.svg"
 
 
 
-const TransactionHistoryComponent = () => {
+const TransactionHistoryComponent = (props) => {
+    const { componentName } = props
     const [transactionData, setTransactionData] = useState([]);
+    const [transHist, setTransHist] = useState(false)
     const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
 
     //   const userWallet = useSelector((store) => store.user.loginInfo.walletAddress);
@@ -64,23 +68,23 @@ const TransactionHistoryComponent = () => {
         var minutes = "0" + date.getMinutes();
         // Seconds part from the timestamp
         var months = [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Dec",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
         ];
         var year = date.getFullYear();
         var month = months[date.getMonth()];
         var day = date.getDate();
-        var formattedDate = day + "/" + month + "/" + year;
+        var formattedDate = month + "/" + day + "/" + year;
         // Will display time in 10:30 format
         var formattedTime = hours + ":" + minutes.substr(-2);
 
@@ -157,6 +161,7 @@ const TransactionHistoryComponent = () => {
                 // setLoading(false);
             });
     }, []);
+    console.log("checkDate...", transactionData)
 
     useEffect(() => {
         getData();
@@ -368,20 +373,54 @@ const TransactionHistoryComponent = () => {
             </div> */}
             <div className="">
                 <div className="transaction-tabs-div">
-                <div onClick={matchClick} style={{ position: 'relative' }}>
+                    <div onClick={matchClick} style={{ position: 'relative' }}>
                         <h3 className={`${histTabClass}`}>Transaction History</h3>
 
                     </div>
-                    <div onClick={matchPointClick} style={{ position: 'relative' }}>
-                        <h3 className={`${newsTabClass}`}>Top News</h3>
+                    {componentName == "wallet" && (
+                        <>
+                            <div className='trans-settings'>
+                                <div>
+
+                                    <Image src={transSettings} height={20.24} width="auto" alt="" />
+                                </div>
+                                <div onClick={() => setTransHist(!transHist)} className='trans-setting-con'>
+                                    <p>Token Transaction</p>
+                                </div>
+                                <div>
+
+                                    <Image src={transArr} alt="" height={15} width={15} />
+                                </div>
+                            </div>
+
+                            {transHist && (
+                                <div className='trans-list'>
+                                    <p4>weekly</p4>
+                                    <p4>Monthly</p4>
+                                    <p4>Yearly</p4>
+                                </div>
+
+                            )}
 
 
-                    </div>
+
+
+                        </>
+
+                    )}
+
+
+                    {componentName !== "wallet" && (
+                        <div onClick={matchPointClick} style={{ position: 'relative' }}>
+                            <h3 className={`${newsTabClass}`}>Top News</h3>
+
+
+                        </div>
                 </div>
                 {historyclick && (
                     <div>
                         <div className="transaction-main">
-                            <div className='table-responsive' style={{height:"500px"}}>
+                            <div className='table-responsive' style={{ height: "500px" }}>
                                 <table>
                                     <tr>
                                         <th>Transaction Type</th>
@@ -412,7 +451,7 @@ const TransactionHistoryComponent = () => {
                     </div>
                 )}
 
-                {matchpointclick && (
+                {matchpointclick && componentName !== "wallet"(
                     <div>
                         {/* <div className="single-team-hist">
                   <div className="single-team-titles">

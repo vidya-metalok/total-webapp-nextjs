@@ -124,9 +124,9 @@ const TradeComponent = () => {
             Match 4<br /> Chinna Swamy
           </h3>
           <div className="live-location-img">
-            <Image src={TradeSrhLogo} alt="" height={37} width={48} />
+            <Image src={TradeSrhLogo} alt="" height={39} width={"auto"} />
             <h3>vs</h3>
-            <Image src={liveRcbsImg} alt="" height={39} width={24} />
+            <Image src={liveRcbsImg} alt="" height={39} width={"auto"} />
           </div>
         </div>
         <div className="batters-section">
@@ -152,7 +152,7 @@ const TradeComponent = () => {
         </div>
 
         <div style={{  position: 'absolute',top:"0px",left:'0px',width:'100vw',height:'100vh',display: batars ? 'block' : 'none',zIndex:'25'}} onClick={scroreClose} >
-        
+
         </div>
 
         <div className="live-update" >
@@ -316,106 +316,106 @@ const TradeComponent = () => {
 
       <div className="row">
 
-<div className="buy-sell-container col-lg-6 col-md-6">
-  <div>
-    <div className="candle-live-score">
-      <div className="batting-con">
-        <div>
-        <Image src={TradeSrhLogo} alt="" height={46} width={61} />
+        <div className="buy-sell-container col-lg-6 col-md-6">
+          <div>
+            <div className="candle-live-score">
+              <div className="batting-con">
+                <div>
+                  <Image src={TradeSrhLogo} alt="" height={46} width={61} />
 
 
 
+                </div>
+                <div className="batting-text">
+                  <h3>SRH</h3>
+                  <h4>Batting</h4>
+                </div>
+
+              </div>
+
+              <div className="price-holdings">
+                <div className="batting-text">
+                  <h4>current Hsvc Price</h4>
+                  <h6>^$250</h6>
+                </div>
+                <div className="batting-text">
+                  <h4>Holdings</h4>
+                  <h5>25($243.3)</h5>
+                </div>
+
+
+
+              </div>
+
+
+            </div>
+            <div>
+              <CandleStickChart />
+
+              <div>
+                <BuySellComponent />
+
+              </div>
+
+
+            </div>
+          </div>
         </div>
-        <div className="batting-text">
-          <h3>SRH</h3>
-          <h4>Batting</h4>
+
+
+
+        <div className="buy-sell-container col-lg-6 col-md-6" >
+          <div>
+            <div className="candle-live-score">
+              <div className="batting-con">
+                <div>
+                  <Image src={liveRcbsImg} alt="" height={53} width={34} />
+
+
+                </div>
+                <div className="batting-text">
+                  <h3>SRH</h3>
+                  <h4>Bowling</h4>
+                </div>
+
+              </div>
+
+              <div className="price-holdings">
+                <div className="batting-text">
+                  <h4>current Hsvc Price</h4>
+                  <h6>^$250</h6>
+                </div>
+                <div className="batting-text">
+                  <h4>Holdings</h4>
+                  <h5>25($243.3)</h5>
+                </div>
+
+
+
+              </div>
+
+
+            </div>
+            <div>
+
+              <CandleStickChart />
+
+              <div>
+                <BuySellComponent />
+
+              </div>
+
+
+            </div>
+          </div>
         </div>
+
+
 
       </div>
-
-      <div className="price-holdings">
-        <div className="batting-text">
-          <h4>current Hsvc Price</h4>
-          <h6>^$250</h6>
-        </div>
-        <div className="batting-text">
-          <h4>Holdings</h4>
-          <h5>25($243.3)</h5>
-        </div>
-
-
-
-      </div>
-
-
-    </div>
-    <div>
-      <CandleStickChart />
-
       <div>
-        <BuySellComponent />
 
       </div>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-<div className="buy-sell-container col-lg-6 col-md-6" >
-  <div>
-    <div className="candle-live-score">
-      <div className="batting-con">
-        <div>
-          <Image src={liveRcbsImg} alt="" height={53} width={34} />
-
-
-        </div>
-        <div className="batting-text">
-          <h3>SRH</h3>
-          <h4>Bowling</h4>
-        </div>
-
-      </div>
-
-      <div className="price-holdings">
-        <div className="batting-text">
-          <h4>current Hsvc Price</h4>
-          <h6>^$250</h6>
-        </div>
-        <div className="batting-text">
-          <h4>Holdings</h4>
-          <h5>25($243.3)</h5>
-        </div>
-
-
-
-      </div>
-
-
-    </div>
-    <div>
-
-      <CandleStickChart />
-
-      <div>
-        <BuySellComponent />
-
-      </div>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-</div>
-<div>
-
-</div>
 
       <div className="container-fluid trade-team-main-section ">
         {trade_teams.map((team_data, index) => (
