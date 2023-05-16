@@ -92,7 +92,7 @@
 }
 
 .match-card-section::-webkit-scrollbar {
-  width: 0px;
+  /* width: 0px; */
 }
 .league-card {
   background-color: #232234;
