@@ -332,6 +332,7 @@ const TransactionHistoryComponent = (props) => {
     console.log("activeTabs...", histTabClass, newsTabClass)
 
     return (
+
         <>
             {/* <div className="history-titles">
                 <div>
@@ -374,6 +375,7 @@ const TransactionHistoryComponent = (props) => {
                 </div>
             </div> */}
             <div className="">
+
                 <div className="transaction-tabs-div">
                     <div onClick={matchClick} style={{ position: 'relative' }}>
                         <h3 className={`${histTabClass}`}>Transaction History</h3>
@@ -491,8 +493,15 @@ const TransactionHistoryComponent = (props) => {
                         </div>
                     </div>
                 )}
-            </div>
 
+
+
+
+
+
+
+
+            </div>
         </>
     )
 }
