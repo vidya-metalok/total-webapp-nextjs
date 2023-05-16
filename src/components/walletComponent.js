@@ -26,7 +26,8 @@ var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/g
 
 
 var tsymbal = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/tsymbal.png";
-var wallet = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/wallet-money.png";
+// var wallet = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/wallet-money.png";
+import wallet from "../../public/images/wallet-money.svg"
 // var money = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/money-add.png";
 // var empty = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/empty-wallet.png";
 // var load1 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/graphload-img.png";
@@ -95,9 +96,9 @@ const WalletComponent = () => {
 
     const handleCopyClick = () => {
         navigator.clipboard.writeText(userWallet);
-        console.log("wallet address", userWallet) 
+        console.log("wallet address", userWallet)
         setcopyclick(!copyClick)
-      };
+    };
 
 
 
@@ -206,7 +207,7 @@ const WalletComponent = () => {
 
     }
     const setOnClickTwo = () => {
-        setopt2(!opt2) 
+        setopt2(!opt2)
         setopt(true)
 
     }
@@ -616,12 +617,12 @@ const WalletComponent = () => {
         <div className="wallet-main-con">
             <div className="details-balance-con">
                 <div>
-                    <div className="wallet-card t-wallet" style={{width:"100%"}}>
+                    <div className="wallet-card t-wallet" style={{ width: "100%" }}>
                         <div className="img-con">
                             <Image src={wallet} alt="" height={25} width={25} />
                             <p>Total sportsverse Holdings</p>
                         </div>
-                        <p>{totalHoldings}</p>
+                        <p><span>₹</span>{totalHoldings}</p>
                         <h3>+9.2%</h3>
                     </div>
                     <div className="wallet-card wallet t-wallet">
@@ -629,24 +630,24 @@ const WalletComponent = () => {
                             <Image src={wallet} alt="" height={25} width={25} />
 
                             <p>Total Wallet balance</p>
-                        </div> 
-                        <p>{totalHoldings}</p>
+                        </div>
+                        <p><span>$</span>{totalHoldings}</p>
                     </div>
                     <div className="wallet-card wallet t-wallet">
                         <div className="img-con">
                             <Image src={wallet} alt="" height={25} width={25} />
 
                             <p> Total Matic balance</p>
-                        </div> 
+                        </div>
                         <p>20 Matic ($20)</p>
                     </div>
                     <div className="wallet-card-2 wallet t-wallet">
                         <div>
-                            <p>Wallet Address</p> 
+                            <p>Wallet Address</p>
                             <h3>{walletaddress}</h3>
                         </div>
                         <div onClick={handleCopyClick} >
-                            <Image style={{transform:copyClick ? 'rotate(90deg)' : 'rotate(0deg)',cursor:'pointer'}} src={frame} height={30} width={30} alt="frame" />
+                            <Image style={{ transform: copyClick ? 'rotate(90deg)' : 'rotate(0deg)', cursor: 'pointer' }} src={frame} height={30} width={30} alt="frame" />
                         </div>
                     </div>
                 </div>
@@ -665,19 +666,20 @@ const WalletComponent = () => {
                             <h1 className="quick">Buy/Sell token</h1>
                             <div className="quick-trade-amt">
                                 <p className="amount"> Enter Amount</p>
-                                <p>Avbl : 30,000 USDT</p>
+                                <p className="amount">Avbl : 30,000 USDT</p>
                             </div>
 
 
-                            
+
                             <div className="quick-trade-child">
                                 <div className="quick-trade-subchild">
                                     {/* <Image src={tsymbal} alt="ffgdfdf" height={20} width={20} /> */}
 
                                     <div onClick={selectClick} className="select-token">
-                                    {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={20} width={20} />}
+                                        {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={20} width={20} />}
 
-                                        {tokenName}
+                                        <span style={{ margin: '0px 25px 0px 6px' }}> {tokenName}</span>
+
                                     </div>
 
                                     <div
@@ -710,7 +712,7 @@ const WalletComponent = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    <Image style={{ marginTop: "6px", marginLeft:'4px' }} src={trabdeArrow} alt="" height={10} width={10} />
+                                    <Image style={{ marginTop: "6px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
 
                                     {/* <select className="dropdown-trade">
                                         <option value="volvo"> USDT</option>
@@ -741,14 +743,15 @@ const WalletComponent = () => {
                                 <div className="quick-trade-subchild">
                                     {/* <Image src={rrlogo} alt="" height={20} width={20}/> */}
 
-                                    <div  onClick={setOnClickTwo} className="select-token">
-                                    {tokenOutImage &&  <Image src={tokenOutImage} alt="" height={20} width={20}/>}
-                                        {tokenOutName}
+                                    <div onClick={setOnClickTwo} className="select-token">
+                                        {tokenOutImage && <Image src={tokenOutImage} alt="" height={20} width={20} />}
+                                        <span style={{ margin: '0px 25px 0px 11px' }}>{tokenOutName}</span>
+
                                     </div>
                                     <div
                                         style={{
                                             display: opt2 ? "none" : "block",
-                                            
+
                                         }}
                                         className="pop-select"
                                     >
@@ -776,7 +779,7 @@ const WalletComponent = () => {
                                     <Image style={{ marginTop: "6px", marginLeft:'4px' }} src={trabdeArrow} alt="" height={10} width={10} />
 
                                 </div>
-                               
+
 
                                 <div className="quick-trade-suchild2">
                                     {/* <input type="text" placeholder="0.00" value={amountOut}
@@ -797,8 +800,8 @@ const WalletComponent = () => {
 
 
                             <div className="btn-containers">
-                                <button className="buy-btn">Buy</button>
-                                <button className="sell-btn">Sell</button>
+                                <button className="buy-btn">BUY</button>
+                                <button className="sell-btn">SELL</button>
                             </div>
                         </div>
                         <div className="trade-details">
@@ -826,8 +829,8 @@ const WalletComponent = () => {
                     </div>
                 </div>
             </div>
-            <TransactionHistoryComponent />
- 
+            <TransactionHistoryComponent componentName="wallet" />
+
         </div>
     );
 };

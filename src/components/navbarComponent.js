@@ -270,8 +270,8 @@ const NavBarComponent = () => {
                             SIGN UP{" "}
                         </button>
                         )} */}
-                        {showlogout && (<button className="header-login"  >{userInfo?.name}</button>
-                        )}
+                        {/* {showlogout && (<button className="header-login"  >{userInfo?.name}</button>
+                        )} */}
 
                         {/* <button onClick={logout}>logout</button> */}
 

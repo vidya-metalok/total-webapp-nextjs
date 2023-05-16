@@ -166,123 +166,123 @@ const Sidebar = () => {
 
     return (
         <>
-        <div className='side-bar-main'>
-            <div className="tokens">
-                <>
-            <div className='sidebar-tocken'>
-                {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
+            <div className='side-bar-main'>
+                <div className="tokens">
+                    <>
+                        <div className='sidebar-tocken'>
+                            {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
                 <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens</p>
                 <p className='my-tokens-text' onClick={alltokenClick} style={{color:mytokenclick ? "#5a5967" : ' white'}}>All Tokens</p>
-            </div>
-            
+                        </div>
 
-            {mytokenclick && (
-                <div className='side-tok-height'>
-                    <table>
-                        <tbody>
-                            {
-                                newTokenList.map((eachToken, index) => (
-                                    <tr className="token-container" key={index} onClick={(each) => onClickTeam(eachToken)} >
-                                        <td>
-                                            <Image src={eachToken.logoUrl} alt="" height={40} width={40} />
-                                        </td> 
-                                        <td>
-                                            <h1>${eachToken.price.price}</h1>
-                                        </td>
-                                        <td>
-                                            <p>+{eachToken.wallet}</p> 
-                                        </td>
-                                    </tr> 
-                                    )
-                                )
-                            } 
-                        </tbody>
-                    </table>
-                </div>
-            )}
 
-            {alltokenclick && (
-              <div>
+                        {mytokenclick && (
+                            <div className='side-tok-height'>
+                                <table>
+                                    <tbody>
+                                        {
+                                            newTokenList.map((eachToken, index) => (
+                                                <tr className="token-container" key={index} onClick={(each) => onClickTeam(eachToken)} >
+                                                    <td>
+                                                        <Image src={eachToken.logoUrl} alt="" height={40} width={40} />
+                                                    </td>
+                                                    <td>
+                                                        <h1>${eachToken.price.price}</h1>
+                                                    </td>
+                                                    <td>
+                                                        <p>+{eachToken.wallet}</p>
+                                                    </td>
+                                                </tr>
+                                            )
+                                            )
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        )}
+
+                        {alltokenclick && (
+                            <div>
                 <h3 style={{color:"white"}}>All Token</h3>
-                 
-              </div>
-            )}
+
+                            </div>
+                        )}
 
 
-                    
-                </>
-            </div>
 
-            
-            <div className='tokens2' style={{ marginTop: "1rem" }}>
-                <h2 className='main-heading'>Live Score</h2>
-                <div className='score-team'>
-                     <Image className='live-topimg' src={livetopimg} alt="" />
-                    <div className='d-flex live-sc'> 
-                        <Image src={sunrisers} alt="" height={30} width={40} />
-                        <div className='all-headings'>
-                            <h1 >SRH </h1>
-                            <h2 className="sub-heading">Batting </h2>
-                        </div>
-                    </div>
-                    <h1 className='vs-heading'>vs</h1>
-                    <div  className='d-flex flex-row-reverse'>
-                        <Image src={rcbs} alt="" height={30} width={40} />
-                        <div className='all-headings'>
-                            <h1>RCB</h1> 
-                            <h2 className='sub-heading'>Bowling </h2>
-                        </div>
-                    </div>
-                    <Image className='live-bottomimg' src={livebottomimg} alt="" />
+                    </>
                 </div>
-                <h1 className='score-value'>123/5<span className="score-points">(16.3)</span></h1>
-                <p className='this-over-heading'  >This over</p>
-                <div className='numbers-bar'>
-                    <p>2</p>
-                    <p>4</p>
-                    <p>6</p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                </div>
-                 <div className='side-live-batsmen'>
-                     <div className='side-live-bat-bow'>
-                        <h1 className='batter'>Batters</h1>
-                        <h2 className='bowler'>Bowler</h2>
-                     </div>
-                     <div className='side-live-bat-bow'>
-                        <div className='side-live-batsmens-name'>
-                           <div className='side-live-batsmens1'>
-                              <h1>Kane Williamson</h1>
-                              <h2> 45(20)</h2>
-                           </div>
-                           <div className='side-live-batsmens1'>
-                               <h1>Abishek Sharma</h1>
-                               <h2>12(10)</h2>
-                           </div>
+
+
+                <div className='tokens2' style={{ marginTop: "1rem" }}>
+                    <h2 className='main-heading'>Live Score</h2>
+                    <div className='score-team'>
+                        <Image className='live-topimg' src={livetopimg} alt="" />
+                        <div className='d-flex live-sc'>
+                            <Image src={sunrisers} alt="" height={30} width={40} />
+                            <div className='all-headings'>
+                                <h1 >SRH </h1>
+                                <h2 className="sub-heading">Batting </h2>
+                            </div>
                         </div>
-                        <div className='side-livebowler-name'>
-                           <h1>Siraj 20(3.2)</h1>
+                        <h1 className='vs-heading'>vs</h1>
+                        <div className='d-flex justify-content-center'>
+                            <Image src={rcbs} alt="" height={30} width={40} />
+                            <div className='all-headings'>
+                                <h1>RCB</h1>
+                                <h2 className='sub-heading'>Bowling </h2>
+                            </div>
                         </div>
-                     </div>
-                 </div>
-                <div className='sidebar-buysell'>
-                    <div className="score-team2">
-                        <Image src={rcbs} alt="" height={20} width={20} />
-                        <h3 className='side-holding'>RSVC</h3>
-                        <p className="side-holding">$250</p>
-                        <h4 className='lose-or-gain1'>+0.547</h4>
+                        <Image className='live-bottomimg' src={livebottomimg} alt="" />
                     </div>
-                    <div className='score-team2'>
-                        <Image src={sunrisers} alt="" height={20} width={20} />
-                        <h3 className='side-holding'>HSVC</h3>
-                        <p className='side-holding'>$250</p>
-                        <h4 className='lose-or-gain2'>-1.263</h4>
+                    <h1 className='score-value'>123/5<span className="score-points">(16.3)</span></h1>
+                    <p className='this-over-heading'  >This over</p>
+                    <div className='numbers-bar'>
+                        <p>2</p>
+                        <p>4</p>
+                        <p>6</p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
                     </div>
+                    <div className='side-live-batsmen'>
+                        <div className='side-live-bat-bow'>
+                            <h1 className='batter'>Batters</h1>
+                            <h2 className='bowler'>Bowler</h2>
+                        </div>
+                        <div className='side-live-bat-bow'>
+                            <div className='side-live-batsmens-name'>
+                                <div className='side-live-batsmens1'>
+                                    <h1>Kane Williamson</h1>
+                                    <h2> 45(20)</h2>
+                                </div>
+                                <div className='side-live-batsmens1'>
+                                    <h1>Abishek Sharma</h1>
+                                    <h2>12(10)</h2>
+                                </div>
+                            </div>
+                            <div className='side-livebowler-name'>
+                                <h1>Siraj 20(3.2)</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='sidebar-buysell'>
+                        <div className="score-team2">
+                            <Image src={rcbs} alt="" height={20} width={20} />
+                            <h3 className='side-holding'>RSVC</h3>
+                            <p className="side-holding">$250</p>
+                            <h4 className='lose-or-gain1'>+0.547</h4>
+                        </div>
+                        <div className='score-team2'>
+                            <Image src={sunrisers} alt="" height={20} width={20} />
+                            <h3 className='side-holding'>HSVC</h3>
+                            <p className='side-holding'>$250</p>
+                            <h4 className='lose-or-gain2'>-1.263</h4>
+                        </div>
+                    </div >
+
                 </div >
-
-            </div >
-        </div>
+            </div>
 
 
         </>

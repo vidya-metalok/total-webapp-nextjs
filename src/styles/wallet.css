@@ -18,17 +18,17 @@
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
-  line-height: 26px; 
+  line-height: 26px;
   letter-spacing: -0.312463px;
   color: #CCCCCC;
 }
 
-.wallet-card h3 { 
+.wallet-card h3 {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 19px; 
+  line-height: 19px;
   letter-spacing: -0.312463px;
   color: #0BBB70;
 }
@@ -74,7 +74,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 18px; 
+  line-height: 18px;
   letter-spacing: 0.01em;
   color: #9492A0;
   opacity: 0.5;
@@ -108,12 +108,12 @@
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 16px; 
+  line-height: 16px;
   display: flex;
   align-items: center;
   color: rgba(93, 97, 102, 0.8);
   opacity: 0.4;
-  width: 80%; 
+  width: 80%;
   
 }
 
@@ -146,12 +146,12 @@
   margin-bottom: 1rem;
 }
 .wallet-info h3 {
-  font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 19px;
-color: #5D6166;
+  font-family: "PoppinsRegular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #5d6166;
 }
 .wallet-info p {
   /* font-family: 'Poppins';
@@ -163,15 +163,17 @@ color: #5D6166;
   color: rgba(255, 255, 255, 0.75) !important; */
 
   font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 24px;
-display: flex;
-align-items: center;
-text-align: right;
-color: rgba(255, 255, 255, 0.45);
-  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.45);
+}
+.wallet-info p span {
+  margin-left: 10px;
 }
 .wallet-child2 {
   display: flex;
@@ -181,7 +183,7 @@ color: rgba(255, 255, 255, 0.45);
   height: 299px; */
   background: #232234;
   border-radius: 7px;
-  position: relative; 
+  position: relative;
   padding: 24px 0px 4px 0px;
 
 }
@@ -189,10 +191,10 @@ color: rgba(255, 255, 255, 0.45);
   transform: rotateY(0deg) rotate(-90deg);
   color: white;
   opacity: 0.35;
-  width: 140px;
+  width: 300px;
   position: absolute;
   right: 50%;
-  left: 50%;
+  left: 45%;
   bottom: 10rem;
 }
 .trade-details {
@@ -215,7 +217,7 @@ color: rgba(255, 255, 255, 0.45);
   align-items: center;
 }
 .his-img-con img{
- margin-top: -15px;
+  margin-top: -15px;
 }
 
 
@@ -236,7 +238,7 @@ color: rgba(255, 255, 255, 0.45);
 }
 .trans-type-con {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   /* justify-content: space-between; */
   padding-top: 20px;
 }
@@ -280,6 +282,7 @@ color: rgba(255, 255, 255, 0.45);
     /* margin-left: 5rem auto; */
     margin-left: 0px;
     padding-left: 0px !important;
+    width: 20%;
   }
 }
 .trans-type-con p {
@@ -321,7 +324,7 @@ color: rgba(255, 255, 255, 0.45);
 }
 
 .select-token {
-  font-family: "Poppins";
+  font-family: "PoppinsRegular";
   font-style: normal;
   font-weight: 400;
   font-size: 17.827px;
@@ -356,35 +359,35 @@ color: rgba(255, 255, 255, 0.45);
 
 .amt-out-show{
   font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 22px;
-line-height: 33px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 33px;
 
 color:#c9c9cd;
 }
 
 .amt-out-show::placeholder{
- color: #c9c9cd;
+  color: #c9c9cd;
 }
 .will-receive-heading{
   font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 12.7336px;
-line-height: 17px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12.7336px;
+  line-height: 17px;
 
 color: #FFFFFF;
 
-opacity: 0.75;
+  opacity: 0.75;
 margin:20px 0px;
 }
 
 .onw-quial{
   font-family: 'Poppins';
-font-style: normal;
-font-weight: 300;
-font-size: 10px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
 color: #EA9528;
 margin:0px;
 margin-left:22px;
@@ -393,42 +396,43 @@ margin-top: 4px;
 
 
 /* new added 10-05-23 */
-@media screen and (min-width: 991px) and (max-width:1340px){
-  .wallet-card{
+/* 
+@media screen and (min-width: 991px) and (max-width: 1340px) {
+  .wallet-card {
     width: 200px;
   }
-}
-@media screen and (min-width: 991px) and (max-width:1025px){
-  .wallet-card{
+} */
+@media screen and (min-width: 991px) and (max-width: 1025px) {
+  /* .wallet-card {
     width: 150px;
     height: 106px;
-  }
-  .img-con p{
+  } */
+  .img-con p {
     font-size: 12px !important;
   }
   .wallet-card p {
-     font-size: 20px;
+    font-size: 20px;
   }
 }
-@media screen and (min-width: 1030px) and (max-width:1090px){
-  .wallet-card{
+@media screen and (min-width: 1030px) and (max-width: 1090px) {
+  /* .wallet-card {
     width: 170px;
     height: 106px;
-  }
+  } */
   .img-con p{
     font-size: 12px !important;
   }
   .wallet-card p {
-     font-size: 20px;
+    font-size: 20px;
   }
 }
 
 /* new added 11-05-23 */
-@media screen and (min-width: 991px) and (max-width: 1340px){
-  .t-wallet{
+/* @media screen and (min-width: 991px) and (max-width: 1340px) {
+  .t-wallet {
     width: 100%;
   }
-}
+} */
 
 @media screen and (min-width: 991px) and (max-width:1090px){
   .buy-sell-main-con{
@@ -449,7 +453,13 @@ margin-top: 4px;
   }
 }
 
+.quick-trade-amt .amount {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: #ffffff;
 
-
-
-
+  opacity: 0.75;
+}
