@@ -330,6 +330,7 @@ const TransactionHistoryComponent = (props) => {
     console.log("activeTabs...", histTabClass, newsTabClass)
 
     return (
+
         <>
             {/* <div className="history-titles">
                 <div>
