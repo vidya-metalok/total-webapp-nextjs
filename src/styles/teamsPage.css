@@ -58,7 +58,7 @@
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.01em;
-  color: #9492A0; 
+  color: #9492a0;
   opacity: 0.5;
 }
 .teams-hold-details p {
@@ -258,7 +258,7 @@
   cursor: pointer;
 }
 .team-matches-hist h3 {
-  font-family: 'Poppins';
+  font-family: "PoppinsRegular";
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -410,10 +410,21 @@
   height: 600px;
   background: #232234;
   border-radius: 7px;
+  position: relative;
 }
 .tocken-bar-head {
   margin-top: 4%;
   margin-left: 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
   /* display: flex; */
 }
 .tocken-bar-head h3 {
@@ -537,4 +548,14 @@
     height: 80px;
   }
 }
- 
+.chart-hist {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: #ea9528;
+  top: 55px;
+  left: 85%;
+}
+.tocken-bar-head h6 {
+  color: #ea9528;
+}

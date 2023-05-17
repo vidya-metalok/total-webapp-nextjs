@@ -4,7 +4,7 @@ import Sidebar from './sidebarComponent';
 
 const LayoutComponent = ({ children }) => {
     return (
-        <div>
+        <div className='layout-main'>
             <NavBarComponent />
             <div className="layout-body">
                 <Sidebar />

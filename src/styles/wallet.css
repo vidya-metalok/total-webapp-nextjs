@@ -196,6 +196,7 @@
   right: 50%;
   left: 45%;
   bottom: 10rem;
+  margin-left: 10px;
 }
 .trade-details {
   display: flex;
@@ -391,9 +392,9 @@ margin:20px 0px;
 color: #EA9528;
 margin:0px;
 margin-left:22px;
-margin-top: 4px;
+  margin-top: 4px;
+  opacity: 0.5;
 }
-
 
 /* new added 10-05-23 */
 /* 

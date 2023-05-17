@@ -14,7 +14,7 @@ import abi from "../../abis/abi.json";// import deposit from "../../public/image
 var status = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/status-img.jpeg";
 
 // var deposit = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/Arrow 1.png";
- 
+
 import deposit from "../../public/images/Arrow 1.png"
 import withdraw from "../../public/images/arrow2.png"
 import cskdhoni from "../../public/images/cskdhoni.png";
@@ -71,15 +71,15 @@ const HistoryDashboard = () => {
         var minutes = "0" + date.getMinutes();
         // Seconds part from the timestamp
         var months = [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
             "10",
             "11",
             "12",
@@ -95,7 +95,7 @@ const HistoryDashboard = () => {
         return (
             <>
 
-                <td > 
+                <td >
                     <div className="trans-type-con">
                         {/* <Image
                           src={each["type-url"]}
@@ -108,9 +108,9 @@ const HistoryDashboard = () => {
 
                         <h3 className="trans-type">
                             {web3.utils.toChecksumAddress(toAddress) == userWallet ? (
-                                <Image src={deposit} alt="image" height={28} width={28} className='transaction-send-res'/>
+                                <Image src={deposit} alt="image" height={28} width={28} className='transaction-send-res' />
                             ) : (
-                                <Image src={withdraw} alt="image" height={28} width={28} className='transaction-send-res'/>
+                                <Image src={withdraw} alt="image" height={28} width={28} className='transaction-send-res' />
                             )}
                         </h3>
 
@@ -127,17 +127,17 @@ const HistoryDashboard = () => {
 
                 {/* <td className="price-type">{each["price-type"]}</td> */}
 
-                 <td className="dash-token-value">
+                <td className="dash-token-value">
                    <h4 style={{color:web3.utils.toChecksumAddress(toAddress) == userWallet ? 'rgb(17,149,97)' : 'rgb(186,55,66)'}}><span>{readableValue}</span> {tokenSymbol}</h4>
-                   <h5><span>&#8377;</span>{indRounded}</h5>
+                    <h5><span>&#8377;</span>{indRounded}</h5>
                 </td>
 
                 {/* <td className="trans-amount">{readableValue}</td> */}
 
                 {/* <td className="trans-date">{formattedDate}</td> */}
                 <td className="dash-trans-date">
-                   <h3>{formattedDate}</h3>
-                   <h3> {formattedTime} </h3>                
+                    <h3>{formattedDate}</h3>
+                    <h3> {formattedTime} </h3>
                 </td>
 
                 {/* <td className="trans-status">
@@ -339,7 +339,7 @@ const HistoryDashboard = () => {
 
     return (
         <>
-       
+
             <div >
                 <div className="transaction-tabs-div ">
                 <div onClick={matchClick} style={{ position: 'relative',width:'50%' }}>
@@ -353,105 +353,105 @@ const HistoryDashboard = () => {
                     </div>
 
                 </div>
-              
+
 
 
                 <div className='row' style={{padding:"4px 12px"}}>
-                        <div className="transaction-main col-6">
-                            <div className='table-responsive' >
-                                <table>
-                                    <tr>
-                                        <th>Transaction Type</th>
-                                        <th>Price</th>
-                                        {/* <th>Amount</th> */}
-                                        {/* <th>Date</th> */}
-                                        <th>Time</th>
-                                        {/* <th>Status</th> */}
-                                    </tr>
+                    <div className="transaction-main col-6">
+                        <div className='table-responsive' >
+                            <table>
+                                <tr>
+                                    <th>Transaction Type</th>
+                                    <th>Price</th>
+                                    {/* <th>Amount</th> */}
+                                    {/* <th>Date</th> */}
+                                    <th>Time</th>
+                                    {/* <th>Status</th> */}
+                                </tr>
 
-                                    <tbody>
-                                        {transactionData.map((each, index) => (
+                                <tbody>
+                                    {transactionData.map((each, index) => (
                                             <tr key={index} style={{borderBottom:"1px solid rgb(57,56,72)"}}>
-                                                <Card
-                                                    hash={each.hash}
-                                                    value={each.value}
-                                                    timeStamp={each.timeStamp}
-                                                    tokenDecimal={each.tokenDecimal}
-                                                    toAddress={each.to}
-                                                    tokenSymbol={each.tokenSymbol}
-                                                />
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
+                                            <Card
+                                                hash={each.hash}
+                                                value={each.value}
+                                                timeStamp={each.timeStamp}
+                                                tokenDecimal={each.tokenDecimal}
+                                                toAddress={each.to}
+                                                tokenSymbol={each.tokenSymbol}
+                                            />
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <div className='col-6'>
+
+                     <div className='d-flex topnews-scroll' style={{overflow:'auto'}}>
+                            {matches.map((each, index) => (
+                                <div key={index} className="topnews-div" style={{ margin: "0.5rem" }}>
+                                    {/* <h3>{each.matchName}</h3> */}
+                                    <div className="topnews-subdiv">
+                                        <Image src={each.match1Img} alt="" className="subdiv-topnew-img" />
+                                        <div className="topnews-subdiv-child">
+                                            <h4>{each.newstitle}</h4>
+                                            <p>{each.newscontent}</p>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+
+                            ))}
                         </div>
 
-                        
-
-                        <div className='col-6'>
-                     
-                     <div className='d-flex topnews-scroll' style={{overflow:'auto'}}>
-                         {matches.map((each, index) => (
-                             <div key={index} className="topnews-div" style={{ margin: "0.5rem" }}>
-                                 {/* <h3>{each.matchName}</h3> */}
-                                 <div className="topnews-subdiv">
-                                     <Image src={each.match1Img} alt="" className="subdiv-topnew-img" />
-                                     <div className="topnews-subdiv-child">
-                                         <h4>{each.newstitle}</h4>
-                                         <p>{each.newscontent}</p>
-                                     </div>
-                                 </div>
-
-
-                                 
-
-                             </div>
-
-
-                         ))}
-                     </div>
-
 
 
                      <div className='d-flex topnews-scroll' style={{overflow:'auto'}}>
-                         {matches.map((each, index) => (
-                             <div key={index} className="topnews-div" style={{ margin: "0.5rem" }}>
-                                 {/* <h3>{each.matchName}</h3> */}
-                                 <div className="topnews-subdiv">
-                                     <Image src={each.match1Img} alt="" className="subdiv-topnew-img" />
-                                     <div className="topnews-subdiv-child">
-                                         <h4>{each.newstitle}</h4>
-                                         <p>{each.newscontent}</p>
-                                     </div>
-                                 </div>
-
-
-                                 
-
-                             </div>
-
-                             
-                         ))}
-                     </div>
-                 </div>
+                            {matches.map((each, index) => (
+                                <div key={index} className="topnews-div" style={{ margin: "0.5rem" }}>
+                                    {/* <h3>{each.matchName}</h3> */}
+                                    <div className="topnews-subdiv">
+                                        <Image src={each.match1Img} alt="" className="subdiv-topnew-img" />
+                                        <div className="topnews-subdiv-child">
+                                            <h4>{each.newstitle}</h4>
+                                            <p>{each.newscontent}</p>
+                                        </div>
+                                    </div>
 
 
 
 
+                                </div>
+
+
+                            ))}
+                        </div>
                     </div>
 
 
 
 
+                </div>
 
 
-                    
-          
 
-               
-                   
-                
+
+
+
+
+
+
+
+
+
             </div>
 
         </>

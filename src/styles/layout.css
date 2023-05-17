@@ -1,3 +1,6 @@
+.layout-main {
+  background: #232234;
+}
 .layout-body {
   display: flex;
   background-color: #1f1c2d;

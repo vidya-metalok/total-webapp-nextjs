@@ -387,11 +387,16 @@ const TransactionHistoryComponent = (props) => {
                                     <Image src={transSettings} height={20.24} width="auto" alt="" />
                                 </div>
                                 <div onClick={() => setTransHist(!transHist)} className='trans-setting-con'>
-                                    <p>Token Transaction</p>
-                                </div>
-                                <div>
+                                    <div>
+                                        <p>Token Transaction</p>
 
-                                    <Image src={transArr} alt="" height={15} width={15} />
+                                    </div>
+
+
+                                    <div>
+
+                                        <Image src={transArr} alt="" height={15} width={15} />
+                                    </div>
                                 </div>
                             </div>
 
@@ -425,8 +430,8 @@ const TransactionHistoryComponent = (props) => {
 
                 {historyclick && (
                     <div>
-                        <div className="transaction-main">
-                            <div className='table-responsive' style={{ height: "500px" }}>
+                        <div className="transaction-main table-responsive">
+                            <div className='' style={{ height: "500px" }}>
                                 <table>
                                     <tr>
                                         <th>Transaction Type</th>

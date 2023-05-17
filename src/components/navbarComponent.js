@@ -233,7 +233,7 @@ const NavBarComponent = () => {
 
     return (
         <>
-            <nav className="nav-main-container">
+            <nav className="container nav-main-container">
                 <div className='logo-link-container'>
                     <div className='nav-logo-container' onClick={() => router.push("/dashboardpage")}>
                         <Image src={sportsverseLogo} alt="web-app-logo" height={34} width={26} />

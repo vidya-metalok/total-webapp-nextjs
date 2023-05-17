@@ -4,6 +4,7 @@
   justify-content: space-between;
   margin-top: 10px;
   margin-bottom: 10px;
+  position: relative;
 }
 .transaction-tabs-div h3 {
   font-family: "Poppins";
@@ -192,5 +193,5 @@ font-size: 12px ;
   position: absolute;
   color: #ea9528;
   top: 30px;
-  left: 90px;
+  left: 96%;
 }

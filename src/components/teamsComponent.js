@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import Web3 from "web3";
 
 import Chart from 'chart.js/auto';
-import { BarController, BarElement, CategoryScale, LinearScale, Title, DoughnutController, ArcElement } from 'chart.js'; 
+import { BarController, BarElement, CategoryScale, LinearScale, Title, DoughnutController, ArcElement } from 'chart.js';
 Chart.register(BarController, BarElement, CategoryScale, LinearScale, Title, DoughnutController, ArcElement);
 
 import deposit from "../../public/images/Arrow 1.png";
@@ -24,7 +24,7 @@ var rajasthanFlag = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/weba
 var rajasthanLogo = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rajasthanRoyals.png"
 
 var frameLogo = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/Frame.png"
-var dhoniImg = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/Group 41318.png"
+// var dhoniImg = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/Group 41318.png"
 var bengaloreImg = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/royalChallengersBangalore.png"
 // var delhi = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhi.png"
 // var king = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/king.png"
@@ -66,7 +66,13 @@ var kkrBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-i
 var lkBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lkBanner.png"
 var mumbaiBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/mumbaiBanner.png"
 var punjabBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/psvBanner.png"
-var rsvcBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rrBanner.png"
+var rsvcBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rrBanner.png";
+
+
+import dhoniImg from "../../public/images/dhoniImg.svg"
+import transArr from "../../public/images/trans-hist-arr.svg"
+
+
 
 
 
@@ -87,10 +93,21 @@ var rsvcBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-
 import CandleStickChart from "./candleStickChart";
 import BuySellComponent from "./buySellComponent";
 import TransactionHistoryComponent from "./transactionHistoryComponent";
-import PortFolioComponent from "./portfolioComponent"; 
+import PortFolioComponent from "./portfolioComponent";
 import BarComponent from "./barComponent";
 import ReverseChart from "./reverseChart";
+import { useSelector } from "react-redux";
 const TeamsComponent = (props) => {
+  const [openDropDown, setOpenDropDown] = useState(false)
+  const userLogin = useSelector((store) => store?.user?.loginInfo)
+  let str = userLogin?.walletAddress;
+  console.log("str...", str, userLogin)
+  let len = str?.length;
+  let start = Math.floor(len - 7);
+  // let end = start + 40;
+  let walletaddress = str?.substring(0, 7) + "*****" + str?.substring(start, len);
+
+  console.log("details....", userLogin)
   console.log("teamsComponentProps...", props);
   console.log("propsEachToken...", props.tokenDetails);
   const banner = [
@@ -149,45 +166,45 @@ const TeamsComponent = (props) => {
       teamImg: dhoniImg,
       teamsName: "MS DHONI",
       teamRole: "Batsman",
-      teamBest: "Best: 100*",
+      teamBest: "Best : 100*",
       teamsSr: "150",
     },
-  ]; 
+  ];
 
   const matches = [
     {
-      id: "1", 
+      id: "1",
       match1Img: rajasthanLogo,
-      match2Img: bengaloreImg, 
+      match2Img: bengaloreImg,
       matchName:"Match 2",
       matchLost:"by 2 runs"
     },
 
     {
-      id: "2", 
+      id: "2",
       match1Img: rajasthanLogo,
-      match2Img: bengaloreImg, 
+      match2Img: bengaloreImg,
       matchName:"Match 2",
       matchLost:"by 2 runs"
     },
     {
-      id: "3", 
+      id: "3",
       match1Img: rajasthanLogo,
-      match2Img: bengaloreImg, 
+      match2Img: bengaloreImg,
       matchName:"Match 2",
       matchLost:"by 2 runs"
     },
     {
-      id: "4", 
+      id: "4",
       match1Img: rajasthanLogo,
-      match2Img: bengaloreImg, 
+      match2Img: bengaloreImg,
       matchName:"Match 2",
       matchLost:"by 2 runs"
     },
     {
-      id: "5", 
+      id: "5",
       match1Img: rajasthanLogo,
-      match2Img: bengaloreImg, 
+      match2Img: bengaloreImg,
       matchName:"Match 2",
       matchLost:"by 2 runs"
     },
@@ -199,7 +216,7 @@ const TeamsComponent = (props) => {
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
-      matchTime: "7:35 PM", 
+      matchTime: "7:35 PM",
     },
 
     {
@@ -208,7 +225,7 @@ const TeamsComponent = (props) => {
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
-      matchTime: " 7:35 PM", 
+      matchTime: " 7:35 PM",
     },
     {
       id: "3",
@@ -216,7 +233,7 @@ const TeamsComponent = (props) => {
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
-      matchTime: "7:35 PM", 
+      matchTime: "7:35 PM",
     },
     {
       id: "4",
@@ -224,7 +241,7 @@ const TeamsComponent = (props) => {
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
-      matchTime: "7:35 PM", 
+      matchTime: "7:35 PM",
     },
     {
       id: "5",
@@ -232,7 +249,7 @@ const TeamsComponent = (props) => {
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
-      matchTime: "7:35 PM", 
+      matchTime: "7:35 PM",
     },
   ];
 
@@ -425,54 +442,54 @@ const TeamsComponent = (props) => {
   }, [getData]);
 
   // new added 03-05
-    // const config = {
-    //   type: 'bar',
-    //   data: data,
-    //   options: {
-    //     responsive: true,
-    //     plugins: {
-    //       legend: {
-    //         position: 'top',
-    //       },
-    //       title: {
-    //         display: true,
-    //         text: 'Chart.js Bar Chart'
-    //       }
-    //     }
-    //   },
-    // };
+  // const config = {
+  //   type: 'bar',
+  //   data: data,
+  //   options: {
+  //     responsive: true,
+  //     plugins: {
+  //       legend: {
+  //         position: 'top',
+  //       },
+  //       title: {
+  //         display: true,
+  //         text: 'Chart.js Bar Chart'
+  //       }
+  //     }
+  //   },
+  // };
 
-    // const DATA_COUNT = 7;
-    // const NUMBER_CFG = {count: DATA_COUNT, min: -100, max: 100};
+  // const DATA_COUNT = 7;
+  // const NUMBER_CFG = {count: DATA_COUNT, min: -100, max: 100};
 
-    // const labels = Utils.months({count: 7});
-    // const data = {
-    //   labels: labels,
-    //   datasets: [
-    //     {
-    //       label: 'Dataset 1',
-    //       data: Utils.numbers(NUMBER_CFG),
-    //       borderColor: Utils.CHART_COLORS.red,
-    //       backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-    //     },
-    //     {
-    //       label: 'Dataset 2',
-    //       data: Utils.numbers(NUMBER_CFG),
-    //       borderColor: Utils.CHART_COLORS.blue,
-    //       backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-    //     }
-    //   ]
-    // }; 
+  // const labels = Utils.months({count: 7});
+  // const data = {
+  //   labels: labels,
+  //   datasets: [
+  //     {
+  //       label: 'Dataset 1',
+  //       data: Utils.numbers(NUMBER_CFG),
+  //       borderColor: Utils.CHART_COLORS.red,
+  //       backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+  //     },
+  //     {
+  //       label: 'Dataset 2',
+  //       data: Utils.numbers(NUMBER_CFG),
+  //       borderColor: Utils.CHART_COLORS.blue,
+  //       backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+  //     }
+  //   ]
+  // }; 
 
-    const teamHistTabClass = transactionclick ? "team-hist-active" : "team-hist-not-active"
-    const teamPlTabClass = tockenclick ? "team-hist-active" : "team-hist-not-active"
-  
+  const teamHistTabClass = transactionclick ? "team-hist-active" : "team-hist-not-active"
+  const teamPlTabClass = tockenclick ? "team-hist-active" : "team-hist-not-active"
+
 
 
 
   return (
     <>
-      <div className="teams-page-main-con"> 
+      <div className="teams-page-main-con">
         {/* <Sidebar /> */}
         <div className="teams-left-con">
           <div className="teams-banner">
@@ -502,7 +519,7 @@ const TeamsComponent = (props) => {
             <div className="team-hold-card">
               <div className="teams-hold-details">
                 <h3>TokenAddress</h3>
-                <p>addresss....</p>
+                <p>{walletaddress}</p>
               </div>
               <Image src={frameLogo} alt="" height={30} width={30} />
             </div>
@@ -513,7 +530,7 @@ const TeamsComponent = (props) => {
             </div>
 
             <div className="team-holding-value">
-              <h3>Hlding Value</h3>
+              <h3>Holdings Value</h3>
               <p className="hodlingval-1">$54,216</p>
             </div>
 
@@ -531,7 +548,7 @@ const TeamsComponent = (props) => {
           </div>
         </div>
 
-        <div className="teams-right-con"> 
+        <div className="teams-right-con">
 
           <div className="team-matches-hist">
             <div className="d-flex gap-4">
@@ -554,7 +571,7 @@ const TeamsComponent = (props) => {
 
                       <div className="bastman-best">
                         <h3>{each.teamBest}</h3>
-                        <p>{each.teamsSr}</p>
+                        <p>SR : {each.teamsSr}</p>
                       </div>
                     </div>
                   </>
@@ -567,34 +584,34 @@ const TeamsComponent = (props) => {
                 <div className="match table-responsive">
 
                   <table>
-                  {shedule.map((each, index) => (
-                  <> 
-                    <div className="match-t-border"></div>
-                    <div className="match-t">
-                      <tr>
-                        <td colspan="3" className="match-title">{each.match}</td>
-                      </tr>
-                      <tr>
-                        <th> 
-                          <p className="d-time">{each.matchDate}</p>
-                          <p className="d-time"> {each.matchTime}</p>
-                        </th>
-                        <th>
-                          <div className="delhi-c"> 
-                            <Image src={each.match1Img} alt="" height={50} width={50} />
-                          </div>
-                        </th>
-                        <th><div className="verse">VS</div> </th>
-                        <th>
-                          <div className="delhi-c">
-                            <Image src={each.match2Img} alt="" height={60} width={60} />
-                          </div>
-                        </th>
-                      </tr>
-                    </div>
- 
-                  </>
-                ))} 
+                    {shedule.map((each, index) => (
+                      <>
+                        <div className="match-t-border"></div>
+                        <div className="match-t">
+                          <tr>
+                            <td colspan="3" className="match-title">{each.match}</td>
+                          </tr>
+                          <tr>
+                            <th>
+                              <p className="d-time">{each.matchDate}</p>
+                              <p className="d-time"> {each.matchTime}</p>
+                            </th>
+                            <th>
+                              <div className="delhi-c">
+                                <Image src={each.match1Img} alt="" height={50} width={50} />
+                              </div>
+                            </th>
+                            <th><div className="verse">VS</div> </th>
+                            <th>
+                              <div className="delhi-c">
+                                <Image src={each.match2Img} alt="" height={60} width={60} />
+                              </div>
+                            </th>
+                          </tr>
+                        </div>
+
+                      </>
+                    ))}
                   </table>
                 </div>
               </div>
@@ -730,11 +747,20 @@ const TeamsComponent = (props) => {
           <h3 onClick={transactionClick} className={`${teamHistTabClass}`}>Transaction History</h3>
           <h3 onClick={tockenClick} className={`${teamPlTabClass}`}>Token P & L</h3>
         </div>
+        {transactionclick && (
+          <div className="his-img-con">
+            <Image src={settings} alt="" height={20} width={20} />
+            <p>Token Transaction</p>
+          </div>
 
-        <div className="his-img-con">
-          <Image src={settings} alt="" height={20} width={20} />
-          <p>Token Transaction</p>
-        </div>
+
+
+        )
+
+
+        }
+
+
       </div>
 
       {transactionclick && (
@@ -784,15 +810,33 @@ const TeamsComponent = (props) => {
                     <p>Weekly</p>
                     <Image src={down} alt="" height={10} width={10} />
                   </div> */}
+
+                  <div onClick={() => setOpenDropDown(!openDropDown)} className="trans-settings">
+                    <div>
+                      <h6>Weekly</h6>
+                    </div>
+
+                    <div>
+                      <Image src={transArr} alt="" height={15} width={15} />
+                    </div>
+
+                  </div>
                 </div>
+                {openDropDown && (
+                  <div className="chart-hist" >
+                    <p>weekly</p>
+                    <p>monthly</p>
+                    <p>yearly</p>
+                  </div>
+                )}
                 <div className="bar-main">
-                  <div className="bar-graph"> 
+                  <div className="bar-graph">
 
-                  {/* <ReverseChart/> */}
-                  {/* <br/> */}
-                  {/* <br/> */}
+                    {/* <ReverseChart/> */}
+                    {/* <br/> */}
+                    {/* <br/> */}
 
-                    <BarComponent/>
+                    <BarComponent />
                   </div>
                 </div>
 
@@ -800,7 +844,7 @@ const TeamsComponent = (props) => {
               </div>
             </div>
           </div>
-        </div>
+        </div >
       )}
 
       {/* <PortFolioComponent/> */}
