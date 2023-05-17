@@ -97,7 +97,7 @@ const WalletComponent = () => {
     const handleCopyClick = () => {
         navigator.clipboard.writeText(userWallet);
         console.log("wallet address", userWallet)
-        setcopyclick(!copyClick)
+        setcopyclick(true)
     };
 
 
@@ -646,8 +646,10 @@ const WalletComponent = () => {
                             <p>Wallet Address</p>
                             <h3>{walletaddress}</h3>
                         </div>
-                        <div onClick={handleCopyClick} >
+                        <div onClick={handleCopyClick} style={{position:'relative'}} >
                             <Image style={{ transform: copyClick ? 'rotate(90deg)' : 'rotate(0deg)', cursor: 'pointer' }} src={frame} height={30} width={30} alt="frame" />
+                        <h3 className="copied-display" style={{display:copyClick ? "block" : "none"}}>wallet copied</h3>
+                       
                         </div>
                     </div>
                 </div>

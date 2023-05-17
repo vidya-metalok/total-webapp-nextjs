@@ -9,9 +9,11 @@ import qs from "qs";
 import abi from "../../abis/abi.json";// import deposit from "../../public/images/Arrow 1.png";
 // import withdraw from "../../public/images/arrow2.png";
 // import status from "../../public/images/status-img.jpeg";
-var withdraw = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/arrow2.png";
+// var withdraw = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/arrow2.png";
+import withdraw from '../../public/images/arrow-2.svg'
 var status = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/status-img.jpeg";
-var deposit = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/Arrow 1.png";
+// var deposit = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/Arrow 1.png";
+import deposit from '../../public/images/arrow-1.svg'
 
 import cskdhoni from "../../public/images/cskdhoni.png";
 
@@ -125,7 +127,7 @@ const TransactionHistoryComponent = (props) => {
 
                 <td className="token-value">{tokenSymbol}</td>
 
-                <td className="trans-amount">{readableValue}</td>
+                <td className="trans-amount"><span>₹</span>{readableValue}</td>
 
                 <td className="trans-date">{formattedDate}</td>
 
@@ -415,15 +417,12 @@ const TransactionHistoryComponent = (props) => {
                         </>
 
                     )}
-
-
                     {componentName !== "wallet" && (
                         <div onClick={matchPointClick} style={{ position: 'relative' }}>
                             <h3 className={`${newsTabClass}`}>Top News</h3>
 
 
                         </div>
-
                     )}
                 </div>
 
@@ -433,7 +432,7 @@ const TransactionHistoryComponent = (props) => {
                         <div className="transaction-main table-responsive">
                             <div className='' style={{ height: "500px" }}>
                                 <table>
-                                    <tr>
+                                    <tr className='transaction-header-sticky'>
                                         <th>Transaction Type</th>
                                         <th>Tokens</th>
                                         <th>Amount</th>

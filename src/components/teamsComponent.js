@@ -87,6 +87,16 @@ import transArr from "../../public/images/trans-hist-arr.svg"
 // import punjabBanner from "../../public/images/psvBanner.png";
 // import rsvcBanner from "../../public/images/rrBanner.png";
 
+var delhiCapital = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhicapital.png";
+var chennaiSupers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/chennaiSuperkings.png";
+var rcbs = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rcb logo.png";
+var mumbaiIndia = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/mumbaiIndians.png";
+var rajasthanRoyals = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rajasthanRoyals.png";
+var punjabKings = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/punjabKings.png";
+var sunrisers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sunrisers.png";
+var kkr = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkr.png";
+var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
+var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gt.png";
 
 
 
@@ -122,9 +132,27 @@ const TeamsComponent = (props) => {
     punjabBanner,
     rsvcBanner,
   ];
-  console.log("lis.....", banner[props.tokenDetails.id]);
+
+  const allteamLogo = [
+    rcbs,
+    chennaiSupers,
+    delhiCapital,
+    gt,
+    sunrisers,
+    kkr,
+    lk,
+    mumbaiIndia,
+    punjabKings,
+    rajasthanRoyals,
+
+
+
+  ]
+
+  const teamsLogo = allteamLogo[props.tokenDetails.id];
+  // console.log("lis.....", banner[props.tokenDetails.id]);
   const broadImg = banner[props.tokenDetails.id];
-  console.log("immmmm....", broadImg);
+  // console.log("immmmm....", broadImg);
 
   const { tokenName, tokenKey, teamName, teamShortName } = props.tokenDetails;
   const teams = [
@@ -503,10 +531,10 @@ const TeamsComponent = (props) => {
             <div className="teams-name-con">
               <Image
                 className="banner-logo"
-                src={broadImg}
+                src={teamsLogo}
                 alt=""
-                height={80}
-                width={80}
+                height={40}
+                width={40}
                 style={{ borderRadius: "50px" }}
               />
               <div className="team-name-details">

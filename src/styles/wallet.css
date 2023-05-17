@@ -312,7 +312,7 @@
 }
 .trans-amount {
   color: #cccccc;
-  font-family: "Poppins";
+  font-family: "Lato";
 }
 .trans-type {
   font-family: "PoppinsRegular";
@@ -463,4 +463,13 @@ margin-left:22px;
   color: #ffffff;
 
   opacity: 0.75;
+}
+.copied-display{
+  position:absolute;
+  top: -17px;
+  left: -55px;
+  width: 158px;
+  font-size: 12px !important;
+  font-family: "Poppins" !important;
+  color:#0BBB70 !important;
 }
