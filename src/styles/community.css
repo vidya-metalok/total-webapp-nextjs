@@ -1,0 +1,45 @@
+.commu-icons {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  width: 470px;
+}
+.community-main {
+  display: flex;
+  background: #2c2a41;
+  min-height: 100vh;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+.community-main h2 {
+  font-family: "Clash Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 55px;
+  line-height: 48px;
+  /* identical to box height, or 87% */
+
+  text-align: center;
+
+  color: #ffffff;
+}
+.community-main p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  margin-top: 20px;
+  /* or 29px */
+
+  text-align: center;
+
+  color: #c9c9c9;
+}
+.social-commu {
+  margin: 0px 22px 22px 0px;
+}

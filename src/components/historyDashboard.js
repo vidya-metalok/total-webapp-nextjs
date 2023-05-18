@@ -15,8 +15,11 @@ var status = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-imag
 
 // var deposit = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/Arrow 1.png";
 
-import deposit from "../../public/images/Arrow 1.png"
-import withdraw from "../../public/images/arrow2.png"
+// import deposit from "../../public/images/Arrow 1.png"
+// import withdraw from "../../public/images/arrow2.png"
+import withdraw from '../../public/images/arrow-2.svg'
+import deposit from '../../public/images/arrow-1.svg'
+
 import cskdhoni from "../../public/images/cskdhoni.png";
 
 import hydekohili from "../../public/images/hydekohili.png";
@@ -57,7 +60,7 @@ const HistoryDashboard = () => {
                 web3.utils.fromWei(value.toString(), "mwei")
             ).toFixed(2);
         }
-        const indreadableVal= readableValue*82;
+        const indreadableVal = readableValue * 82;
 
         const indRounded = indreadableVal.toFixed(2);
 
@@ -128,7 +131,7 @@ const HistoryDashboard = () => {
                 {/* <td className="price-type">{each["price-type"]}</td> */}
 
                 <td className="dash-token-value">
-                   <h4 style={{color:web3.utils.toChecksumAddress(toAddress) == userWallet ? 'rgb(17,149,97)' : 'rgb(186,55,66)'}}><span>{readableValue}</span> {tokenSymbol}</h4>
+                    <h4 style={{ color: web3.utils.toChecksumAddress(toAddress) == userWallet ? 'rgb(17,149,97)' : 'rgb(186,55,66)' }}><span>{readableValue}</span> {tokenSymbol}</h4>
                     <h5><span>&#8377;</span>{indRounded}</h5>
                 </td>
 

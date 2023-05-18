@@ -15,6 +15,9 @@ export default function Document() {
 
         <link href="https://cdn.jsdelivr.net/npm/@fontsource/lato@4.4.0/css/all.css" rel="stylesheet" type="text/css" />
         <link href="https://rsms.me/inter/inter.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200&display=swap" rel="stylesheet"/>
+
 
       </Head>
       <body>

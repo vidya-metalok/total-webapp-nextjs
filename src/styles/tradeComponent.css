@@ -340,12 +340,12 @@
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
-  line-height: 8px; 
+  line-height: 8px;
   text-transform: uppercase;
   color: #9492a0;
   width: 50%;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .buy-sell h3 {

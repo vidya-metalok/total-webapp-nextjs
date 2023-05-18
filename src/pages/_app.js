@@ -11,7 +11,12 @@ import "../styles/loginpage.css";
 import "../styles/portfolio.css";
 import "../styles/candleStick.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../styles/tansactionHist.css"
+import "../styles/tansactionHist.css";
+import "../styles/feedback.css"
+import "../styles/community.css"
+import "../styles/refferal.css"
+import '../styles/profile.css'
+// import '../styles/faq.css'
 
 
 

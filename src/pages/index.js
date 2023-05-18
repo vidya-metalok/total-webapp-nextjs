@@ -16,6 +16,11 @@ import { useRouter } from 'next/router';
 const inter = Inter({ subsets: ['latin'] })
 
 import LoginPage from './loginpage';
+// import Feedbackpage from './feedbackpage';
+// import CommunityPage from "./communitypage"
+
+// import Faqspage from './faqspage';
+// import Refferalspage from "./refferalspage"a
 
 
 const Home = () => {
@@ -33,6 +38,10 @@ const Home = () => {
       {/* <DashBoardPage /> */}
       <LoginPage />
       {/* <CandleStickPage /> */}
+      {/* <Feedbackpage /> */}
+      {/* <CommunityPage /> */}
+      {/* <Faqspage /> */}
+      {/* <Refferalspage /> */}
 
     </>
   )

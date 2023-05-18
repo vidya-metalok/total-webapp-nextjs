@@ -6,8 +6,11 @@ import Chart from 'chart.js/auto';
 import { BarController, BarElement, CategoryScale, LinearScale, Title, DoughnutController, ArcElement } from 'chart.js';
 Chart.register(BarController, BarElement, CategoryScale, LinearScale, Title, DoughnutController, ArcElement);
 
-import deposit from "../../public/images/Arrow 1.png";
-import withdraw from "../../public/images/arrow2.png";
+// import deposit from "../../public/images/Arrow 1.png";
+// import withdraw from "../../public/images/arrow2.png";
+
+import deposit from "../../public/images/arrow-1.svg";
+import withdraw from "../../public/images/arrow-2.svg";
 import status from "../../public/images/status-img.jpeg";
 
 import Image from "next/image";
@@ -616,9 +619,9 @@ const TeamsComponent = (props) => {
                       <>
                         <div className="match-t-border"></div>
                         <div className="match-t">
-                          <tr>
-                            <td colspan="3" className="match-title">{each.match}</td>
-                          </tr>
+
+                          <h4 colspan="3" className="match-title">{each.match}</h4>
+
                           <tr>
                             <th>
                               <p className="d-time">{each.matchDate}</p>

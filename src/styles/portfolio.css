@@ -73,7 +73,7 @@
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
-  line-height: 19px; 
+  line-height: 19px;
   letter-spacing: -0.312463px;
   color: #EA9528;
   margin-left: 2rem;
@@ -83,10 +83,10 @@
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-  line-height: 19px; 
-  letter-spacing: -0.312463px; 
+  line-height: 19px;
+  letter-spacing: -0.312463px;
   color: #0BBB70; 
-  opacity: 0.75; 
+  opacity: 0.75;
 
   margin-left: 2rem;
 }
@@ -95,8 +95,8 @@
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
-  line-height: 17px;  
-  letter-spacing: -0.312463px; 
+  line-height: 17px;
+  letter-spacing: -0.312463px;
   color: #CCCCCC;
   padding-left: 2%;
   /* margin-left: 2rem; */
@@ -149,10 +149,10 @@
 
 .bar-two h3 {
   margin-top: 20px;
-} 
+}
 .line-canva{ 
   /* margin: auto; */
-  padding-bottom: 5%; 
+  padding-bottom: 5%;
 }
 .piechart{
   height: 400px !important;

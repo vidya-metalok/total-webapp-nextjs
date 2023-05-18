@@ -335,13 +335,13 @@
 .single-team-score {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 .single-team-score p {
   font-family: "Poppins";
   font-size: 16px;
   color: white;
-  margin-right: 0.89rem;
+  /* margin-right: 0.89rem; */
 }
 
 .teams-buysell div {

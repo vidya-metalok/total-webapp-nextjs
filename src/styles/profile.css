@@ -1,0 +1,175 @@
+/* ------------------------------------------------------------------------------------------profile page section  */
+
+.profile-user-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 40px;
+  padding-top: 30px;
+}
+
+.profile-user-child1 {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  align-items: center;
+}
+
+.logout-btn {
+  width: 101.81px;
+  height: 32.72px;
+  background: #ec3e47;
+  backdrop-filter: blur(36.8137px);
+
+  border-radius: 36.3592px;
+  border: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  /* identical to box height, or 159% */
+
+  letter-spacing: -0.0963518px;
+
+  color: #ffffff;
+  cursor: pointer;
+  margin: 20px 0px 20px 0px;
+}
+
+.edit-btn {
+  width: 90px;
+  height: 33px;
+  background: #2c2b44;
+  border: 1px solid #ea9528;
+  backdrop-filter: blur(36.8137px);
+  border-radius: 36.3592px;
+  font-family: "Merriweather Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12.7257px;
+  letter-spacing: -0.0963518px;
+  color: #ea9528;
+  margin-left: 112px;
+  cursor: pointer;
+}
+
+.user-name-data h2 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 23.6335px;
+  line-height: 20px;
+  /* or 85% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.45449px;
+  font-feature-settings: "case" on;
+
+  color: #dfdfdf;
+  margin-bottom: 20px;
+}
+
+.user-name-data h3 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16.3616px;
+  line-height: 20px;
+  /* identical to box height, or 122% */
+
+  display: flex;
+  align-items: center;
+
+  color: #606981;
+  margin: 0px;
+}
+
+.profile-user-child1 .profile-img {
+  background-color: #232234;
+  border-radius: 50%;
+}
+
+.mygeneral-info {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23.6335px;
+  line-height: 20px;
+  /* or 85% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.45449px;
+  font-feature-settings: "case" on;
+
+  color: #e7e7e7;
+}
+
+.label-name {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14.5437px;
+  line-height: 22px;
+  /* identical to box height, or 153% */
+
+  letter-spacing: -0.0963518px;
+
+  color: #8f949f;
+  margin-top: 35px;
+  margin-bottom: 4px;
+}
+
+.profile-input {
+  width: 302.69px;
+  height: 40px;
+  border: 0.908979px solid #515151;
+  border-radius: 7.64451px;
+  background: none;
+  outline: none;
+  padding-left: 10px;
+  color: white;
+}
+
+.profile-input6 {
+  width: 630px;
+  height: 40px;
+  border: 0.908979px solid #515151;
+  border-radius: 7.64451px;
+  background: none;
+  outline: none;
+  padding-left: 10px;
+}
+
+.terms-about-down {
+  position: absolute;
+  bottom: 16px;
+}
+.terms-about-down h3 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16.4419px;
+  line-height: 23px;
+  /* or 143% */
+
+  letter-spacing: -0.540786px;
+
+  color: #ffffff;
+
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.line-br {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  width: 200px;
+  margin-left: 9px;
+  margin-top: 18px;
+}
+
+.edit-img {
+  margin-top: -4px;
+}
