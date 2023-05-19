@@ -1,5 +1,5 @@
 
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
 import { BarController, BarElement, CategoryScale, LinearScale, Title, DoughnutController, ArcElement } from 'chart.js';
 // import load1 from "../../public/images/graphload-img.png";
@@ -19,11 +19,21 @@ var load2 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-image
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import BarComponent from './barComponent';
+import moneyAddedImg from "../../public/images/money-add.svg"
+import transArr from "../../public/images/trans-hist-arr.svg"
+
+
 
 
 Chart.register(BarController, BarElement, CategoryScale, LinearScale, Title, DoughnutController, ArcElement);
 
 const PortFolioComponent = () => {
+    const [barOpenDropDown, setBarOpenDropDown] = useState(false)
+    const [lineOpenDropDown, setLineOpenDropDown] = useState(false)
+
+    const [pieOpenDropDown, setPieOpenDropDown] = useState(false)
+
+
     const netHoldings = useSelector((store) => store.user.totalHoldings)
     console.log("nettttholdings", netHoldings)
 
@@ -134,57 +144,73 @@ const PortFolioComponent = () => {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                aspectRatio: 0.5,
-
+                aspectRatio: 1,
                 plugins: {
                     legend: {
-                        position: 'top'
+                        position: 'right',
+                        boxWidth: 10,
+
                     },
 
                     labels: {
                         boxWidth: 10,
+                        usePointStyle: true,
                         generateLabels: function (chart) {
                             const labels = chart.data.labels;
                             const rowCount = Math.ceil(labels.length / 2);
-                            const firstColumnLabels = labels.slice(0, rowCount).map(function (label) {
+                            const firstColumnLabels = labels.slice(0, rowCount).map(function (label, index) {
                                 return {
                                     text: label,
                                     fillStyle: 'black',
                                     boxWidth: 10,
+                                    index: index,
                                 };
                             });
-                            const secondColumnLabels = labels.slice(rowCount).map(function (label) {
+                            const secondColumnLabels = labels.slice(rowCount).map(function (label, index) {
                                 return {
                                     text: label,
                                     fillStyle: 'black',
                                     boxWidth: 10,
+                                    index: index + rowCount,
                                 };
                             });
                             return firstColumnLabels.concat(secondColumnLabels);
                         },
-                        text: {
-                            width: 10,
-                        },
                     },
+
+
+
+
+
+
+
+
+
+                    text: {
+                        width: 10,
+                    },
+                    padding: 10,
                 },
+            },
 
 
-            }
+        })
 
 
 
 
-        });
+
+
 
         lineChartInstanceRef.current = new Chart(lineChartContext, {
             type: "line",
             data: {
-                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', "Sunday"],
+                labels: [null, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', "Sunday"],
                 datasets: [
                     {
                         label: "My First Dataset",
 
-                        data: [5000, 6000, 8000, 10000, 7000, 6500, 4000],
+                        data: [null, 5000, 6000, 8000, 10000, 7000, 6500, 4000],
 
                         fill: true,
                         backgroundColor: "#D9D9D9",
@@ -373,7 +399,7 @@ const PortFolioComponent = () => {
                                 <p className="today-text">Today’s P&L</p>
                                 <p className="today-amount">₹5,624.35</p>
                                 <Image src={load1} alt="" height={20} width={300} />
-                                <div className="today-team-names">
+                                <div className="today-team-names-new">
                                     <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
                                     <p>MSVC, PSVC</p>
                                 </div>
@@ -384,7 +410,7 @@ const PortFolioComponent = () => {
                                 <p className="today-text">Total P&L</p>
                                 <p className="today-amount">₹15,253.50</p>
                                 <Image src={load2} alt="" height={20} width={300} />
-                                <div className="today-team-names">
+                                <div className="today-team-names-new">
                                     <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
                                     <p>MSVC, PSVC</p>
                                 </div>
@@ -394,12 +420,12 @@ const PortFolioComponent = () => {
 
                     <div>
                         <div className='holding-con'>
-                            <div className="totalamt-subparent3" style={{width:'214px'}}>
+                            <div className="totalamt-subparent3" style={{ width: '214px' }}>
                                 <div className="subparentsubchild5">
                                     <Image
-                                        src={empty}
+                                        src={wallet}
                                         alt=""
-                                        height={20} width={20}
+                                        height={25} width={25}
                                         style={{ width: "15px;height:15px" }}
                                         className='sub-img'
                                     />
@@ -413,9 +439,9 @@ const PortFolioComponent = () => {
                             <div className="totalamt-subparent3">
                                 <div className="subparentsubchild5">
                                     <Image
-                                        src={empty}
+                                        src={moneyAddedImg}
                                         alt=""
-                                        height={20} width={20}
+                                        height={25} width={25}
                                         style={{ width: "15px;height:15px" }}
                                     />
                                     <p>Total Invested</p>
@@ -427,7 +453,7 @@ const PortFolioComponent = () => {
                             </div>
                             <div className="wallet-card">
                                 <div className="img-con">
-                                    <Image src={wallet} alt="" height={25} width={25} />
+                                    <Image src={empty} alt="" height={25} width={25} />
 
                                     <p>Wallet balance</p>
                                 </div>
@@ -436,8 +462,32 @@ const PortFolioComponent = () => {
                             </div>
                         </div>
                         <div className="bar-chart-con  bar-one">
-                            {/*     <h3>Profit & loss analysis breakdown</h3>
-                            <canvas id="myChart" ref={chartRef} /> */}
+                            <div className="tocken-bar-head">
+                                <h3>Token Profit & loss analysis breakdown</h3>
+                                {/* <div className="token-week">
+                    <p>Weekly</p>
+                    <Image src={down} alt="" height={10} width={10} />
+                  </div> */}
+
+                                <div onClick={() => setBarOpenDropDown(!barOpenDropDown)} className="trans-settings">
+                                    <div>
+                                        <h6>Weekly</h6>
+                                    </div>
+
+                                    <div>
+                                        <Image src={transArr} alt="" height={15} width={15} />
+                                    </div>
+
+                                </div>
+                            </div>
+                            {barOpenDropDown && (
+                                <div className="chart-hist" >
+                                    <p>weekly</p>
+                                    <p>monthly</p>
+                                    <p>yearly</p>
+                                </div>
+                            )}
+                            {/* <canvas id="myChart" ref={chartRef} />  */}
                             <BarComponent />
                         </div>
                     </div>
@@ -449,23 +499,78 @@ const PortFolioComponent = () => {
                     </div>
                 </div> */}
 
-                <div>
-                    <div className="bar-chart-con bar-two">
+
+                <div className="bar-chart-con bar-two">
+                    {/* <h3>Asset Net Worth</h3> */}
+                    <div className="tocken-bar-head">
                         <h3>Asset Net Worth</h3>
-                        <canvas className='cnava line-canva' id="myChart" ref={lineChartRef} />
+                        {/* <div className="token-week">
+                    <p>Weekly</p>
+                    <Image src={down} alt="" height={10} width={10} />
+                  </div> */}
+
+                        <div onClick={() => setLineOpenDropDown(!lineOpenDropDown)} className="trans-settings">
+                            <div>
+                                <h6>Weekly</h6>
+                            </div>
+
+                            <div>
+                                <Image src={transArr} alt="" height={15} width={15} />
+                            </div>
+
+                        </div>
                     </div>
+                    {lineOpenDropDown && (
+                        <div className="chart-hist" >
+                            <p>weekly</p>
+                            <p>monthly</p>
+                            <p>yearly</p>
+                        </div>
+                    )}
+
+
+                    <canvas className='cnava line-canva' id="myChart" ref={lineChartRef} />
+
+
                 </div>
                 <div>
                     <div className="bar-chart-con bar-two piechart">
-                        <h3> Asset Allocation</h3>
-                        <canvas className='cnava ' id="myChart" ref={pieChartRef} />
+                        {/* <h3> Asset Allocation</h3> */}
+                        <div className="tocken-bar-head">
+                            <h3>Asset Net Worth</h3>
+                            {/* <div className="token-week">
+                    <p>Weekly</p>
+                    <Image src={down} alt="" height={10} width={10} />
+                  </div> */}
+
+                            <div onClick={() => setPieOpenDropDown(!pieOpenDropDown)} className="trans-settings">
+                                <div>
+                                    <h6>Weekly</h6>
+                                </div>
+
+                                <div>
+                                    <Image src={transArr} alt="" height={15} width={15} />
+                                </div>
+
+                            </div>
+                        </div>
+                        {pieOpenDropDown && (
+                            <div className="chart-hist" >
+                                <p>weekly</p>
+                                <p>monthly</p>
+                                <p>yearly</p>
+                            </div>
+                        )}
+                        <div style={{ width: '350px', height: '350px', padding: "20px" }} >
+                            <canvas className='cnava ' id="myChart" ref={pieChartRef} />
+                        </div>
                     </div>
                 </div>
 
 
 
                 <div>
-                    <h3 className='asset-head'>Your Assests</h3>
+                    <h3 className='asset-head'>Your Assets</h3>
                 </div>
 
                 <div className='token-asset-main'>
@@ -508,7 +613,7 @@ const PortFolioComponent = () => {
 
                 </div>
 
-            </div>
+            </div >
         </>
     )
 

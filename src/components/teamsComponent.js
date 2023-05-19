@@ -207,43 +207,43 @@ const TeamsComponent = (props) => {
       id: "1",
       match1Img: rajasthanLogo,
       match2Img: bengaloreImg,
-      matchName:"Match 2",
-      matchLost:"by 2 runs"
+      matchName: "Match 2",
+      matchLost: "by 2 runs"
     },
 
     {
       id: "2",
       match1Img: rajasthanLogo,
       match2Img: bengaloreImg,
-      matchName:"Match 2",
-      matchLost:"by 2 runs"
+      matchName: "Match 2",
+      matchLost: "by 2 runs"
     },
     {
       id: "3",
       match1Img: rajasthanLogo,
       match2Img: bengaloreImg,
-      matchName:"Match 2",
-      matchLost:"by 2 runs"
+      matchName: "Match 2",
+      matchLost: "by 2 runs"
     },
     {
       id: "4",
       match1Img: rajasthanLogo,
       match2Img: bengaloreImg,
-      matchName:"Match 2",
-      matchLost:"by 2 runs"
+      matchName: "Match 2",
+      matchLost: "by 2 runs"
     },
     {
       id: "5",
       match1Img: rajasthanLogo,
       match2Img: bengaloreImg,
-      matchName:"Match 2",
-      matchLost:"by 2 runs"
+      matchName: "Match 2",
+      matchLost: "by 2 runs"
     },
   ];
   const shedule = [
     {
       id: "1",
-      match:"50th match - Delhi",
+      match: "50th match - Delhi",
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
@@ -252,7 +252,7 @@ const TeamsComponent = (props) => {
 
     {
       id: "2",
-      match:"50th match - Delhi",
+      match: "50th match - Delhi",
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
@@ -260,7 +260,7 @@ const TeamsComponent = (props) => {
     },
     {
       id: "3",
-      match:"50th match - Delhi",
+      match: "50th match - Delhi",
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
@@ -268,7 +268,7 @@ const TeamsComponent = (props) => {
     },
     {
       id: "4",
-      match:"50th match - Delhi",
+      match: "50th match - Delhi",
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
@@ -276,7 +276,7 @@ const TeamsComponent = (props) => {
     },
     {
       id: "5",
-      match:"50th match - Delhi",
+      match: "50th match - Delhi",
       matchDate: "Sat | 14th Feb",
       match1Img: delhi,
       match2Img: king,
@@ -414,7 +414,7 @@ const TeamsComponent = (props) => {
               {web3.utils.toChecksumAddress(toAddress) == userWallet ? (
                 <Image src={deposit} alt="image" height={28} width={28} className="transaction-send-res" />
               ) : (
-                <Image src={withdraw} alt="image" height={28} width={28} className="transaction-send-res"/>
+                <Image src={withdraw} alt="image" height={28} width={28} className="transaction-send-res" />
               )}
             </h3>
 
@@ -583,8 +583,8 @@ const TeamsComponent = (props) => {
 
           <div className="team-matches-hist">
             <div className="d-flex gap-4">
-              <h2 onClick={teamClick} style={{color:teamclick ? "white" : '#5a5967'}}> Teams </h2>
-              <h2 onClick={sheduleClick} style={{color:teamclick ? "#5a5967" : ' white'}}> Shedule</h2>
+              <h2 onClick={teamClick} style={{ color: teamclick ? "white" : '#5a5967' }}> Teams </h2>
+              <h2 onClick={sheduleClick} style={{ color: teamclick ? "#5a5967" : ' white' }}> Shedule</h2>
             </div>
 
             {teamclick && (
@@ -654,8 +654,8 @@ const TeamsComponent = (props) => {
           {/* main section ---------------------------------------------------------------------------------------------------- */}
           <div className="team-matches-hist-1">
             <div className="d-flex gap-4">
-              <h2 onClick={matchClick} style={{color:historyclick ? "white" : '#5a5967'}}> Match History</h2>
-              <h2 onClick={matchPointClick} style={{color:historyclick ? "#5a5967" : 'white'}}> Points Table</h2>
+              <h2 onClick={matchClick} style={{ color: historyclick ? "white" : '#5a5967' }}> Match History</h2>
+              <h2 onClick={matchPointClick} style={{ color: historyclick ? "#5a5967" : 'white' }}> Points Table</h2>
             </div>
             {/* <div className="single-team-hist">
                             <div className="single-team-titles">

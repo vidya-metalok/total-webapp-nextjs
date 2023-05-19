@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  max-height: 90vh;
   padding: 35px;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   padding: 40px;
   overflow: auto;
+  height: 75vh;
 }
 .feedback-sub-child {
   width: 301px;

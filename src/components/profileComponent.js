@@ -100,40 +100,40 @@ const ProfileComponent = () => {
                     </div>
                     <form className='user-info-form'>
                         <h2 className='mygeneral-info'>My General information</h2>
-                        <div className='d-flex gap-4'>
-                            <div className=''>
+                        <div className='col-12 d-md-flex gap-4'>
+                            <div >
                                 <label className='label-name' htmlFor="">firstName</label>
                                 <br />
-                                <input className='profile-input' type="text" value={firstName} />
+                                <input className='profile-input form-control' type="text" value={firstName} />
                             </div>
 
-                            <div>
-                                <label className='label-name' htmlFor="">lastName</label>
+                            <div className=''>
+                                <label className='label-name' htmlFor="firstname">lastName</label>
                                 <br />
-                                <input className='profile-input' type="text" value={lastName} />
+                                <input className='profile-input form-control' id="firstname" type="text" value={lastName} />
                             </div>
                         </div>
-                        <div className='d-flex gap-4'>
+                        <div className='col-12 d-md-flex gap-4'>
                             <div>
                                 <label className='label-name' htmlFor="">Mobile</label>
                                 <br />
-                                <input className='profile-input' type="text" placeholder='7584684641' />
+                                <input className='profile-input form-control' type="text" placeholder='7584684641' />
                             </div>
                             <div>
                                 <label className='label-name' htmlFor="">Personal Email</label>
                                 <br />
-                                <input className='profile-input' type="text" value={userInfoDetails?.email} />
+                                <input className='profile-input form-control' type="text" value={userInfoDetails?.email} />
                             </div>
                         </div>
                         <div>
                             <label className='label-name' htmlFor="">Professional email</label>
                             <br />
-                            <input className='profile-input' type="text" placeholder='Kiran@vardhaman.org' />
+                            <input className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' />
                         </div>
                         <div>
                             <label className='label-name' htmlFor="">Address</label>
                             <br />
-                            <input className='profile-input6' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hydeabad' />
+                            <input className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hydeabad' />
 
                         </div>
                     </form>

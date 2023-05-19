@@ -24,12 +24,16 @@ import { Provider } from 'react-redux';
 
 import { store, persistor } from '@/components/redux/store';
 import { PersistGate } from "redux-persist/integration/react";
-
+import Head from 'next/head';
 export default function App({ Component, pageProps }) {
   console.log("store...+++++++++++.", store)
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
+        <Head>
+          <link rel="icon" href="/images/web-app-fav-icon.svg" />
+          <title>Sportsverse</title>
+        </Head>
         <Component {...pageProps} />
 
       </PersistGate>

@@ -157,6 +157,10 @@
   letter-spacing: 0.01em;
   color: #9492a0;
   opacity: 0.5;
+  margin-bottom: 0rem !important;
+}
+.todays-pl p {
+  margin-bottom: 0px !important;
 }
 .today-amount {
   font-family: "Lato";
@@ -181,6 +185,25 @@
   display: flex;
   gap: 35px;
 }
+.today-team-names-new {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.today-team-names-new p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
+
+  letter-spacing: -0.312463px;
+
+  color: #cccccc;
+  border-left: 2px solid #0bbb70;
+  padding-left: 3px;
+}
 
 .today-team-names p {
   font-family: "Poppins";
@@ -194,9 +217,19 @@
 
   color: #cccccc;
 }
+
+today-team-names-new p:nth-child(1) {
+  border-left: 2px solid #0bbb70;
+  padding-left: 3px;
+}
 .today-team-names p:nth-child(1) {
   border-left: 2px solid #0bbb70;
   padding-left: 3px;
+}
+
+.today-team-names-new p:nth-child(2) {
+  border-left: 2px solid #ec3e47;
+  padding-left: 5px;
 }
 
 .today-team-names p:nth-child(2) {

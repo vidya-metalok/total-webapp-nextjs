@@ -52,6 +52,8 @@ var frame = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-image
 var rrlogo = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rrimg-logo.png";
 
 
+
+
 // import matic from "../../public/images/matic.png";
 // import usdt from "../../public/images/usdt.png";
 // import delhiCapital from "../../public/images/delhicapital.png";
@@ -64,6 +66,7 @@ var rrlogo = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-imag
 // import kkr from "../../public/images/kkr.png";
 // import lk from "../../public/images/lk.jpg";
 // import gt from "../../public/images/gt.png";
+
 
 import trabdeArrow from "../../public/images/trade-arr.svg"
 
@@ -625,31 +628,31 @@ const WalletComponent = () => {
                         <p><span>₹</span>{totalHoldings}</p>
                         <h3>+9.2%</h3>
                     </div>
-                    <div className="wallet-card wallet t-wallet">
+                    <div className="wallet-card-new wallet t-wallet">
                         <div className="img-con">
                             <Image src={wallet} alt="" height={25} width={25} />
 
                             <p>Total Wallet balance</p>
                         </div>
-                        <p><span>$</span>{totalHoldings}</p>
+                        <h2><span>$</span>{totalHoldings}</h2>
                     </div>
-                    <div className="wallet-card wallet t-wallet">
+                    <div className="wallet-card-new wallet t-wallet">
                         <div className="img-con">
                             <Image src={wallet} alt="" height={25} width={25} />
 
                             <p> Total Matic balance</p>
                         </div>
-                        <p>20 Matic ($20)</p>
+                        <h2>20 Matic ($20)</h2>
                     </div>
                     <div className="wallet-card-2 wallet t-wallet">
                         <div>
                             <p>Wallet Address</p>
                             <h3>{walletaddress}</h3>
                         </div>
-                        <div onClick={handleCopyClick} style={{position:'relative'}} >
+                        <div onClick={handleCopyClick} style={{ position: 'relative' }} >
                             <Image style={{ transform: copyClick ? 'rotate(90deg)' : 'rotate(0deg)', cursor: 'pointer' }} src={frame} height={30} width={30} alt="frame" />
-                        <h3 className="copied-display" style={{display:copyClick ? "block" : "none"}}>wallet copied</h3>
-                       
+                            <h3 className="copied-display" style={{ display: copyClick ? "block" : "none" }}>wallet copied</h3>
+
                         </div>
                     </div>
                 </div>
@@ -778,7 +781,7 @@ const WalletComponent = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    <Image style={{ marginTop: "6px", marginLeft:'4px' }} src={trabdeArrow} alt="" height={10} width={10} />
+                                    <Image style={{ marginTop: "6px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
 
                                 </div>
 

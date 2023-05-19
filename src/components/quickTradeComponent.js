@@ -655,7 +655,7 @@ const Dashboardcenter = () => {
                         <div className="totalamt-child1-2">
                             <div className="totalamt-subparent4">
                                 <div className="todays-pl">
-                                    <p className="today-text">Today’s P&L</p>
+                                    <p className="today-text" style={{ marginBottom: "0rem" }}>Today’s P&L</p>
                                     <p className="today-amount">₹5,624.35</p>
                                     <Image src={load1} alt="" height={20} width={300} />
 
@@ -748,7 +748,7 @@ const Dashboardcenter = () => {
 
                                             {tokenOutImage && <Image src={tokenOutImage} alt="ffgdfdf" height={20} width={20} />}
 
-                                            <h1 className="token-names-select" style={{marginLeft:tokenOutImage ? "-12px" : '0px'}}>{tokenOutName}</h1>
+                                            <h1 className="token-names-select" style={{ marginLeft: tokenOutImage ? "-12px" : '0px' }}>{tokenOutName}</h1>
                                             <div
                                                 style={{
                                                     display: opt2 ? "none" : "block",
@@ -758,13 +758,13 @@ const Dashboardcenter = () => {
                                                 className="pop-select"
                                             >
                                                 {tokenDetails.map((each, index) => (
-                                                    <div onClick={() => storeTokenOut(each.tokenImg, each.tokenName, each.tokenIn)} key={index} style={{paddingLeft:"8px"}}>
+                                                    <div onClick={() => storeTokenOut(each.tokenImg, each.tokenName, each.tokenIn)} key={index} style={{ paddingLeft: "8px" }}>
                                                         <Image
                                                             src={each.tokenImg}
                                                             alt="ffgdfdf"
                                                             height={20}
                                                             width={20}
-                                                            style={{marginRight:'6px'}}
+                                                            style={{ marginRight: '6px' }}
                                                         />
                                                         {each.tokenName}
                                                     </div>

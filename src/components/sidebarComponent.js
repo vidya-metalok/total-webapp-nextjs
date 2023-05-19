@@ -6,16 +6,28 @@ import livetopimg from '../../public/images/live-topline.png'
 import livebottomimg from '../../public/images/live-bottomline.png'
 
 // https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg
-var delhiCapital = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhicapital.png";
-var chennaiSupers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/chennaiSuperkings.png";
-var rcbs = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rcb logo.png";
-var mumbaiIndia = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/mumbaiIndians.png";
-var rajasthanRoyals = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rajasthanRoyals.png";
-var punjabKings = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/punjabKings.png";
-var sunrisers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sunrisers.png";
-var kkr = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkr.png";
-var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
-var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gt.png";
+// var delhiCapital = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhicapital.png";
+// var chennaiSupers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/chennaiSuperkings.png";
+// var rcbs = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rcb logo.png";
+// var mumbaiIndia = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/mumbaiIndians.png";
+// var rajasthanRoyals = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rajasthanRoyals.png";
+// var punjabKings = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/punjabKings.png";
+// var sunrisers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sunrisers.png";
+// var kkr = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkr.png";
+// var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
+// var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gt.png";
+
+
+import delhiCapital from "../../public/images/delhi-capitals-svg.svg"
+import chennaiSupers from "../../public/images/chennai-super-kings-svg.svg"
+import rcbs from "../../public/images/live-rcb-img.svg"
+import mumbaiIndia from "../../public/images/mumbai-indians-svg.svg"
+import rajasthanRoyals from "../../public/images/rajasthan-royals-svg.svg"
+import punjabKings from "../../public/images/punjab-kings-svg.svg"
+import sunrisers from "../../public/images/live-score-sunrise.svg";
+import kkr from "../../public/images/kkr-svg.svg"
+import lk from "../../public/images/lk-svg.svg"
+import gt from "../../public/images/gt-svg.svg"
 
 // import delhiCapital from "../../public/images/delhicapital.png"
 // import chennaiSupers from "../../public/images/chennaiSuperkings.png";
@@ -33,6 +45,8 @@ import abi from "../../abis/abi.json"
 import { useSelector } from 'react-redux';
 import liveRiseImg from "../../public/images/live-score-sunrise.svg"
 import liveRcbsImg from '../../public/images/live-rcb-img.svg'
+
+
 
 
 
@@ -171,8 +185,8 @@ const Sidebar = () => {
                     <>
                         <div className='sidebar-tocken'>
                             {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
-                <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens</p>
-                <p className='my-tokens-text' onClick={alltokenClick} style={{color:mytokenclick ? "#5a5967" : ' white'}}>All Tokens</p>
+                            <p className='my-tokens-text' onClick={mytokenClick} style={{ color: mytokenclick ? "white" : '#5a5967' }}>My Tokens</p>
+                            <p className='my-tokens-text' onClick={alltokenClick} style={{ color: mytokenclick ? "#5a5967" : ' white' }}>All Tokens</p>
                         </div>
 
 
@@ -203,7 +217,7 @@ const Sidebar = () => {
 
                         {alltokenclick && (
                             <div>
-                <h3 style={{color:"white"}}>All Token</h3>
+                                <h3 style={{ color: "white" }}>All Token</h3>
 
                             </div>
                         )}

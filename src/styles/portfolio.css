@@ -69,35 +69,35 @@
   margin-left: 2rem;
 }
 .asset-hold {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.312463px;
-  color: #EA9528;
+  color: #ea9528;
   margin-left: 2rem;
 }
 .asset-total {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.312463px;
-  color: #0BBB70; 
+  color: #0bbb70;
   opacity: 0.75;
 
   margin-left: 2rem;
 }
 .asset-invest {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: -0.312463px;
-  color: #CCCCCC;
+  color: #cccccc;
   padding-left: 2%;
   /* margin-left: 2rem; */
 }
@@ -119,7 +119,6 @@
 
 .bar-one {
   margin-left: 5px;
-  
 }
 .bar-two .canva {
   width: 300px !important;
@@ -150,21 +149,21 @@
 .bar-two h3 {
   margin-top: 20px;
 }
-.line-canva{ 
+.line-canva {
   /* margin: auto; */
   padding-bottom: 5%;
 }
-.piechart{
+.piechart {
   height: 400px !important;
 }
-@media screen and (min-width: 991px) and (max-width:1025px){
-  .bar-chart-con{
+@media screen and (min-width: 991px) and (max-width: 1025px) {
+  .bar-chart-con {
     margin-top: 4%;
     height: auto;
   }
 }
-@media screen and (min-width:1030px) and (max-width:1090px){
-  .bar-chart-con{
+@media screen and (min-width: 1030px) and (max-width: 1090px) {
+  .bar-chart-con {
     margin-top: 4%;
     height: auto;
   }

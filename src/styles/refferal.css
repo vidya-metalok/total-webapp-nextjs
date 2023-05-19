@@ -3,6 +3,13 @@
   /* align-items: center; */
   flex-direction: column;
   padding: 30px;
+  height: 75vh;
+  overflow: auto;
+}
+@media (min-width: 1438px) {
+  .reff-top-con {
+    width: 80%;
+  }
 }
 .reff-main-con {
   display: flex;
@@ -15,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0px 20px 0px;
+  padding: 20px 20px 20px 0px;
 }
 .reff-details {
   display: flex;
@@ -61,8 +68,9 @@
   /* padding: 15px; */
   font-family: "Poppins";
   max-width: 1102px;
-  margin-bottom: 10px;
-  padding: 0px 30px 30px 30px;
+  /* margin-bottom: 10px; */
+  /* padding: 0px 30px 30px 30px; */
+  margin: auto;
 }
 .reff-headings {
   display: flex;

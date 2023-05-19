@@ -5,7 +5,15 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding-left: 40px;
-  padding-top: 30px;
+  padding-top: 220px;
+  overflow: auto;
+  height: 75vh;
+  padding-right: 40px;
+}
+@media (min-width: 1380px) {
+  .profile-user-section {
+    width: 70%;
+  }
 }
 
 .profile-user-child1 {
@@ -123,24 +131,24 @@
 }
 
 .profile-input {
-  width: 302.69px;
-  height: 40px;
+  /* width: 302.69px;
+  height: 40px; */
   border: 0.908979px solid #515151;
   border-radius: 7.64451px;
   background: none;
   outline: none;
-  padding-left: 10px;
+  /* padding-left: 10px; */
+  padding: 10px;
   color: white;
+  /* width: 100%; */
 }
 
 .profile-input6 {
-  width: 630px;
-  height: 40px;
   border: 0.908979px solid #515151;
   border-radius: 7.64451px;
   background: none;
   outline: none;
-  padding-left: 10px;
+  padding: 10px;
 }
 
 .terms-about-down {

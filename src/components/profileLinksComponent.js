@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Link from 'next/link'
 import Image from 'next/image';
@@ -14,6 +14,9 @@ var refferalIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webap
 import faqIcon from "../../public/images/faqs-icon.svg"
 
 const ProfileLinksComponent = () => {
+    const [changeLink, setChangeLink] = useState("profile")
+
+    const changeLinkClass = changeLink == "profile" ? "active-link-name" : "not-active-link-name"
     return (
         <div className='refferal-links-con'>
             <div>

@@ -1,3 +1,6 @@
+import { createWrapper } from 'next-redux-wrapper';
+
+
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
 import { createAsyncThunk } from "@reduxjs/toolkit";
@@ -60,10 +63,17 @@ const persistConfig = {
 }
 const persistedReducer = persistReducer(persistConfig, rootSlicer)
 
-export const store = configureStore({
-    reducer: persistedReducer,
-});
+// export const store = configureStore({
+//     reducer: persistedReducer,
+// });
+
+const makeStore = () => configureStore({ reducer: persistedReducer });
+
+
+export const store = makeStore();
+export const wrapper = createWrapper(() => store);
+
+export const persistor = persistStore(store);
 
 
 
-export const persistor = persistStore(store)
