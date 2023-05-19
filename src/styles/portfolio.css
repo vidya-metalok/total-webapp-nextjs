@@ -20,7 +20,7 @@
 }
 .token-asset-main {
   /* background-color: #232234; */
-  padding: 15px;
+  padding: 15px 40px;
   border-radius: 5px;
   border: 1px solid #232234;
 }
@@ -41,7 +41,8 @@
 .asset-name {
   display: flex;
   align-items: center;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
+  gap:20px;
 }
 .asset-name h3 {
   font-family: "Poppins";
@@ -50,7 +51,7 @@
   font-size: 16px;
   line-height: 10px;
   /* identical to box height */
-  text-align: center;
+  /* text-align: center; */
   letter-spacing: -0.312463px;
   color: #ffffff;
   margin-top: 20px;
@@ -66,7 +67,7 @@
   text-align: center;
   letter-spacing: -0.312463px;
   color: #9492a0;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
 }
 .asset-hold {
   font-family: "Lato";
@@ -98,7 +99,7 @@
   line-height: 17px;
   letter-spacing: -0.312463px;
   color: #cccccc;
-  padding-left: 2%;
+  /* padding-left: 2%; */
   /* margin-left: 2rem; */
 }
 .asset-head {
@@ -167,4 +168,16 @@
     margin-top: 4%;
     height: auto;
   }
+}
+
+
+.line-canva{
+  position: relative;
+ left: 50%;
+ transform: translateX(-50%);
+
+}
+
+.token-asset-parent{
+border-bottom:0.5px solid #393848;
 }

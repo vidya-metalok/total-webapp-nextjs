@@ -549,7 +549,7 @@ const TeamsComponent = (props) => {
           <div className="teams-holdings-con">
             <div className="team-hold-card">
               <div className="teams-hold-details">
-                <h3>TokenAddress</h3>
+                <h3>Token Address</h3>
                 <p>{walletaddress}</p>
               </div>
               <Image src={frameLogo} alt="" height={30} width={30} />

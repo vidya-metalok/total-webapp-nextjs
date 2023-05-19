@@ -213,7 +213,7 @@ const PortFolioComponent = () => {
                         data: [null, 5000, 6000, 8000, 10000, 7000, 6500, 4000],
 
                         fill: true,
-                        backgroundColor: "#D9D9D9",
+                        backgroundColor: "#403d4a",
                         borderColor: "#EA9528",
                         borderCapStyle: "butt",
                         tension: 0.1,
@@ -334,12 +334,12 @@ const PortFolioComponent = () => {
             id: "0",
             tokenImg: delhi,
             assetToken: "DSVC",
-            tokenColin: "Sportsverse coin",
+            tokenColin: "Delhi Sports Verse Coin",
             holdings: "25.12",
             totalValue: "+$5203USDT",
             invested: "25,000",
-            hour: "24H",
-            currectPrice: "+0.2%",
+            hour: "+0.2%",
+            currectPrice: "$5,203",
             profit: "+$52.03"
 
         },
@@ -347,12 +347,12 @@ const PortFolioComponent = () => {
             id: "1",
             tokenImg: royal,
             assetToken: "DSVC",
-            tokenColin: "Sportsverse coin",
+            tokenColin: "Rajasthan Sports Verse Coin",
             holdings: "25.12",
             totalValue: "+$5203USDT",
             invested: "25,000",
-            hour: "24H",
-            currectPrice: "+0.2%",
+            hour: "+0.2%",
+            currectPrice: "$5,203",
             profit: "+$52.03"
 
         },
@@ -360,12 +360,12 @@ const PortFolioComponent = () => {
             id: "2",
             tokenImg: delhi,
             assetToken: "DSVC",
-            tokenColin: "Sportsverse coin",
+            tokenColin: "Delhi Sports Verse Coin",
             holdings: "25.12",
             totalValue: "+$5203USDT",
             invested: "25,000",
-            hour: "24H",
-            currectPrice: "+0.2%",
+            hour: "+0.2%",
+            currectPrice: "$5,203",
             profit: "+$52.03"
 
         },
@@ -373,12 +373,12 @@ const PortFolioComponent = () => {
             id: "3",
             tokenImg: royal,
             assetToken: "DSVC",
-            tokenColin: "Sportsverse coin",
+            tokenColin: "Rajasthan Sports Verse Coin",
             holdings: "25.12",
             totalValue: "+$5203USDT",
             invested: "25,000",
-            hour: "24H",
-            currectPrice: "+0.2%",
+            hour: "+0.2%",
+            currectPrice: "$5,203",
             profit: "+$52.03"
 
         },
@@ -396,9 +396,9 @@ const PortFolioComponent = () => {
                     <div className="totalamt-child1-2 portfolio-coloumn">
                         <div className="totalamt-subparent4">
                             <div className="todays-pl">
-                                <p className="today-text">Today’s P&L</p>
+                                <p className="today-text">Total P&L</p>
                                 <p className="today-amount">₹5,624.35</p>
-                                <Image src={load1} alt="" height={20} width={300} />
+                                <Image src={load1} alt="" height={20} width={264} />
                                 <div className="today-team-names-new">
                                     <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
                                     <p>MSVC, PSVC</p>
@@ -407,9 +407,9 @@ const PortFolioComponent = () => {
                         </div>
                         <div className="totalamt-subparent5">
                             <div className="todays-pl">
-                                <p className="today-text">Total P&L</p>
+                                <p className="today-text">Today&apos;s P&L</p>
                                 <p className="today-amount">₹15,253.50</p>
-                                <Image src={load2} alt="" height={20} width={300} />
+                                <Image src={load2} alt="" height={20} width={264} />
                                 <div className="today-team-names-new">
                                     <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
                                     <p>MSVC, PSVC</p>
@@ -420,7 +420,7 @@ const PortFolioComponent = () => {
 
                     <div>
                         <div className='holding-con'>
-                            <div className="totalamt-subparent3" style={{ width: '214px' }}>
+                            <div className="totalamt-subparent3" style={{ width: '214px', height: "108px" }}>
                                 <div className="subparentsubchild5">
                                     <Image
                                         src={wallet}
@@ -432,11 +432,11 @@ const PortFolioComponent = () => {
                                     <p>Total sportsverse Holdings</p>
                                 </div>
                                 <div className="subparentsubchild6">
-                                    <p>{netHoldings}</p>
+                                    <p style={{ marginTop: "-12px" }}>{netHoldings}</p>
                                     <p>+9.2%</p>
                                 </div>
                             </div>
-                            <div className="totalamt-subparent3">
+                            <div className="totalamt-subparent3" style={{ height: "108px" }}>
                                 <div className="subparentsubchild5">
                                     <Image
                                         src={moneyAddedImg}
@@ -451,7 +451,7 @@ const PortFolioComponent = () => {
                                     {/* <p>+9.2%</p> */}
                                 </div>
                             </div>
-                            <div className="wallet-card">
+                            <div className="wallet-card" style={{ height: "108px" }}>
                                 <div className="img-con">
                                     <Image src={empty} alt="" height={25} width={25} />
 
@@ -587,7 +587,7 @@ const PortFolioComponent = () => {
                         <tbody>
                             {tokenAssests.map((each, index) => (
 
-                                <tr key={index}>
+                                <tr key={index} className='token-asset-parent'>
 
                                     <td >
                                         <div className='asset-name'>

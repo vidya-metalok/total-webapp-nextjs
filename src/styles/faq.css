@@ -1,0 +1,45 @@
+.faq-parent {
+  border: 1px solid #ea9528;
+  border-radius: 10px;
+  padding: 30px 50px 70px 50px;
+}
+
+.accordion-button {
+  background: #2c2a41;
+  color: white;
+  font-family: "poppins";
+  padding-left: 0px;
+}
+
+.accordion-item {
+  background-color: #2c2a41;
+  border-bottom: 1px solid #ea9528;
+}
+
+.the-basic-heading {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  color: #f8f8f8;
+}
+.accordion-body {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 150%;
+  /* identical to box height, or 26px */
+
+  color: #d1d1d1;
+}
+
+.accordion-button::after {
+  background-image: url("../../public/images/faq-arrow.svg");
+}
+
+.accordion-item:first-of-type .accordion-button,
+.accordion-flush .accordion-item .accordion-button {
+  background-color: #2c2a41;
+}

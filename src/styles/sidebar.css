@@ -1,6 +1,6 @@
 .tokens {
   width: 338px;
-  height: auto; 
+  height: auto;
   background: #232234;
   border-radius: 7px;
   padding: 30px 25px;
@@ -61,7 +61,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  line-height: 27px; 
+  line-height: 27px;
   color: #FFFFFF; 
   opacity: 0.7;
 }
@@ -105,7 +105,7 @@
 }
 .token-container {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   margin-top: 13%;
@@ -342,6 +342,7 @@ table {
 .side-live-batsmens1 {
   display: flex;
   gap: 15px;
+  justify-content: space-between;
 }
 
 .side-live-batsmens1 h1 {
@@ -453,7 +454,7 @@ table {
 }
 @media(max-height:1000px){
   .tokens2{
-  height: 42vh;
+    height: 42vh;
     overflow: auto;
     border: 1px solid #ea9528;
     background-color: #1f1c2d;
@@ -477,7 +478,7 @@ table {
 @media screen and (min-width: 991px) and (max-width:1400px){
   .live-topimg {
     width: 100%;
-  } 
+  }
   .live-bottomimg {
     width: 100%;
   }
@@ -499,6 +500,6 @@ table {
 /* new added 11-05-23 */
 @media screen and (min-width: 1025px) and (max-width:1920px){
   .side-tok-height{
-     margin-top: -6%;
+    margin-top: -6%;
   }
 }

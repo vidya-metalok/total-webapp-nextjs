@@ -283,13 +283,13 @@ const Sidebar = () => {
                     <div className='sidebar-buysell'>
                         <div className="score-team2">
                             <Image src={rcbs} alt="" height={20} width={20} />
-                            <h3 className='side-holding'>RSVC</h3>
+                            <h3 className='side-holding' style={{ marginLeft: '-30px' }}>RSVC</h3>
                             <p className="side-holding">$250</p>
                             <h4 className='lose-or-gain1'>+0.547</h4>
                         </div>
                         <div className='score-team2'>
                             <Image src={sunrisers} alt="" height={20} width={20} />
-                            <h3 className='side-holding'>HSVC</h3>
+                            <h3 className='side-holding' style={{ marginLeft: '-30px' }}>HSVC</h3>
                             <p className='side-holding'>$250</p>
                             <h4 className='lose-or-gain2'>-1.263</h4>
                         </div>
