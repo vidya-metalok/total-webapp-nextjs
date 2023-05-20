@@ -127,17 +127,44 @@ const LeagueComponent = () => {
     const [completedMatches, setCompletedMatches] = useState([]);
     const [notCompletedMatches, setNotCompletedMatches] = useState([]);
 
+    const timestamp = 1684591200;
+    const date = new Date(timestamp * 1000);
+    
+    // console.log("this is the date " , date);
+
+    // console.log("this is the date" , totalmatches.start_at);
+// const presentday = new Date();
+// console.log("present day  " , presentday)
+
+// const presentmonth = new Date().getMonth() + 1;
+const presentday = new Date().getDate();
+console.log("present day thi" , presentday)
+
+
     useState(() => {
         const inLive = [];
         const completed = [];
         const notCompleted = [];
         totalmatches.forEach(match => {
+
+        const timestamp = match.start_at;
+        const livedate = new Date(timestamp * 1000);
+        // const month = livedate.getMonth() + 1;
+        const day = livedate.getDate();
+
+
+
             if (match.status === 'completed') {
                 completed.push(match);
             }
-            else if (match.status === 'started') {
+            else if (day === presentday) {
                 inLive.push(match);
             }
+
+            // else if (match.status === 'started') {               //the ipl api data not available if available use this function
+            //     inLive.push(match);
+            // }
+
             else {
                 notCompleted.push(match);
             }
