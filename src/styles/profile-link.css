@@ -1,0 +1,52 @@
+.active-link-name {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  /* identical to box height, or 138% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  font-feature-settings: "case" on;
+
+  color: #ea9528;
+  /* margin: 5px 0px 5px 0px; */
+}
+.not-active-link-name {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  /* identical to box height, or 137% */
+
+  letter-spacing: -0.471534px;
+
+  color: #ffffff;
+
+  opacity: 0.6;
+  /* margin: 5px 0px 5px 0px; */
+}
+.logout-con a h2 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  /* margin: 0px 0px 15px 15px; */
+  margin: 0px;
+  width: 182px;
+}
+.refferal-links-con a:hover {
+  color: #ffffff;
+
+  opacity: 0.6;
+}
+.refferal-links-con a:hover:active {
+  color: #ea9528;
+}
+.logout-con a {
+  gap: 20px;
+  height: 45px;
+}

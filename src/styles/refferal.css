@@ -5,6 +5,7 @@
   padding: 30px;
   height: 75vh;
   overflow: auto;
+  width: 100%;
 }
 @media (min-width: 1438px) {
   .reff-top-con {
@@ -50,14 +51,14 @@
   flex-direction: column;
 }
 .list-out {
-  width: 654px;
+  min-width: 654px;
   /* height: 406px; */
   background: #282739;
   border-radius: 7px;
   padding: 25px;
 }
 .refferals-list {
-  margin-top: 35px;
+  margin-top: 25px;
 }
 .background-con {
   display: flex;
@@ -65,12 +66,12 @@
   /* background: #232234; */
   background: #1f1c2d;
   border-radius: 7px;
-  /* padding: 15px; */
+  /* padding: 30px; */
   font-family: "Poppins";
-  max-width: 1102px;
+  /* max-width: 1102px; */
   /* margin-bottom: 10px; */
-  /* padding: 0px 30px 30px 30px; */
-  margin: auto;
+  padding: 0px 30px 30px 30px;
+  /* margin: auto; */
 }
 .reff-headings {
   display: flex;
@@ -104,6 +105,7 @@
 
   opacity: 0.35;
   margin-bottom: 15px;
+  min-width: 35px;
 }
 .reff-copy {
   width: 243px;
@@ -154,6 +156,7 @@
 .reff-share-con {
   display: flex;
   align-items: center;
+  gap: 20px;
   justify-content: space-between;
 }
 .reff-name {
@@ -175,7 +178,7 @@
   color: #d3d2d2;
 }
 .reff-date {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -187,11 +190,12 @@
   color: #ffffff;
 
   opacity: 0.75;
+  text-align: right;
 }
 .reff-mail {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-style: normal;
-  font-weight: 500;
+  font-weight: normal;
   font-size: 10px;
   line-height: 15px;
   /* identical to box height */
@@ -199,4 +203,5 @@
   letter-spacing: -0.005em;
 
   color: #ffffff;
+  opacity: 0.4;
 }

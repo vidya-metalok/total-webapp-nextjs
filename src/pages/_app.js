@@ -17,6 +17,7 @@ import "../styles/community.css"
 import "../styles/refferal.css"
 import '../styles/profile.css'
 import '../styles/faq.css'
+import "../styles/profile-link.css"
 
 
 

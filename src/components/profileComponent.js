@@ -101,25 +101,25 @@ const ProfileComponent = () => {
                     <form className='user-info-form'>
                         <h2 className='mygeneral-info'>My General information</h2>
                         <div className='col-12 d-md-flex gap-4'>
-                            <div >
+                            <div className='w-100'>
                                 <label className='label-name' htmlFor="">firstName</label>
                                 <br />
                                 <input className='profile-input form-control' type="text" value={firstName} />
                             </div>
 
-                            <div className=''>
+                            <div className='w-100'>
                                 <label className='label-name' htmlFor="firstname">lastName</label>
                                 <br />
                                 <input className='profile-input form-control' id="firstname" type="text" value={lastName} />
                             </div>
                         </div>
                         <div className='col-12 d-md-flex gap-4'>
-                            <div>
+                            <div className='w-100'>
                                 <label className='label-name' htmlFor="">Mobile</label>
                                 <br />
                                 <input className='profile-input form-control' type="text" placeholder='7584684641' />
                             </div>
-                            <div>
+                            <div className='w-100'>
                                 <label className='label-name' htmlFor="">Personal Email</label>
                                 <br />
                                 <input className='profile-input form-control' type="text" value={userInfoDetails?.email} />

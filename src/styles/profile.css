@@ -9,10 +9,11 @@
   overflow: auto;
   height: 75vh;
   padding-right: 40px;
+  width: 100%;
 }
 @media (min-width: 1380px) {
   .profile-user-section {
-    width: 70%;
+    width: 100%;
   }
 }
 
@@ -113,6 +114,7 @@
   font-feature-settings: "case" on;
 
   color: #e7e7e7;
+  margin-top: 40px;
 }
 
 .label-name {

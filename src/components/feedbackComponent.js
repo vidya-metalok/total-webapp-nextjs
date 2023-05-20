@@ -19,7 +19,7 @@ const FeedbackComponent = () => {
                         <Image src={phoneIcon} alt="" height={"auto"} width={"auto"} />
                         <div className='feedback-content'>
                             <h2>Request a call back</h2>
-                            <p>Leave your number and we&aposll call you back.</p>
+                            <p>Leave your number and we&apos;ll call you back.</p>
                         </div>
 
                     </div>
@@ -27,7 +27,7 @@ const FeedbackComponent = () => {
                         <Image src={ticketIcon} alt="" height={"auto"} width={"auto"} />
                         <div className='feedback-content'>
                             <h2>Raise a ticket</h2>
-                            <p>Have any complaint? Just raise a ticket and we’ll help you</p>
+                            <p>Have any complaint? Just raise a ticket and we&apos;ll help you</p>
                         </div>
 
                     </div>

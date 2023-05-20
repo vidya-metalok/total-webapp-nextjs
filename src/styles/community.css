@@ -2,7 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   padding: 30px;
-  width: 470px;
+  min-width: 600px;
+  align-items: center;
+  justify-content: center;
 }
 .community-main {
   display: flex;
