@@ -46,6 +46,7 @@ export const BarComponent = () => {
                     backgroundColor: '#0BBB70',
                 }
             ]
+
         })
         setChartOptions({
             scales: {
