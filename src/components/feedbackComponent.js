@@ -19,7 +19,7 @@ const FeedbackComponent = () => {
                         <Image src={phoneIcon} alt="" height={"auto"} width={"auto"} />
                         <div className='feedback-content'>
                             <h2>Request a call back</h2>
-                            <p>Leave your number and we'll call you back.</p>
+                            <p>Leave your number and we&apos;ll call you back.</p>
                         </div>
 
                     </div>
