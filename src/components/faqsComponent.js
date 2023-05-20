@@ -9,8 +9,8 @@ const FaqsComponent = () => {
                 <ProfileLinksComponent />
 
                 <div className="container py-0 py-md-5">
-                    <div className="row px-2">
-                        <div className="col-lg-12 col--10 m-auto according-faq faq-parent">
+                    <div className="row px-2 m-xl-5 mx-0">
+                        <div className="col-lg-12 m-auto according-faq faq-parent">
                             <h3 className="the-basic-heading text-center py-3">FAQ&apos;s</h3>
                             <p className="the-basic-border-down"></p>
                             <Accordion eventKey="0" flush>

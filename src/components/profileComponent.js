@@ -133,7 +133,7 @@ const ProfileComponent = () => {
                         <div>
                             <label className='label-name' htmlFor="">Address</label>
                             <br />
-                            <input className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hydeabad' />
+                            <input className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' />
 
                         </div>
                     </form>

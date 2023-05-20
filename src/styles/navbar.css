@@ -154,7 +154,7 @@ nav {
 
   background: #2c2a41;
   min-height: 100vh;
-  min-width: 96vw;
+  width: 96vw;
   /* border: 1px solid rgba(255, 255, 255, 0.1); */
   border-radius: 6px;
   /* right: 35px; */
@@ -213,6 +213,7 @@ nav {
   display: flex;
   align-items: center;
   margin-right: auto;
+  width: 202px;
 }
 
 .logout-con h3:nth-child(3) {
