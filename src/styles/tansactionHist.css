@@ -175,13 +175,14 @@ font-size: 12px ;
 }
 .trans-settings {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   position: relative;
 }
 .trans-settings :nth-last-child(1) {
-  margin-left: 10px;
+  margin-left: 3px;
+  margin-bottom: 2px;
 }
 .trans-setting-con p {
   color: #ea9528;
@@ -193,7 +194,8 @@ font-size: 12px ;
   position: absolute;
   color: #ea9528;
   top: 30px;
-  left: 96%;
+  left: 92%;
+  z-index: 10;
 }
 
 
@@ -201,7 +203,7 @@ font-size: 12px ;
   position:sticky;
   top:-4px;
   background-color: #232234;
-  height: 30px;
+  height: 40px;
 }
 
 .table-responsive::-webkit-scrollbar {

@@ -242,7 +242,7 @@ const LoginComponent = () => {
         //     </div> 
         <div className="login-bg-con">
             <div
-                className="d-flex align-items-center justify-content-space-between"
+                className="d-flex align-items-center justify-content-center"
                 style={{ width: "50vw" }}
             >
                 <div className="login-subpart-one">
@@ -252,13 +252,13 @@ const LoginComponent = () => {
                     </div>
 
                     <div className="logo-bars-con">
-                        <Image src={googleLogo.src} alt="" height={50} width={220} className="logo-bar" />
-                        <Image src={facebookLogo.src} alt="" height={50} width={220} />
+                        <Image src={googleLogo.src} alt="" height={50} width={250} className="logo-bar" />
+                        <Image src={facebookLogo.src} alt="" height={50} width={250} />
                     </div>
                     <h3>-OR-</h3>
                     <div className="login-input-main">
 
-
+                    
                         <input type="text" className="login-input-con" placeholder="Full Name" />
                         <input type="text" className="login-input-con" placeholder="Email Address" />
                         <div className="login-visible-con">

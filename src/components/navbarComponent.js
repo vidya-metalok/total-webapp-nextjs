@@ -65,182 +65,173 @@ const NavBarComponent = () => {
     const [pubKey, setpubKey] = useState("");
     const [userInfo, setUserInfo] = useState(null);
 
-    // const [showlogout, setShowlogout] = useState(false);
-    // const [openLogout, setopenLogout] = useState(false)
+    const [showlogout, setShowlogout] = useState(false);
+    const [openLogout, setopenLogout] = useState(false)
     // const logoutCls = () => {
     //     setopenLogout(false)
     //     console.log("clicked")
     // }
 
-    // const logoutCls = () => {
-    //     setopenLogout(false)
-    //     console.log("clicked")
-    // }
-
-    // const login = async () => {
-    //     if (!web3auth) {
-    //         return;
-    //     }
-    //     const web3authProvider = await web3auth.connect();
-    //     setProvider(web3authProvider);
-
-    // };
+    const logoutCls = () => {
+        setopenLogout(false)
+        console.log("clicked")
+    }
 
 
-    // async function loginServer(idToken, pubKey) {
-    //     const response = await fetch(`https://backend.sportsverse.cricket/users/login`, {
-    //         method: 'POST',
-    //         headers: new Headers({
-    //             'Content-Type': 'application/json',
-    //             Authorization: "Bearer " + idToken,
-    //         }),
-    //         body: JSON.stringify({ "publicKey": pubKey })
-    //     })
-    //     return await response.json();
+    const login = async () => {
+        if (!web3auth) {
+            return;
+        }
+        const web3authProvider = await web3auth.connect();
+        setProvider(web3authProvider);
+    };
 
-    // async function loginServer(idToken, pubKey) {
-    //     const response = await fetch(`https://backend.sportsverse.cricket/users/login`, {
-    //         method: 'POST',
-    //         headers: new Headers({
-    //             'Content-Type': 'application/json',
-    //             Authorization: "Bearer " + idToken,
-    //         }),
-    //         body: JSON.stringify({ "publicKey": pubKey })
-    //     })
-    //     return await response.json();
-
-    // }
-    // useEffect(() => {
-    //     loginServer(idToken, pubKey)
-    // }, [idToken, pubKey])
-
+    async function loginServer(idToken, pubKey) {
+        const response = await fetch(
+            `https://backend.sportsverse.cricket/users/login`,
+            {
+                method: "POST",
+                headers: new Headers({
+                    "Content-Type": "application/json",
+                    Authorization: "Bearer " + idToken,
+                }),
+                body: JSON.stringify({ publicKey: pubKey }),
+            }
+        );
+        return await response.json();
+    }
+    useEffect(() => {
+        loginServer(idToken, pubKey);
+    }, [idToken, pubKey]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // const getId = useCallback(async () => {
-    //     if (!web3auth) {
-    //         return;
-    //     }
-    //     const id = await web3auth.authenticateUser();
-    //     setidToken(id.idToken);
-
-    // });
+    const getId = useCallback(async () => {
+        if (!web3auth) {
+            return;
+        }
+        const id = await web3auth.authenticateUser();
+        setidToken(id.idToken);
+    });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // const afterLogin = async () => {
-    //     const res = await loginServer(idToken, pubKey);
-    //     setUserInfo(res.user);
-    //     dispatch(loginUser(res.user))
-    //     setShowlogout(true);
-    //     return true;
-    // };
+    const afterLogin = async () => {
+        const res = await loginServer(idToken, pubKey);
+        setUserInfo(res.user);
+        dispatch(loginUser(res.user));
+        setShowlogout(true);
+        router.push("/dashboardpage");
+        return true;
+    };
 
-    // const senData = async () => {
-    //     const apiURl = "https://backend.sportsverse.cricket/users/login/"
-    //     const object = {
-    //         publicKey: pubKey,
-    //         userName: userInfo.users
-    //     }
+    // const senData = async () =>{
+    //   const apiURl = "https://backend.sportsverse.cricket/users/login/"
+    //   const object ={
+    //     publicKey:pubKey,
+    //     userName:userInfo.user
+    //   }
     // }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // const getPrivateKey = useCallback(async () => {
-    //     if (!provider) {
-    //         console.log("provider not initialized yet")
-    //             ;
-    //         return;
-    //     }
-    //     const rpc = new RPC(provider);
-    //     const privateKey = await rpc.getPrivateKey();
-    //     dispatch(storePrivateKey(privateKey))
+    const getPrivateKey = useCallback(async () => {
+        if (!provider) {
+            console.log("provider not initialized yet");
+            return;
+        }
+        const rpc = new RPC(provider);
+        const privateKey = await rpc.getPrivateKey();
 
-    //     return privateKey;
-    // });
+        dispatch(storePrivateKey(privateKey));
+
+        return privateKey;
+    });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // const getPubKey = useCallback(async () => {
-    //     if (!web3auth) {
-    //         console.log("web3auth not initialized yet");
-    //         return;
-    //     }
-    //     const app_scoped_privkey = await getPrivateKey();
-    //     const app_pub_key = getPublic(
-    //         Buffer.from(app_scoped_privkey.padStart(64, "0"), "hex")
-    //     ).toString("hex");
-    //     setpubKey(app_pub_key);
-    // });
+    const getPubKey = useCallback(async () => {
+        if (!web3auth) {
+            console.log("web3auth not initialized yet");
+            return;
+        }
+        const app_scoped_privkey = await getPrivateKey();
+        const app_pub_key = getPublic(
+            Buffer.from(app_scoped_privkey.padStart(64, "0"), "hex")
+        ).toString("hex");
+        setpubKey(app_pub_key);
+    });
 
-    // const logout = async () => {
-    //     if (!web3auth) {
-    //         console.log("web3auth not initialized yet");
-    //         return;
-    //     }
-    //     await web3auth.logout();
-    //     dispatch(loginUser(null))
-    //     router.push("/loginpage")
-    //     setProvider(null);
-    //     setUserInfo(null);
-    //     setShowlogout(false);
-    // };
+    const logout = async () => {
+        if (!web3auth) {
+            console.log("web3auth not initialized yet");
+            return;
+        }
+        await web3auth.logout();
+        setProvider(null);
+        setUserInfo(null);
+        setShowlogout(false);
+    };
 
-    // useEffect(() => {
-    //     const init2 = async () => {
-    //         await getId();
-    //         await getPubKey();
-    //         await getPrivateKey()
-    //     };
-    //     if (provider) init2();
-    // }, [getId, getPrivateKey, getPubKey, provider]);
+    useEffect(() => {
+        const init2 = async () => {
+            await getId();
+            await getPubKey();
+            await getPrivateKey();
+        };
+        if (provider) init2();
+    }, [getId, getPrivateKey, getPubKey, provider]);
 
-    // useEffect(() => {
-    //     const init2 = async () => {
-    //         await getId();
-    //         await getPubKey();
-    //     };
-    //     if (provider) init2();
-    // }, [getId, getPubKey, provider]);
+    useEffect(() => {
+        const init2 = async () => {
+            await getId();
+            await getPubKey();
+        };
+        if (provider) init2();
+    }, [getId, getPubKey, provider]);
 
-    // useEffect(() => {
-    //     const init3 = async () => {
-    //         await afterLogin();
-    //     };
-    //     if (idToken && pubKey) {
-    //         init3();
-    //     }
-    // }, [afterLogin, idToken, pubKey]);
+    useEffect(() => {
+        const init3 = async () => {
+            await afterLogin();
+        };
+        if (idToken && pubKey) {
+            init3();
+        }
+    }, [afterLogin, idToken, pubKey]);
 
-    // useEffect(() => {
-    //     const init = async () => {
-    //         try {
-    //             const web3auth = new Web3Auth({
-    //                 clientId: clientId,
-    //                 chainConfig: {
-    //                     chainNamespace: "eip155",
-    //                     chainId: "0x89", // hex of 80001, polygon testnet
-    //                     rpcTarget:
-    //                         "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
-    //                 },
-    //                 authMode: "WALLET",
-    //                 uiConfig: {
-    //                     theme: "dark",
-    //                     loginMethodsOrder: ["facebook", "google"],
-    //                     appLogo:
-    //                         "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
-    //                 },
-    //                 defaultLanguage: "en",
-    //             });
+    useEffect(() => {
+        const init = async () => {
+            try {
+                const web3auth = new Web3Auth({
+                    clientId: clientId,
+                    chainConfig: {
+                        chainNamespace: "eip155",
+                        chainId: "0x89", // hex of 80001, polygon testnet
+                        rpcTarget:
+                            "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
+                    },
+                    authMode: "WALLET",
+                    uiConfig: {
+                        theme: "dark",
+                        loginMethodsOrder: ["facebook", "google"],
+                        appLogo:
+                            "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
+                    },
+                    defaultLanguage: "en",
+                });
 
-    //             setWeb3auth(web3auth);
+                setWeb3auth(web3auth);
 
-    //             await web3auth.initModal();
-    //             if (web3auth.provider) {
-    //                 setProvider(web3auth.provider);
-    //             }
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-    //     init();
-    // }, []);
+                await web3auth.initModal();
+                if (web3auth.provider) {
+                    setProvider(web3auth.provider);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        init();
+    }, []);
+
+    useEffect(() => {
+        console.log(web3auth);
+    }, [web3auth]);
 
 
     return (
@@ -313,7 +304,7 @@ const NavBarComponent = () => {
                     <div className='icon-container'>
                         <Image src={helpLineIcon} alt="" height={30} width={30} />
                         <Image src={notificationIcon} alt="" height={27} width={36} />
-                        <Image src={profileIcon} alt="" height={35} width={35} onClick={() => router.push("/profilepage")} />
+                        <Image src={profileIcon} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
 
 
                     </div>
@@ -324,12 +315,13 @@ const NavBarComponent = () => {
 
 
 
+
             </nav>
-            {/* <div className="logout-main-con-new" style={{ display: openLogout ? "block" : "none" }} >
+            <div className="logout-main-con-new" style={{ display: openLogout ? "block" : "none" }} >
 
                 <div>
                     <div className="logout-con">
-                        <Link href="/profile">
+                        <Link href="/profilepage">
                             <Image src={personIcon} alt="" height={20} width={20} />
 
                             <p>Profile</p>
@@ -360,11 +352,11 @@ const NavBarComponent = () => {
                         <h3 onClick={logout}>Logout</h3>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
 
 
-            {/* <div className='logout-nav' style={{ display: openLogout ? "block" : "none", }} onClick={logoutCls}></div> */}
+            <div className='logout-nav' style={{ display: openLogout ? "block" : "none", }} onClick={logoutCls}></div>
 
 
             {depositeOpen && (

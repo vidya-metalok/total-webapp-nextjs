@@ -51,7 +51,7 @@
   align-items: center;
   text-align: center;
   /* justify-content: space-around; */
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .ipl-active {
@@ -70,6 +70,7 @@
 .league-tags-container p {
   margin-right: 1.5rem;
   text-align: center;
+  cursor: pointer;
 }
 .drop-down-container {
   display: flex;
@@ -107,4 +108,24 @@
   height: 231px;
   font-family: "Poppins";
   margin-right: 10px;
+}
+.teams-holding-val {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  color: #ec3e47;
+}
+.total-holding-val {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  color: #0bbb70;
 }

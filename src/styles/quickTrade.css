@@ -53,7 +53,7 @@
 }
 
 .totalamt-child2 {
-  width: 356px;
+  width: 400px;
   height: 284px;
   background: #232234;
   border-radius: 7px;
@@ -478,6 +478,7 @@ today-team-names-new p:nth-child(1) {
   letter-spacing: -0.312463px;
   color: #cccccc !important;
   margin-left: -5%;
+  margin-bottom: 12px;
 }
 
 .token-names-select {

@@ -613,7 +613,7 @@ const Dashboardcenter = () => {
                                     </div>
                                     <div className="subparentsubchild2">
                                         <p>₹{totalHoldings}</p>
-                                        <p>+9.2%</p>
+                                        <p className="totalhold-percent">+9.2%</p>
                                     </div>
                                 </div>
                             </div>

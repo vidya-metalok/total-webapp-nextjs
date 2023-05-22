@@ -562,7 +562,7 @@ const PortFolioComponent = () => {
                             </div>
                         )}
                         <div style={{ width: '350px', height: '350px', padding: "20px" }} >
-                            <canvas className='cnava ' id="myChart" ref={pieChartRef} />
+                            <canvas className='cnavass pie-canva' id="myChart" ref={pieChartRef} />
                         </div>
                     </div>
                 </div>

@@ -173,6 +173,9 @@ nav {
   z-index: 50;
   top: 38px;
   padding-left: 25px;
+  width: 227px;
+  height: 354px;
+  position: absolute;
 }
 .logout-con {
   cursor: pointer;
@@ -251,4 +254,6 @@ nav {
   top: 0px;
   left: 0px;
   z-index: 5;
+  height: 100vh;
+  width: 100vw;
 }
