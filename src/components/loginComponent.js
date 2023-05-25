@@ -141,18 +141,18 @@ const LoginComponent = () => {
             Buffer.from(app_scoped_privkey.padStart(64, "0"), "hex")
         ).toString("hex");
         setpubKey(app_pub_key);
-    });
+    })
 
-    const logout = async () => {
-        if (!web3auth) {
-            console.log("web3auth not initialized yet");
-            return;
-        }
-        await web3auth.logout();
-        setProvider(null);
-        setUserInfo(null);
-        setShowlogout(false);
-    };
+    // const logout = async () => {
+    //     if (!web3auth) {
+    //         console.log("web3auth not initialized yet");
+    //         return;
+    //     }
+    //     await web3auth.logout();
+    //     setProvider(null);
+    //     setUserInfo(null);
+    //     setShowlogout(false);
+    // };
 
     useEffect(() => {
         const init2 = async () => {
@@ -356,7 +356,7 @@ const LoginComponent = () => {
 
 
                         <button className="login-btn" onClick={login}>
-                            Create account
+                            Sign up
                         </button>
                         <div className="account-con">
                             <p className="already-txt">Already have an account? </p>

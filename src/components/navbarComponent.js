@@ -91,6 +91,15 @@ const NavBarComponent = () => {
     }
 
 
+    // const senData = async () => {
+    //     const apiURl = "https://backend.sportsverse.cricket/users/login/"
+    //     const object = {
+    //         publicKey: pubKey,
+    //         userName: userInfo.user
+    //     }
+    // }
+
+
     const login = async () => {
         if (!web3auth) {
             return;
@@ -132,7 +141,7 @@ const NavBarComponent = () => {
         setUserInfo(res.user);
         dispatch(loginUser(res.user));
         setShowlogout(true);
-        router.push("/dashboardpage");
+        // router.push("/dashboardpage");
         return true;
     };
 
@@ -171,16 +180,7 @@ const NavBarComponent = () => {
         setpubKey(app_pub_key);
     });
 
-    const logout = async () => {
-        if (!web3auth) {
-            console.log("web3auth not initialized yet");
-            return;
-        }
-        await web3auth.logout();
-        setProvider(null);
-        setUserInfo(null);
-        setShowlogout(false);
-    };
+
 
     useEffect(() => {
         const init2 = async () => {
@@ -242,10 +242,23 @@ const NavBarComponent = () => {
         init();
     }, []);
 
-    useEffect(() => {
-        console.log(web3auth);
-    }, [web3auth]);
+    console.log("web3auth", web3auth)
+    // console.log("web3auth-.....", web3auth.logout())
 
+
+    const logout = () => {
+        // if (!web3auth) {
+        //     console.log("web3auth not initialized yet");
+        //     return;
+        // }
+
+        // setProvider(null);
+        // setUserInfo(null);
+        // setShowlogout(false);
+        // await web3auth.logout();
+        router.push("/loginpage")
+
+    };
 
     return (
         <>

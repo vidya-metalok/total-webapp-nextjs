@@ -73,7 +73,7 @@ const Sidebar = () => {
     const tokenNames = ["BSVC", "CSVC", "DSVC", "GSVC", "HSVC", "KSVC", "LSVC", "MSVC", "PSVC", "RSVC"]
     const tokenKeys = ["rcb", "csk", "dc", "gt", "srh", "kkr", "lsg", "mi", "pbks", "rr"]
     const teamNames = ["Royal Challengers Bangalore", "ChennaiSuper Kings", "Delhi Capital", "Gujarath Titans", "Sunrisers Hyderabad", "Kolkatha Knight Riders", "Lucknow Super Giants", "Mumbai Indians", "Punjab Kings", "Rajasthan Royals"]
-    const teamShortNames = ["BSVC(Royal Challengers Bangalore)", "CSVC(Chennai Super Kings)", "DSVC(DelhiCapitals)", "GSVC(Gujarath Titans)", "HSVC(Sunrisers Hyderabad)", "KSVC(Kolkatha Knight Riders)", "LSVC(Lucknow Super Giants)", "MSVC(Mumbai Indians)", "PSVC(Punjab Kings)", "RSVC(Rajasthan Royals)"]
+    const teamShortNames = ["BSVC(Bangalore Sports Verse Coin)", "CSVC(Chennai Sports Verse Coin)", "DSVC(Delhi Sports Verse Coin)", "GSVC(Gujarath Sports Verse Coin)", "HSVC(Hyderabad Sports Verse Coin)", "KSVC(Kolkatha Sports Verse Coin)", "LSVC(Lucknow Sports Verse Coin)", "MSVC(Mumbai Sports Verse Coin)", "PSVC(Punjab Sports Verse Coin)", "RSVC(Rajasthan Sports Verse Coin)"]
 
 
     const newTokenList = pricesList.map((each, index) => {
@@ -186,7 +186,7 @@ const Sidebar = () => {
                         <div className='sidebar-tocken'>
                             {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
                             <p className='my-tokens-text' onClick={mytokenClick} style={{ color: mytokenclick ? "white" : '#5a5967' }}>My Tokens</p>
-                            <p className='my-tokens-text' onClick={alltokenClick} style={{ color: mytokenclick ? "#5a5967" : ' white' }}>All Tokens</p>
+                            <p className='all-tokens-text' onClick={alltokenClick} style={{ color: mytokenclick ? "#5a5967" : ' white' }}>All Tokens</p>
                         </div>
 
 

@@ -314,6 +314,7 @@ today-team-names-new p:nth-child(1) {
 
 .quick-trade-subchild {
   display: flex;
+  align-items: center;
 }
 
 .drop-img {

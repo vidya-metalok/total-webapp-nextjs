@@ -751,7 +751,7 @@ const Dashboardcenter = () => {
 
                                         </div>
 
-                                        <Image style={{ marginTop: "6px" }} src={trabdeArrow} alt="" height={9} width={18} />
+                                        <Image style={{ marginTop: "0px" }} src={trabdeArrow} alt="" height={9} width={18} />
                                     </div>
                                 </div>
                                 <div className="quick-trade-suchild2">
@@ -808,7 +808,7 @@ const Dashboardcenter = () => {
 
 
                                             </div>
-                                            <Image style={{ marginTop: "6px" }} src={trabdeArrow} alt="" height={9} width={18} />
+                                            <Image style={{ marginTop: "0px" }} src={trabdeArrow} alt="" height={9} width={18} />
                                         </div>
                                     </div>
                                     <div className="quick-trade-suchild2">

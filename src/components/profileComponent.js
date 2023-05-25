@@ -35,60 +35,64 @@ const ProfileComponent = () => {
     // const [pubKey, setpubKey] = useState("");
     // const [userInfo, setUserInfo] = useState(null);
 
-    const clientId =
-        "BK_TX48ntUieviViLOy8xwUhCirzTQI3uL7NwHsKkZk_-R7Zzpoxc2WNJDauT3OMRpolI7wlNRHUgT8SD0hjNDE";
-    const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
-    console.log("fitsr, lastnames...", firstName, lastName)
+    // const clientId =
+    //     "BK_TX48ntUieviViLOy8xwUhCirzTQI3uL7NwHsKkZk_-R7Zzpoxc2WNJDauT3OMRpolI7wlNRHUgT8SD0hjNDE";
+    // const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
+    // console.log("fitsr, lastnames...", firstName, lastName)
 
-    useEffect(() => {
-        const init = async () => {
-            try {
-                const web3auth = new Web3Auth({
-                    clientId: clientId,
-                    chainConfig: {
-                        chainNamespace: "eip155",
-                        chainId: "0x89", // hex of 80001, polygon testnet
-                        rpcTarget:
-                            "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
-                    },
-                    authMode: "WALLET",
-                    uiConfig: {
-                        theme: "dark",
-                        loginMethodsOrder: ["facebook", "google"],
-                        appLogo:
-                            "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
-                    },
-                    defaultLanguage: "en",
-                });
+    // useEffect(() => {
+    //     const init = async () => {
+    //         try {
+    //             const web3auth = new Web3Auth({
+    //                 clientId: clientId,
+    //                 chainConfig: {
+    //                     chainNamespace: "eip155",
+    //                     chainId: "0x89", // hex of 80001, polygon testnet
+    //                     rpcTarget:
+    //                         "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
+    //                 },
+    //                 authMode: "WALLET",
+    //                 uiConfig: {
+    //                     theme: "dark",
+    //                     loginMethodsOrder: ["facebook", "google"],
+    //                     appLogo:
+    //                         "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
+    //                 },
+    //                 defaultLanguage: "en",
+    //             });
 
-                setWeb3auth(web3auth);
+    //             setWeb3auth(web3auth);
 
-                await web3auth.initModal();
-                if (web3auth.provider) {
-                    setProvider(web3auth.provider);
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        init();
-    }, []);
+    //             await web3auth.initModal();
+    //             if (web3auth.provider) {
+    //                 setProvider(web3auth.provider);
+    //             }
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     };
+    //     init();
+    // }, []);
 
 
-    const logout = useCallback(async () => {
-        console.log("logout calling....")
-        if (!web3auth) {
-            console.log("web3auth not initialized yet");
-            return;
-        }
-        await web3auth.logout();
-        dispatch(loginUser(null))
+    // const logout = useCallback(async () => {
+    //     console.log("logout calling....")
+    //     if (!web3auth) {
+    //         console.log("web3auth not initialized yet");
+    //         return;
+    //     }
+    //     await web3auth.logout();
+    //     dispatch(loginUser(null))
+    //     router.push("/loginpage")
+    //     setProvider(null);
+
+
+
+    // }, [dispatch, web3auth, router]);
+
+    const profileLogout = () => {
         router.push("/loginpage")
-        setProvider(null);
-
-
-
-    }, [dispatch, web3auth, router]);
+    }
 
     const onClickEditBtn = () => {
         setfirstName(firstName)
@@ -153,7 +157,7 @@ const ProfileComponent = () => {
                         </div>
                     </form>
                     <div className='text-end'>
-                        <button className='logout-btn' onClick={logout}>Logout</button>
+                        <button className='logout-btn' onClick={profileLogout}>Logout</button>
                     </div>
 
 

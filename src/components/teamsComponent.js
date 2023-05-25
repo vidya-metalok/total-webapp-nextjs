@@ -112,6 +112,7 @@ import ReverseChart from "./reverseChart";
 import { useSelector } from "react-redux";
 const TeamsComponent = (props) => {
   const [openDropDown, setOpenDropDown] = useState(false)
+  const [copyClick, setcopyclick] = useState(false)
   const userLogin = useSelector((store) => store?.user?.loginInfo)
   let str = userLogin?.walletAddress;
   console.log("str...", str, userLogin)
@@ -166,7 +167,7 @@ const TeamsComponent = (props) => {
       teamImg: dhoniImg,
       teamsName: "MS DHONI",
       teamRole: "Batsman",
-      teamBest: "Best: 100*",
+      teamBest: "Best : 100*",
       teamsSr: "150",
     },
 
@@ -175,7 +176,7 @@ const TeamsComponent = (props) => {
       teamImg: dhoniImg,
       teamsName: "MS DHONI",
       teamRole: "Batsman",
-      teamBest: "Best: 100*",
+      teamBest: "Best : 100*",
       teamsSr: "150",
     },
     {
@@ -183,7 +184,7 @@ const TeamsComponent = (props) => {
       teamImg: dhoniImg,
       teamsName: "MS DHONI",
       teamRole: "Batsman",
-      teamBest: "Best: 100*",
+      teamBest: "Best : 100*",
       teamsSr: "150",
     },
     {
@@ -191,7 +192,7 @@ const TeamsComponent = (props) => {
       teamImg: dhoniImg,
       teamsName: "MS DHONI",
       teamRole: "Batsman",
-      teamBest: "Best: 100*",
+      teamBest: "Best : 100*",
       teamsSr: "150",
     },
     {
@@ -246,7 +247,7 @@ const TeamsComponent = (props) => {
     {
       id: "1",
       match: "50th match - Delhi",
-      matchDate: "Sat | 14th Feb",
+      // matchDate: "Sat | 14 Feb",
       match1Img: delhi,
       match2Img: king,
       matchTime: "7:35 PM",
@@ -255,7 +256,7 @@ const TeamsComponent = (props) => {
     {
       id: "2",
       match: "50th match - Delhi",
-      matchDate: "Sat | 14th Feb",
+      // matchDate: "Sat | 14 Feb",
       match1Img: delhi,
       match2Img: king,
       matchTime: " 7:35 PM",
@@ -263,7 +264,7 @@ const TeamsComponent = (props) => {
     {
       id: "3",
       match: "50th match - Delhi",
-      matchDate: "Sat | 14th Feb",
+      // matchDate: "Sat | 14 Feb",
       match1Img: delhi,
       match2Img: king,
       matchTime: "7:35 PM",
@@ -271,7 +272,7 @@ const TeamsComponent = (props) => {
     {
       id: "4",
       match: "50th match - Delhi",
-      matchDate: "Sat | 14th Feb",
+      // matchDate: "Sat | 14 Feb",
       match1Img: delhi,
       match2Img: king,
       matchTime: "7:35 PM",
@@ -279,7 +280,7 @@ const TeamsComponent = (props) => {
     {
       id: "5",
       match: "50th match - Delhi",
-      matchDate: "Sat | 14th Feb",
+      // matchDate: "Sat | 14 Feb",
       match1Img: delhi,
       match2Img: king,
       matchTime: "7:35 PM",
@@ -518,6 +519,14 @@ const TeamsComponent = (props) => {
   const teamPlTabClass = tockenclick ? "team-hist-active" : "team-hist-not-active"
 
 
+  const handleCopyClick = () => {
+    navigator.clipboard.writeText(userWallet);
+    console.log("wallet address", userWallet)
+    setcopyclick(true)
+  };
+
+
+
 
 
   return (
@@ -549,12 +558,16 @@ const TeamsComponent = (props) => {
             </div>
           </div>
           <div className="teams-holdings-con">
-            <div className="team-hold-card">
+            <div className="team-holding-value" style={{ width: "auto", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
               <div className="teams-hold-details">
                 <h3>Token Address</h3>
                 <p>{walletaddress}</p>
               </div>
-              <Image src={frameLogo} alt="" height={30} width={30} />
+              <div onClick={handleCopyClick} style={{ position: 'relative' }} >
+                <Image style={{ transform: copyClick ? 'rotate(90deg)' : 'rotate(0deg)', cursor: 'pointer' }} src={frameLogo} height={30} width={30} alt="frame" />
+                <h3 className="copied-display" style={{ display: copyClick ? "block" : "none" }}>wallet copied</h3>
+
+              </div>
             </div>
 
             <div className="team-holding-value">
@@ -626,7 +639,7 @@ const TeamsComponent = (props) => {
 
                           <tr>
                             <th>
-                              <p className="d-time">{each.matchDate}</p>
+                              <p className="d-time">{"Sat " + " | " + 14 + 'ᵗʰ' + " Feb"}</p>
                               <p className="d-time"> {each.matchTime}</p>
                             </th>
                             <th>
@@ -801,7 +814,7 @@ const TeamsComponent = (props) => {
           <div className="transaction-main">
             <div className="t-history table-responsive">
               <table>
-                <tr>
+                <tr className="transaction-header-sticky ">
                   <th>Transaction Type</th>
 
                   <th>Tokens</th>

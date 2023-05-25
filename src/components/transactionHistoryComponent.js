@@ -378,7 +378,7 @@ const TransactionHistoryComponent = (props) => {
 
                 <div className="transaction-tabs-div">
                     <div onClick={matchClick} style={{ position: 'relative' }}>
-                        <h3 className={`${histTabClass}`}>Transaction History</h3>
+                        <h3 className={`${histTabClass}`} style={{ marginLeft: "30px" }}>Transaction History</h3>
 
                     </div>
                     {componentName == "wallet" && (

@@ -724,7 +724,7 @@ const WalletComponent = () => {
                                                     </div>
                                                 ))}
                                             </div>
-                                            <Image style={{ marginTop: "6px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
+                                            <Image onClick={selectClick} style={{ marginTop: "0px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
 
                                             {/* <select className="dropdown-trade">
                                         <option value="volvo"> USDT</option>
@@ -788,7 +788,7 @@ const WalletComponent = () => {
                                                     </div>
                                                 ))}
                                             </div>
-                                            <Image style={{ marginTop: "6px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
+                                            <Image onClick={setOnClickTwo} style={{ marginTop: "0px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
 
                                         </div>
 

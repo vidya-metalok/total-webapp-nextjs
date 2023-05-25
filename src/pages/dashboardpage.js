@@ -29,12 +29,22 @@ import { tokenSevenFetch } from '@/components/redux/tokenSlicer/tokenSevenSlice'
 import { tokenEightFetch } from '@/components/redux/tokenSlicer/tokenEightSlice';
 import { tokenNineFetch } from '@/components/redux/tokenSlicer/tokenNineSlice';
 import { tokenTenFetch } from '@/components/redux/tokenSlicer/tokenTenSlice';
+import { useRouter } from 'next/router';
 
 const Dashboard = dynamic(() => import('../components/dashboardComponent.js'), { ssr: false })
 
 const DashBoardPage = (props) => {
     const dispatch = useDispatch()
+    const router = useRouter()
     const fireUserWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
+
+    useEffect(() => {
+        if (fireUserWallet) {
+            router.push("/dashboardpage")
+
+        }
+
+    }, [fireUserWallet, router])
 
     const web3 = new Web3(
         'https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF',
