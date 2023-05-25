@@ -174,7 +174,7 @@ nav {
   top: 38px;
   padding-left: 25px;
   width: 227px;
-  height: 354px;
+  height: 390px;
   position: absolute;
 }
 .logout-con {
@@ -256,4 +256,27 @@ nav {
   z-index: 5;
   height: 100vh;
   width: 100vw;
+}
+
+.profile-close {
+  font-family: "Poppins";
+  position: absolute;
+  color: white;
+  right: 14px;
+  top: 10px;
+  z-index: 59;
+}
+.nav-onwrap {
+  position: fixed;
+  width: 312px;
+  height: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+}
+.onwrp-close {
+  position: absolute;
+  right: 28px;
+  z-index: 52;
+  color: black;
 }

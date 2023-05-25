@@ -266,8 +266,32 @@ const CandleStickChart = () => {
         toolbar: {
             show: false,
         },
+        grid: {  // Add grid configuration
+            show: true,
+            borderColor: "rgba(224, 224, 224, 0.05)",
+            // strokeDashArray: 4,
+            position: 'back',
+            xaxis: {
+                lines: {
+                    show: true,
+                },
+            },
+            yaxis: {
+                lines: {
+                    show: true,
+                },
+            },
+        },
 
         xaxis: {
+            axisBorder: {
+                show: true,
+                color: 'rgba(224, 224, 224, 0.05)'
+            },
+            axisTicks: {
+                show: true,
+                color: 'rgba(224, 224, 224, 0.05)', // Set x-axis tick color
+            },
             type: 'datetime',
             labels: {
                 style: {
@@ -275,12 +299,25 @@ const CandleStickChart = () => {
                         ["#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0"]
 
                 },
+                style: {
+                    fontFamily: "Sora",
+                    fontSize: "10px",
+                    fontStyle: "normal",
+                    fontWeight: 300,
+                    lineHeight: "12px"
+
+                }
             },
 
         },
         yaxis: {
             axisBorder: {
-                show: true
+                show: true,
+                color: 'rgba(224, 224, 224, 0.05)'
+            },
+            axisTicks: {
+                show: true,
+                color: 'rgba(224, 224, 224, 0.05)', // Set x-axis tick color
             },
             opposite: true,
             tooltip: {
@@ -288,9 +325,17 @@ const CandleStickChart = () => {
             },
             labels: {
                 style: {
-                    colors:["#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0"]
+                    colors: ["#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0"]
 
                 },
+                style: {
+                    fontFamily: "Sora",
+                    fontSize: "10px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "12px"
+
+                }
             },
         },
 

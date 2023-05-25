@@ -20,12 +20,16 @@ const ProfileComponent = () => {
     const userinfoname = userInfoDetails?.name;
     const userFirstName = userinfoname?.split(" ")[0]
     const userSecondName = userinfoname?.split(" ")[1]
+    const [userMobile, setUserMobile,] = useState(null)
+    const [professEmail, setProfessEmail] = useState(null)
+    const [personelEmail, setPersonelEmail] = useState(userInfoDetails?.email)
+    const [userAddress, setuserAddress] = useState(null)
     console.log("user....", userInfoDetails, userinfoname)
     const router = useRouter()
     const dispatch = useDispatch()
     const [firstName, setfirstName] = useState(userFirstName)
     const [lastName, setLastName] = useState(userSecondName)
-    const [web3auth, setWeb3auth] = useState("");
+    const [web3auth, setWeb3auth] = useState(null);
     const [provider, setProvider] = useState("");
     // const [idToken, setidToken] = useState("");
     // const [pubKey, setpubKey] = useState("");
@@ -71,10 +75,8 @@ const ProfileComponent = () => {
     }, []);
 
 
-
-
-
-    const logout = async () => {
+    const logout = useCallback(async () => {
+        console.log("logout calling....")
         if (!web3auth) {
             console.log("web3auth not initialized yet");
             return;
@@ -83,7 +85,20 @@ const ProfileComponent = () => {
         dispatch(loginUser(null))
         router.push("/loginpage")
         setProvider(null);
-    };
+
+
+
+    }, [dispatch, web3auth, router]);
+
+    const onClickEditBtn = () => {
+        setfirstName(firstName)
+        setLastName(lastName)
+        setUserMobile(userMobile)
+        setPersonelEmail(personelEmail)
+        setProfessEmail(professEmail)
+        setuserAddress(userAddress)
+
+    }
 
     return (
         <div className='background-con'>
@@ -96,7 +111,7 @@ const ProfileComponent = () => {
                             <h2>{userInfoDetails?.name}</h2>
                             <h3>Joined 21-10-2021</h3>
                         </div>
-                        <button className='edit-btn'> <Image className='edit-img' src={editlogo} alt="" /> Edit</button>
+                        <button className='edit-btn' onClick={() => onClickEditBtn()}> <Image className='edit-img' src={editlogo} alt="" /> Edit</button>
                     </div>
                     <form className='user-info-form'>
                         <h2 className='mygeneral-info'>My General information</h2>
@@ -104,36 +119,36 @@ const ProfileComponent = () => {
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="">firstName</label>
                                 <br />
-                                <input className='profile-input form-control' type="text" value={firstName} />
+                                <input className='profile-input form-control' type="text" value={firstName} onChange={(e) => setfirstName(e.target.value)} />
                             </div>
 
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="firstname">lastName</label>
                                 <br />
-                                <input className='profile-input form-control' id="firstname" type="text" value={lastName} />
+                                <input className='profile-input form-control' id="firstname" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                             </div>
                         </div>
                         <div className='col-12 d-md-flex gap-4'>
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="">Mobile</label>
                                 <br />
-                                <input className='profile-input form-control' type="text" placeholder='7584684641' />
+                                <input className='profile-input form-control' type="text" placeholder='7584684641' value={userMobile} onChange={(e) => setUserMobile(e.target.value)} />
                             </div>
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="">Personal Email</label>
                                 <br />
-                                <input className='profile-input form-control' type="text" value={userInfoDetails?.email} />
+                                <input className='profile-input form-control' type="text" value={personelEmail} onChange={(e) => setPersonelEmail(e.target.value)} />
                             </div>
                         </div>
                         <div>
                             <label className='label-name' htmlFor="">Professional email</label>
                             <br />
-                            <input className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' />
+                            <input className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} onChange={(e) => setProfessEmail(e.target.value)} />
                         </div>
                         <div>
                             <label className='label-name' htmlFor="">Address</label>
                             <br />
-                            <input className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' />
+                            <input className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' value={userAddress} onChange={(e) => setuserAddress(e.target.value)} />
 
                         </div>
                     </form>

@@ -4,10 +4,11 @@
   /* width: 1050px; */
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
+  color: #5d6166;
 
-  color: white;
+  /* color: white; */
   /* padding: 20px; */
   /* margin: 40px auto; */
 }
@@ -54,7 +55,7 @@
 
 .totalamt-child2 {
   width: 400px;
-  height: 284px;
+  /* height: 284px; */
   background: #232234;
   border-radius: 7px;
   margin: auto;
@@ -238,24 +239,25 @@ today-team-names-new p:nth-child(1) {
 }
 .quick-trade {
   margin-left: 40px;
+  margin-right: 40px;
 }
 
 .quick-trade-amt {
   display: flex;
   justify-content: space-between;
   /* width: 300px; */
-  margin-top: 10px;
+  margin-top: 15px;
 }
-@media (max-width: 1025px) {
+/* @media (max-width: 1025px) {
   .quick-trade-amt {
     max-width: 300px;
   }
-}
-@media (min-width: 1025px) {
+} */
+/* @media (min-width: 1025px) {
   .quick-trade-amt {
     min-width: 300px;
   }
-}
+} */
 .quick-trade-amt h2 {
   font-family: "Poppins";
   font-style: normal;
@@ -271,7 +273,7 @@ today-team-names-new p:nth-child(1) {
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  line-height: 100%;
+  line-height: 16px;
 
   color: #5d6166;
 }
@@ -327,13 +329,19 @@ today-team-names-new p:nth-child(1) {
 .quick-trade-suchild2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   width: 40%;
+  margin-bottom: 0px !important;
+  display: flex;
+  align-items: flex-end;
+}
+.quick-trade-suchild2 p {
+  margin-bottom: 0px !important;
 }
 
 .quick-trade-suchild2 input {
   background: none;
   border: none;
   outline: none;
-  color: white;
+  color: #5d6166;
   font-family: "PoppinsRegular";
   cursor: pointer;
 }
@@ -341,6 +349,7 @@ today-team-names-new p:nth-child(1) {
 .quick-trade-child2 {
   position: relative;
   display: flex;
+  align-items: flex-end;
 }
 .quick-trade-child5 {
   display: flex;
@@ -397,11 +406,12 @@ today-team-names-new p:nth-child(1) {
   }
   .totalamt-section {
     width: auto;
+    display: flex;
   }
 
   .totalamt-child2 {
     width: 100%;
-    height: 330px;
+    height: 350px;
   }
 
   .quick-trade {
@@ -462,8 +472,8 @@ today-team-names-new p:nth-child(1) {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
+  font-size: 10px;
+  line-height: 14px;
   color: #5d6166;
   margin-bottom: 6px;
   /* margin-top: 10px; */
@@ -493,7 +503,11 @@ today-team-names-new p:nth-child(1) {
 
 .select-opt {
   display: flex;
-  gap: 18px;
+  /* gap: 18px; */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .pop-select {
@@ -596,3 +610,11 @@ today-team-names-new p:nth-child(1) {
     border:4px solid red;
   }
 } */
+
+.token-out-result {
+  display: flex;
+  gap: 20px;
+}
+.token-out-result p {
+  margin-bottom: 0px !important;
+}

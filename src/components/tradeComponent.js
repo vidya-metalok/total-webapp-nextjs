@@ -8,11 +8,12 @@ var sunrisersImage = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/web
 import { useSelector } from "react-redux";
 import CandleStickChart from "./candleStickChart";
 import BuySellComponent from "./buySellComponent";
-import upImg from "../../public/images/uparrow.png"
+// import upImg from "../../public/images/uparrow.png"
 import downImg from "../../public/images/downarrow.png"
 import liveUpdateBar from "../../public/images/live-update-bar.svg"
 import TradeSrhLogo from "../../public/images/pngkit_rcb-logo-svg.svg"
 import liveRcbsImg from '../../public/images/live-rcb-img.svg'
+import upImg from "../../public/images/uparrow1.svg"
 
 
 
@@ -102,20 +103,31 @@ const TradeComponent = () => {
 
     // document.body.style.overflow = 'hidden';
 
+    document.body.style.overflow = 'hidden'
+    document.body.style.height = '100vh'
+
   }
   const closeBatsmendata = () => {
     setbatars(false)
+    setbatars(false)
+    document.body.style.overflow = 'auto'
+    document.body.style.height = 'auto'
+
+
   }
   const filding_team = () => {
     setbowlingT(!bowlingT)
 
   }
 
-  const scroreClose =() =>{
+  const scroreClose = () => {
     setbatars(false)
+    document.body.style.overflow = 'auto'
+    document.body.style.height = 'auto'
+
   }
   return (
-    <div style={{padding:"5px"}}>
+    <div style={{ padding: "5px" }}>
 
 
       <div className="live-score-section">
@@ -151,7 +163,7 @@ const TradeComponent = () => {
           </div>
         </div>
 
-        <div style={{  position: 'absolute',top:"0px",left:'0px',width:'100vw',height:'100vh',display: batars ? 'block' : 'none',zIndex:'25'}} onClick={scroreClose} >
+        <div style={{ position: 'absolute', top: "0px", left: '0px', width: '100vw', height: '100vh', display: batars ? 'block' : 'none', zIndex: '25' }} onClick={scroreClose} >
 
         </div>
 
@@ -177,7 +189,7 @@ const TradeComponent = () => {
               <h3>Target</h3>
               {/* <h4>181</h4> */}
             </div>
-            <h3 style={{ transform: "rotate(180deg)", position: 'absolute', bottom: '-10px', color: 'black', cursor: 'pointer' }} onClick={batmensData}>
+            <h3 className="live-drop" onClick={batmensData}>
               <Image src={upImg} alt="arrowimg" height={15} width={24} />
             </h3>
           </div>
@@ -202,7 +214,7 @@ const TradeComponent = () => {
           </h4>
         </div>
         <div className="teams-name">
-          <h3>IM VS CSK</h3>
+          <h3>IM vs CSK</h3>
         </div>
       </div>
 
@@ -247,7 +259,7 @@ const TradeComponent = () => {
                 <h2>c Warner b Axar</h2>
               </div>
               <div className="batsmen-table-li">
-                <p>70</p>
+                <p className="batsmen-table-li-active">70</p>
                 <p>30</p>
                 <p>7</p>
                 <p>5</p>
@@ -257,7 +269,7 @@ const TradeComponent = () => {
           ))}
         </div>
 
-        <div className="d-flex align-items-center justify-content-between px-4">
+        <div className="d-flex align-items-center justify-content-between px-4  royal-border">
           <h1 className="filding-team-name">Royal Challengers Banglore</h1>
           <div className="d-flex gap-5 align-items-center">
             <h1 className="filding-team-score">181/6 (20)</h1>
@@ -291,7 +303,7 @@ const TradeComponent = () => {
                 <h2>c Warner b Axar</h2>
               </div>
               <div className="batsmen-table-li">
-                <p>70</p>
+                <p className="batsmen-table-li-active">70</p>
                 <p>30</p>
                 <p>7</p>
                 <p>5</p>
@@ -335,12 +347,12 @@ const TradeComponent = () => {
 
               <div className="price-holdings">
                 <div className="batting-text">
-                  <h4>current Hsvc Price</h4>
-                  <h6>^$250</h6>
+                  <h4>Current HSVC Price</h4>
+                  <h6><span className="currentprice-arr">^</span>$250</h6>
                 </div>
                 <div className="batting-text">
                   <h4>Holdings</h4>
-                  <h5>25($243.3)</h5>
+                  <h5>25 ($243.3)</h5>
                 </div>
 
 
@@ -382,12 +394,12 @@ const TradeComponent = () => {
 
               <div className="price-holdings">
                 <div className="batting-text">
-                  <h4>current Hsvc Price</h4>
-                  <h6>^$250</h6>
+                  <h4>Current HSVC Price</h4>
+                  <h6><span className="currentprice-arr">^</span>$250</h6>
                 </div>
                 <div className="batting-text">
                   <h4>Holdings</h4>
-                  <h5>25($243.3)</h5>
+                  <h5>25 ($243.3)</h5>
                 </div>
 
 

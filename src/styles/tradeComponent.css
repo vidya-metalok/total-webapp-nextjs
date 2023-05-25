@@ -47,7 +47,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 17.926px;
+  font-size: 19px;
   line-height: 100%;
 
   /* identical to box height */
@@ -268,7 +268,7 @@
   justify-content: flex-start;
 }
 .trade-team-main-section::-webkit-scrollbar {
-  width: 0px;
+  width: 4px;
 }
 
 .trade-team-parent {
@@ -336,7 +336,7 @@
 /* --------------------------------------------------------------------------------buy sell section  */
 
 .buy-sell h1 {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
@@ -521,15 +521,25 @@
   border-radius: 6px;
   /* margin:auto; */
   overflow: auto;
-  color: white;
+  color: #cbcbcb;
   left: 50%;
   transform: translateX(-50%);
-  top: 80px;
+  top: 228px;
+}
+.batsmen-main-div .batsmen-table-li-active {
+  color: white;
 }
 
-.liveplayers-data::-webkit-scrollbar,
 .liveplayers-table::-webkit-scrollbar {
   width: 0px;
+}
+
+.liveplayers-table::-webkit-scrollbar {
+  width: 5px;
+  /* background-color: red; */
+}
+.liveplayers-table::-webkit-scrollbar-thumb {
+  background-color: #413f54;
 }
 .liveplayers-table {
   padding: 25px;
@@ -546,6 +556,10 @@
 
 .batsmen-border {
   border-bottom: none;
+  margin-bottom: -12px;
+  position: sticky;
+  top: -30px;
+  background-color: #2c2a41;
 }
 .batsmen-main-div h1,
 .batsmen-table-head p {
@@ -571,7 +585,7 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #37354b;
-  padding: 30px 40px;
+  padding: 20px 40px 6px 40px;
   color: #ea9528;
   align-items: center;
 }
@@ -650,8 +664,8 @@
 .batting-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-left: 15px;
+  /* align-items: center; */
+  margin-left: 30px;
 }
 .batting-text h3 {
   font-family: "Poppins";
@@ -666,7 +680,7 @@
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
-  line-height: 9px;
+  /* line-height: 9px; */
   /* identical to box height, or 72% */
 
   color: #9492a0;
@@ -684,6 +698,33 @@
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
-  line-height: 8px;
+  /* line-height: 8px; */
   color: #ea9528;
+}
+.live-drop {
+  /* transform: rotate(180deg); */
+  position: absolute;
+  left: 43%;
+  bottom: -6px;
+  color: black;
+  cursor: pointer;
+}
+
+.currentprice-arr {
+  position: relative;
+  top: 4px;
+  right: 2px;
+}
+.hsvc-heading {
+  font-size: 13px;
+  margin-left: 6px;
+  margin-top: 5px;
+}
+
+.batsmen-table-head p {
+  margin: 0px;
+}
+
+.royal-border {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

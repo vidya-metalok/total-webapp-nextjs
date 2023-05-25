@@ -129,16 +129,16 @@ const LeagueComponent = () => {
 
     const timestamp = 1684591200;
     const date = new Date(timestamp * 1000);
-    
+
     // console.log("this is the date " , date);
 
     // console.log("this is the date" , totalmatches.start_at);
-// const presentday = new Date();
-// console.log("present day  " , presentday)
+    // const presentday = new Date();
+    // console.log("present day  " , presentday)
 
-// const presentmonth = new Date().getMonth() + 1;
-const presentday = new Date().getDate();
-console.log("present day thi" , presentday)
+    // const presentmonth = new Date().getMonth() + 1;
+    const presentday = new Date().getDate();
+    console.log("present day thi", presentday)
 
 
     useState(() => {
@@ -147,10 +147,10 @@ console.log("present day thi" , presentday)
         const notCompleted = [];
         totalmatches.forEach(match => {
 
-        const timestamp = match.start_at;
-        const livedate = new Date(timestamp * 1000);
-        // const month = livedate.getMonth() + 1;
-        const day = livedate.getDate();
+            const timestamp = match.start_at;
+            const livedate = new Date(timestamp * 1000);
+            // const month = livedate.getMonth() + 1;
+            const day = livedate.getDate();
 
 
 
@@ -233,21 +233,23 @@ console.log("present day thi" , presentday)
                     )
                 }
 
-
-            </div>
-            <div className="drop-down-container  d-flex flex-direction-column">
-                <div className="row">
+                <div className="drop-down-container  d-flex flex-direction-column">
+                    <div className="row">
 
 
-                    <div className="col-12 col-sm-12  col-md-6 col-lg-6">
-                        <BuySellComponent />
+                        <div className="col-12 col-sm-12  col-md-6 col-lg-6">
+                            <BuySellComponent />
 
-                    </div>
-                    <div className="col-12  col-sm-12 col-md-6 col-lg-6">
-                        <RsvcSellComponent />
+                        </div>
+                        <div className="col-12  col-sm-12 col-md-6 col-lg-6">
+                            <RsvcSellComponent />
 
+                        </div>
                     </div>
                 </div>
+
+
+
             </div>
 
             {/* <TransactionHistoryComponent /> */}

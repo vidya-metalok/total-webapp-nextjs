@@ -3,7 +3,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import qs from "qs"
 
 
-const BuySellComponent = () => {
+const BuySellComponent = (props) => {
+    const { eachTeamName } = props
+    const tradeTeamName = eachTeamName?.slice(0, 4)
+    console.log("buy-props..", props, eachTeamName?.slice(0, 4))
 
     const [amount, setAmount] = useState("")
     const USDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F';
@@ -199,14 +202,14 @@ const BuySellComponent = () => {
         <div className=' '>
             <div className='buy-sell-section'>
                 <div className='buy-sell'>
-                    <h1 className={`${buyHeading}`} onClick={onClickBuyTab}>Buy HSVC </h1>
+                    <h1 className={`${buyHeading}`} onClick={onClickBuyTab}>Buy {tradeTeamName} </h1>
                     <h3 className={`${sellHeading}`} onClick={onClickSellTab}
-                    >Sell HSVC </h3>
+                    >Sell {tradeTeamName} </h3>
                 </div>
                 <div className='tokens-teamname'>
                     <h2 onClick={buy_decrement}>-</h2>
                     <h1>
-                        <input type="number" value={battinginput} onChange={(e) => setInput(e.target.value)} placeholder="Tokens HSVC" />
+                        <input type="number" value={battinginput} onChange={(e) => setInput(e.target.value)} placeholder={`Tokens ${tradeTeamName}`} />
                     </h1>
                     <h2 onClick={buy_sellincrement}>+</h2>
                 </div>
@@ -222,12 +225,12 @@ const BuySellComponent = () => {
                     <h2 onClick={buy_sellincrement}>+</h2>
                 </div>
                 {selectedBuyTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }}>
-                    Buy HSVC
+                    Buy <span className='hsvc-heading'>{tradeTeamName}</span>
                 </div>}
 
 
                 {selectedSellTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }}>
-                    Sell HSVC
+                    Sell <span className='hsvc-heading'>{tradeTeamName}</span>
                 </div>}
 
             </div>

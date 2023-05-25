@@ -17,9 +17,16 @@ import { holdings } from "./redux/userSlice";
 
 // https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/tsymbal.png
 var tsymbal = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/tsymbal.png";
-var wallet = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/wallet-money.png";
-var money = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/money-add.png";
-var empty = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/empty-wallet.png";
+// var wallet = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/wallet-money.png";
+import wallet from "../../public/images/wallet-money.svg"
+
+
+// var money = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/money-add.png";
+// var empty = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/empty-wallet.png";
+import money from "../../public/images/money-add.svg"
+
+import empty from "../../public/images/empty-wallet.svg"
+
 var load1 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/graphload-img.png";
 var load2 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/graphload-img2.png";
 var matic = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/matic.png";
@@ -64,6 +71,8 @@ const Dashboardcenter = () => {
 
 
     const dispatch = useDispatch()
+    //tokenFullname
+    const [tradeTokenFullName, setTokenFullName] = useState("")
     //tokenIn
     const [tokenIn, setTokenIn] = useState(null);
     const [tokenName, setTokenName] = useState('Select Token');
@@ -214,12 +223,13 @@ const Dashboardcenter = () => {
         setopt(!opt)
 
     }
-    const storeTokenOut = (param1, param2, param3) => {
+    const storeTokenOut = (param1, param2, param3, param4) => {
         setTokenOutImage(param1)
         setTokenOutName(param2)
         setTokenOut(param3)
         setBuyToken(param3)
         setopt2(!opt2)
+        setTokenFullName(param4)
     }
 
 
@@ -233,6 +243,7 @@ const Dashboardcenter = () => {
             tokenName: 'MATIC',
             tokenImg: matic,
             tokenIn: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+            tokenFullName: ""
 
 
         },
@@ -243,6 +254,7 @@ const Dashboardcenter = () => {
             tokenName: 'USDT',
             tokenImg: usdt,
             tokenIn: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
+            tokenFullName: ""
 
 
         },
@@ -252,6 +264,7 @@ const Dashboardcenter = () => {
             tokenName: 'BSVC',
             tokenImg: rcbs,
             tokenIn: '0x9Dbe1a074CF62D3B276EeDD54952d179299a4892',
+            tokenFullName: "Royal Challengers Banglore"
 
 
         },
@@ -261,6 +274,8 @@ const Dashboardcenter = () => {
             tokenName: 'CSVC',
             tokenImg: chennaiSupers,
             tokenIn: '0x2328aA62F692Cdb1749ae173A93E89fDEAFeD650',
+            tokenFullName: "Chennai Super Kings"
+
 
 
         },
@@ -270,6 +285,7 @@ const Dashboardcenter = () => {
             tokenName: 'DSVC',
             tokenImg: delhiCapital,
             tokenIn: '0x3EDC3c21E798d0cc2336500871ABEB05e3cB5166',
+            tokenFullName: "Delhi Capitals"
 
 
         },
@@ -279,6 +295,7 @@ const Dashboardcenter = () => {
             tokenName: 'GSVC',
             tokenImg: gt,
             tokenIn: '0x4CED951389405dECf9E82efaBA1854e109b93C38',
+            tokenFullName: "Gujarat Titans"
 
 
         },
@@ -288,6 +305,7 @@ const Dashboardcenter = () => {
             tokenName: 'HSVC',
             tokenImg: sunrisers,
             tokenIn: '0xB90ED1bd876AB378b001b702b38A73fB39e23D25',
+            tokenFullName: "Sunrisers Hyderabad"
 
 
 
@@ -298,6 +316,7 @@ const Dashboardcenter = () => {
             tokenName: 'KSVC',
             tokenImg: kkr,
             tokenIn: '0xb39370D66472cD8e25E542b7FaE4C641f89d1a3c',
+            tokenFullName: "Kolkata Knight Riders"
 
 
         },
@@ -307,6 +326,7 @@ const Dashboardcenter = () => {
             tokenName: 'LSVC',
             tokenImg: lk,
             tokenIn: '0x34141D62B66857d409e3eEfB7C07EB23CF98B06f',
+            tokenFullName: "Lucknow Super Giants"
 
 
         },
@@ -316,6 +336,7 @@ const Dashboardcenter = () => {
             tokenName: 'MSVC',
             tokenImg: mumbaiIndia,
             tokenIn: '0x33e5DFe148aCe06A2c9aCee17F59d7AbA07E1DA3',
+            tokenFullName: "Mumbai Indians"
 
 
         },
@@ -325,6 +346,7 @@ const Dashboardcenter = () => {
             tokenName: 'PSVC',
             tokenImg: punjabKings,
             tokenIn: '0x6b32f2a2c0484EB7F7f089Dd45CCc33291317ab0',
+            tokenFullName: "Punjab Kings"
 
 
         },
@@ -334,6 +356,7 @@ const Dashboardcenter = () => {
             tokenName: 'RSVC',
             tokenImg: rajasthanRoyals,
             tokenIn: '0xeeA6661a8F6D5Bdb83C3BB5CD0684bf8bF841952',
+            tokenFullName: "Rajasthan Royals"
 
 
 
@@ -693,9 +716,13 @@ const Dashboardcenter = () => {
 
 
                                     <div className="select-opt" onClick={selectClick}>
-                                        {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={20} width={20} />}
+                                        <div className="token-out-result">
+                                            {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={20} width={20} />}
 
-                                        <h3 className="token-names-select" style={{ marginLeft: tokenImage ? "-12px" : '0px' }}>{tokenName}</h3>
+                                            <h3 className="token-names-select" style={{ marginLeft: tokenImage ? "-12px" : '0px' }}>{tokenName}</h3>
+
+
+                                        </div>
 
                                         <div
                                             style={{
@@ -717,13 +744,14 @@ const Dashboardcenter = () => {
 
                                                     {each.tokenName}
 
+
                                                 </div>
 
                                             ))}
 
                                         </div>
 
-                                        <Image style={{ marginTop: "6px" }} src={trabdeArrow} alt="" height={10} width={10} />
+                                        <Image style={{ marginTop: "6px" }} src={trabdeArrow} alt="" height={9} width={18} />
                                     </div>
                                 </div>
                                 <div className="quick-trade-suchild2">
@@ -745,10 +773,15 @@ const Dashboardcenter = () => {
                                     <div className="quick-trade-subchild">
                                         {/* <Image src={rajasthanRoyals} alt="" height={20} width={20} /> */}
                                         <div className="select-opt" onClick={setOnClickTwo}>
+                                            <div className="token-out-result">
 
-                                            {tokenOutImage && <Image src={tokenOutImage} alt="ffgdfdf" height={20} width={20} />}
+                                                {tokenOutImage && <Image src={tokenOutImage} alt="ffgdfdf" height={25} width={25} />}
 
-                                            <h1 className="token-names-select" style={{ marginLeft: tokenOutImage ? "-12px" : '0px' }}>{tokenOutName}</h1>
+                                                <h1 className="token-names-select" style={{ marginLeft: tokenOutImage ? "-12px" : '0px' }}>{tokenOutName} <br />
+                                                    <p>{tradeTokenFullName}</p></h1>
+
+                                            </div>
+
                                             <div
                                                 style={{
                                                     display: opt2 ? "none" : "block",
@@ -758,7 +791,7 @@ const Dashboardcenter = () => {
                                                 className="pop-select"
                                             >
                                                 {tokenDetails.map((each, index) => (
-                                                    <div onClick={() => storeTokenOut(each.tokenImg, each.tokenName, each.tokenIn)} key={index} style={{ paddingLeft: "8px" }}>
+                                                    <div onClick={() => storeTokenOut(each.tokenImg, each.tokenName, each.tokenIn, each.tokenFullName)} key={index} style={{ paddingLeft: "8px" }}>
                                                         <Image
                                                             src={each.tokenImg}
                                                             alt="ffgdfdf"
@@ -775,13 +808,13 @@ const Dashboardcenter = () => {
 
 
                                             </div>
-                                            <Image style={{ marginTop: "6px" }} src={trabdeArrow} alt="" height={10} width={10} />
+                                            <Image style={{ marginTop: "6px" }} src={trabdeArrow} alt="" height={9} width={18} />
                                         </div>
                                     </div>
                                     <div className="quick-trade-suchild2">
                                         {/* <input type="text" placeholder="0.00" value={amountOut}
                                     /> */}
-                                        <p>{isNaN(parseFloat(amountOut)) ? <p className="token-names-select"> 0.00</p> : parseFloat(amountOut).toFixed(3)}</p>
+                                        <span>{isNaN(parseFloat(amountOut)) ? <input type="text" placeholder="0.00" className="token-names-select" /> : parseFloat(amountOut).toFixed(3)}</span>
                                     </div>
                                 </div>
 

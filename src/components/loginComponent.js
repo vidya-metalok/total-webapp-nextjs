@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 import Image from "next/image";
@@ -11,6 +11,8 @@ var loginimg4 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-i
 import facebookLogo from "../../public/images/facebook-login.svg"
 import googleLogo from "../../public/images/google-login.svg"
 import eyeSlash from "../../public/images/EyeSlash-icon.svg"
+
+import eyeopen from "../../public/images/open-eye.svg"
 
 
 
@@ -35,16 +37,31 @@ const LoginComponent = () => {
     const dispatch = useDispatch();
     const router = useRouter();
 
+    const userInfoDetails = useSelector((store) => store?.user?.loginInfo?.email)
+    const info = useSelector((store) => store?.user?.loginInfo)
+
     const clientId =
         "BK_TX48ntUieviViLOy8xwUhCirzTQI3uL7NwHsKkZk_-R7Zzpoxc2WNJDauT3OMRpolI7wlNRHUgT8SD0hjNDE";
 
+
+    const [showPassword, setShowPassword] = useState(false)
     const [web3auth, setWeb3auth] = useState("");
     const [provider, setProvider] = useState("");
     const [idToken, setidToken] = useState("");
     const [pubKey, setpubKey] = useState("");
     const [userInfo, setUserInfo] = useState(null);
+    console.log("userInfo...", userInfo)
 
     const [showlogout, setShowlogout] = useState(false);
+
+
+    const [userName, setuserName] = useState('')
+    const [email, setemail] = useState('')
+    const [userPassword, setuserPassword] = useState('')
+
+    const [userNameerr, setuserNameerr] = useState('')
+    const [emailerr, setemailerr] = useState('')
+    const [passworderr, setpassworderr] = useState('')
 
     const login = async () => {
         if (!web3auth) {
@@ -87,7 +104,7 @@ const LoginComponent = () => {
         setUserInfo(res.user);
         dispatch(loginUser(res.user));
         setShowlogout(true);
-        router.push("/dashboardpage");
+        // router.push("/dashboardpage");
         return true;
     };
 
@@ -197,9 +214,9 @@ const LoginComponent = () => {
         init();
     }, []);
 
-    useEffect(() => {
-        console.log(web3auth);
-    }, [web3auth]);
+    // useEffect(() => {
+    //     console.log(web3auth);
+    // }, [web3auth]);
 
     const images = [loginimg1, loginimg2, loginimg3, loginimg4];
 
@@ -214,7 +231,61 @@ const LoginComponent = () => {
             }
         }, 1000);
         return () => clearInterval(intervel);
-    });
+    }, [currentImage]);
+
+
+
+    const eventLogin = () => {
+        setemail(email)
+
+        console.log("clicked")
+
+        if (email === userInfoDetails && (userName !== "" && userPassword !== "")) {
+            router.push("/dashboardpage");
+        }
+        if (userName == "") {
+            setuserNameerr("please enter fullname")
+
+        }
+        if (userPassword == "") {
+            setpassworderr("please enter password")
+        }
+        if (email === '') {
+            setemailerr('please enter your email')
+
+
+        }
+        if (email !== userInfoDetails) {
+            setemailerr("please enter valid email")
+        }
+
+        console.log("user email", userInfoDetails)
+        console.log("user email", info)
+
+
+    }
+
+    const setemailAndError = (e) => {
+        if (e.target.value !== userInfoDetails) {
+            setemailerr("please enter valid email id")
+        }
+        setemailerr("")
+        setemail(e.target.value)
+    }
+
+    const setUserAndErrors = (e) => {
+        setuserName(e.target.value)
+        setuserNameerr("")
+    }
+    const setuserPasswordAndErr = (e) => {
+        setuserPassword(e.target.value)
+        setpassworderr("")
+
+    }
+
+
+
+
 
     return (
         // <div className="login-con"><button className="login-btn" onClick={login}>Login</button></div>
@@ -251,32 +322,45 @@ const LoginComponent = () => {
 
                     </div>
 
-                    <div className="logo-bars-con">
+                    {/* <div className="logo-bars-con">
                         <Image src={googleLogo.src} alt="" height={50} width={250} className="logo-bar" />
                         <Image src={facebookLogo.src} alt="" height={50} width={250} />
                     </div>
-                    <h3>-OR-</h3>
+                    <h3>-OR-</h3> */}
                     <div className="login-input-main">
-
-                    
-                        <input type="text" className="login-input-con" placeholder="Full Name" />
-                        <input type="text" className="login-input-con" placeholder="Email Address" />
+                        <div>
+                            <input type="text" className="login-input-con" placeholder="Full Name" value={userName} onChange={(e) => { setUserAndErrors(e) }} />
+                            <h5 style={{ color: 'red' }}>{userNameerr}</h5>
+                        </div>
+                        <div>
+                            <input type="text" className="login-input-con" placeholder="Email Address" value={email} onChange={(e) => setemailAndError(e)} />
+                            <h5 style={{ color: 'red' }}>{emailerr}</h5>
+                        </div>
                         <div className="login-visible-con">
-                            <input type="text" placeholder="Password" />
-                            <Image src={eyeSlash} alt="" height={20} width={20} />
+                            {showPassword ? (
+                                <input type="text" placeholder="Password" value={userPassword} onChange={(e) => { setuserPasswordAndErr(e) }} />
+
+
+                            ) : (
+                                <input type="password" placeholder="Password" value={userPassword} onChange={(e) => { setuserPasswordAndErr(e) }} />
+
+
+                            )}
+                            <Image src={showPassword ? eyeopen : eyeSlash} alt="" height={20} width={20} onClick={() => setShowPassword(!showPassword)} />
 
                         </div>
+                        <h5 style={{ color: 'red' }}>{passworderr}</h5>
 
                     </div>
                     <div>
 
 
                         <button className="login-btn" onClick={login}>
-                            Login
+                            Create account
                         </button>
                         <div className="account-con">
                             <p className="already-txt">Already have an account? </p>
-                            <p className="create-login-txt"> Create account</p>
+                            <p className="create-login-txt" onClick={eventLogin}> Login</p>
 
 
                         </div>

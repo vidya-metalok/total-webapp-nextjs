@@ -78,6 +78,7 @@ import Web3 from "web3";
 import qs from "qs";
 import abi from "../../abis/abi.json";
 const BigNumber = require("bignumber.js");
+import walletHrLine from "../../public/images/wallet-hr-line.svg"
 
 import TransactionHistoryComponent from "./transactionHistoryComponent";
 
@@ -667,59 +668,65 @@ const WalletComponent = () => {
                     </div>
 
                     <div className="wallet-child2">
-                        <div className="quick-trade">
+                        <div className="quick-new-trade">
                             <h1 className="quick">Buy/Sell token</h1>
-                            <div className="quick-trade-amt">
-                                <p className="amount"> Enter Amount</p>
-                                <p className="amount">Avbl : 30,000 USDT</p>
-                            </div>
+                            <div className="total-wallet-info">
 
 
+                                <div className="wallet-buy">
 
-                            <div className="quick-trade-child">
-                                <div className="quick-trade-subchild">
-                                    {/* <Image src={tsymbal} alt="ffgdfdf" height={20} width={20} /> */}
 
-                                    <div onClick={selectClick} className="select-token">
-                                        {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={20} width={20} />}
-
-                                        <span style={{ margin: '0px 25px 0px 6px' }}> {tokenName}</span>
-
+                                    <div className="quick-trade-amt">
+                                        <p className="amount"> Enter Amount</p>
+                                        <p className="amount">Avbl : 30,000 USDT</p>
                                     </div>
 
-                                    <div
-                                        style={{
-                                            display: opt ? "none" : "block",
-                                            // position: "absolute",
-                                            // background: "grey",
-                                            // marginTop: "30px",
-                                        }}
-                                        className="pop-select"
-                                    >
-                                        {tokenDetails.map((each, index) => (
-                                            <div
-                                                onClick={() =>
-                                                    storeTokenIn(
-                                                        each.tokenImg,
-                                                        each.tokenName,
-                                                        each.tokenIn
-                                                    )
-                                                }
-                                                key={index}
-                                            >
-                                                <Image
-                                                    src={each.tokenImg}
-                                                    alt="ffgdfdf"
-                                                    height={20}
-                                                    width={20}
-                                                />
-                                                {each.tokenName}
+
+
+                                    <div className="quick-trade-child">
+                                        <div className="quick-trade-subchild">
+                                            {/* <Image src={tsymbal} alt="ffgdfdf" height={20} width={20} /> */}
+
+                                            <div onClick={selectClick} className="select-token">
+                                                {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={20} width={20} />}
+
+                                                <span style={{ margin: '0px 25px 0px 6px' }}> {tokenName}</span>
+
                                             </div>
-                                        ))}
-                                    </div>
-                                    <Image style={{ marginTop: "6px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
 
-                                    {/* <select className="dropdown-trade">
+                                            <div
+                                                style={{
+                                                    display: opt ? "none" : "block",
+                                                    // position: "absolute",
+                                                    // background: "grey",
+                                                    // marginTop: "30px",
+                                                }}
+                                                className="pop-select"
+                                            >
+                                                {tokenDetails.map((each, index) => (
+                                                    <div
+                                                        onClick={() =>
+                                                            storeTokenIn(
+                                                                each.tokenImg,
+                                                                each.tokenName,
+                                                                each.tokenIn
+                                                            )
+                                                        }
+                                                        key={index}
+                                                    >
+                                                        <Image
+                                                            src={each.tokenImg}
+                                                            alt="ffgdfdf"
+                                                            height={20}
+                                                            width={20}
+                                                        />
+                                                        {each.tokenName}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <Image style={{ marginTop: "6px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
+
+                                            {/* <select className="dropdown-trade">
                                         <option value="volvo"> USDT</option>
                                         <option value="saab">2</option>
                                         <option value="opel">3</option>
@@ -727,107 +734,110 @@ const WalletComponent = () => {
                                         <option value="audi">5</option>
                                         <option value="audi">6</option>
                                     </select> */}
-                                </div>
+                                        </div>
 
-                                <div className="quick-trade-suchild2">
-                                    <input className="amt-out-show"
-                                        type="text"
-                                        placeholder="0.00"
-                                        value={inputAmount}
-                                        onChange={(e) => setUserInput(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                            <h1 className="onw-quial">1 RSVC = 21.02 USDT</h1>
-
-                            <h1 className="will-receive-heading">You will Receive</h1>
-
-
-
-                            <div className="quick-trade-child2">
-                                <div className="quick-trade-subchild">
-                                    {/* <Image src={rrlogo} alt="" height={20} width={20}/> */}
-
-                                    <div onClick={setOnClickTwo} className="select-token">
-                                        {tokenOutImage && <Image src={tokenOutImage} alt="" height={20} width={20} />}
-                                        <span style={{ margin: '0px 25px 0px 11px' }}>{tokenOutName}</span>
-
+                                        <div className="quick-trade-suchild2">
+                                            <input className="amt-out-show"
+                                                type="text"
+                                                placeholder="0.00"
+                                                value={inputAmount}
+                                                onChange={(e) => setUserInput(e.target.value)}
+                                            />
+                                        </div>
                                     </div>
-                                    <div
-                                        style={{
-                                            display: opt2 ? "none" : "block",
+                                    <h1 className="onw-quial">1 RSVC = 21.02 USDT</h1>
 
-                                        }}
-                                        className="pop-select"
-                                    >
-                                        {tokenDetails.map((each, index) => (
-                                            <div
-                                                onClick={() =>
-                                                    storeTokenOut(
-                                                        each.tokenImg,
-                                                        each.tokenName,
-                                                        each.tokenIn
-                                                    )
-                                                }
-                                                key={index}
-                                            >
-                                                <Image
-                                                    src={each.tokenImg}
-                                                    alt="ffgdfdf"
-                                                    height={20}
-                                                    width={20}
-                                                />
-                                                {each.tokenName}
+                                    <h1 className="will-receive-heading">You will Receive</h1>
+
+
+
+                                    <div className="quick-trade-child2">
+                                        <div className="quick-trade-subchild">
+                                            {/* <Image src={rrlogo} alt="" height={20} width={20}/> */}
+
+                                            <div onClick={setOnClickTwo} className="select-token">
+                                                {tokenOutImage && <Image src={tokenOutImage} alt="" height={20} width={20} />}
+                                                <span style={{ margin: '0px 25px 0px 11px' }}>{tokenOutName}</span>
+
                                             </div>
-                                        ))}
-                                    </div>
-                                    <Image style={{ marginTop: "6px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
+                                            <div
+                                                style={{
+                                                    display: opt2 ? "none" : "block",
 
-                                </div>
+                                                }}
+                                                className="pop-select"
+                                            >
+                                                {tokenDetails.map((each, index) => (
+                                                    <div
+                                                        onClick={() =>
+                                                            storeTokenOut(
+                                                                each.tokenImg,
+                                                                each.tokenName,
+                                                                each.tokenIn
+                                                            )
+                                                        }
+                                                        key={index}
+                                                    >
+                                                        <Image
+                                                            src={each.tokenImg}
+                                                            alt="ffgdfdf"
+                                                            height={20}
+                                                            width={20}
+                                                        />
+                                                        {each.tokenName}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <Image style={{ marginTop: "6px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
+
+                                        </div>
 
 
-                                <div className="quick-trade-suchild2">
-                                    {/* <input type="text" placeholder="0.00" value={amountOut}
+                                        <div className="quick-trade-suchild2">
+                                            {/* <input type="text" placeholder="0.00" value={amountOut}
                                     /> */}
-                                    <p className="amt-out-show">
-                                        {isNaN(parseFloat(amountOut)) ? (
-                                            <p >0.00</p>
-                                        ) : (
-                                            parseFloat(amountOut).toFixed(3)
-                                        )}
-                                    </p>
+                                            <p className="amt-out-show">
+                                                {isNaN(parseFloat(amountOut)) ? (
+                                                    <p >0.00</p>
+                                                ) : (
+                                                    parseFloat(amountOut).toFixed(3)
+                                                )}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <h3 className="onw-quial">1 RSVC = 21.02 USDT</h3>
+
+
+
+
+
+                                    <div className="btn-containers">
+                                        <button className="buy-btn">BUY</button>
+                                        <button className="sell-btn">SELL</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <h3 className="onw-quial">1 RSVC = 21.02 USDT</h3>
 
+                                <div className="trade-details">
+                                    {/* <div>
+                                        <Image src={walletHrLine} height={"auto"} width={"auto"} alt="" />
+                                    </div> */}
 
-
-
-
-                            <div className="btn-containers">
-                                <button className="buy-btn">BUY</button>
-                                <button className="sell-btn">SELL</button>
-                            </div>
-                        </div>
-                        <div className="trade-details">
-                            <div className="hr-line">
-                                <hr />
-                            </div>
-
-                            <div className="wallet-details-con">
-                                <div className="wallet-info">
-                                    <h3>Wallet Name</h3>
-                                    <p>{userName}</p>
-                                </div>
-                                <div className="wallet-info">
-                                    <h3>Tokens you will receive</h3>
-                                    <p>35.23 RSVC</p>
-                                </div>
-                                <div className="wallet-info">
-                                    <h3>Gas fee</h3>
-                                    <p>
-                                        0.02 Matic <span>($0.02)</span>
-                                    </p>
+                                    <div className="wallet-details-con">
+                                        <div className="wallet-info">
+                                            <h3>Wallet Name</h3>
+                                            <p>{userName}</p>
+                                        </div>
+                                        <div className="wallet-info">
+                                            <h3>Tokens you will receive</h3>
+                                            <p>35.23 RSVC</p>
+                                        </div>
+                                        <div className="wallet-info">
+                                            <h3>Gas fee</h3>
+                                            <p>
+                                                0.02 Matic <span>($0.02)</span>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

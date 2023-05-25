@@ -204,7 +204,9 @@ const Sidebar = () => {
                                                         <h1>${eachToken.price.price}</h1>
                                                     </td>
                                                     <td>
-                                                        <p>+{eachToken.wallet}</p>
+                                                        {eachToken.wallet >= 0
+                                                            ? <p>+{eachToken.wallet}</p>
+                                                            : <p style={{ color: 'red' }}>-{eachToken.wallet}</p>}
                                                     </td>
                                                 </tr>
                                             )

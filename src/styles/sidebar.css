@@ -22,7 +22,7 @@
   background-color: #1f1c2d;
 }
 .tokens:nth-child(1) {
-  height: 42vh;
+  height: 500px;
   overflow: auto;
 }
 .tokens:nth-child(1)::-webkit-scrollbar{

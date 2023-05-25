@@ -210,16 +210,22 @@
   transform: rotateY(0deg) rotate(-90deg);
   color: white;
   opacity: 0.35;
-  width: 300px;
+  width: 80%;
+  left: 0;
   position: absolute;
-  right: 50%;
-  left: 45%;
-  bottom: 10rem;
+  /* right: 50%; */
+  /* left: 45%; */
+  /* bottom: 10rem; */
   margin-left: 10px;
 }
 .trade-details {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* position: relative; */
+  border-left: 1px solid #ffffff;
+  opacity: 0.35;
+  padding: 20px;
 }
 .details-balance-con {
   display: flex;
@@ -263,7 +269,7 @@
 .wallet-details-con {
   display: flex;
   flex-direction: column;
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
 }
 
 .status-con {
@@ -491,4 +497,19 @@
   font-size: 12px !important;
   font-family: "Poppins" !important;
   color: #0bbb70 !important;
+}
+.total-wallet-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.quick-new-trade {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+.wallet-buy {
+  margin-top: 20px;
+  max-width: 70%;
 }

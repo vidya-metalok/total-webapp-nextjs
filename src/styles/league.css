@@ -6,7 +6,7 @@
   border-radius: 7px;
   /* padding: 15px; */
   font-family: "Poppins";
-  max-width: 1102px;
+  /* max-width: 1102px; */
   margin-bottom: 10px;
 }
 
@@ -81,8 +81,8 @@
   background: #232234;
   padding: 20px;
   margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  /* margin-left: 10px;
+  margin-right: 10px; */
   border-radius: 7px;
 }
 

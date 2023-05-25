@@ -123,6 +123,8 @@ const TeamsComponent = (props) => {
   console.log("details....", userLogin)
   console.log("teamsComponentProps...", props);
   console.log("propsEachToken...", props.tokenDetails);
+  const teamTokenName = props.tokenDetails.tokenName
+  console.log("newName...", teamTokenName)
   const banner = [
     rcbBanner,
     cskBanner,
@@ -429,7 +431,7 @@ const TeamsComponent = (props) => {
           </div>
         </td>
 
-        <td className="price-type">{/* {each["price-type"]} */}</td>
+        {/* <td className="price-type">{each["price-type"]}</td> */}
 
         <td className="token-value">{tokenSymbol}</td>
 
@@ -575,7 +577,7 @@ const TeamsComponent = (props) => {
           </div>
 
           <div className="teams-buysell">
-            <BuySellComponent />
+            <BuySellComponent eachTeamName={teamShortName} />
           </div>
         </div>
 
@@ -584,7 +586,7 @@ const TeamsComponent = (props) => {
           <div className="team-matches-hist">
             <div className="d-flex gap-4">
               <h2 onClick={teamClick} style={{ color: teamclick ? "white" : '#5a5967' }}> Teams </h2>
-              <h2 onClick={sheduleClick} style={{ color: teamclick ? "#5a5967" : ' white' }}> Shedule</h2>
+              <h2 onClick={sheduleClick} style={{ color: teamclick ? "#5a5967" : ' white' }}> Schedule</h2>
             </div>
 
             {teamclick && (
@@ -801,7 +803,7 @@ const TeamsComponent = (props) => {
               <table>
                 <tr>
                   <th>Transaction Type</th>
-                  <th>Type</th>
+
                   <th>Tokens</th>
                   <th>Amount</th>
                   <th>Date</th>

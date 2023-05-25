@@ -3,15 +3,26 @@ import { useDispatch } from 'react-redux';
 
 
 import Image from 'next/image'
-var sportsverseLogo = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sportsverse-logo.png";
+// var sportsverseLogo = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sportsverse-logo.png";
+import sportsverseLogo from "../../public/images/sportsverse-nav-logo.svg"
 
-var helpLineIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/help-icon.png";
+// var helpLineIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/help-icon.png";
+import helpLineIcon from "../../public/images/clarity_help-line.svg"
 
-var notificationIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/notification-icon.png";
 
-var profileIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/profile-icon.png";
+// var notificationIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/notification-icon.png";
+import notificationIcon from "../../public/images/Notification icon.svg"
+import profileIcon from "../../public/images/nav-profile-icon.svg"
 
-var dollerIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/doller-icon.png";
+
+
+// var profileIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/profile-icon.png";
+
+
+
+// var dollerIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/doller-icon.png";
+import moneySendIcon from "../../public/images/money-send.svg"
+import moneyReceiveIcon from "../../public/images/money-recive.svg"
 
 var personIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/person-icon-img.png";
 
@@ -41,6 +52,8 @@ import { useRouter } from 'next/router';
 // import { loginServer, postAvatarURL } from "../services/userService";
 // import { loginServer } from "../../services/userService";
 import sportsTxt from "../../public/images/SPORTSVERSE.svg"
+
+import faqActive from "../../public/images/faqs-active.svg"
 
 const NavBarComponent = () => {
     const [depositeOpen, setdepositeOpen] = useState(false)
@@ -291,18 +304,20 @@ const NavBarComponent = () => {
 
                     <div style={{ marginRight: "20px", display: 'flex' }}>
                         <button className="deposit-btn" onClick={() => setdepositeOpen(!depositeOpen)}>
-                            <Image src={dollerIcon} alt="" height={20} width={20} />
+                            <Image src={moneySendIcon} alt="" height={20} width={20} />
                             <span style={{ marginLeft: "1rem" }}> Deposit</span>
 
                         </button>
                         <button className="deposit-btn" >
-                            <Image src={dollerIcon} alt="" height={20} width={20} />
+                            <Image src={moneyReceiveIcon} alt="" height={20} width={20} />
                             <span style={{ marginLeft: "1rem" }}> Withdraw</span>
                         </button>
 
                     </div>
                     <div className='icon-container'>
-                        <Image src={helpLineIcon} alt="" height={30} width={30} />
+                        <Link href="/faqspage">
+                            <Image src={helpLineIcon} alt="" height={30} width={30} />
+                        </Link>
                         <Image src={notificationIcon} alt="" height={27} width={36} />
                         <Image src={profileIcon} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
 
@@ -318,6 +333,7 @@ const NavBarComponent = () => {
 
             </nav>
             <div className="logout-main-con-new" style={{ display: openLogout ? "block" : "none" }} >
+                <h3 className='profile-close' onClick={logoutCls}>x</h3>
 
                 <div>
                     <div className="logout-con">
@@ -345,6 +361,12 @@ const NavBarComponent = () => {
                             <p>Refferals</p>
                         </Link>
                     </div>
+                    <div className="logout-con">
+                        <Link href="/faqspage">
+                            <Image src={faqActive} alt="" height={20} width={20} />
+                            <p>Faqs</p>
+                        </Link>
+                    </div>
                     <div className="profile-underline"></div>
                     <div className="logout-con">
                         <h3>Terms of Service</h3>
@@ -356,15 +378,16 @@ const NavBarComponent = () => {
 
 
 
-            <div className='logout-nav' style={{ display: openLogout ? "block" : "none", }} onClick={logoutCls}></div>
+            {/* <div className='logout-nav' style={{ display: openLogout ? "block" : "none", }} onClick={logoutCls}></div> */}
 
 
             {depositeOpen && (
                 <div>
-                    <iframe className="on-wrap-site" src={`https://onramp.money/main/buy/?appId=114893&walletAddress=${userWallet}&network=matic20&coinCode=usdt`}>
-                    </iframe>
-                    <div className='popup-deposite' onClick={depositcls}>
+                    <div className='nav-onwrap'>
+                        <iframe className="on-wrap-site" src={`https://onramp.money/main/buy/?appId=114893&walletAddress=${userWallet}&network=matic20&coinCode=usdt`}>
 
+                        </iframe>
+                        <h1 className='onwrp-close' onClick={depositcls}>x</h1>
                     </div>
                 </div>
 
