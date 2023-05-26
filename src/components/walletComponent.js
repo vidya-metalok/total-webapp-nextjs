@@ -102,6 +102,12 @@ const WalletComponent = () => {
         navigator.clipboard.writeText(userWallet);
         console.log("wallet address", userWallet)
         setcopyclick(true)
+        setTimeout(()=>{
+            setcopyclick(false)
+        },[2500])
+        
+       
+
     };
 
 
@@ -641,7 +647,7 @@ const WalletComponent = () => {
                         <div className="img-con">
                             <Image src={wallet} alt="" height={25} width={25} />
 
-                            <p> Total Matic balance</p>
+                            <p> Total MATIC balance</p>
                         </div>
                         <h2>20 Matic ($20)</h2>
                     </div>
@@ -651,7 +657,7 @@ const WalletComponent = () => {
                             <h3>{walletaddress}</h3>
                         </div>
                         <div onClick={handleCopyClick} style={{ position: 'relative' }} >
-                            <Image style={{ transform: copyClick ? 'rotate(90deg)' : 'rotate(0deg)', cursor: 'pointer' }} src={frame} height={30} width={30} alt="frame" />
+                            <Image style={{ transform: copyClick ? 'scale(0.8)' : 'scale(1)',transition:'all .2s ease', cursor: 'pointer' }} src={frame} height={29} width={29} alt="frame" />
                             <h3 className="copied-display" style={{ display: copyClick ? "block" : "none" }}>wallet copied</h3>
 
                         </div>

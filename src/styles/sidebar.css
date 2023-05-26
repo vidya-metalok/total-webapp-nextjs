@@ -368,7 +368,7 @@ table {
 }
 
 .side-livebowler-name h1 {
-  font-family: "poppins";
+  font-family: "Lato";
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
@@ -502,4 +502,14 @@ table {
   .side-tok-height{
     margin-top: -6%;
   }
+}
+
+.side-holding-text{
+  margin-left: -30px;
+}
+
+@media (max-width:1200px){
+  .side-holding-text{
+  margin-left: -10px;
+}
 }

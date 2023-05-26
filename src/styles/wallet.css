@@ -60,9 +60,9 @@
 }
 .wallet-card-2 h3 {
   font-family: "Lato";
-
   font-size: 22px;
   color: #cccccc;
+  font-weight: 600;
 }
 .text-card {
   display: flex;
@@ -190,7 +190,7 @@
   display: flex;
   align-items: center;
   text-align: right;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255);
 }
 .wallet-info p span {
   margin-left: 10px;
@@ -257,8 +257,8 @@
 .transaction-main {
   background-color: #232234;
   border-radius: 10px;
-  padding: 10px;
   line-height: 30px;
+  padding: 10px 25px 10px 16px;
 }
 .trans-type-con {
   display: flex;
@@ -314,6 +314,7 @@
   font-family: "Poppins";
   font-style: "SeminBold";
   font-size: 14px;
+  width: 210px;
 }
 .price-type {
   color: #ea9528;
@@ -338,7 +339,7 @@
   font-family: "Lato";
 }
 .trans-type {
-  font-family: "PoppinsRegular";
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -348,7 +349,7 @@
 }
 
 .select-token {
-  font-family: "PoppinsRegular";
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 17.827px;

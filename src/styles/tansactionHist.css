@@ -113,7 +113,7 @@
 /* dashboard history css  */
 
 .dash-trans-date h3{
-  font-family: 'Poppins';
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
 font-size: 12px ;
@@ -127,7 +127,7 @@ font-size: 12px ;
 }
 
 .dash-token-value h4 {
-  font-family: "PoppinsRegular";
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -179,6 +179,7 @@ font-size: 12px ;
   align-items: center;
   /* justify-content: space-between; */
   position: relative;
+  gap:25px;
 }
 .trans-settings :nth-last-child(1) {
   margin-left: 3px;
