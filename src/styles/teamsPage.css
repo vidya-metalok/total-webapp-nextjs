@@ -149,8 +149,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #ffffff;
-  padding-bottom: 10px;
+  border-bottom: 1px solid #5a5967;
+  padding: 20px 0px 20px 0px;
 }
 .bastman-img-con {
   display: flex;
@@ -175,6 +175,7 @@
   line-height: 18px;
   letter-spacing: -0.312463px;
   color: rgba(255, 255, 255, 0.65);
+  margin-bottom:0px;
 }
 .bastman-best {
   display: flex;
@@ -259,13 +260,14 @@
   cursor: pointer;
 }
 .team-matches-hist h3 {
-  font-family: "PoppinsRegular";
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.312463px;
   color: #FFFFFF;
+  margin-bottom:2px;
 }
 
 
@@ -376,6 +378,7 @@
   opacity: 0.75;
   text-align: center;
   padding-left: 20%;
+  margin:0px;
 }
 .d-time {
   font-family: "Poppins";

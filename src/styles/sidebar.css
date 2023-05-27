@@ -242,6 +242,7 @@
   font-weight: 900;
   font-size: 18px;
   line-height: 19px;
+  color:white;
 }
 .numbers-bar p:nth-child(4) {
   background: #232234;
