@@ -25,32 +25,35 @@ import LoginPage from './loginpage';
 
 const Home = () => {
   // const router = useRouter()
-  // const fireUserWallet = useSelector((store) => store?.user?.loginInfo?.email)
+  // const fireUserWallet = useSelector((store) => store?.user?.loginInfo)
   // console.log("logo...", fireUserWallet)
 
-  // if (fireUserWallet !== "") {
+  // if (!fireUserWallet) {
+  //   router.push("/")
+
+  // }
+  // else {
   //   router.push("/dashboardpage")
+  // }
+  return (
+    <>
 
-// }
-return (
-  <>
 
-
-    {/* <button onClick={() => router.push({
+      {/* <button onClick={() => router.push({
         query: {
           sidebarId: "10233"
         }, pathname: "/sidebar"
       })} >Next</button> */}
-    {/* <DashBoardPage /> */}
-    <LoginPage />
-    {/* <CandleStickPage /> */}
-    {/* <Feedbackpage /> */}
-    {/* <CommunityPage /> */}
-    {/* <Faqspage /> */}
-    {/* <Refferalspage /> */}
+      {/* <DashBoardPage /> */}
+      <LoginPage />
+      {/* <CandleStickPage /> */}
+      {/* <Feedbackpage /> */}
+      {/* <CommunityPage /> */}
+      {/* <Faqspage /> */}
+      {/* <Refferalspage /> */}
 
-  </>
-)
+    </>
+  )
 }
 export default Home
 

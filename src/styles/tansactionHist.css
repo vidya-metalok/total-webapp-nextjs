@@ -83,7 +83,6 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-
 /* .transaction-send-res{
   border:1px solid #f7a721;
   border-radius: 50%;
@@ -109,14 +108,13 @@
   border-bottom: 2px solid white;
 }
 
-
 /* dashboard history css  */
 
-.dash-trans-date h3{
-  font-family: 'Lato';
+.dash-trans-date h3 {
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-font-size: 12px ;
+  font-size: 12px;
   line-height: 14px;
 
   letter-spacing: -0.312463px;
@@ -134,7 +132,7 @@ font-size: 12px ;
   line-height: 19px;
   letter-spacing: -0.312463px;
 
-  color: #0BBB70;
+  color: #0bbb70;
 
   opacity: 0.75;
 }
@@ -179,7 +177,7 @@ font-size: 12px ;
   align-items: center;
   /* justify-content: space-between; */
   position: relative;
-  gap:25px;
+  gap: 25px;
 }
 .trans-settings :nth-last-child(1) {
   margin-left: 3px;
@@ -199,10 +197,9 @@ font-size: 12px ;
   z-index: 10;
 }
 
-
-.transaction-header-sticky{
-  position:sticky;
-  top:-4px;
+.transaction-header-sticky {
+  position: sticky;
+  top: -20px;
   background-color: #232234;
   height: 40px;
 }

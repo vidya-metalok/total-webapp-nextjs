@@ -98,6 +98,7 @@ const LoginComponent = () => {
         const id = await web3auth.authenticateUser();
         setidToken(id.idToken);
     });
+    console.log("token", idToken)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const afterLogin = async () => {

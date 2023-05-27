@@ -256,6 +256,7 @@ const NavBarComponent = () => {
         // setUserInfo(null);
         // setShowlogout(false);
         // await web3auth.logout();
+        dispatch(loginUser(null))
         router.push("/")
 
     };

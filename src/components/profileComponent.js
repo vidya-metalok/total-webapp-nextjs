@@ -91,6 +91,7 @@ const ProfileComponent = () => {
     // }, [dispatch, web3auth, router]);
 
     const profileLogout = () => {
+        dispatch(loginUser(null))
         router.push("/")
     }
 
@@ -121,38 +122,38 @@ const ProfileComponent = () => {
                         <h2 className='mygeneral-info'>My General information</h2>
                         <div className='col-12 d-md-flex gap-4'>
                             <div className='w-100'>
-                                <label className='label-name' htmlFor="">firstName</label>
+                                <label className='label-name' htmlFor="firstname">firstName</label>
                                 <br />
-                                <input className='profile-input form-control' type="text" value={firstName} onChange={(e) => setfirstName(e.target.value)} />
+                                <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} onChange={(e) => setfirstName(e.target.value)} />
                             </div>
 
                             <div className='w-100'>
-                                <label className='label-name' htmlFor="firstname">lastName</label>
+                                <label className='label-name' htmlFor="lastname">lastName</label>
                                 <br />
-                                <input className='profile-input form-control' id="firstname" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                                <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                             </div>
                         </div>
                         <div className='col-12 d-md-flex gap-4'>
                             <div className='w-100'>
-                                <label className='label-name' htmlFor="">Mobile</label>
+                                <label className='label-name' htmlFor="mobile">Mobile</label>
                                 <br />
-                                <input className='profile-input form-control' type="text" placeholder='7584684641' value={userMobile} onChange={(e) => setUserMobile(e.target.value)} />
+                                <input id="mobile" name="mobile" className='profile-input form-control' type="text" placeholder='7584684641' value={userMobile} onChange={(e) => setUserMobile(e.target.value)} />
                             </div>
                             <div className='w-100'>
-                                <label className='label-name' htmlFor="">Personal Email</label>
+                                <label className='label-name' htmlFor="personalemail">Personal Email</label>
                                 <br />
-                                <input className='profile-input form-control' type="text" value={personelEmail} onChange={(e) => setPersonelEmail(e.target.value)} />
+                                <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} onChange={(e) => setPersonelEmail(e.target.value)} />
                             </div>
                         </div>
                         <div>
-                            <label className='label-name' htmlFor="">Professional email</label>
+                            <label className='label-name' htmlFor="professionalemail">Professional email</label>
                             <br />
-                            <input className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} onChange={(e) => setProfessEmail(e.target.value)} />
+                            <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} onChange={(e) => setProfessEmail(e.target.value)} />
                         </div>
                         <div>
-                            <label className='label-name' htmlFor="">Address</label>
+                            <label className='label-name' htmlFor="address">Address</label>
                             <br />
-                            <input className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' value={userAddress} onChange={(e) => setuserAddress(e.target.value)} />
+                            <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' value={userAddress} onChange={(e) => setuserAddress(e.target.value)} />
 
                         </div>
                     </form>

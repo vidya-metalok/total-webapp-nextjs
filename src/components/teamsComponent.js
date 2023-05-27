@@ -90,16 +90,26 @@ import transArr from "../../public/images/trans-hist-arr.svg"
 // import punjabBanner from "../../public/images/psvBanner.png";
 // import rsvcBanner from "../../public/images/rrBanner.png";
 
-var delhiCapital = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhicapital.png";
-var chennaiSupers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/chennaiSuperkings.png";
-var rcbs = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rcb logo.png";
-var mumbaiIndia = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/mumbaiIndians.png";
-var rajasthanRoyals = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rajasthanRoyals.png";
-var punjabKings = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/punjabKings.png";
-var sunrisers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sunrisers.png";
-var kkr = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkr.png";
-var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
-var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gt.png";
+// var delhiCapital = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhicapital.png";
+import delhiCapital from "../../public/images/delhi-capitals-svg.svg"
+import chennaiSupers from "../../public/images/chennai-super-kings-svg.svg"
+// var chennaiSupers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/chennaiSuperkings.png";
+// var rcbs = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rcb logo.png";
+import rcbs from "../../public/images/live-rcb-img.svg"
+// var mumbaiIndia = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/mumbaiIndians.png";
+import mumbaiIndia from "../../public/images/mumbai-indians-svg.svg"
+// var rajasthanRoyals = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rajasthanRoyals.png";
+import rajasthanRoyals from "../../public/images/rajasthan-royals-svg.svg"
+// var punjabKings = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/punjabKings.png";
+import punjabKings from "../../public/images/punjab-kings-svg.svg"
+// var sunrisers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sunrisers.png";
+import sunrisers from "../../public/images/live-score-sunrise.svg"
+// var kkr = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkr.png";
+import kkr from "../../public/images/kkr-svg.svg"
+// var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
+import lk from "../../public/images/lk-svg.svg"
+// var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gt.png";
+import gt from "../../public/images/gt-svg.svg"
 
 
 
@@ -558,7 +568,7 @@ const TeamsComponent = (props) => {
             </div>
           </div>
           <div className="teams-holdings-con">
-            <div className="team-holding-value" style={{ width: "auto", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+            <div className="team-holding-value" style={{ width: "auto", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
               <div className="teams-hold-details">
                 <h3>Token Address</h3>
                 <p>{walletaddress}</p>
