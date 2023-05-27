@@ -616,7 +616,7 @@ const TeamsComponent = (props) => {
               <div className="teams-right-teams">
                 {teams.map((each, index) => (
                   <>
-                    <div className="bastman-main-con mb-5" key={index}>
+                    <div className="bastman-main-con" key={index}>
                       <div className="bastman-img-con">
                         <Image src={each.teamImg} alt="" height={50} width={50} />
                         <div className="bastman-details">
