@@ -608,7 +608,7 @@ const TeamsComponent = (props) => {
 
           <div className="team-matches-hist">
             <div className="d-flex gap-4">
-              <h2 onClick={teamClick} style={{ color: teamclick ? "white" : '#5a5967' }}> Teams </h2>
+              <h2 onClick={teamClick} style={{ color: teamclick ? "white" : '#5a5967' }}> Team </h2>
               <h2 onClick={sheduleClick} style={{ color: teamclick ? "#5a5967" : ' white' }}> Schedule</h2>
             </div>
 
