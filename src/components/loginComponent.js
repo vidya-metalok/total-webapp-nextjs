@@ -39,6 +39,7 @@ const LoginComponent = () => {
 
     const userInfoDetails = useSelector((store) => store?.user?.loginInfo?.email)
     const info = useSelector((store) => store?.user?.loginInfo)
+    console.log("reduxInfo...", info)
 
     const clientId =
         "BK_TX48ntUieviViLOy8xwUhCirzTQI3uL7NwHsKkZk_-R7Zzpoxc2WNJDauT3OMRpolI7wlNRHUgT8SD0hjNDE";

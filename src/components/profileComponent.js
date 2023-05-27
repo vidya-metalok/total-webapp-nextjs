@@ -91,7 +91,7 @@ const ProfileComponent = () => {
     // }, [dispatch, web3auth, router]);
 
     const profileLogout = () => {
-        router.push("/loginpage")
+        router.push("/")
     }
 
     const onClickEditBtn = () => {
