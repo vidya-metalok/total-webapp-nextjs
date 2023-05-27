@@ -5,16 +5,16 @@ import { useRouter } from 'next/router'
 const LayoutComponent = dynamic(() => import("../components/layoutComponent"), { ssr: false })
 const WalletComponent = dynamic(() => import("../components/walletComponent"), { ssr: false })
 const WalletPage = () => {
-    const fireUserWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
-    const router = useRouter()
+    // const fireUserWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
+    // const router = useRouter()
 
-    useEffect(() => {
-        if (fireUserWallet) {
-            router.push("/walletpage")
-        }
+    // useEffect(() => {
+    //     if (fireUserWallet) {
+    //         router.push("/walletpage")
+    //     }
 
 
-    }, [fireUserWallet, router])
+    // }, [fireUserWallet, router])
     return (
         <LayoutComponent>
             <WalletComponent />

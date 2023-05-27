@@ -110,23 +110,23 @@
   height: 72px;
 }
 .team-holding-value h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.01em;
-  color: #9492A0; 
+  color: #9492a0;
   opacity: 0.5;
 }
 .team-holding-value p {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.312463px;
-  color: #CCCCCC;
+  color: #cccccc;
 }
 .hodlingval-1 {
   color: #0bbb70 !important;
@@ -168,7 +168,7 @@
 }
 
 .bastman-details p {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -187,14 +187,14 @@
 }
 
 .bastman-best p {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
   text-align: end;
   letter-spacing: -0.312463px;
-  color: #CCCCCC;
+  color: #cccccc;
 }
 .matches-hist-card {
   display: flex;
@@ -244,8 +244,8 @@
   border-radius: 9px;
 }
 
-.team-matches-hist:nth-child(2){
-  margin-top:10px;
+.team-matches-hist:nth-child(2) {
+  margin-top: 10px;
 }
 
 .team-matches-hist h2 {
@@ -254,7 +254,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  color: #FFFFFF; 
+  color: #ffffff;
   opacity: 0.7;
   cursor: pointer;
 }
@@ -265,47 +265,46 @@
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.312463px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-
 
 .team-matches-hist-1 {
   background-color: #232234;
   padding: 14px;
   width: 340px;
   border-radius: 9px;
-  margin-top:7% ;
+  margin-top: 7%;
 }
 .team-matches-hist-1 h2 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  color: #FFFFFF; 
+  color: #ffffff;
   opacity: 0.7;
   cursor: pointer;
 }
 .team-matches-hist-1 h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.312463px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .team-matches-hist-1 h4 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.312463px;
-  color: #EC3E47;
+  color: #ec3e47;
 }
 .match-lost-txt-1 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
   font-size: 12px;
@@ -478,44 +477,44 @@
 }
 
 /* new added  08-05-23 */
-@media screen and (min-width: 991px) and (max-width:1400px){
+@media screen and (min-width: 991px) and (max-width: 1400px) {
   .transaction-main {
     width: 100%;
   }
   .tocken-pl {
     width: 98% !important;
   }
-  .history-titles{
+  .history-titles {
     width: 97% !important;
   }
-  .teams-left-con{
+  .teams-left-con {
     width: 62%;
   }
-  .teams-banner .banner-img{
+  .teams-banner .banner-img {
     width: 90%;
     margin-top: 5%;
   }
-  .side-bar-main{
-    margin-left:1%;
+  .side-bar-main {
+    margin-left: 1%;
   }
-  .tokens:nth-child(1), .tokens2 {
+  .tokens:nth-child(1),
+  .tokens2 {
     width: 85%;
   }
-  .sidebar-buysell{
+  .sidebar-buysell {
     width: auto;
   }
-  .team-name-details{
+  .team-name-details {
     margin-left: 5rem;
   }
   /* .side-live-batsmens1 h1{
     font-size: 10px;
   }*/
-  
 }
 
 /* new added  09-05-23 */
-@media screen and (min-width: 1020px) and (max-width:1080px){
-  .teams-left-con{
+@media screen and (min-width: 1020px) and (max-width: 1080px) {
+  .teams-left-con {
     width: 53%;
   }
   .side-live-batsmens1 h2 {
@@ -528,23 +527,23 @@
     margin-left: -9px;
   }
 }
-@media screen and (min-width: 1020px) and (max-width:1060px){
+@media screen and (min-width: 1020px) and (max-width: 1060px) {
   .teams-right-teams {
     width: 300px;
   }
-  .team-matches-hist{
+  .team-matches-hist {
     width: 320px;
   }
   .team-matches-hist-1 {
     width: 320px;
   }
-  .team-name-details{
+  .team-name-details {
     margin-left: 30%;
   }
-  .teams-banner .banner-logo{
+  .teams-banner .banner-logo {
     position: absolute;
     left: 25px;
-    bottom:100px;
+    bottom: 100px;
     width: 80px;
     height: 80px;
   }
@@ -559,4 +558,10 @@
 }
 .tocken-bar-head h6 {
   color: #ea9528;
+}
+.teams-drop-down {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
