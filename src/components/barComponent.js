@@ -40,7 +40,7 @@ export const BarComponent = () => {
                     backgroundColor: '#EC3E47',
                 },
                 {
-                    data: [6, -4, 2, -4, -2.8, 8.9, 5],
+                    data: [6, -4, 2, -4, -2.8, 8.9],
                     label: 'Applied',
                     borderColor: '#0BBB70',
                     backgroundColor: '#0BBB70',

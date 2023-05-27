@@ -431,7 +431,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 16px !important;
   line-height: 10px;
   letter-spacing: 0.416826px;
   text-transform: capitalize;

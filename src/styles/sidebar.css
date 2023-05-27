@@ -14,7 +14,7 @@
 
   background: #232234;
   border-radius: 7px;
-  padding: 30px 25px;
+  padding: 10px 25px;
 }
 
 .tokens2 {
@@ -25,10 +25,9 @@
   height: 500px;
   overflow: auto;
 }
-.tokens:nth-child(1)::-webkit-scrollbar{
+.tokens:nth-child(1)::-webkit-scrollbar {
   width: 0px;
 }
-
 
 .my-tokens-text {
   font-family: "Poppins";
@@ -57,12 +56,12 @@
   margin-left: 1rem;
 }
 .main-heading {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  color: #FFFFFF; 
+  color: #ffffff;
   opacity: 0.7;
 }
 .sub-heading {
@@ -452,22 +451,20 @@ table {
   bottom: -16px;
   left: -8px;
 }
-@media(max-height:1000px){
-  .tokens2{
+@media (max-height: 1000px) {
+  .tokens2 {
     height: 42vh;
     overflow: auto;
     border: 1px solid #ea9528;
     background-color: #1f1c2d;
   }
-  .tokens2::-webkit-scrollbar{
+  .tokens2::-webkit-scrollbar {
     width: 0px;
-
   }
 }
 
-
 /* new added-08-05  */
-.sidebar-tocken{
+.sidebar-tocken {
   display: flex;
   gap: 5%;
 }
@@ -475,41 +472,41 @@ table {
   cursor: pointer;
 }
 
-@media screen and (min-width: 991px) and (max-width:1400px){
+@media screen and (min-width: 991px) and (max-width: 1400px) {
   .live-topimg {
     width: 100%;
   }
   .live-bottomimg {
     width: 100%;
   }
-  .live-sc{
+  .live-sc {
     margin-left: -10%;
   }
   /* .side-bar-main {
      background-color: #0bbb70; 
   } */
-  .side-live-batsmens1 h1{
+  .side-live-batsmens1 h1 {
     font-size: 10px;
   }
-  .side-live-batsmens1 h2{
+  .side-live-batsmens1 h2 {
     font-size: 10px;
     margin-left: -10px;
   }
 }
 
 /* new added 11-05-23 */
-@media screen and (min-width: 1025px) and (max-width:1920px){
-  .side-tok-height{
+@media screen and (min-width: 1025px) and (max-width: 1920px) {
+  .side-tok-height {
     margin-top: -6%;
   }
 }
 
-.side-holding-text{
+.side-holding-text {
   margin-left: -30px;
 }
 
-@media (max-width:1200px){
-  .side-holding-text{
-  margin-left: -10px;
-}
+@media (max-width: 1200px) {
+  .side-holding-text {
+    margin-left: -10px;
+  }
 }
