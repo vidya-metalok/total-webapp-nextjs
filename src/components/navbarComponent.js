@@ -100,50 +100,50 @@ const NavBarComponent = () => {
     // }
 
 
-    const login = async () => {
-        if (!web3auth) {
-            return;
-        }
-        const web3authProvider = await web3auth.connect();
-        setProvider(web3authProvider);
-    };
+    // const login = async () => {
+    //     if (!web3auth) {
+    //         return;
+    //     }
+    //     const web3authProvider = await web3auth.connect();
+    //     setProvider(web3authProvider);
+    // };
 
-    async function loginServer(idToken, pubKey) {
-        const response = await fetch(
-            `https://backend.sportsverse.cricket/users/login`,
-            {
-                method: "POST",
-                headers: new Headers({
-                    "Content-Type": "application/json",
-                    Authorization: "Bearer " + idToken,
-                }),
-                body: JSON.stringify({ publicKey: pubKey }),
-            }
-        );
-        return await response.json();
-    }
-    useEffect(() => {
-        loginServer(idToken, pubKey);
-    }, [idToken, pubKey]);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const getId = useCallback(async () => {
-        if (!web3auth) {
-            return;
-        }
-        const id = await web3auth.authenticateUser();
-        setidToken(id.idToken);
-    });
+    // async function loginServer(idToken, pubKey) {
+    //     const response = await fetch(
+    //         `https://backend.sportsverse.cricket/users/login`,
+    //         {
+    //             method: "POST",
+    //             headers: new Headers({
+    //                 "Content-Type": "application/json",
+    //                 Authorization: "Bearer " + idToken,
+    //             }),
+    //             body: JSON.stringify({ publicKey: pubKey }),
+    //         }
+    //     );
+    //     return await response.json();
+    // }
+    // useEffect(() => {
+    //     loginServer(idToken, pubKey);
+    // }, [idToken, pubKey]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const afterLogin = async () => {
-        const res = await loginServer(idToken, pubKey);
-        setUserInfo(res.user);
-        dispatch(loginUser(res.user));
-        setShowlogout(true);
-        // router.push("/dashboardpage");
-        return true;
-    };
+    // const getId = useCallback(async () => {
+    //     if (!web3auth) {
+    //         return;
+    //     }
+    //     const id = await web3auth.authenticateUser();
+    //     setidToken(id.idToken);
+    // });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // const afterLogin = async () => {
+    //     const res = await loginServer(idToken, pubKey);
+    //     setUserInfo(res.user);
+    //     dispatch(loginUser(res.user));
+    //     setShowlogout(true);
+    //     // router.push("/dashboardpage");
+    //     return true;
+    // };
 
     // const senData = async () =>{
     //   const apiURl = "https://backend.sportsverse.cricket/users/login/"
@@ -154,95 +154,95 @@ const NavBarComponent = () => {
     // }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const getPrivateKey = useCallback(async () => {
-        if (!provider) {
-            console.log("provider not initialized yet");
-            return;
-        }
-        const rpc = new RPC(provider);
-        const privateKey = await rpc.getPrivateKey();
+    // const getPrivateKey = useCallback(async () => {
+    //     if (!provider) {
+    //         console.log("provider not initialized yet");
+    //         return;
+    //     }
+    //     const rpc = new RPC(provider);
+    //     const privateKey = await rpc.getPrivateKey();
 
-        dispatch(storePrivateKey(privateKey));
+    //     dispatch(storePrivateKey(privateKey));
 
-        return privateKey;
-    });
+    //     return privateKey;
+    // });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const getPubKey = useCallback(async () => {
-        if (!web3auth) {
-            console.log("web3auth not initialized yet");
-            return;
-        }
-        const app_scoped_privkey = await getPrivateKey();
-        const app_pub_key = getPublic(
-            Buffer.from(app_scoped_privkey.padStart(64, "0"), "hex")
-        ).toString("hex");
-        setpubKey(app_pub_key);
-    });
+    // const getPubKey = useCallback(async () => {
+    //     if (!web3auth) {
+    //         console.log("web3auth not initialized yet");
+    //         return;
+    //     }
+    //     const app_scoped_privkey = await getPrivateKey();
+    //     const app_pub_key = getPublic(
+    //         Buffer.from(app_scoped_privkey.padStart(64, "0"), "hex")
+    //     ).toString("hex");
+    //     setpubKey(app_pub_key);
+    // });
 
 
 
-    useEffect(() => {
-        const init2 = async () => {
-            await getId();
-            await getPubKey();
-            await getPrivateKey();
-        };
-        if (provider) init2();
-    }, [getId, getPrivateKey, getPubKey, provider]);
+    // useEffect(() => {
+    //     const init2 = async () => {
+    //         await getId();
+    //         await getPubKey();
+    //         await getPrivateKey();
+    //     };
+    //     if (provider) init2();
+    // }, [getId, getPrivateKey, getPubKey, provider]);
 
-    useEffect(() => {
-        const init2 = async () => {
-            await getId();
-            await getPubKey();
-        };
-        if (provider) init2();
-    }, [getId, getPubKey, provider]);
+    // useEffect(() => {
+    //     const init2 = async () => {
+    //         await getId();
+    //         await getPubKey();
+    //     };
+    //     if (provider) init2();
+    // }, [getId, getPubKey, provider]);
 
-    useEffect(() => {
-        const init3 = async () => {
-            await afterLogin();
-        };
-        if (idToken && pubKey) {
-            init3();
-        }
-    }, [afterLogin, idToken, pubKey]);
+    // useEffect(() => {
+    //     const init3 = async () => {
+    //         await afterLogin();
+    //     };
+    //     if (idToken && pubKey) {
+    //         init3();
+    //     }
+    // }, [afterLogin, idToken, pubKey]);
 
-    useEffect(() => {
-        const init = async () => {
-            try {
-                const web3auth = new Web3Auth({
-                    clientId: clientId,
-                    chainConfig: {
-                        chainNamespace: "eip155",
-                        chainId: "0x89", // hex of 80001, polygon testnet
-                        rpcTarget:
-                            "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
-                    },
-                    authMode: "WALLET",
-                    uiConfig: {
-                        theme: "dark",
-                        loginMethodsOrder: ["facebook", "google"],
-                        appLogo:
-                            "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
-                    },
-                    defaultLanguage: "en",
-                });
+    // useEffect(() => {
+    //     const init = async () => {
+    //         try {
+    //             const web3auth = new Web3Auth({
+    //                 clientId: clientId,
+    //                 chainConfig: {
+    //                     chainNamespace: "eip155",
+    //                     chainId: "0x89", // hex of 80001, polygon testnet
+    //                     rpcTarget:
+    //                         "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
+    //                 },
+    //                 authMode: "WALLET",
+    //                 uiConfig: {
+    //                     theme: "dark",
+    //                     loginMethodsOrder: ["facebook", "google"],
+    //                     appLogo:
+    //                         "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
+    //                 },
+    //                 defaultLanguage: "en",
+    //             });
 
-                setWeb3auth(web3auth);
+    //             setWeb3auth(web3auth);
 
-                await web3auth.initModal();
-                if (web3auth.provider) {
-                    setProvider(web3auth.provider);
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        init();
-    }, []);
+    //             await web3auth.initModal();
+    //             if (web3auth.provider) {
+    //                 setProvider(web3auth.provider);
+    //             }
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     };
+    //     init();
+    // }, []);
 
-    console.log("web3auth", web3auth)
+    // console.log("web3auth", web3auth)
     // console.log("web3auth-.....", web3auth.logout())
 
 
@@ -256,7 +256,7 @@ const NavBarComponent = () => {
         // setUserInfo(null);
         // setShowlogout(false);
         // await web3auth.logout();
-        router.push("/loginpage")
+        router.push("/")
 
     };
 

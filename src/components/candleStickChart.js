@@ -255,7 +255,7 @@ const CandleStickChart = () => {
             height: 350
         },
         title: {
-            text: 'CandleStick Chart',
+            text: '',
             align: 'left',
             style: {
                 color: "#E0E0E0",
@@ -299,14 +299,14 @@ const CandleStickChart = () => {
                         ["#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0"]
 
                 },
-                style: {
-                    fontFamily: "Sora",
-                    fontSize: "10px",
-                    fontStyle: "normal",
-                    fontWeight: 300,
-                    lineHeight: "12px"
+                // style: {
+                //     fontFamily: "Sora",
+                //     fontSize: "10px",
+                //     fontStyle: "normal",
+                //     fontWeight: 300,
+                //     lineHeight: "12px"
 
-                }
+                // }
             },
 
         },
@@ -328,14 +328,14 @@ const CandleStickChart = () => {
                     colors: ["#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0", "#E0E0E0"]
 
                 },
-                style: {
-                    fontFamily: "Sora",
-                    fontSize: "10px",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "12px"
+                // style: {
+                //     fontFamily: "Sora",
+                //     fontSize: "10px",
+                //     fontStyle: "normal",
+                //     fontWeight: 500,
+                //     lineHeight: "12px"
 
-                }
+                // }
             },
         },
 

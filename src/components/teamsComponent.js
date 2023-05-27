@@ -795,9 +795,25 @@ const TeamsComponent = (props) => {
           <h3 onClick={tockenClick} className={`${teamPlTabClass}`}>Token P & L</h3>
         </div>
         {transactionclick && (
-          <div className="his-img-con">
-            <Image src={settings} alt="" height={20} width={20} />
-            <p>Token Transaction</p>
+          <div onClick={() => setOpenDropDown(!openDropDown)} className="teams-drop-down">
+
+            <div className="his-img-con">
+              <div className="his-img-con">
+                <Image src={settings} alt="" height={20} width={20} />
+                <p>Token Transaction</p>
+              </div>
+              <div className="his-img-con">
+                <Image src={transArr} alt="" height={15} width={15} />
+              </div>
+            </div>
+            {openDropDown && (
+              <div className="chart-hist" style={{ top: "24px", left: "80%", zIndex: 20 }} >
+                <p>weekly</p>
+                <p>monthly</p>
+                <p>yearly</p>
+              </div>
+            )}
+
           </div>
 
 
@@ -826,7 +842,7 @@ const TeamsComponent = (props) => {
                 </tr>
                 <tbody>
                   {transactionData.map((each, index) => (
-                    <tr key={index}>
+                    <tr key={index} style={{ borderBottom: "2px solid rgba(255, 255, 255, 0.1)" }}>
                       <Card
                         hash={each.hash}
                         value={each.value}
