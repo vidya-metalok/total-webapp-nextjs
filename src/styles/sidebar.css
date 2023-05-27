@@ -55,6 +55,7 @@
 
   opacity: 0.7;
   margin-left: 1rem;
+  margin-top:4px;
 }
 .main-heading {
   font-family: 'Poppins';
@@ -129,6 +130,7 @@
   line-height: 17px;
 
   color: #0bbb70;
+  margin-bottom:8px;
 }
 .score-points {
   font-family: "Lato";
@@ -242,7 +244,6 @@
   font-weight: 900;
   font-size: 18px;
   line-height: 19px;
-  color:white;
 }
 .numbers-bar p:nth-child(4) {
   background: #232234;

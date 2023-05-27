@@ -233,8 +233,8 @@ const LeagueComponent = () => {
                     )
                 }
 
-                <div className="drop-down-container  d-flex flex-direction-column">
-                    <div className="row">
+                <div className="drop-down-container  d-flex flex-direction-column justify-content-center">
+                    <div className="row container-fluid">
 
 
                         <div className="col-12 col-sm-12  col-md-6 col-lg-6">

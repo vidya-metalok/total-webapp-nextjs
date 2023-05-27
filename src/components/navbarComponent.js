@@ -321,7 +321,7 @@ const NavBarComponent = () => {
                             <span style={{ marginLeft: "1rem" }}> Deposit</span>
 
                         </button>
-                        <button className="deposit-btn" >
+                        <button className="deposit-btn" onClick={() => setdepositeOpen(!depositeOpen)}>
                             <Image src={moneyReceiveIcon} alt="" height={20} width={20} />
                             <span style={{ marginLeft: "1rem" }}> Withdraw</span>
                         </button>

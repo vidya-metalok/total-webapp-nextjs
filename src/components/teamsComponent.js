@@ -598,7 +598,7 @@ const TeamsComponent = (props) => {
 
           <div className="team-matches-hist">
             <div className="d-flex gap-4">
-              <h2 onClick={teamClick} style={{ color: teamclick ? "white" : '#5a5967' }}> Team </h2>
+              <h2 onClick={teamClick} style={{ color: teamclick ? "white" : '#5a5967' }}> Teams </h2>
               <h2 onClick={sheduleClick} style={{ color: teamclick ? "#5a5967" : ' white' }}> Schedule</h2>
             </div>
 
@@ -606,7 +606,7 @@ const TeamsComponent = (props) => {
               <div className="teams-right-teams">
                 {teams.map((each, index) => (
                   <>
-                    <div className="bastman-main-con" key={index}>
+                    <div className="bastman-main-con mb-5" key={index}>
                       <div className="bastman-img-con">
                         <Image src={each.teamImg} alt="" height={50} width={50} />
                         <div className="bastman-details">
@@ -650,7 +650,7 @@ const TeamsComponent = (props) => {
                             <th><div className="verse">VS</div> </th>
                             <th>
                               <div className="delhi-c">
-                                <Image src={each.match2Img} alt="" height={50} width={50} />
+                                <Image src={each.match2Img} alt="" height={60} width={60} />
                               </div>
                             </th>
                           </tr>
@@ -761,7 +761,6 @@ const TeamsComponent = (props) => {
 
                 <div className="single-team-hist">
                   <div className="single-team-titles">
-                    <h3>Team</h3>
                     <h3>P</h3>
                     <h3>W</h3>
                     <h3>L</h3>
