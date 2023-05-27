@@ -242,7 +242,7 @@ const NavBarComponent = () => {
     //     init();
     // }, []);
 
-    console.log("web3auth", web3auth)
+    // console.log("web3auth", web3auth)
     // console.log("web3auth-.....", web3auth.logout())
 
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Inter } from 'next/font/google'
 import db from "../firestore/fireConfig";
 
@@ -13,7 +13,7 @@ import { tokenOneFetch } from "../components/redux/tokenSlicer/tokenOneSlice"
 
 import { useRouter } from 'next/router';
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 import LoginPage from './loginpage';
 // import Feedbackpage from './feedbackpage';
@@ -24,27 +24,50 @@ import LoginPage from './loginpage';
 
 
 const Home = () => {
+  // const router = useRouter()
+  // const fireUserWallet = useSelector((store) => store?.user?.loginInfo?.email)
+  // console.log("logo...", fireUserWallet)
+
+  // if (fireUserWallet !== "") {
+  //   router.push("/dashboardpage")
+
+// }
+return (
+  <>
 
 
-  return (
-    <>
-
-
-      {/* <button onClick={() => router.push({
+    {/* <button onClick={() => router.push({
         query: {
           sidebarId: "10233"
         }, pathname: "/sidebar"
       })} >Next</button> */}
-      {/* <DashBoardPage /> */}
-      <LoginPage />
-      {/* <CandleStickPage /> */}
-      {/* <Feedbackpage /> */}
-      {/* <CommunityPage /> */}
-      {/* <Faqspage /> */}
-      {/* <Refferalspage /> */}
+    {/* <DashBoardPage /> */}
+    <LoginPage />
+    {/* <CandleStickPage /> */}
+    {/* <Feedbackpage /> */}
+    {/* <CommunityPage /> */}
+    {/* <Faqspage /> */}
+    {/* <Refferalspage /> */}
 
-    </>
-  )
+  </>
+)
 }
 export default Home
 
+
+
+// export const getServerSideProps = () => {
+//   if (fireUserWallet) {
+//     return {
+//       redirect: {
+//         destination: '/',
+//         permanent: false,
+//       },
+//     };
+//   }
+
+//   return {
+//     props: {},
+//   };
+
+// }

@@ -258,7 +258,12 @@
   background-color: #232234;
   border-radius: 10px;
   line-height: 30px;
-  padding: 10px 25px 10px 16px;
+  height: 450px;
+  overflow: auto;
+}
+
+.transaction-main::-webkit-scrollbar {
+  width: 0px;
 }
 .trans-type-con {
   display: flex;

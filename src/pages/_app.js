@@ -18,6 +18,7 @@ import "../styles/refferal.css"
 import '../styles/profile.css'
 import '../styles/faq.css'
 import "../styles/profile-link.css"
+import { useEffect } from "react";
 
 
 
@@ -25,9 +26,10 @@ import { Provider } from 'react-redux';
 
 import { store, persistor } from '@/components/redux/store';
 import { PersistGate } from "redux-persist/integration/react";
+import { wrapper } from "@/components/redux/store";
 import Head from 'next/head';
-export default function App({ Component, pageProps }) {
-  console.log("store...+++++++++++.", store)
+// import Router from "next/router";
+const App = ({ Component, pageProps }) => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
@@ -43,3 +45,5 @@ export default function App({ Component, pageProps }) {
 
   )
 }
+
+export default wrapper.withRedux(App)
