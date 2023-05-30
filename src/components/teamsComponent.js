@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useCallback } from 'react';
 import Web3 from "web3";
+import { storage } from "@/firestore/fireConfig";
 
 import Chart from 'chart.js/auto';
 import { BarController, BarElement, CategoryScale, LinearScale, Title, DoughnutController, ArcElement } from 'chart.js';
@@ -120,6 +121,8 @@ import PortFolioComponent from "./portfolioComponent";
 import BarComponent from "./barComponent";
 import ReverseChart from "./reverseChart";
 import { useSelector } from "react-redux";
+
+import db from "../firestore/fireConfig";
 const TeamsComponent = (props) => {
   const [openDropDown, setOpenDropDown] = useState(false)
   const [copyClick, setcopyclick] = useState(false)
@@ -171,6 +174,7 @@ const TeamsComponent = (props) => {
   // console.log("immmmm....", broadImg);
 
   const { tokenName, tokenKey, teamName, teamShortName } = props.tokenDetails;
+  console.log("tokenKey...", tokenKey)
   const teams = [
     {
       id: "0",
@@ -296,6 +300,34 @@ const TeamsComponent = (props) => {
       matchTime: "7:35 PM",
     },
   ];
+
+
+  // const isFocussed = useIsFocused();
+  // const [teamMatchHistory, setTeamMatchHistory] = useState({});
+  // useEffect(() => {
+  //   const fetchTeamMatchHist = async () => {
+  //     try {
+  //       console.log("teamHistcalling..")
+
+  //       const colRef = collection(db, 'IPLStats', tokenKey);
+  //       const querySnapshot = await getDocs(colRef);
+  //       const data = querySnapshot.docs.map((doc) => doc.data());
+
+  //       const jsonResData = await JSON.parse(JSON.stringify(data));
+  //       console.log("teammatchJson..", jsonResData)
+  //       setTeamMatchHistory(jsonResData)
+
+
+  //     }
+  //     catch (error) {
+  //       console.log("error", error)
+  //     }
+  //   }
+
+  //   fetchTeamMatchHist()
+
+  // }, []);
+  // console.log("teamMatchHistory....", teamMatchHistory)
 
   const [matchHistory, setMatchHistory] = useState({});
   useEffect(() => {
@@ -600,7 +632,7 @@ const TeamsComponent = (props) => {
           </div>
 
           <div className="teams-buysell">
-            <BuySellComponent eachTeamName={teamShortName} />
+            <BuySellComponent eachTeamName={teamShortName.slice(0, 4)} />
           </div>
         </div>
 

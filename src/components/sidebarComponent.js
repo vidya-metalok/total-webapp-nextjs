@@ -4,6 +4,8 @@ import Image from 'next/image'
 import livetopimg from '../../public/images/live-topline.png'
 
 import livebottomimg from '../../public/images/live-bottomline.png'
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from "@/firestore/fireConfig";
 
 // https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg
 // var delhiCapital = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhicapital.png";
@@ -43,8 +45,8 @@ import { useRouter } from 'next/router';
 import Web3 from 'web3';
 import abi from "../../abis/abi.json"
 import { useSelector } from 'react-redux';
-import liveRiseImg from "../../public/images/live-score-sunrise.svg"
-import liveRcbsImg from '../../public/images/live-rcb-img.svg'
+// import liveRiseImg from "../../public/images/live-score-sunrise.svg"
+// import liveRcbsImg from '../../public/images/live-rcb-img.svg'
 
 
 
@@ -54,9 +56,13 @@ const Sidebar = () => {
     const router = useRouter()
     const { query } = router
 
-    const pricesList = useSelector((store) => store.priceMatches.tokenPrices)
+    // const teamALiveImg = useSelector((store) => store?.user?.liveTeamAImgUrl)
+    // const teamBLiveImg = useSelector((store) => store?.user?.liveTeamBImgUrl)
+    // console.log("reduxLiveImg....", teamALiveImg, teamBLiveImg)
+
+    const pricesList = useSelector((store) => store?.priceMatches?.tokenPrices)
     console.log("priceList..", pricesList)
-    const iplMatches = useSelector((store) => store.priceMatches.matchesList)
+    const iplMatches = useSelector((store) => store?.priceMatches?.matchesList)
 
     const bsvAmount = useSelector((store) => store.tokenOneSlice.tokenOne.price)
     const csvAmount = useSelector((store) => store.tokenTwoSlice.tokenTwo.price)
@@ -96,7 +102,7 @@ const Sidebar = () => {
     console.log("newTokenList....", newTokenList)
 
 
-    const userWallet = useSelector((store) => store.user.loginInfo)
+    const userWallet = useSelector((store) => store?.user?.loginInfo)
     const web3 = new Web3(
         'https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF',
     );
@@ -104,8 +110,8 @@ const Sidebar = () => {
 
 
 
-    const liveObj = iplMatches.filter((each, index) => each.status === "live")
-    console.log("objeeeee", liveObj)
+    const sideLiveObj = iplMatches?.find((each, index) => each.status === "not_started")
+    console.log("side..objeeeee", sideLiveObj)
 
 
     const [teamAImgUrl, setTeamAImgUrl] = useState("");
@@ -113,22 +119,18 @@ const Sidebar = () => {
     console.log("sideTeamA", teamAImgUrl)
     console.log("sideTeamB", teamBImgUrl)
 
-
-
-    // Fetches the image URL for team A
     const getTeamAImgUrl = async (key) => {
+        console.log("a...calling...")
         const fileRef = ref(storage, `/ipl_team_logo/${key}.png`);
+        console.log("ref....", fileRef)
         const url = await getDownloadURL(fileRef);
-        console.log("url1...", url);
         return url;
     };
 
     useEffect(() => {
         const fetchTeamAImgUrl = async () => {
-            // console.log("key...", liveObj)
-
             try {
-                const imgUrl = await getTeamAImgUrl(liveObj.teams["a"].key);
+                const imgUrl = await getTeamAImgUrl(sideLiveObj?.teams["a"].key);
                 setTeamAImgUrl(imgUrl);
             } catch (error) {
                 console.error(error); // Log any errors that occur during fetching
@@ -136,28 +138,30 @@ const Sidebar = () => {
         };
 
         fetchTeamAImgUrl();
-    }, [liveObj]);
+    }, []);
+
+    console.log("aImg", teamAImgUrl)
 
     // Fetches the image URL for team B
     const getTeamBImgUrl = async (key) => {
         const fileRef = ref(storage, `/ipl_team_logo/${key}.png`);
         const url = await getDownloadURL(fileRef);
-        console.log("url2..", url);
         return url;
     };
 
     useEffect(() => {
         const fetchTeamBImgUrl = async () => {
             try {
-                const imgUrl = await getTeamBImgUrl(liveObj.teams["b"].key);
-                setTeamBImgUrl(imgUrl);
+                const imgUrl = await getTeamBImgUrl(sideLiveObj?.teams["b"].key);
+                console.log("burl...", imgUrl)
+                setTeamBImgUrl(imgUrl)
             } catch (error) {
                 console.error(error); // Log any errors that occur during fetching
             }
         };
 
         fetchTeamBImgUrl();
-    }, [liveObj]);
+    }, []);
 
 
     const onClickTeam = (eachToken) => {
@@ -178,6 +182,7 @@ const Sidebar = () => {
         setalltokenclick(true);
     };
 
+    console.log("a,bimages..", teamAImgUrl, teamBImgUrl)
     return (
         <>
             <div className='side-bar-main'>
@@ -233,25 +238,25 @@ const Sidebar = () => {
                 <div className='tokens2' style={{ marginTop: "1rem" }}>
                     <h2 className='main-heading'>Live Score</h2>
                     <div className='score-team'>
-                        <Image className='live-topimg' src={livetopimg} alt="" />
+                        {/* <Image className='live-topimg' src={teamALiveImg} alt="" height={30} width={30} /> */}
                         <div className='d-flex live-sc'>
-                            <Image src={sunrisers} alt="" height={30} width={40} />
+                            <Image src={teamAImgUrl} alt="" height={30} width={40} />
                             <div className='all-headings'>
-                                <h1 >SRH </h1>
+                                <h1 >{sideLiveObj?.teams["a"].code} </h1>
                                 <h2 className="sub-heading">Batting </h2>
                             </div>
                         </div>
                         <h1 className='vs-heading'>vs</h1>
                         <div className='d-flex justify-content-center'>
-                            <Image src={rcbs} alt="" height={30} width={40} />
+                            <Image src={teamBImgUrl} alt="" height={30} width={40} />
                             <div className='all-headings'>
-                                <h1>RCB</h1>
+                                <h1>{sideLiveObj?.teams["b"].code} </h1>
                                 <h2 className='sub-heading'>Bowling </h2>
                             </div>
                         </div>
-                        <Image className='live-bottomimg' src={livebottomimg} alt="" />
+                        {/* <Image className='live-bottomimg' src={teamBLiveImg} alt="" height={30} width={30} /> */}
                     </div>
-                    <h1 className='score-value'>123/5<span className="score-points">(16.3)</span></h1>
+                    <h1 className='score-value'>{sideLiveObj?.innings?.a_1?.score_str?.split(" ")?.slice(0, 1)}<span className="score-points">({sideLiveObj?.innings?.a_1?.score_str?.split(" ")?.slice(2)})</span></h1>
                     <p className='this-over-heading'  >This over</p>
                     <div className='numbers-bar'>
                         <p>2</p>
@@ -284,14 +289,14 @@ const Sidebar = () => {
                     </div>
                     <div className='sidebar-buysell'>
                         <div className="score-team2">
-                            <Image src={rcbs} alt="" height={20} width={20} />
-                            <h3 className='side-holding side-holding-text' >RSVC</h3>
+                            <Image src={teamAImgUrl} alt="" height={20} width={20} />
+                            <h3 className='side-holding side-holding-text' >{sideLiveObj?.teams["a"]?.code}</h3>
                             <p className="side-holding">$250</p>
                             <h4 className='lose-or-gain1'>+0.547</h4>
                         </div>
                         <div className='score-team2'>
-                            <Image src={sunrisers} alt="" height={20} width={20} />
-                            <h3 className='side-holding side-holding-text'>HSVC</h3>
+                            <Image src={teamBImgUrl} alt="" height={20} width={20} />
+                            <h3 className='side-holding side-holding-text'>{sideLiveObj?.teams["b"]?.code}</h3>
                             <p className='side-holding'>$250</p>
                             <h4 className='lose-or-gain2'>-1.263</h4>
                         </div>
