@@ -626,7 +626,7 @@ const WalletComponent = () => {
     return (
         <div className="wallet-main-con">
             <div className="details-balance-con">
-                <div>
+                <div style={{width:'30%'}}>
                     <div className="wallet-card t-wallet" style={{ width: "100%" }}>
                         <div className="img-con">
                             <Image src={wallet} alt="" height={25} width={25} />
@@ -687,7 +687,7 @@ const WalletComponent = () => {
                                         <p className="amount">Avbl : 30,000 USDT</p>
                                     </div>
 
-
+                                   
 
                                     <div className="quick-trade-child">
                                         <div className="quick-trade-subchild">
@@ -822,7 +822,7 @@ const WalletComponent = () => {
                                         <button className="sell-btn">SELL</button>
                                     </div>
                                 </div>
-
+                                <div className="wallet-center-border"></div>
                                 <div className="trade-details">
                                     {/* <div>
                                         <Image src={walletHrLine} height={"auto"} width={"auto"} alt="" />

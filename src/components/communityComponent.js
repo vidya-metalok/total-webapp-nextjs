@@ -21,14 +21,15 @@ const CommunityComponent = () => {
                     <p>Connect with us and stay updated on latest technologies and our company news.We stay in touch with the community on major social media & communication channels and are just a click away</p>
 
                     <div className='commu-icons'>
-                        <Image src={facebookIcon} alt='' height={"auto"} width={"auto"} className='social-commu' />
-                        <Image src={instagramIcon} alt="" height={"auto"} width={"auto"} className='social-commu' />
-                        <Image src={twitterIcon} alt="" height={"auto"} width={"auto"} className='social-commu' />
-                        <Image src={linkedinIcon} alt="" height={"auto"} width={"auto"} className='social-commu' />
-                        <Image src={telgramIcon} alt="" height={"auto"} width={"auto"} className='social-commu' />
-                        <Image src={discordIcon} alt="" height={"auto"} width={"auto"} className='social-commu' />
-                        <Image src={whatsupIcon} alt="" height={"auto"} width={"auto"} className='social-commu' />
-                        <Image src={youtubeIcon} alt="" height={"auto"} width={"auto"} className='social-commu' />
+
+                        <a href="https://www.facebook.com/sportsverse.trade?mibextid=ZbWKwL" target="_blank"> <Image src={facebookIcon} alt='' height={"auto"} width={"auto"} className='social-commu' /></a>
+                       <a href="https://www.instagram.com/sportsverse.trade/" target="_blank"><Image src={instagramIcon} alt="" height={"auto"} width={"auto"} className='social-commu' /></a>
+                       <a href="https://twitter.com/sportsverse_" target='_blank'> <Image src={twitterIcon} alt="" height={"auto"} width={"auto"} className='social-commu' /></a>
+                        <a href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=false&heroEntityKey=urn%3Ali%3Aorganization%3A82131455&keywords=sportsverse.trade&origin=RICH_QUERY_SUGGESTION&position=1&searchId=fdb2db8d-f2fd-47e5-bb25-f65fd7bdcd24&sid=Xkn" target="_blank"><Image src={linkedinIcon} alt="" height={"auto"} width={"auto"} className='social-commu' /></a>
+                        <a href="https://t.me/+Gq8_Hu_wNaZlOTM1" target='-blank'> <Image src={telgramIcon} alt="" height={"auto"} width={"auto"} className='social-commu' /></a>
+                        <a href="https://discord.com/invite/T8J5e2QAVW" target='_blank'><Image src={discordIcon} alt="" height={"auto"} width={"auto"} className='social-commu' /></a>
+                        <a href=""><Image src={whatsupIcon} alt="" height={"auto"} width={"auto"} className='social-commu' /></a>
+                        <a href=""><Image src={youtubeIcon} alt="" height={"auto"} width={"auto"} className='social-commu' /></a>
                     </div>
 
                 </div>

@@ -53,12 +53,35 @@ import { useRouter } from 'next/router';
 // import { loginServer } from "../../services/userService";
 import sportsTxt from "../../public/images/SPORTSVERSE.svg"
 
+
+
+
+
+import profileActive from "../../public/images/profile-active-icon.svg"
+import feedbackActive from "../../public/images/feedback-active.svg"
+import communityActive from '../../public/images/community-active.svg'
+import refferalActive from "../../public/images/refferals-active.svg"
 import faqActive from "../../public/images/faqs-active.svg"
+
+import profileNotActive from "../../public/images/profile-not-active.svg"
+import feedbackNotActive from "../../public/images/feedback-not-active.svg"
+import communityNotActive from "../../public/images/community-not-active.svg"
+import refferalNotActive from "../../public/images/refferal-not-active.svg"
+import faqsNotActive from "../../public/images/faqs-icon-inactive.svg"
+
 
 const NavBarComponent = () => {
     const [depositeOpen, setdepositeOpen] = useState(false)
     const dispatch = useDispatch()
     const router = useRouter()
+
+
+    const profilLinkIcon = router.pathname === '/profilepage' ? profileActive : profileNotActive
+    const feedbackLinkIcon = router.pathname === '/feedbackpage' ? feedbackActive : feedbackNotActive
+    const communityLinkIcon = router.pathname === '/communitypage' ? communityActive : communityNotActive
+    const refferalsLinkIcon = router.pathname === '/refferalspage' ? refferalActive : refferalNotActive
+    const fqasLinkIcon = router.pathname === '/faqspage' ? faqActive : faqsNotActive
+
     const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
 
     const depositcls = () => {
@@ -351,32 +374,32 @@ const NavBarComponent = () => {
                 <div>
                     <div className="logout-con">
                         <Link href="/profilepage" className={router.pathname === '/profilepage' ? 'active-link-name' : "not-active-link-name"}>
-                            <Image src={personIcon} alt="" height={20} width={20} />
+                            <Image src={profilLinkIcon} alt="" height={20} width={20} />
 
                             <p>Profile</p>
                         </Link>
                     </div>
                     <div className="logout-con">
                         <Link href="/feedbackpage" className={router.pathname === '/feedbackpage' ? 'active-link-name' : "not-active-link-name"}>
-                            <Image src={feedbackIcon} alt="" height={20} width={20} />
+                            <Image src={feedbackLinkIcon} alt="" height={20} width={20} />
                             <p>Feedback & Support</p>
                         </Link>
                     </div>
                     <div className="logout-con">
                         <Link href="/communitypage" className={router.pathname === '/communitypage' ? 'active-link-name' : "not-active-link-name"}>
-                            <Image src={communityIcon} alt="" height={20} width={20} />
+                            <Image src={communityLinkIcon} alt="" height={20} width={20} />
                             <p>Community</p>
                         </Link>
                     </div>
                     <div className="logout-con">
                         <Link href="/refferalspage" className={router.pathname === '/refferalspage' ? 'active-link-name' : "not-active-link-name"}>
-                            <Image src={refferalIcon} alt="" height={20} width={20} />
+                            <Image src={refferalsLinkIcon} alt="" height={20} width={20} />
                             <p>Refferals</p>
                         </Link>
                     </div>
                     <div className="logout-con">
                         <Link href="/faqspage" className={router.pathname === '/faqspage' ? 'active-link-name' : "not-active-link-name"}>
-                            <Image src={faqActive} alt="" height={20} width={20} />
+                            <Image src={fqasLinkIcon} alt="" height={20} width={20} />
                             <p>Faqs</p>
                         </Link>
                     </div>

@@ -156,14 +156,15 @@ const LoginComponent = () => {
     //     setShowlogout(false);
     // };
 
+
     useEffect(() => {
         const init2 = async () => {
             await getId();
             await getPubKey();
-            await getPrivateKey();
+            // await getPrivateKey();
         };
         if (provider) init2();
-    }, [getId, getPrivateKey, getPubKey, provider]);
+    }, [getId, getPubKey, provider]);
 
     useEffect(() => {
         const init2 = async () => {
@@ -175,13 +176,12 @@ const LoginComponent = () => {
 
     useEffect(() => {
         const init3 = async () => {
-            await afterLogin();
+            // await afterLogin();
         };
         if (idToken && pubKey) {
             init3();
         }
-    }, [afterLogin, idToken, pubKey]);
-
+    }, [ idToken, pubKey]);
     useEffect(() => {
         const init = async () => {
             try {
@@ -242,7 +242,7 @@ const LoginComponent = () => {
 
         console.log("clicked")
 
-        if (email === userInfoDetails && (userName !== "" && userPassword !== "")) {
+        if (email === userInfoDetails) {
             router.push("/dashboardpage");
         }
         if (userName == "") {
