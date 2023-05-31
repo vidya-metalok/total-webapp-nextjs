@@ -245,9 +245,7 @@ const TradeComponent = () => {
 
   return (
     <div style={{ padding: "5px" }}>
-
-
-      <div className="not-inlive-section" style={{ display: notinlive ? 'none' : 'block' }}>
+      <div className="not-inlive-section" style={{ display: notinlive ? 'block' : 'none' }}>
         <h1>Will be active when match is Live</h1>
       </div>
 
