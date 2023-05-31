@@ -28,9 +28,20 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,200;0,300;0,400;1,100&family=Open+Sans:ital,wght@1,300&family=Poppins:ital,wght@0,100;0,200;0,300;1,100&family=Sora:wght@100;200;300;400;500;600&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet" />
 
+        {/* inter font family */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;1,100&family=Open+Sans:ital,wght@1,300&family=Poppins:ital,wght@0,100;0,200;0,300;1,100&family=Sora:wght@100;300;400;500;600&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet" />
 
-        <link href="https://cdn.jsdelivr.net/npm/@fontsource/lato@4.4.0/css/all.css" rel="stylesheet" type="text/css" />
-        <link href="https://rsms.me/inter/inter.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+        {/* <link href="https://cdn.jsdelivr.net/npm/@fontsource/lato@4.4.0/css/all.css" rel="stylesheet" type="text/css" /> */}
+        {/* <link href="https://rsms.me/inter/inter.css" rel="stylesheet" type="text/css" /> */}
         {/* <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200&display=swap" rel="stylesheet" /> */}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" />

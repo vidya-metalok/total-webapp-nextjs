@@ -5,8 +5,32 @@ import qs from "qs"
 
 const BuySellComponent = (props) => {
     const { eachTeamName } = props
-    const tradeTeamName = eachTeamName?.slice(0, 4)
-    console.log("buy-props..", props, eachTeamName?.slice(0, 4))
+    // const tradeTeamName = eachTeamName?.slice(0, 4)
+    // console.log("buy-props..", props, eachTeamName?.slice(0, 4), tradeTeamName)
+
+    const BSVC = "0xb39370D66472cD8e25E542b7FaE4C641f89d1a3c"
+    const CSVC = "0xb90ed1bd876ab378b001b702b38a73fb39e23d25"
+    const DSVC = "0xb39370d66472cd8e25e542b7fae4c641f89d1a3c"
+
+    const GSVC = "0x34141d62b66857d409e3eefb7c07eb23cf98b06f"
+
+    const HSVC = "0x9dbe1a074cf62d3b276eedd54952d179299a4892"
+    const KSVC = "0xeea6661a8f6d5bdb83c3bb5cd0684bf8bf841952"
+
+    const LSVC = "0x3edc3c21e798d0cc2336500871abeb05e3cb5166"
+    const MSVC = "0x33e5dfe148ace06a2c9acee17f59d7aba07e1da3"
+    const PSVC = "0x6b32f2a2c0484eb7f7f089dd45ccc33291317ab0"
+    const RSVC = "0x4ced951389405decf9e82efaba1854e109b93c38"
+    const tokenAddressArr = [BSVC, CSVC, DSVC, GSVC, HSVC, KSVC, LSVC, MSVC, PSVC, RSVC]
+    const tokenAddStings = ["BSVC", "CSVC", "DSVC", "GSVC", "HSVC", "KSVC", "LSVC", "MSVC", "PSVC", "RSVC"]
+
+
+    const teamAddIndex = tokenAddStings.findIndex(each => each == eachTeamName)
+
+
+    console.log("teamAdd..", teamAddIndex)
+    const newAddress = tokenAddressArr[teamAddIndex]
+    console.log("newlyWalletTokenValue...", newAddress)
 
     const [amount, setAmount] = useState("")
     const USDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F';
@@ -63,7 +87,7 @@ const BuySellComponent = (props) => {
     // swap tokens 
 
     const usdtTokenAddress = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F'
-    const hsvTokenAddress = '0xB90ED1bd876AB378b001b702b38A73fB39e23D25'
+    // const hsvTokenAddress = '0xB90ED1bd876AB378b001b702b38A73fB39e23D25'
 
 
 
@@ -73,7 +97,7 @@ const BuySellComponent = (props) => {
         // setLoader(true);
         const params = {
             sellToken: usdtTokenAddress,
-            buyToken: hsvTokenAddress,
+            buyToken: newAddress,
             sellAmount: battinginput,
             feeRecipient: SPORTSVERSE_ADDRESS,
             buyTokenPercentageFee: PLATFORM_FEE,
@@ -128,7 +152,7 @@ const BuySellComponent = (props) => {
         // setLoader(true);
         const params = {
             sellToken: usdtTokenAddress,
-            buyToken: hsvTokenAddress,
+            buyToken: newAddress,
             sellAmount: battinginput,
             feeRecipient: SPORTSVERSE_ADDRESS,
             buyTokenPercentageFee: PLATFORM_FEE,
@@ -202,14 +226,14 @@ const BuySellComponent = (props) => {
         <div className=' '>
             <div className='buy-sell-section'>
                 <div className='buy-sell'>
-                    <h1 className={`${buyHeading}`} onClick={onClickBuyTab}>Buy {tradeTeamName} </h1>
+                    <h1 className={`${buyHeading}`} onClick={onClickBuyTab}>Buy {eachTeamName} </h1>
                     <h3 className={`${sellHeading}`} onClick={onClickSellTab}
-                    >Sell {tradeTeamName} </h3>
+                    >  Sell {eachTeamName} </h3>
                 </div>
                 <div className='tokens-teamname'>
                     <h2 onClick={buy_decrement}>-</h2>
                     <h1>
-                        <input type="number" value={battinginput} onChange={(e) => setInput(e.target.value)} placeholder={`Tokens ${tradeTeamName}`} />
+                        <input type="number" value={battinginput} onChange={(e) => setInput(e.target.value)} placeholder={`Tokens ${eachTeamName}`} />
                     </h1>
                     <h2 onClick={buy_sellincrement}>+</h2>
                 </div>
@@ -225,12 +249,12 @@ const BuySellComponent = (props) => {
                     <h2 onClick={buy_sellincrement}>+</h2>
                 </div>
                 {selectedBuyTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }}>
-                    Buy <span className='hsvc-heading'>{tradeTeamName}</span>
+                    Buy <span className='hsvc-heading'>{eachTeamName}</span>
                 </div>}
 
 
                 {selectedSellTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }}>
-                    Sell <span className='hsvc-heading'>{tradeTeamName}</span>
+                    Sell <span className='hsvc-heading'>{eachTeamName}</span>
                 </div>}
 
             </div>

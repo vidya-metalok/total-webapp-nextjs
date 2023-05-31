@@ -12,6 +12,9 @@ import HistoryDashboard from "./historyDashboard";
 import RsvcSellComponent from "./rsvcComponent";
 
 const LeagueComponent = () => {
+    const iplMatches = useSelector((store) => store?.priceMatches?.matchesList)
+    const dispatch = useDispatch()
+
     const [activeMatches, setactiveMatches] = useState("ipl")
     const Card = ({ teams }) => {
         const [teamAImgUrl, setTeamAImgUrl] = useState("");
@@ -27,7 +30,7 @@ const LeagueComponent = () => {
         useEffect(() => {
             const fetchTeamAImgUrl = async () => {
                 try {
-                    const imgUrl = await getTeamAImgUrl(teams.teams["a"].key);
+                    const imgUrl = await getTeamAImgUrl(teams?.teams["a"].key);
                     setTeamAImgUrl(imgUrl);
                 } catch (error) {
                     console.error(error); // Log any errors that occur during fetching
@@ -47,7 +50,7 @@ const LeagueComponent = () => {
         useEffect(() => {
             const fetchTeamBImgUrl = async () => {
                 try {
-                    const imgUrl = await getTeamBImgUrl(teams.teams["b"].key);
+                    const imgUrl = await getTeamBImgUrl(teams?.teams["b"].key);
                     setTeamBImgUrl(imgUrl);
                 } catch (error) {
                     console.error(error); // Log any errors that occur during fetching
@@ -157,13 +160,13 @@ const LeagueComponent = () => {
             if (match.status === 'completed') {
                 completed.push(match);
             }
-            else if (day === presentday) {
-                inLive.push(match);
-            }
-
-            // else if (match.status === 'started') {               //the ipl api data not available if available use this function
+            // else if (day === presentday) {
             //     inLive.push(match);
             // }
+
+            else if (match.status === 'not_started') {               //the ipl api data not available if available use this function
+                inLive.push(match);
+            }
 
             else {
                 notCompleted.push(match);
@@ -173,18 +176,51 @@ const LeagueComponent = () => {
         setCompletedMatches(completed);
         setNotCompletedMatches(notCompleted);
     }, []);
+    console.log("live.....", liveMatches)
 
 
 
 
 
-    // console.log("completeddd++++++++++++++++++++++++++++++++++++++++++= ",completedMatches)
+    console.log("completeddd++++++++++++++++++++++++++++++++++++++++++", liveMatches)
 
     // console.log("notcompleteddd++++++++++++++++++++++++++++++++++++++++++= ",notCompletedMatches)
 
     const allMatches = [...liveMatches, ...notCompletedMatches, ...completedMatches]
 
     console.log("allcompleteddd++++++++++++++++++++++++++++++++++++++++++= ", allMatches)
+
+    // this is the live team code
+
+
+    const sellLiveObj = iplMatches?.find((each, index) => each.status === "not_started")
+    console.log("objeeeee", sellLiveObj)
+    const teamACode = sellLiveObj.teams["a"].code
+    const teamBCode = sellLiveObj.teams["b"].code
+
+    const liveStrings = ["DC", "PBKS", "LSG", "SRH", "RR", "MI", "CSK", "GT", "KKR", "RCB"]
+
+    const newsellStrings = ["DSVC", "PSVC", "LSVC", "HSVC", "RSVC", "MSVC", "CSVC", "GSVC", "KSVC", "BSVC"]
+
+
+    const teamAIndex = liveStrings.findIndex(each => each == teamACode)
+    const teamATokenName = newsellStrings[teamAIndex]
+
+    const teamBIndex = liveStrings.findIndex(each => each == teamBCode)
+    const teamBTokenName = newsellStrings[teamBIndex]
+
+    // here this will end
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -238,11 +274,11 @@ const LeagueComponent = () => {
 
 
                         <div className="col-12 col-sm-12  col-md-6 col-lg-6">
-                            <BuySellComponent />
+                            <BuySellComponent eachTeamName={teamATokenName} />
 
                         </div>
                         <div className="col-12  col-sm-12 col-md-6 col-lg-6">
-                            <RsvcSellComponent />
+                            <BuySellComponent eachTeamName={teamBTokenName} />
 
                         </div>
                     </div>

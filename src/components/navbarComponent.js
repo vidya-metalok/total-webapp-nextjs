@@ -37,7 +37,7 @@ var refferalIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webap
 // import notificationIcon from "../../public/images/notification-icon.png";
 // import profileIcon from "../../public/images/profile-icon.png"
 // import dollerIcon from "../../public/images/doller-icon.png";
-import { loginUser, storePrivateKey } from './redux/userSlice';
+import { loginUser, logoutUser, storePrivateKey } from './redux/userSlice';
 import Link from 'next/link'
 import { useEffect, useState } from "react";
 // import personIcon from "../../public/images/person-icon-img.png";
@@ -145,12 +145,12 @@ const NavBarComponent = () => {
     //     return true;
     // };
 
-    // const senData = async () =>{
-    //   const apiURl = "https://backend.sportsverse.cricket/users/login/"
-    //   const object ={
-    //     publicKey:pubKey,
-    //     userName:userInfo.user
-    //   }
+    // const senData = async () => {
+    //     const apiURl = "https://backend.sportsverse.cricket/users/login/"
+    //     const object = {
+    //         publicKey: pubKey,
+    //         userName: userInfo.user
+    //     }
     // }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -242,11 +242,10 @@ const NavBarComponent = () => {
     //     init();
     // }, []);
 
-    // console.log("web3auth", web3auth)
-    // console.log("web3auth-.....", web3auth.logout())
+    console.log("web3auth", web3auth)
 
 
-    const logout = () => {
+    const logout = async () => {
         // if (!web3auth) {
         //     console.log("web3auth not initialized yet");
         //     return;
@@ -256,7 +255,7 @@ const NavBarComponent = () => {
         // setUserInfo(null);
         // setShowlogout(false);
         // await web3auth.logout();
-        dispatch(loginUser(null))
+        dispatch(logoutUser())
         router.push("/")
 
     };

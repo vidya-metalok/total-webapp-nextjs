@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from "@/firestore/fireConfig";
+
 // https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sunrisers.png
 var bangaloreImage = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/royalChallengersBangalore.png"
 // import bangaloreImage from "../../public/images/royalChallengersBangalore.png";
@@ -23,50 +26,6 @@ import { useCallback } from "react";
 const TradeComponent = () => {
 
 
-  const trade_teams = [
-    {
-      team_img: sunrisersImage,
-      team_key: "DSVC",
-      holding_val: "$5.54",
-      team_name: "Delhi capitals",
-      holding_percent: "-0.43%",
-    },
-    {
-      team_img: sunrisersImage,
-      team_key: "HSVC",
-      hodling_val: "$5.54",
-      team_name: "Sunrisers",
-      holding_percent: "-0.43%",
-    },
-    {
-      team_img: sunrisersImage,
-      hodling_val: "$5.54",
-      team_key: "DSVC",
-      team_name: "Delhi capitals",
-      holding_percent: "-0.43%",
-    },
-    {
-      team_img: sunrisersImage,
-      team_key: "DSVC",
-      hodling_val: "$5.54",
-      team_name: "Delhi capitals",
-      holding_percent: "-0.43%",
-    },
-    {
-      team_img: sunrisersImage,
-      team_key: "DSVC",
-      hodling_val: "$5.54",
-      team_name: "Delhi capitals",
-      holding_percent: "-0.43%",
-    },
-    {
-      team_img: sunrisersImage,
-      team_key: "DSVC",
-      hodling_val: "$5.54",
-      team_name: "Delhi capitals",
-      holding_percent: "-0.43%",
-    },
-  ];
 
   const [liveData, setliveData] = useState(null);
   const [notinlive, setnotinlive] = useState(false)
@@ -77,7 +36,7 @@ const TradeComponent = () => {
   }
 
   const totalmatches = useSelector((abc) => {
-    return abc.priceMatches.matchesList;
+    return abc?.priceMatches?.matchesList;
   });
   console.log("alllllllll matches", totalmatches);
 
@@ -87,19 +46,103 @@ const TradeComponent = () => {
 
       // console.log("Status: - ", i)
 
-      if (i.status === "started") {
+      if (i.status === "not_started") {
         console.log("Status : - ", i.status);
 
         setliveData(i);
         setnotinlive(true)
       }
-    });
+    })
   }, [totalmatches]);
   console.log("Status: - ", liveData);
 
   useEffect(() => {
     livematch();
   }, [livematch]);
+
+  const liveMatchData = totalmatches?.find((each, index) => each.status === "not_started")
+
+
+  const teamACode = liveMatchData?.teams["a"].code
+  const teamBCode = liveMatchData?.teams["b"].code
+
+  const liveStrings = ["DC", "PBKS", "LSG", "SRH", "RR", "MI", "CSK", "GT", "KKR", "RCB"]
+
+  const newsellStrings = ["DSVC", "PSVC", "LSVC", "HSVC", "RSVC", "MSVC", "CSVC", "GSVC", "KSVC", "BSVC"]
+
+
+  const teamAIndex = liveStrings.findIndex(each => each == teamACode)
+  const teamATokenName = newsellStrings[teamAIndex]
+
+  const teamBIndex = liveStrings.findIndex(each => each == teamBCode)
+  const teamBTokenName = newsellStrings[teamBIndex]
+
+
+  //img url creation 
+
+  const [teamAImgUrl, setTeamAImgUrl] = useState("");
+  const [teamBImgUrl, setTeamBImgUrl] = useState("");
+  console.log("sideTeamA", teamAImgUrl)
+  console.log("sideTeamB", teamBImgUrl)
+
+  const getTeamAImgUrl = async (key) => {
+    console.log("a...calling...")
+    const fileRef = ref(storage, `/ipl_team_logo/${key}.png`);
+    console.log("ref....", fileRef)
+    const url = await getDownloadURL(fileRef);
+    return url;
+  };
+
+  useEffect(() => {
+    const fetchTeamAImgUrl = async () => {
+      try {
+        const imgUrl = await getTeamAImgUrl(liveData?.teams["a"].key);
+        setTeamAImgUrl(imgUrl);
+      } catch (error) {
+        console.error(error); // Log any errors that occur during fetching
+      }
+    };
+
+    fetchTeamAImgUrl();
+  }, [liveMatchData?.teams]);
+
+  console.log("aImg", teamAImgUrl)
+
+  // Fetches the image URL for team B
+  const getTeamBImgUrl = async (key) => {
+    const fileRef = ref(storage, `/ipl_team_logo/${key}.png`);
+    const url = await getDownloadURL(fileRef);
+    return url;
+  };
+
+  useEffect(() => {
+    const fetchTeamBImgUrl = async () => {
+      try {
+        const imgUrl = await getTeamBImgUrl(liveData?.teams["b"].key);
+        console.log("burl...", imgUrl)
+        setTeamBImgUrl(imgUrl)
+      } catch (error) {
+        console.error(error); // Log any errors that occur during fetching
+      }
+    };
+
+    fetchTeamBImgUrl();
+  }, [liveMatchData?.teams]);
+
+
+
+
+
+  //ended here
+
+
+
+
+
+
+
+
+
 
   const [batars, setbatars] = useState(false)
 
@@ -133,6 +176,73 @@ const TradeComponent = () => {
     document.body.style.height = 'auto'
 
   }
+
+
+  console.log("trade...", teamAImgUrl, teamBImgUrl)
+
+
+
+
+  const trade_teams = [
+    {
+      team_img: teamAImgUrl,
+      team_key: teamATokenName,
+      holding_val: "$5.54",
+      team_name: "Delhi capitals",
+      holding_percent: "-0.43%",
+    },
+    {
+      team_img: teamBImgUrl,
+      team_key: teamBTokenName,
+      hodling_val: "$5.54",
+      team_name: "Sunrisers",
+      holding_percent: "-0.43%",
+    },
+    {
+      team_img: teamAImgUrl,
+      hodling_val: "$5.54",
+      team_key: teamATokenName,
+      team_name: "Delhi capitals",
+      holding_percent: "-0.43%",
+    },
+    {
+      team_img: teamBImgUrl,
+      team_key: teamBTokenName,
+      hodling_val: "$5.54",
+      team_name: "Delhi capitals",
+      holding_percent: "-0.43%",
+    },
+    {
+      team_img: teamAImgUrl,
+      team_key: teamATokenName,
+      hodling_val: "$5.54",
+      team_name: "Delhi capitals",
+      holding_percent: "-0.43%",
+    },
+    {
+      team_img: teamBImgUrl,
+      team_key: teamBTokenName,
+      hodling_val: "$5.54",
+      team_name: "Delhi capitals",
+      holding_percent: "-0.43%",
+    },
+  ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div style={{ padding: "5px" }}>
 
@@ -148,9 +258,9 @@ const TradeComponent = () => {
             Match 4<br /> Chinna Swamy
           </h3>
           <div className="live-location-img">
-            <Image src={TradeSrhLogo} alt="" height={39} width={"auto"} />
+            <Image src={teamAImgUrl} alt="" height={39} width={39} />
             <h3>vs</h3>
-            <Image src={liveRcbsImg} alt="" height={39} width={"auto"} />
+            <Image src={teamBImgUrl} alt="" height={39} width={39} />
           </div>
         </div>
         <div className="batters-section">
@@ -181,7 +291,7 @@ const TradeComponent = () => {
 
         <div className="live-update" >
           <div className="live-score">
-            <h3>SRH</h3>
+            <h3>{liveData?.teams["a"].code}</h3>
             <h4>
               <span>{liveData?.live?.score?.runs}</span>/
               <span>{liveData?.live?.score?.wickets}</span>
@@ -226,7 +336,7 @@ const TradeComponent = () => {
           </h4>
         </div>
         <div className="teams-name">
-          <h3>IM vs CSK</h3>
+          <h3>{liveData?.teams["a"].code} vs {liveData?.teams["b"].code}</h3>
         </div>
       </div>
 
@@ -345,13 +455,13 @@ const TradeComponent = () => {
             <div className="candle-live-score">
               <div className="batting-con">
                 <div>
-                  <Image src={TradeSrhLogo} alt="" height={46} width={61} />
+                  <Image src={teamAImgUrl} alt="" height={46} width={61} />
 
 
 
                 </div>
                 <div className="batting-text">
-                  <h3>SRH</h3>
+                  <h3>{liveData?.teams["a"].code}</h3>
                   <h4>Batting</h4>
                 </div>
 
@@ -377,7 +487,7 @@ const TradeComponent = () => {
               <CandleStickChart />
 
               <div>
-                <BuySellComponent />
+                <BuySellComponent eachTeamName={teamATokenName} />
 
               </div>
 
@@ -393,12 +503,12 @@ const TradeComponent = () => {
             <div className="candle-live-score">
               <div className="batting-con">
                 <div>
-                  <Image src={liveRcbsImg} alt="" height={53} width={34} />
+                  <Image src={teamBImgUrl} alt="" height={53} width={34} />
 
 
                 </div>
                 <div className="batting-text">
-                  <h3>SRH</h3>
+                  <h3>{liveData?.teams["b"].code}</h3>
                   <h4>Bowling</h4>
                 </div>
 
@@ -425,7 +535,7 @@ const TradeComponent = () => {
               <CandleStickChart />
 
               <div>
-                <BuySellComponent />
+                <BuySellComponent eachTeamName={teamBTokenName} />
 
               </div>
 

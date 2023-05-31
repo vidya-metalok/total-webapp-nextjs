@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import RPC from "../web3RPC";
 import { Web3Auth } from "@web3auth/web3auth";
 import { getPublic } from "@toruslabs/eccrypto";
-import { loginUser, storePrivateKey } from './redux/userSlice';
+import { loginUser, logoutUser, storePrivateKey } from './redux/userSlice';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 
@@ -91,7 +91,7 @@ const ProfileComponent = () => {
     // }, [dispatch, web3auth, router]);
 
     const profileLogout = () => {
-        dispatch(loginUser(null))
+        dispatch(logoutUser(null))
         router.push("/")
     }
 
