@@ -177,7 +177,7 @@
   align-items: center;
   /* justify-content: space-between; */
   position: relative;
-  gap: 25px;
+  gap: 5px;
 }
 .trans-settings :nth-last-child(1) {
   margin-left: 3px;

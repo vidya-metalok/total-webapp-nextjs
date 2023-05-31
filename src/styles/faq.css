@@ -1,5 +1,5 @@
 .faq-parent {
-  border: 1px solid #ea9528;
+  border: 1px solid #785639;
   border-radius: 10px;
   padding: 30px 50px 70px 50px;
 }
@@ -8,7 +8,8 @@
   background: #2c2a41;
   color: white;
   font-family: "poppins";
-  padding-left: 0px;
+  padding: 28px 62px 28px 0px;
+  font-weight: 300;
 }
 
 .accordion-item {
@@ -44,12 +45,11 @@
   background-color: transparent;
 }
 
-
-.accordion-button:focus{
+.accordion-button:focus {
   outline: 0px;
   border-color: none;
   box-shadow: none;
 }
-.accordion-button:not(.collapsed){
-  color:white;
+.accordion-button:not(.collapsed) {
+  color: white;
 }

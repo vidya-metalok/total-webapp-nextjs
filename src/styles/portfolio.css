@@ -12,6 +12,11 @@
   height: 370px;
   /* width: 100%; */
   /* text-align: start; */
+  background-color: #232234;
+}
+
+.bar-chart-con:nth-child(1) {
+  border: 3px solid #3d3b4c !important;
 }
 .bar-chart-con h3 {
   color: #d8d8d8;
@@ -20,7 +25,7 @@
 }
 .token-asset-main {
   /* background-color: #232234; */
-  padding: 15px 40px;
+  padding: 15px 40px 60px 40px;
   border-radius: 5px;
   border: 1px solid #232234;
 }
@@ -42,7 +47,7 @@
   display: flex;
   align-items: center;
   /* margin-left: 2rem; */
-  gap:20px;
+  gap: 20px;
 }
 .asset-name h3 {
   font-family: "Poppins";
@@ -111,6 +116,7 @@
   /* identical to box height */
   color: #ffffff;
   opacity: 0.75;
+  margin: 20px 0px;
 }
 #piChart {
   position: absolute;
@@ -181,6 +187,29 @@
   transform: translateX(-50%);
 }
 
-.token-asset-parent{
-border-bottom:0.5px solid #393848;
+.token-asset-parent {
+  border-bottom: 0.5px solid #393848;
+}
+
+.portfolio-totalamt-subparent3 {
+  height: 108px;
+  background: rgb(44, 43, 68);
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2px;
+  padding-left: 18px;
+}
+
+.totalamt-subparent3-2 {
+  width: 208px;
+  height: 108px;
+  background: rgb(44, 43, 68);
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2px;
+  padding-left: 18px;
 }

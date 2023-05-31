@@ -643,8 +643,6 @@
 }
 /*-------------------------------------------------------------------------Live table data end  */
 
-
-
 .batting-con {
   display: flex;
   align-items: center;
@@ -727,4 +725,21 @@
 
 .royal-border {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.not-inlive-section {
+  position: fixed;
+  width: 99.4vw;
+  height: 90vh;
+  background-color: rgb(38 35 35 / 90%);
+  color: white;
+  z-index: 50;
+}
+
+.not-inlive-section h1 {
+  font-family: "Poppins";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
 }

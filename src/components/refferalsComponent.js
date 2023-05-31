@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import ProfileLinksComponent from './profileLinksComponent'
 import sebastianImg from "../../public/images/sebastian-img.svg"
@@ -7,6 +7,24 @@ import serinityImg from "../../public/images/serinity-img.svg"
 import jsonImg from "../../public/images/json-img.svg"
 import earnTokenImg from "../../public/images/earn-token-img.svg"
 const RefferalsComponent = () => {
+
+    const [copyClick, setcopyclick] = useState(false)
+
+    const refferal = 1234567890;
+
+    const handleCopyClick = () => {
+        navigator.clipboard.writeText(refferal);
+        console.log("wallet address:-", refferal)
+        setcopyclick(true)
+        setTimeout(() => {
+            setcopyclick(false)
+        }, [2000])
+
+    };
+    const [social, setsocial] = useState(false)
+    const shareClick = () => {
+        setsocial(true)
+    }
     return (
         <div className='background-con'>
 
@@ -22,11 +40,15 @@ const RefferalsComponent = () => {
                             <p3 className="ref-dec">Check discord/telegram to know about the airdrop rewards</p3>
                             <div className='reff-share-con'>
                                 <div className='reff-copy'>
-                                    <p2 className="reff-cpy-nbr">21500212541</p2>
-                                    <p4 className="reff-cpy">COPY</p4>
+                                    <p2 className="reff-cpy-nbr">{refferal}</p2>
+                                    <p4 className="reff-cpy" onClick={handleCopyClick}>{copyClick ? <p style={{ color: 'green' }}>copied</p> : <p>copy</p>}</p4>
 
                                 </div>
-                                <button type="button" className='share-ref-btn'>SHARE</button>
+                                <button type="button" className='share-ref-btn' onClick={shareClick}>SHARE</button>
+                                <div className='social-share' style={{ display: social ? 'block' : 'none' }}>
+                                    <a className='btn btn-outline-primary' href="https://api.whatsapp.com/send?text=<TEXT>%20<URL>" target="_blank">whatsap</a><br />
+
+                                </div>
 
                             </div>
 

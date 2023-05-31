@@ -397,7 +397,7 @@ const PortFolioComponent = () => {
             <div className="" style={{ marginTop: "1rem" }}>
                 <div className='d-flex'>
                     <div className="totalamt-child1-2 portfolio-coloumn">
-                        <div className="totalamt-subparent4" style={{ background: "#2C2B44" }}>
+                        <div className="portfolio-totalamt-subparent4" style={{ background: "#2C2B44" }}>
                             <div className="todays-pl">
                                 <p className="today-text">Total P&L</p>
                                 <p className="today-amount">₹5,624.35</p>
@@ -408,7 +408,7 @@ const PortFolioComponent = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="totalamt-subparent5" style={{ background: "#2C2B44" }}>
+                        <div className="portfolio-totalamt-subparent5" style={{ background: "#2C2B44" }}>
                             <div className="todays-pl">
                                 <p className="today-text">Today&apos;s P&L</p>
                                 <p className="today-amount">₹15,253.50</p>
@@ -423,7 +423,7 @@ const PortFolioComponent = () => {
 
                     <div>
                         <div className='holding-con'>
-                            <div className="totalamt-subparent3" style={{ width: '214px', height: "108px", background: "#2C2B44" }}>
+                            <div className="portfolio-totalamt-subparent3" style={{ width: '214px', height: "108px", background: "#2C2B44" }}>
                                 <div className="subparentsubchild5">
                                     <Image
                                         src={wallet}
@@ -439,7 +439,7 @@ const PortFolioComponent = () => {
                                     <p>+9.2%</p>
                                 </div>
                             </div>
-                            <div className="totalamt-subparent3" style={{ height: "108px", background: "#2C2B44" }}>
+                            <div className="totalamt-subparent3-2" style={{ height: "108px", background: "#2C2B44" }}>
                                 <div className="subparentsubchild5">
                                     <Image
                                         src={moneyAddedImg}
@@ -506,7 +506,7 @@ const PortFolioComponent = () => {
                 <div className="bar-chart-con bar-two">
                     {/* <h3>Asset Net Worth</h3> */}
                     <div className="tocken-bar-head">
-                        <h3>Asset Net Worth</h3>
+                        <h3>Asset Allocation</h3>
                         {/* <div className="token-week">
                     <p>Weekly</p>
                     <Image src={down} alt="" height={10} width={10} />

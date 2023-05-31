@@ -69,6 +69,12 @@ const TradeComponent = () => {
   ];
 
   const [liveData, setliveData] = useState(null);
+  const [notinlive, setnotinlive] = useState(false)
+
+  if (notinlive == false) {
+    document.body.style.overflow = 'hidden'
+    document.body.style.height = '100vh'
+  }
 
   const totalmatches = useSelector((abc) => {
     return abc.priceMatches.matchesList;
@@ -85,6 +91,7 @@ const TradeComponent = () => {
         console.log("Status : - ", i.status);
 
         setliveData(i);
+        setnotinlive(true)
       }
     });
   }, [totalmatches]);
@@ -128,6 +135,11 @@ const TradeComponent = () => {
   }
   return (
     <div style={{ padding: "5px" }}>
+
+
+      <div className="not-inlive-section" style={{ display: notinlive ? 'none' : 'block' }}>
+        <h1>Will be active when match is Live</h1>
+      </div>
 
 
       <div className="live-score-section">
@@ -190,7 +202,7 @@ const TradeComponent = () => {
               {/* <h4>181</h4> */}
             </div>
             <h3 className="live-drop" onClick={batmensData}>
-              <Image src={upImg} alt="arrowimg" height={15} width={24}  style={{transform:batars ? 'rotate(180deg)' : 'rotate(0deg)'}} />
+              <Image src={upImg} alt="arrowimg" height={15} width={24} style={{ transform: batars ? 'rotate(180deg)' : 'rotate(0deg)' }} />
             </h3>
           </div>
         </div>
@@ -326,7 +338,7 @@ const TradeComponent = () => {
       {/* popup end  */}
 
 
-      <div className="row" style={{opacity:batars ? '0.1' : '1'}}>
+      <div className="row" style={{ opacity: batars ? '0.1' : '1' }}>
 
         <div className="buy-sell-container col-lg-6 col-md-6">
           <div>

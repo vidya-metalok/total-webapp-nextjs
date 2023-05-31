@@ -19,7 +19,7 @@
 
 .profile-user-child1 {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 30px;
   align-items: center;
 }
@@ -53,7 +53,7 @@
   border: 1px solid #ea9528;
   backdrop-filter: blur(36.8137px);
   border-radius: 36.3592px;
-  font-family: "Merriweather Sans";
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 12.7257px;
@@ -145,6 +145,11 @@
   /* width: 100%; */
 }
 
+.profile-input:focus {
+  background-color: #2c2b44;
+  color: white;
+}
+
 .profile-input6 {
   border: 0.908979px solid #515151;
   border-radius: 7.64451px;
@@ -182,4 +187,8 @@
 
 .edit-img {
   margin-top: -4px;
+}
+
+.profile-user-section::-webkit-scrollbar {
+  width: 0px;
 }

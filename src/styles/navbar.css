@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 20px;
+  padding: 20px 0px 10px 0px;
 }
 nav {
   margin-bottom: 0;
@@ -61,10 +61,11 @@ nav {
   /* bottom: -20px; */
   width: 100%;
   left: 1px;
-  bottom: -29px;
+  bottom: -22px;
   position: absolute;
   border-bottom: 3px solid #ea9528;
   /* background-color: red; */
+  border-radius: 4px;
 }
 
 .inactive-link {
@@ -153,7 +154,7 @@ nav {
   /* align-items: center; */
 
   background: #2c2a41;
-  min-height: 100vh;
+  min-height: 90vh;
   width: 96vw;
   /* border: 1px solid rgba(255, 255, 255, 0.1); */
   border-radius: 6px;
@@ -169,9 +170,9 @@ nav {
   background: #2c2a41;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
-  right: 35px;
+  right: 50px;
   z-index: 50;
-  top: 38px;
+  top: 64px;
   padding-left: 25px;
   width: 227px;
   height: 390px;
@@ -190,7 +191,7 @@ nav {
   font-weight: 500;
   font-size: 14px;
 
-  color: #ffffff;
+  /* color: #ffffff; */
 
   opacity: 0.7;
   margin: 5px 2px;
@@ -265,6 +266,7 @@ nav {
   right: 14px;
   top: 10px;
   z-index: 59;
+  font-size: 16px;
 }
 .nav-onwrap {
   position: fixed;
@@ -279,4 +281,11 @@ nav {
   right: 28px;
   z-index: 52;
   color: black;
+  top: 7px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.onwrp-close:hover {
+  color: #ea9528;
 }

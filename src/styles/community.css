@@ -17,6 +17,7 @@
   justify-content: center;
   align-items: center;
   padding: 40px;
+  margin: auto;
 }
 .community-main h2 {
   font-family: "Clash Display";
@@ -42,6 +43,7 @@
   text-align: center;
 
   color: #c9c9c9;
+  max-width:900px;
 }
 .social-commu {
   margin: 0px 22px 22px 0px;

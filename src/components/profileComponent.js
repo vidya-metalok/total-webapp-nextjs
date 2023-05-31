@@ -111,10 +111,12 @@ const ProfileComponent = () => {
                 <ProfileLinksComponent />
                 <div className='profile-user-section'>
                     <div className='profile-user-child1'>
-                        <Image className='profile-img' src={userprofile} alt="image" width={146} height={143} />
-                        <div className='user-name-data'>
-                            <h2>{userInfoDetails?.name}</h2>
-                            <h3>Joined 21-10-2021</h3>
+                        <div className='d-flex align-items-center gap-5'>
+                            <Image className='profile-img' src={userprofile} alt="image" width={146} height={143} />
+                            <div className='user-name-data'>
+                                <h2>{userInfoDetails?.name}</h2>
+                                <h3>Joined 21-10-2021</h3>
+                            </div>
                         </div>
                         <button className='edit-btn' onClick={() => onClickEditBtn()}> <Image className='edit-img' src={editlogo} alt="" /> Edit</button>
                     </div>
@@ -122,13 +124,13 @@ const ProfileComponent = () => {
                         <h2 className='mygeneral-info'>My General information</h2>
                         <div className='col-12 d-md-flex gap-4'>
                             <div className='w-100'>
-                                <label className='label-name' htmlFor="firstname">firstName</label>
+                                <label className='label-name' htmlFor="firstname">first Name</label>
                                 <br />
                                 <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} onChange={(e) => setfirstName(e.target.value)} />
                             </div>
 
                             <div className='w-100'>
-                                <label className='label-name' htmlFor="lastname">lastName</label>
+                                <label className='label-name' htmlFor="lastname">last Name</label>
                                 <br />
                                 <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                             </div>

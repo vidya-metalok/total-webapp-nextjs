@@ -319,12 +319,12 @@ const NavBarComponent = () => {
                     <div style={{ marginRight: "20px", display: 'flex' }}>
                         <button className="deposit-btn" onClick={() => setdepositeOpen(!depositeOpen)}>
                             <Image src={moneySendIcon} alt="" height={20} width={20} />
-                            <span style={{ marginLeft: "1rem" }}> Deposit</span>
+                            <span style={{ marginLeft: "1rem", fontSize: "14px" }}> Deposit</span>
 
                         </button>
                         <button className="deposit-btn" onClick={() => setdepositeOpen(!depositeOpen)}>
                             <Image src={moneyReceiveIcon} alt="" height={20} width={20} />
-                            <span style={{ marginLeft: "1rem" }}> Withdraw</span>
+                            <span style={{ marginLeft: "1rem", fontSize: "14px" }}> Withdraw</span>
                         </button>
 
                     </div>
@@ -351,32 +351,32 @@ const NavBarComponent = () => {
 
                 <div>
                     <div className="logout-con">
-                        <Link href="/profilepage">
+                        <Link href="/profilepage" className={router.pathname === '/profilepage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={personIcon} alt="" height={20} width={20} />
 
                             <p>Profile</p>
                         </Link>
                     </div>
                     <div className="logout-con">
-                        <Link href="/feedbackpage">
+                        <Link href="/feedbackpage" className={router.pathname === '/feedbackpage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={feedbackIcon} alt="" height={20} width={20} />
                             <p>Feedback & Support</p>
                         </Link>
                     </div>
                     <div className="logout-con">
-                        <Link href="/communitypage">
+                        <Link href="/communitypage" className={router.pathname === '/communitypage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={communityIcon} alt="" height={20} width={20} />
                             <p>Community</p>
                         </Link>
                     </div>
                     <div className="logout-con">
-                        <Link href="/refferalspage">
+                        <Link href="/refferalspage" className={router.pathname === '/refferalspage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={refferalIcon} alt="" height={20} width={20} />
                             <p>Refferals</p>
                         </Link>
                     </div>
                     <div className="logout-con">
-                        <Link href="/faqspage">
+                        <Link href="/faqspage" className={router.pathname === '/faqspage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={faqActive} alt="" height={20} width={20} />
                             <p>Faqs</p>
                         </Link>

@@ -54,7 +54,7 @@
 
   opacity: 0.7;
   margin-left: 1rem;
-  margin-top:4px;
+  margin-top: 4px;
 }
 .main-heading {
   font-family: "Poppins";
@@ -129,7 +129,7 @@
   line-height: 17px;
 
   color: #0bbb70;
-  margin-bottom:8px;
+  margin-bottom: 8px;
 }
 .score-points {
   font-family: "Lato";
@@ -511,4 +511,8 @@ table {
   .side-holding-text {
     margin-left: -10px;
   }
+}
+
+.token-container td {
+  cursor: pointer;
 }

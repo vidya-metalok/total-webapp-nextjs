@@ -330,10 +330,10 @@ const LoginComponent = () => {
                     </div>
                     <h3>-OR-</h3> */}
                     <div className="login-input-main">
-                        <div>
+                        {/* <div>
                             <input type="text" className="login-input-con" placeholder="Full Name" value={userName} onChange={(e) => { setUserAndErrors(e) }} />
                             <h5 style={{ color: 'red' }}>{userNameerr}</h5>
-                        </div>
+                        </div> */}
                         <div>
                             <input type="text" className="login-input-con" placeholder="Email Address" value={email} onChange={(e) => setemailAndError(e)} />
                             <h5 style={{ color: 'red' }}>{emailerr}</h5>
@@ -357,12 +357,12 @@ const LoginComponent = () => {
                     <div>
 
 
-                        <button className="login-btn" onClick={login}>
-                            Sign up
+                        <button className="login-btn" onClick={eventLogin}>
+                            Login
                         </button>
                         <div className="account-con">
-                            <p className="already-txt">Already have an account? </p>
-                            <p className="create-login-txt" onClick={eventLogin}> Login</p>
+                            <p className="already-txt">Don &apos;t have an account? </p>
+                            <p className="create-login-txt" onClick={login}> Sign up</p>
 
 
                         </div>
