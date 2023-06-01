@@ -24,10 +24,11 @@
   font-size: 14px;
 }
 .token-asset-main {
-  /* background-color: #232234; */
+  background-color: #232234;
   padding: 15px 40px 60px 40px;
   border-radius: 5px;
-  border: 1px solid #232234;
+  /* border: 1px solid #232234; */
+  border: 3px solid #3d3b4c !important;
 }
 .asset-row {
   border-bottom: 2px solid #ffffff;
@@ -125,7 +126,7 @@
 }
 
 .bar-one {
-  margin-left: 5px;
+  /* margin-left: 5px; */
 }
 .bar-two .canva {
   width: 300px !important;
@@ -185,6 +186,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  bottom: 8.5%;
 }
 
 .token-asset-parent {
@@ -212,4 +214,15 @@
   flex-direction: column;
   margin: 2px;
   padding-left: 18px;
+}
+@media (max-width: 1025px) {
+  .port-folio-sub-devs {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1026px) {
+  .port-folio-sub-devs {
+    width: 32.7%;
+  }
 }

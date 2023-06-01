@@ -396,8 +396,8 @@ const PortFolioComponent = () => {
             {/* <h1 className="">Bar Chart</h1> */}
             <div className="" style={{ marginTop: "1rem" }}>
                 <div className='d-flex'>
-                    <div className="totalamt-child1-2 portfolio-coloumn">
-                        <div className="portfolio-totalamt-subparent4" style={{ background: "#2C2B44" }}>
+                    <div className="totalamt-child1-2 portfolio-coloumn" style={{ width: "40%" }}>
+                        <div className="portfolio-totalamt-subparent4" style={{ background: "#2C2B44", width: "100%" }}>
                             <div className="todays-pl">
                                 <p className="today-text">Total P&L</p>
                                 <p className="today-amount">₹5,624.35</p>
@@ -408,7 +408,7 @@ const PortFolioComponent = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="portfolio-totalamt-subparent5" style={{ background: "#2C2B44" }}>
+                        <div className="portfolio-totalamt-subparent5" style={{ background: "#2C2B44", width: "100%" }}>
                             <div className="todays-pl">
                                 <p className="today-text">Today&apos;s P&L</p>
                                 <p className="today-amount">₹15,253.50</p>
@@ -421,9 +421,9 @@ const PortFolioComponent = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div style={{ width: "60%", marginLeft: "10px" }}>
                         <div className='holding-con'>
-                            <div className="portfolio-totalamt-subparent3" style={{ width: '214px', height: "108px", background: "#2C2B44" }}>
+                            <div className="portfolio-totalamt-subparent3 port-folio-sub-devs" style={{ height: "108px", background: "#2C2B44" }}>
                                 <div className="subparentsubchild5">
                                     <Image
                                         src={wallet}
@@ -439,7 +439,7 @@ const PortFolioComponent = () => {
                                     <p>+9.2%</p>
                                 </div>
                             </div>
-                            <div className="totalamt-subparent3-2" style={{ height: "108px", background: "#2C2B44" }}>
+                            <div className="totalamt-subparent3-2 port-folio-sub-devs" style={{ height: "108px", background: "#2C2B44" }}>
                                 <div className="subparentsubchild5">
                                     <Image
                                         src={moneyAddedImg}
@@ -454,7 +454,7 @@ const PortFolioComponent = () => {
                                     {/* <p>+9.2%</p> */}
                                 </div>
                             </div>
-                            <div className="wallet-card" style={{ height: "108px" }}>
+                            <div className="wallet-card port-folio-sub-devs" style={{ height: "108px", margin: "2px" }}>
                                 <div className="img-con">
                                     <Image src={empty} alt="" height={25} width={25} />
 
@@ -464,7 +464,8 @@ const PortFolioComponent = () => {
                                 <p>{netHoldings}</p>
                             </div>
                         </div>
-                        <div className="bar-chart-con  bar-one">
+
+                        <div className="bar-chart-con  bar-one" style={{ width: "100%", overflow: "auto" }}>
                             <div className="tocken-bar-head" style={{}}>
                                 <h3>Profit & loss analysis breakdown</h3>
                                 {/* <div className="token-week">
@@ -491,7 +492,11 @@ const PortFolioComponent = () => {
                                 </div>
                             )}
                             {/* <canvas id="myChart" ref={chartRef} />  */}
-                            <BarComponent />
+                            <div style={{ width: "100%" }}>
+
+
+                                <BarComponent />
+                            </div>
                         </div>
                     </div>
                 </div>

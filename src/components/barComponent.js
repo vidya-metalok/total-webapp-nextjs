@@ -69,7 +69,8 @@ export const BarComponent = () => {
             },
             plugins: {
                 legend: {
-                    position: 'top'
+                    position: 'top',
+                    width: "100%"
                 },
 
             },
@@ -79,12 +80,12 @@ export const BarComponent = () => {
     }, [])
 
     return (
-        <>
-            <div className='bar-contain'>
+        <div className="w-100">
+            <div className='bar-contain' style={{ width: "100%" }}>
                 {/* <h6 className='text-white text-center pt-3'>Bar Component</h6> */}
                 <Bar data={chartData} options={chartOptions} />
             </div>
-        </>
+        </div>
     )
 }
 export default BarComponent
