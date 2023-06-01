@@ -6,15 +6,21 @@ import natalicImg from "../../public/images/natalie-img.svg"
 import serinityImg from "../../public/images/serinity-img.svg"
 import jsonImg from "../../public/images/json-img.svg"
 import earnTokenImg from "../../public/images/earn-token-img.svg"
+import {user} from './redux/userSlice';
+import { useSelector } from 'react-redux'
+
 const RefferalsComponent = () => {
+
+    const referralCode = useSelector((store) => store?.user?.loginInfo?.referralCode)
+    console.log("referralcode", referralCode)
 
     const [copyClick, setcopyclick] = useState(false)
 
-    const refferal = 1234567890;
+    // const refferal = 1234567890;
 
     const handleCopyClick = () => {
-        navigator.clipboard.writeText(refferal);
-        console.log("wallet address:-", refferal)
+        navigator.clipboard.writeText(referralCode);
+        console.log("wallet address:-", referralCode)
         setcopyclick(true)
         setTimeout(() => {
             setcopyclick(false)
@@ -40,7 +46,7 @@ const RefferalsComponent = () => {
                             <p3 className="ref-dec">Check discord/telegram to know about the airdrop rewards</p3>
                             <div className='reff-share-con'>
                                 <div className='reff-copy'>
-                                    <p2 className="reff-cpy-nbr">{refferal}</p2>
+                                    <p2 className="reff-cpy-nbr">{referralCode}</p2>
                                     <p4 className="reff-cpy" onClick={handleCopyClick}>{copyClick ? <p style={{ color: 'green' }}>copied</p> : <p>copy</p>}</p4>
 
                                 </div>

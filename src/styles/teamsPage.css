@@ -5,6 +5,7 @@
   /* padding: 10px; */
 }
 .teams-left-con {
+  width: 74vw;
   display: flex;
   flex-direction: column;
   /* width: 50%; */
@@ -24,13 +25,14 @@
 }
 .teams-banner .banner-logo {
   position: absolute;
-  left: 42px;
+  left: -112px;
   bottom: 34px;
   width: 100px;
   height: 100px;
   border: 1.5px solid #ea9528;
 }
 .teams-name-con {
+  position: relative;
   display: flex;
   align-items: center;
   margin: 1rem;

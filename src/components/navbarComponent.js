@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 import Image from 'next/image'
@@ -37,7 +37,7 @@ var refferalIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webap
 // import notificationIcon from "../../public/images/notification-icon.png";
 // import profileIcon from "../../public/images/profile-icon.png"
 // import dollerIcon from "../../public/images/doller-icon.png";
-import { loginUser, logoutUser, storePrivateKey } from './redux/userSlice';
+import { loginUser,user, logoutUser, storePrivateKey } from './redux/userSlice';
 import Link from 'next/link'
 import { useEffect, useState } from "react";
 // import personIcon from "../../public/images/person-icon-img.png";
@@ -71,6 +71,12 @@ import faqsNotActive from "../../public/images/faqs-icon-inactive.svg"
 
 
 const NavBarComponent = () => {
+
+    const profileimg = useSelector((store) => store?.user?.loginInfo?.profileImage)
+
+
+
+    console.log("userinfooooo" , profileimg)
     const [depositeOpen, setdepositeOpen] = useState(false)
     const dispatch = useDispatch()
     const router = useRouter()
@@ -355,7 +361,7 @@ const NavBarComponent = () => {
                             <Image src={helpLineIcon} alt="" height={30} width={30} />
                         </Link>
                         <Image src={notificationIcon} alt="" height={27} width={36} />
-                        <Image src={profileIcon} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
+                        <Image src={profileimg} style={{borderRadius:'50%'}} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
 
 
                     </div>
