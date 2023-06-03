@@ -333,7 +333,7 @@ today-team-names-new p:nth-child(1) {
 
 .quick-trade-subchild {
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  width: 40%;
+  width: 50%;
   margin-right: 20px;
 }
 .quick-trade-suchild2 {
@@ -404,7 +404,7 @@ today-team-names-new p:nth-child(1) {
 /* --------------------portfolio css  */
 .portfolio-totalamt-subparent4{
   width: 338px;
-  height: 169px;
+  height: 235px;
   background: #232234;
   border-radius: 7px;
   margin: 0px 2px 2px 2px;
@@ -415,7 +415,7 @@ today-team-names-new p:nth-child(1) {
   
   .portfolio-totalamt-subparent5{
     width: 338px;
-  height: 169px;
+  height: 235px;
   background: #232234;
   border-radius: 7px;
   margin: 5px 2px 2px 2px;
@@ -555,6 +555,7 @@ today-team-names-new p:nth-child(1) {
   align-items: center;
   width: 100%;
   margin-top: 10px;
+  margin-bottom:6px;
 }
 
 .pop-select {
@@ -664,5 +665,7 @@ today-team-names-new p:nth-child(1) {
 }
 .token-out-result p {
   font-size:8px;
-  margin-bottom: 0px !important;
+  position:absolute;
+  bottom:-3px;
+  margin:0px;
 }

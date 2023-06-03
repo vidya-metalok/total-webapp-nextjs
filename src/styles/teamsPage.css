@@ -553,12 +553,20 @@
   }
 }
 .chart-hist {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
+  
   color: #ea9528;
   top: 85px;
-  left: 91.5%;
+  border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    color: #ea9528;
+    z-index: 10;
+    right: 16px;
+    background: #191c1c;
+    width: 162px;
+
 }
 .tocken-bar-head h6 {
   color: #ea9528;

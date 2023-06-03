@@ -361,8 +361,10 @@ const NavBarComponent = () => {
                             <Image src={helpLineIcon} alt="" height={30} width={30} />
                         </Link>
                         <Image src={notificationIcon} alt="" height={27} width={36} />
-                        <Image src={profileimg} style={{borderRadius:'50%'}} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
-
+                        {profileimg 
+                            ? <Image src={profileimg} style={{borderRadius:'50%'}} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
+                            : <Image src={profileIcon} style={{borderRadius:'50%'}} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
+                        }
 
                     </div>
                 </div>

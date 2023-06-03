@@ -188,13 +188,18 @@
   margin: 0px;
 }
 .trans-list {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  color: #ea9528;
-  top: 30px;
-  left: 92%;
-  z-index: 10;
+  border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    color: #ea9528;
+    top: 30px;
+    /* left: 92%; */
+    z-index: 10;
+    right: 16px;
+    background: #383e3e;
+    width: 162px;
 }
 
 .transaction-header-sticky {
