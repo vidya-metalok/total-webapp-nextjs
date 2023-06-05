@@ -397,7 +397,7 @@ const PortFolioComponent = () => {
             <div className="" style={{ marginTop: "1rem" }}>
                 <div className='d-flex'>
                     <div className="totalamt-child1-2 portfolio-coloumn" style={{ width: "40%" }}>
-                        <div className="portfolio-totalamt-subparent4" style={{ background: "#2C2B44", width: "100%" }}>
+                        <div className="portfolio-totalamt-subparent4" style={{ background: "#2C2B44", width: "100%", paddingLeft: "20px" }}>
                             <div className="todays-pl">
                                 <p className="today-text">Total P&L</p>
                                 <p className="today-amount">₹5,624.35</p>
@@ -408,7 +408,7 @@ const PortFolioComponent = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="portfolio-totalamt-subparent5" style={{ background: "#2C2B44", width: "100%" }}>
+                        <div className="portfolio-totalamt-subparent5" style={{ background: "#2C2B44", width: "100%", paddingLeft: "20px" }}>
                             <div className="todays-pl">
                                 <p className="today-text">Today&apos;s P&L</p>
                                 <p className="today-amount">₹15,253.50</p>

@@ -239,6 +239,8 @@ const Sidebar = () => {
                     <h2 className='main-heading'>Live Score</h2>
                     <div className='score-team'>
                         {/* <Image className='live-topimg' src={teamALiveImg} alt="" height={30} width={30} /> */}
+                        {/* <Image className='live-topimg' src={teamALiveImg} alt="" height={30} width={30} /> */}
+                        <Image className='live-topimg' src={livetopimg} alt="" />
                         <div className='d-flex live-sc'>
                             <Image src={teamAImgUrl} alt="" height={30} width={40} />
                             <div className='all-headings'>
@@ -255,6 +257,7 @@ const Sidebar = () => {
                             </div>
                         </div>
                         {/* <Image className='live-bottomimg' src={teamBLiveImg} alt="" height={30} width={30} /> */}
+                        <Image className='live-bottomimg' src={livebottomimg} alt="" />
                     </div>
                     <h1 className='score-value'>{sideLiveObj?.innings?.a_1?.score_str?.split(" ")?.slice(0, 1)}<span className="score-points">({sideLiveObj?.innings?.a_1?.score_str?.split(" ")?.slice(2)})</span></h1>
                     <p className='this-over-heading'  >This over</p>

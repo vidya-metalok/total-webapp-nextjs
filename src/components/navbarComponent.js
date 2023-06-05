@@ -237,54 +237,54 @@ const NavBarComponent = () => {
     //     }
     // }, [afterLogin, idToken, pubKey]);
 
-    // useEffect(() => {
-    //     const init = async () => {
-    //         try {
-    //             const web3auth = new Web3Auth({
-    //                 clientId: clientId,
-    //                 chainConfig: {
-    //                     chainNamespace: "eip155",
-    //                     chainId: "0x89", // hex of 80001, polygon testnet
-    //                     rpcTarget:
-    //                         "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
-    //                 },
-    //                 authMode: "WALLET",
-    //                 uiConfig: {
-    //                     theme: "dark",
-    //                     loginMethodsOrder: ["facebook", "google"],
-    //                     appLogo:
-    //                         "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
-    //                 },
-    //                 defaultLanguage: "en",
-    //             });
+    useEffect(() => {
+        const init = async () => {
+            try {
+                const web3auth = new Web3Auth({
+                    clientId: clientId,
+                    chainConfig: {
+                        chainNamespace: "eip155",
+                        chainId: "0x89", // hex of 80001, polygon testnet
+                        rpcTarget:
+                            "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
+                    },
+                    authMode: "WALLET",
+                    uiConfig: {
+                        theme: "dark",
+                        loginMethodsOrder: ["facebook", "google"],
+                        appLogo:
+                            "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
+                    },
+                    defaultLanguage: "en",
+                });
 
-    //             setWeb3auth(web3auth);
+                setWeb3auth(web3auth);
 
-    //             await web3auth.initModal();
-    //             if (web3auth.provider) {
-    //                 setProvider(web3auth.provider);
-    //             }
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-    //     init();
-    // }, []);
+                await web3auth.initModal();
+                if (web3auth.provider) {
+                    setProvider(web3auth.provider);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        init();
+    }, []);
 
     console.log("web3auth", web3auth)
 
 
     const logout = async () => {
-        // if (!web3auth) {
-        //     console.log("web3auth not initialized yet");
-        //     return;
-        // }
+        if (!web3auth) {
+            console.log("web3auth not initialized yet");
+            return;
+        }
 
-        // setProvider(null);
-        // setUserInfo(null);
-        // setShowlogout(false);
-        // await web3auth.logout();
-        dispatch(logoutUser())
+        setProvider(null);
+        setUserInfo(null);
+        setShowlogout(false);
+        await web3auth.logout();
+        dispatch(loginUser())
         router.push("/")
 
     };
@@ -361,7 +361,7 @@ const NavBarComponent = () => {
                             <Image src={helpLineIcon} alt="" height={30} width={30} />
                         </Link>
                         <Image src={notificationIcon} alt="" height={27} width={36} />
-                        {profileimg 
+                        {profileimg
                             ? <Image src={profileimg} style={{borderRadius:'50%'}} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
                             : <Image src={profileIcon} style={{borderRadius:'50%'}} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
                         }

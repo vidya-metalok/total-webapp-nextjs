@@ -28,11 +28,16 @@ const TradeComponent = () => {
 
 
   const [liveData, setliveData] = useState(null);
-  const [notinlive, setnotinlive] = useState(false)
+  const [notinlive, setnotinlive] = useState(true)
 
-  if (notinlive == false) {
+  if (notinlive == true) {
     document.body.style.overflow = 'hidden'
     document.body.style.height = '100vh'
+  }
+  else {
+    document.body.style.overflow = 'auto'
+    document.body.style.height = '100vh'
+
   }
 
   const totalmatches = useSelector((abc) => {
@@ -60,7 +65,22 @@ const TradeComponent = () => {
     livematch();
   }, [livematch]);
 
+  useEffect(() => {
+    const liveMatchData = totalmatches?.find((each, index) => each.status === "not_started")
+    console.log("live...", liveMatchData)
+    if (liveMatchData) {
+      setnotinlive(false)
+      console.log("checkLive...", notinlive)
+    }
+
+  }, [])
+
   const liveMatchData = totalmatches?.find((each, index) => each.status === "not_started")
+  console.log("live...", liveMatchData)
+  // if (liveMatchData) {
+  //   setnotinlive(false)
+  //   console.log("checkLive...", notinlive)
+  // }
 
 
   const teamACode = liveMatchData?.teams["a"].code

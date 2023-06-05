@@ -1,10 +1,25 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 import qs from "qs"
+import abi from "../../abis/abi.json"
+const BigNumber = require('bignumber.js');
+
+import Web3 from "web3";
+import { useSelector } from 'react-redux';
+
+
 
 
 const BuySellComponent = (props) => {
     const { eachTeamName } = props
+    console.log("eachProps...", eachTeamName)
+    const userWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
+    const privateKey = useSelector((store) => store?.user?.privKey)
+
+
+
+
+
     // const tradeTeamName = eachTeamName?.slice(0, 4)
     // console.log("buy-props..", props, eachTeamName?.slice(0, 4), tradeTeamName)
 
@@ -32,7 +47,15 @@ const BuySellComponent = (props) => {
     const newAddress = tokenAddressArr[teamAddIndex]
     console.log("newlyWalletTokenValue...", newAddress)
 
+    const web3 = new Web3(
+        'https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF',
+    );
+
+    var contract = new web3.eth.Contract(abi, newAddress);
+
     const [amount, setAmount] = useState("")
+    const [loader, setLoader] = useState(false)
+
     const USDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F';
     const MATIC = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE';
     const ALLOWANCE_TRAGET = '0xdef1c0ded9bec7f1a1670819833240f027b25eff';
@@ -41,6 +64,8 @@ const BuySellComponent = (props) => {
 
 
     const [battinginput, setInput] = useState("")
+    const [error, setError] = useState("")
+
 
     const [fildinginput, setfildinginput] = useState(0)
     const [fildInput2, setfildInput2] = useState("")
@@ -216,6 +241,146 @@ const BuySellComponent = (props) => {
         setSelectedBuyTab(true)
         setselectedSellTab(false)
     }
+    async function setAllowance() {
+        setLoader(true);
+        var allowance = await contract.methods
+            .allowance(userWallet, ALLOWANCE_TRAGET)
+            .call({ from: userWallet });
+        var totalSupply = await contract.methods
+            .totalSupply()
+            .call({ from: userWallet });
+        let bnallowance = new BigNumber(allowance);
+        let amountallowance = new BigNumber(amount);
+        if (bnallowance.comparedTo(amountallowance) != 1) {
+            const gasPrice = await web3.eth.getGasPrice().then(response => {
+                return response;
+            });
+            var gasLimit = await contract.methods
+                .approve(ALLOWANCE_TRAGET, totalSupply)
+                .estimateGas({ from: userWallet });
+            var encData = await contract.methods
+                .approve(ALLOWANCE_TRAGET, totalSupply)
+                .encodeABI();
+            const tx = {
+                from: userWallet,
+                to: newAddress,
+                data: encData,
+                gas: gasLimit,
+                gasPrice: gasPrice,
+            };
+
+            const receiptErrHandler = function (data) {
+                setError(data);
+                console.log('Error data : ', data);
+                alert('Gas Error', data.message);
+                setLoader(false);
+                return data;
+            };
+            const receiptHandler = function (data) {
+                console.log('Allowance updated at TX: ', data.transactionHash);
+                setLoader(false);
+                return data;
+            };
+
+            const signedTx = await web3.eth.accounts.signTransaction(
+                tx,
+                privateKey,
+            );
+
+            console.log(signedTx);
+
+            await web3.eth
+                .sendSignedTransaction(signedTx.rawTransaction)
+                .on('receipt', receiptHandler)
+                .on('error', receiptErrHandler);
+            setLoader(false);
+            return;
+        }
+        setLoader(false);
+        return;
+    }
+
+
+    const executeTrade = async () => {
+        if (eachTeamName != MATIC) await setAllowance();
+        setLoader(true);
+        const params = {
+            sellToken: usdtTokenAddress,
+            buyToken: newAddress,
+            sellAmount: amount,
+            takerAddress: userWallet,
+            feeRecipient: SPORTSVERSE_ADDRESS,
+            buyTokenPercentageFee: PLATFORM_FEE,
+        };
+
+        const response = await fetch(
+            `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`,
+        );
+
+        let trade = await response.json();
+
+        if (trade.code) {
+            handleErrors(trade);
+            setLoader(false);
+            return;
+        }
+
+        const gasPrice = await web3.eth.getGasPrice().then(response => {
+            return response;
+        });
+
+        let estimateGasOption = {
+            from: userWallet,
+            to: ALLOWANCE_TRAGET,
+            data: trade.data,
+            ...(sellToken == MATIC && { value: amount }),
+        };
+
+        const gasEstimate = await web3.eth
+            .estimateGas(estimateGasOption)
+            .then(response => {
+                return response;
+            });
+
+        const tx = {
+            from: userWallet,
+            to: ALLOWANCE_TRAGET,
+            data: trade.data,
+            gasLimit: web3.utils.toHex(gasEstimate),
+            gasPrice: gasPrice,
+            ...(sellToken == MATIC && { value: amount }),
+        };
+
+        const signedTx = await web3.eth.accounts.signTransaction(
+            tx,
+            privateKey,
+        );
+
+        const receiptHandler = function (data) {
+            console.log('Transaction executed at tx Hash: ', data.transactionHash);
+            console.log('Transaction data: ', data);
+            alert(
+                'Transaction submitted successfully with tx hash: ',
+                data.transactionHash,
+            );
+            setLoader(false);
+
+            return data;
+        };
+        const receiptErrHandler = function (data) {
+            console.log('Error', data);
+            alert('Error : ', data.message);
+            setLoader(false);
+            return data;
+        };
+
+        await web3.eth
+            .sendSignedTransaction(signedTx.rawTransaction)
+            .on('receipt', receiptHandler)
+            .on('error', receiptErrHandler);
+        setLoader(false);
+    }
+
 
 
 
@@ -248,12 +413,12 @@ const BuySellComponent = (props) => {
 
                     <h2 onClick={buy_sellincrement}>+</h2>
                 </div>
-                {selectedBuyTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }}>
+                {selectedBuyTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }} onClick={() => executeTrade()}>
                     Buy <span className='hsvc-heading'>{eachTeamName}</span>
                 </div>}
 
 
-                {selectedSellTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }}>
+                {selectedSellTab && <div className="buy-heading" style={{ backgroundColor: buyAndSellBtnColors }} onClick={() => executeTrade()}>
                     Sell <span className='hsvc-heading'>{eachTeamName}</span>
                 </div>}
 

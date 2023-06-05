@@ -105,8 +105,8 @@ const WalletComponent = () => {
         setTimeout(()=>{
             setcopyclick(false)
         },[2500])
-        
-       
+
+
 
     };
 
@@ -158,7 +158,8 @@ const WalletComponent = () => {
     const ALLOWANCE_TRAGET = "0xdef1c0ded9bec7f1a1670819833240f027b25eff";
     const SPORTSVERSE_ADDRESS = "0xFDfDaE4d7f7731A09eD556C0e1F9D3b5C25FEf18";
     const PLATFORM_FEE = "0.01";
-    var contract = new web3.eth.Contract(abi, sellToken);
+    var contract = new web3.eth.Contract(abi, USDT);
+
 
     // token prices
     const bsvPrice = useSelector((store) => store.bsvc.bsv);
@@ -467,12 +468,90 @@ const WalletComponent = () => {
         return;
     }
 
-    const executeTrade = async () => {
+    const buyExecuteTrade = async () => {
         if (sellToken != MATIC) await setAllowance();
         setLoader(true);
         const params = {
-            sellToken: sellToken,
-            buyToken: buyToken,
+            sellToken: buyToken,
+            buyToken: USDT,
+            sellAmount: amount,
+            takerAddress: userWallet,
+            feeRecipient: SPORTSVERSE_ADDRESS,
+            buyTokenPercentageFee: PLATFORM_FEE,
+        };
+
+        const response = await fetch(
+            `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`
+        );
+
+        let trade = await response.json();
+
+        if (trade.code) {
+            handleErrors(trade);
+            setLoader(false);
+            return;
+        }
+
+        const gasPrice = await web3.eth.getGasPrice().then((response) => {
+            return response;
+        });
+
+        let estimateGasOption = {
+            from: userWallet,
+            to: ALLOWANCE_TRAGET,
+            data: trade.data,
+            ...(sellToken == MATIC && { value: amount }),
+        };
+
+        const gasEstimate = await web3.eth
+            .estimateGas(estimateGasOption)
+            .then((response) => {
+                return response;
+            });
+
+        const tx = {
+            from: userWallet,
+            to: ALLOWANCE_TRAGET,
+            data: trade.data,
+            gasLimit: web3.utils.toHex(gasEstimate),
+            gasPrice: gasPrice,
+            ...(sellToken == MATIC && { value: amount }),
+        };
+
+        const signedTx = await web3.eth.accounts.signTransaction(tx, privateKey);
+
+        const receiptHandler = function (data) {
+            console.log("Transaction executed at tx Hash: ", data.transactionHash);
+            console.log("Transaction data: ", data);
+            alert(
+                "Transaction submitted successfully with tx hash: ",
+                data.transactionHash
+            );
+            setLoader(false);
+
+            return data;
+        };
+        const receiptErrHandler = function (data) {
+            console.log("Error", data);
+            alert("Error : ", data.message);
+            setLoader(false);
+            return data;
+        };
+
+        await web3.eth
+            .sendSignedTransaction(signedTx.rawTransaction)
+            .on("receipt", receiptHandler)
+            .on("error", receiptErrHandler);
+        setLoader(false);
+    };
+
+
+    const sellExecuteTrade = async () => {
+        if (buyToken != MATIC) await setAllowance();
+        setLoader(true);
+        const params = {
+            sellToken: USDT,
+            buyToken: sellToken,
             sellAmount: amount,
             takerAddress: userWallet,
             feeRecipient: SPORTSVERSE_ADDRESS,
@@ -687,7 +766,7 @@ const WalletComponent = () => {
                                         <p className="amount">Avbl : 30,000 USDT</p>
                                     </div>
 
-                                   
+
 
                                     <div className="quick-trade-child">
                                         <div className="quick-trade-subchild">
@@ -818,8 +897,8 @@ const WalletComponent = () => {
 
 
                                     <div className="btn-containers">
-                                        <button className="buy-btn">BUY</button>
-                                        <button className="sell-btn">SELL</button>
+                                        <button className="buy-btn" onClick={() => buyExecuteTrade()}>BUY</button>
+                                        <button className="sell-btn" onClick={() => sellExecuteTrade()}>SELL</button>
                                     </div>
                                 </div>
                                 <div className="wallet-center-border"></div>

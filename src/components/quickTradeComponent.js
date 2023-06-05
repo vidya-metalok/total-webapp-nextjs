@@ -66,8 +66,8 @@ const Dashboardcenter = () => {
     );
 
 
-    const userWallet = useSelector((store) => store.user.loginInfo?.walletAddress)
-    const privateKey = useSelector((store) => store.user.privKey)
+    const userWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
+    const privateKey = useSelector((store) => store?.user?.privKey)
 
 
     const dispatch = useDispatch()

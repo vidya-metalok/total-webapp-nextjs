@@ -17,6 +17,8 @@ import { useRouter } from 'next/router';
 const ProfileComponent = () => {
 
     const userInfoDetails = useSelector((store) => store?.user?.loginInfo)
+    const profileimg = useSelector((store) => store?.user?.loginInfo?.profileImage)
+
     const userinfoname = userInfoDetails?.name;
     const userFirstName = userinfoname?.split(" ")[0]
     const userSecondName = userinfoname?.split(" ")[1]
@@ -29,71 +31,72 @@ const ProfileComponent = () => {
     const dispatch = useDispatch()
     const [firstName, setfirstName] = useState(userFirstName)
     const [lastName, setLastName] = useState(userSecondName)
-    const [web3auth, setWeb3auth] = useState(null);
+    const [web3auth, setWeb3auth] = useState("");
     const [provider, setProvider] = useState("");
-    // const [idToken, setidToken] = useState("");
-    // const [pubKey, setpubKey] = useState("");
+    const [idToken, setidToken] = useState("");
+    const [pubKey, setpubKey] = useState("");
     // const [userInfo, setUserInfo] = useState(null);
 
-    // const clientId =
-    //     "BK_TX48ntUieviViLOy8xwUhCirzTQI3uL7NwHsKkZk_-R7Zzpoxc2WNJDauT3OMRpolI7wlNRHUgT8SD0hjNDE";
-    // const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
-    // console.log("fitsr, lastnames...", firstName, lastName)
-
-    // useEffect(() => {
-    //     const init = async () => {
-    //         try {
-    //             const web3auth = new Web3Auth({
-    //                 clientId: clientId,
-    //                 chainConfig: {
-    //                     chainNamespace: "eip155",
-    //                     chainId: "0x89", // hex of 80001, polygon testnet
-    //                     rpcTarget:
-    //                         "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
-    //                 },
-    //                 authMode: "WALLET",
-    //                 uiConfig: {
-    //                     theme: "dark",
-    //                     loginMethodsOrder: ["facebook", "google"],
-    //                     appLogo:
-    //                         "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
-    //                 },
-    //                 defaultLanguage: "en",
-    //             });
-
-    //             setWeb3auth(web3auth);
-
-    //             await web3auth.initModal();
-    //             if (web3auth.provider) {
-    //                 setProvider(web3auth.provider);
-    //             }
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-    //     init();
-    // }, []);
-
-
-    // const logout = useCallback(async () => {
-    //     console.log("logout calling....")
-    //     if (!web3auth) {
-    //         console.log("web3auth not initialized yet");
-    //         return;
-    //     }
-    //     await web3auth.logout();
-    //     dispatch(loginUser(null))
-    //     router.push("/loginpage")
-    //     setProvider(null);
+    const clientId =
+        "BK_TX48ntUieviViLOy8xwUhCirzTQI3uL7NwHsKkZk_-R7Zzpoxc2WNJDauT3OMRpolI7wlNRHUgT8SD0hjNDE";
+    const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
+    console.log("fitsr, lastnames...", firstName, lastName)
 
 
 
-    // }, [dispatch, web3auth, router]);
 
-    const profileLogout = () => {
-        dispatch(logoutUser(null))
+    useEffect(() => {
+        const init = async () => {
+            try {
+                const web3auth = new Web3Auth({
+                    clientId: clientId,
+                    chainConfig: {
+                        chainNamespace: "eip155",
+                        chainId: "0x89", // hex of 80001, polygon testnet
+                        rpcTarget:
+                            "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF",
+                    },
+                    authMode: "WALLET",
+                    uiConfig: {
+                        theme: "dark",
+                        loginMethodsOrder: ["facebook", "google"],
+                        appLogo:
+                            "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
+                    },
+                    defaultLanguage: "en",
+                });
+
+                setWeb3auth(web3auth);
+
+                await web3auth.initModal();
+                if (web3auth.provider) {
+                    setProvider(web3auth.provider);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        init();
+    }, []);
+
+
+    const profileLogout = useCallback(async () => {
+        console.log("logout calling....")
+        if (!web3auth) {
+            console.log("web3auth not initialized yet");
+            return;
+        }
+        await web3auth.logout();
+        dispatch(loginUser(null))
+        setProvider(null);
         router.push("/")
-    }
+
+
+
+
+    }, [dispatch, web3auth, router]);
+
+
 
     const onClickEditBtn = () => {
         setfirstName(firstName)
@@ -112,7 +115,11 @@ const ProfileComponent = () => {
                 <div className='profile-user-section'>
                     <div className='profile-user-child1'>
                         <div className='d-flex align-items-center gap-5'>
-                            <Image className='profile-img' src={userprofile} alt="image" width={146} height={143} />
+                            {/* <Image className='profile-img' src={userprofile} alt="image" width={146} height={143} /> */}
+                            {profileimg ?
+                                <Image className='profile-img' src={profileimg} alt="image" width={146} height={143} />
+                                : <Image src={userprofile} style={{ borderRadius: '50%' }} alt="" width={146} height={143} onClick={() => setopenLogout(!openLogout)} />
+                            }
                             <div className='user-name-data'>
                                 <h2>{userInfoDetails?.name}</h2>
                                 <h3>Joined 21-10-2021</h3>

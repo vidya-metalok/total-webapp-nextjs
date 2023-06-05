@@ -104,11 +104,12 @@ const LoginComponent = () => {
     const afterLogin = async () => {
         const res = await loginServer(idToken, pubKey);
         setUserInfo(res.user);
-        dispatch(loginUser(res.user));
-        setShowlogout(true);
+        // dispatch(loginUser(res.user));
+        // setShowlogout(true);
         // router.push("/dashboardpage");
         return true;
     };
+    dispatch(loginUser(userInfo));
 
     // const senData = async () =>{
     //   const apiURl = "https://backend.sportsverse.cricket/users/login/"
@@ -145,16 +146,16 @@ const LoginComponent = () => {
         setpubKey(app_pub_key);
     })
 
-    // const logout = async () => {
-    //     if (!web3auth) {
-    //         console.log("web3auth not initialized yet");
-    //         return;
-    //     }
-    //     await web3auth.logout();
-    //     setProvider(null);
-    //     setUserInfo(null);
-    //     setShowlogout(false);
-    // };
+    const logout = async () => {
+        if (!web3auth) {
+            console.log("web3auth not initialized yet");
+            return;
+        }
+        await web3auth.logout();
+        setProvider(null);
+        setUserInfo(null);
+        setShowlogout(false);
+    };
 
 
     useEffect(() => {
@@ -176,7 +177,7 @@ const LoginComponent = () => {
 
     useEffect(() => {
         const init3 = async () => {
-            // await afterLogin();
+            await afterLogin();
         };
         if (idToken && pubKey) {
             init3();
