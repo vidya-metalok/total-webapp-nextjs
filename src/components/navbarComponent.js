@@ -412,10 +412,10 @@ const NavBarComponent = () => {
                         </Link>
                     </div>
                     <div className="profile-underline"></div>
-                    <div className="logout-con">
-                        <h3>Terms of Service</h3>
-                        <h3>About</h3>
-                        <h3 onClick={logout}>Logout</h3>
+                    <div className="logout-con2">
+                        <h3><a href="https://metalok-testbucket.s3.ap-south-1.amazonaws.com/privacy_policy.pdf" target='_blank'> Terms of Service </a></h3>
+                        <h3><a href="https://www.sportsverse.trade/" target='_blank'>About</a></h3>
+                        <h3 className='logout-head' onClick={logout}>Logout</h3>
                     </div>
                 </div>
             </div>

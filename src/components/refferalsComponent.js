@@ -50,11 +50,11 @@ const RefferalsComponent = () => {
                                     <p4 className="reff-cpy" onClick={handleCopyClick}>{copyClick ? <p style={{ color: 'green' }}>copied</p> : <p>copy</p>}</p4>
 
                                 </div>
-                                <button type="button" className='share-ref-btn' onClick={shareClick}>SHARE</button>
-                                <div className='social-share' style={{ display: social ? 'block' : 'none' }}>
+                                <button type="button" className='share-ref-btn' onClick={onSharePress}>SHARE</button>
+                                {/* <div className='social-share' style={{ display: social ? 'block' : 'none' }}>
                                     <a className='btn btn-outline-primary' href="https://api.whatsapp.com/send?text=<TEXT>%20<URL>" target="_blank">whatsap</a><br />
 
-                                </div>
+                                </div> */}
 
                             </div>
 

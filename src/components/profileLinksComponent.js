@@ -78,9 +78,9 @@ const ProfileLinksComponent = () => {
                 </div>
                 <div className="profile-underline"></div>
             </div>
-            <div className="logout-con">
-                <h3>Terms of Service</h3>
-                <h3>About</h3>
+            <div className="logout-con3">
+                <a href='https://metalok-testbucket.s3.ap-south-1.amazonaws.com/privacy_policy.pdf' target='_blank'>Terms of Service</a>
+                <a href='https://www.sportsverse.trade/' target='_blank'>About</a>
 
             </div>
 

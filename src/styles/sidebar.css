@@ -14,7 +14,7 @@
 
   background: #232234;
   border-radius: 7px;
-  padding: 10px 25px;
+  padding: 18px 25px 10px 25px;
 }
 
 .tokens2 {
@@ -453,7 +453,7 @@ table {
   bottom: -16px;
   left: -8px;
 }
-@media (max-height: 1000px) {
+/* @media (max-height: 1000px) {
   .tokens2 {
     height: 42vh;
     overflow: auto;
@@ -463,7 +463,7 @@ table {
   .tokens2::-webkit-scrollbar {
     width: 0px;
   }
-}
+} */
 
 /* new added-08-05  */
 .sidebar-tocken {

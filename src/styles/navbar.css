@@ -213,6 +213,28 @@ nav {
   margin: 24px 0px;
 }
 
+.logout-con2 h3 a{
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+
+  color: #ffffff;
+
+  opacity: 0.7;
+  margin: 24px 0px;
+}
+.logout-con2 h3{
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+
+  color: #ffffff;
+
+  opacity: 0.7;
+  margin: 24px 0px;
+}
 .logout-con a {
   display: flex;
   align-items: center;
@@ -220,8 +242,23 @@ nav {
   width: 202px;
 }
 
-.logout-con h3:nth-child(3) {
+/* .logout-con h3:nth-child(3) {
   color: #ec3e47;
+} */
+.logout-con3 a {
+  font-family: "Poppins";
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  width: 202px;
+  gap:25px;
+  height: 45px;
+  color:white;
+  
+}
+
+.logout-head{
+  color: #ec3e47 !important;
 }
 
 .profile-underline {
