@@ -16,6 +16,8 @@ const RefferalsComponent = () => {
 
     const [copyClick, setcopyclick] = useState(false)
 
+
+
     // const refferal = 1234567890;
 
     const handleCopyClick = () => {
@@ -31,6 +33,53 @@ const RefferalsComponent = () => {
     const shareClick = () => {
         setsocial(true)
     }
+
+
+ 
+
+
+
+    const onSharePress = () => {
+        const shareOptions = {
+          title: 'Share content',
+          text: `Download the application using the referral code "${referralCode}" Check out the link. https://www.sportsverse.trade/`,
+          url: 'https://www.sportsverse.trade/',
+        };
+      
+        if (navigator.share) {
+          navigator
+            .share(shareOptions)
+            .then(() => {
+              console.log('Content shared successfully');
+            })
+            .catch((error) => {
+              console.log('Error while sharing content:', error.message);
+            });
+        } else {
+          console.log('Web sharing API not supported');
+        }
+      };
+   
+      
+      
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <div className='background-con'>
 
