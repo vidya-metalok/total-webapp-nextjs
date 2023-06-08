@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Image from 'next/image'
 import ProfileLinksComponent from './profileLinksComponent'
 import sebastianImg from "../../public/images/sebastian-img.svg"
@@ -6,12 +6,41 @@ import natalicImg from "../../public/images/natalie-img.svg"
 import serinityImg from "../../public/images/serinity-img.svg"
 import jsonImg from "../../public/images/json-img.svg"
 import earnTokenImg from "../../public/images/earn-token-img.svg"
-import {user} from './redux/userSlice';
+import {user,privKey,idToken,publicKey} from './redux/userSlice';
 import { useSelector } from 'react-redux'
+import { useCallback } from 'react';
+
 
 const RefferalsComponent = () => {
 
     const referralCode = useSelector((store) => store?.user?.loginInfo?.referralCode)
+    const userInfo = useSelector((store) => store?.user?.loginInfo)
+    const userall = useSelector((store)=>store?.user)
+
+    const privKey = useSelector((store)=>store?.user?.privKey)
+    const idToken = useSelector((store)=>store?.user?.idtoken)
+    const  publicKey = useSelector((store)=>store?.user?.loginInfo?.publicKey)
+
+    // const publicKey = '0424affb8450aeae8f3a37b57b68126f176d29dbe2623f9621cfbdca0deaa1c683da1c408923864a631d1d065bcfe8ca40232d8982d54641553f037a5e414737f1'
+    // const idToken = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlRZT2dnXy01RU9FYmxhWS1WVlJZcVZhREFncHRuZktWNDUzNU1aUEMwdzAifQ.eyJpYXQiOjE2ODYxMjk5NDUsImF1ZCI6IkJLX1RYNDhudFVpZXZpVmlMT3k4eHdVaENpcnpUUUkzdUw3TndIc0trWmtfLVI3Wnpwb3hjMldOSkRhdVQzT01ScG9sSTd3bE5SSFVnVDhTRDBoak5ERSIsIm5vbmNlIjoiMDNlN2ZjNDY5YmIwMDM1ZTlhZjZmOGQwNzkxYzZmYTljMWVkZjlmYjRkMGE4MGQwMTlkNTIzNWYxYmU4ZTYxN2ViIiwiaXNzIjoiaHR0cHM6Ly9hcGkub3BlbmxvZ2luLmNvbSIsIndhbGxldHMiOlt7InB1YmxpY19rZXkiOiIwMzI0YWZmYjg0NTBhZWFlOGYzYTM3YjU3YjY4MTI2ZjE3NmQyOWRiZTI2MjNmOTYyMWNmYmRjYTBkZWFhMWM2ODMiLCJ0eXBlIjoid2ViM2F1dGhfYXBwX2tleSIsImN1cnZlIjoic2VjcDI1NmsxIn1dLCJlbWFpbCI6InZpZHlhdmF0aGkxNUBnbWFpbC5jb20iLCJuYW1lIjoidmlkeWEgdmF0aGkiLCJwcm9maWxlSW1hZ2UiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQWNIVHRmandvN0o4SlhmS292aUZUMFN3N3JVTHhBYjFZdklNTEJwSzlnTz1zOTYtYyIsInZlcmlmaWVyIjoidG9ydXMiLCJ2ZXJpZmllcklkIjoidmlkeWF2YXRoaTE1QGdtYWlsLmNvbSIsImFnZ3JlZ2F0ZVZlcmlmaWVyIjoidGtleS1nb29nbGUiLCJleHAiOjE2ODYyMTYzNDV9.RTcaSx5xxdlzBVW3l7_gAAvDDboG5RciDuIg0SLXFJQEFYrIYDMGZFlprUfob3hvHt8a0YI7INU9Re-tXGbOwA'
+
+    const  walletId = useSelector((store)=>store?.user?.loginInfo?.walletAddress)
+
+
+   
+    // const [userDetails, setUserDetails] = useState(null);
+  const [userCode, setUserCode] = useState(null);
+  const [referralList, setReferralList] = useState();
+
+
+
+  // console.log("userall ", userall)
+
+    // console.log("privkey:",privKey,"idtoken:",idToken,"publickey:", publicKey)
+
+
+
+    // console.log("userInfo " , userInfo)
     console.log("referralcode", referralCode)
 
     const [copyClick, setcopyclick] = useState(false)
@@ -34,47 +63,149 @@ const RefferalsComponent = () => {
         setsocial(true)
     }
 
-
- 
-
-
+    // ===============================================share function 
 
     const onSharePress = () => {
-        const shareOptions = {
-          title: 'Share content',
-          text: `Download the application using the referral code "${referralCode}" Check out the link. https://www.sportsverse.trade/`,
-          url: 'https://www.sportsverse.trade/',
-        };
-      
-        if (navigator.share) {
-          navigator
-            .share(shareOptions)
-            .then(() => {
-              console.log('Content shared successfully');
-            })
-            .catch((error) => {
-              console.log('Error while sharing content:', error.message);
-            });
-        } else {
-          console.log('Web sharing API not supported');
-        }
+      const shareOptions = {
+        title: 'Share content',
+        text: `Download the application using the referral code "${referralCode}" Check out the link. https://www.sportsverse.trade/`,
+        url: 'https://www.sportsverse.trade/',
       };
+    
+      if (navigator.share) {
+        navigator
+          .share(shareOptions)
+          .then(() => {
+            console.log('Content shared successfully');
+          })
+          .catch((error) => {
+            console.log('Error while sharing content:', error.message);
+          });
+      } else {
+        console.log('Web sharing API not supported');
+      }
+    };
+ 
+    
+    //============================================ share end 
+
+//================================================= refferal list 
+
+  
+
+
+
+  const getReferrals = async (publicKey, idToken) => {
+     
+    const apiURL = 'https://backend.sportsverse.cricket/users/referralList/';
+    const object = {
+      publicKey: publicKey,
+    };
+
+
+    try {
+      const response = await fetch(apiURL, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+          Authorization: `Bearer ${idToken}`,
+        },
+        body: JSON.stringify(object),
+      });
+
+
+      if (!response.ok) {
+        throw response;
+      }
+      const json = await response.json();
+
+      setReferralList(json.users[0]);
+      console.log("user" , referralList)
+
+    } catch (error) {
+      error.text().then((errMessage) => {
+        console.log('err', errMessage);
+      });
+    }
    
+
+  };
+
+  const getDetails = async (publicKey, idToken) => {
+    const apiURL = 'https://backend.sportsverse.cricket/users/details/';
+    const object = {
+      publicKey: publicKey,
+    };
+
+
+    try {
       
-      
-      
-      
-      
-      
+      const response = await fetch(apiURL, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+          Authorization: `Bearer ${idToken}`,
+        },
+        body: JSON.stringify(object),
+      });
+
+
+      if (!response.ok) {
+        throw response;
+      }
+      const json = await response.json();
+      setUserCode(json.user);
+    } catch (error) {
+      error.text().then((errMessage) => {
+        console.log(errMessage);
+      });
+    }
+  };
 
 
 
+useEffect(() => {
+  getDetails(publicKey, idToken);
+  getReferrals(publicKey, idToken);
+}, []);
+
+
+ 
+ 
+
+  console.log("refferalllllllllllllllllllllllllllll:=---------" , referralList)
 
 
 
+  // const referrallist2 = [{"walletAddress":"0xe05D666604Ee00fE15AE7856add9c1…om","name":"murali manoj","timestamp":1686135450}];
 
+  // // Accessing the data
+  // const firstObject = referrallist2[0];  // Access the first object in the array
+  
+  // const walletAddress = firstObject.walletAddress;
+  // const email = firstObject.email;
+  // const name = firstObject.name;
+  // const timestamp = firstObject.timestamp;
+  
+  // console.log(walletAddress);
+  // console.log(name);
+  // console.log(timestamp);
+console.log("listtttttttttttttttttttttttt", referralList)
 
+  const referrallist2 = ['{"walletAddress":"0xe05D666604Ee00fE15AE7856add9c1…om","name":"murali manoj","timestamp":1686135450}'];
 
+// Parsing the JSON string
+const parsedObject = JSON.parse(referrallist2[0]);
+
+// Accessing the data
+const walletAddress = parsedObject.walletAddress;
+const email = parsedObject.email;
+const name = parsedObject.name;
+const timestamp = parsedObject.timestamp;
+
+console.log(walletAddress);
+console.log(name);
+console.log(timestamp);
 
 
 
@@ -123,7 +254,7 @@ const RefferalsComponent = () => {
 
                                     <Image src={sebastianImg} alt="" height={"auto"} width={"auto"} />
                                     <div className='reff-address'>
-                                        <h1 className='reff-name'>Sebastian</h1>
+                                        {/* <h1 className='reff-name'>{referralList.name}</h1> */}
                                         <p className='ref-user'>@username</p>
 
                                     </div>
@@ -136,63 +267,18 @@ const RefferalsComponent = () => {
 
                             </div>
 
-                            <div className='reff-card'>
-                                <div className='reff-details'>
+                           {/* {
+                            referralList.map((each,index)=>(
+                              <div key={index}>  
+                               
 
-
-                                    <Image src={natalicImg} alt="" height={"auto"} width={"auto"} />
-                                    <div className='reff-address'>
-                                        <h1 className='reff-name'>Natalie</h1>
-                                        <p className='ref-user'>@username</p>
-
-                                    </div>
-                                </div>
-                                <div className='reff-email'>
-                                    <p4 className="reff-date">5/10/2023</p4>
-                                    <p3 className="reff-mail">Natalie343@gmail.com</p3>
-
-                                </div>
-
-                            </div>
-
-
-                            <div className='reff-card'>
-                                <div className='reff-details'>
-
-
-                                    <Image src={serinityImg} alt="" height={"auto"} width={"auto"} />
-                                    <div className='reff-address'>
-                                        <h1 className='reff-name'>Serenity</h1>
-                                        <p className='ref-user'>@username</p>
-
-                                    </div>
-                                </div>
-                                <div className='reff-email'>
-                                    <p4 className="reff-date">26/10/2023</p4>
-                                    <p3 className="reff-mail">sebastian343@gmail.com</p3>
-
-                                </div>
-
-                            </div>
-
-                            <div className='reff-card'>
-                                <div className='reff-details'>
-
-
-                                    <Image src={jsonImg} alt="" height={"auto"} width={"auto"} />
-                                    <div className='reff-address'>
-                                        <h1 className='reff-name'>Jason</h1>
-                                        <p className='ref-user'>@username</p>
-
-                                    </div>
-                                </div>
-                                <div className='reff-email'>
-                                    <p4 className="reff-date">26/10/2023</p4>
-                                    <p3 className="reff-mail">sebastian343@gmail.com</p3>
-
-                                </div>
-
-                            </div>
+                                <h1> {each[0].name}</h1>
+                                <h1 style={{color:'white'}}>hellllllllllllllllllllllllllllllllllo</h1>
+                              </div>
+                      
+                            ))
+                           } */}
+                           
 
                         </div>
 
