@@ -22,7 +22,7 @@ import eyeopen from "../../public/images/open-eye.svg"
 // import loginimg3 from "../../public/images/login-img3.png";
 // import loginimg4 from "../../public/images/login-img4.png";
 
-import { loginUser, storePrivateKey } from "./redux/userSlice";
+import { loginUser,userToken, storePrivateKey } from "./redux/userSlice";
 
 // import RPC from '../web3RPC.ts';
 import RPC from "../web3RPC";
@@ -110,6 +110,7 @@ const LoginComponent = () => {
         return true;
     };
     dispatch(loginUser(userInfo));
+    dispatch(userToken(idToken))
 
     // const senData = async () =>{
     //   const apiURl = "https://backend.sportsverse.cricket/users/login/"
