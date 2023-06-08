@@ -49,6 +49,7 @@ import { useSelector } from 'react-redux';
 // import liveRcbsImg from '../../public/images/live-rcb-img.svg'
 
 
+import noTokenImg from "../../public/images/no-tabler_coins.svg"
 
 
 
@@ -196,30 +197,47 @@ const Sidebar = () => {
 
 
                         {mytokenclick && (
-                            <div className='side-tok-height'>
-                                <table>
-                                    <tbody>
-                                        {
-                                            newTokenList.map((eachToken, index) => (
-                                                <tr className="token-container" key={index} onClick={(each) => onClickTeam(eachToken)} >
-                                                    <td>
-                                                        <Image src={eachToken.logoUrl} alt="" height={40} width={40} />
-                                                    </td>
-                                                    <td>
-                                                        <h1>${eachToken.price.price}</h1>
-                                                    </td>
-                                                    <td>
-                                                        {eachToken.wallet >= 0
-                                                            ? <p>+{eachToken.wallet}</p>
-                                                            : <p style={{ color: 'red' }}>-{eachToken.wallet}</p>}
-                                                    </td>
-                                                </tr>
-                                            )
-                                            )
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
+                            <>
+
+
+                                {newTokenList.length == 0 ? (
+
+                                    <div className='no-hist-con'>
+                                        <Image src={noTokenImg} alt="" height={20} width={20} />
+                                        <h1 style={{ color: 'red' }}>You don’t have any tokens to display</h1>
+                                    </div>
+                                ) : (
+
+                                    <div className='side-tok-height'>
+                                        <table>
+                                            <tbody>
+                                                {
+                                                    newTokenList.map((eachToken, index) => (
+                                                        <tr className="token-container" key={index} onClick={(each) => onClickTeam(eachToken)} >
+                                                            <td>
+                                                                <Image src={eachToken.logoUrl} alt="" height={40} width={40} />
+                                                            </td>
+                                                            <td>
+                                                                <h1>${eachToken.price.price}</h1>
+                                                            </td>
+                                                            <td>
+                                                                {eachToken.wallet >= 0
+                                                                    ? <p>+{eachToken.wallet}</p>
+                                                                    : <p style={{ color: 'red' }}>-{eachToken.wallet}</p>}
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                )}
+
+
+
+
+
+                            </>
                         )}
 
                         {alltokenclick && (

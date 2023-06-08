@@ -25,6 +25,9 @@ import BarComponent from './barComponent';
 import moneyAddedImg from "../../public/images/money-add.svg"
 import transArr from "../../public/images/trans-hist-arr.svg"
 
+import noPLImg from "../../public/images/no-p&l-img.svg"
+import noWinImg from "../../public/images/win-teams-line.svg"
+
 
 
 
@@ -400,23 +403,64 @@ const PortFolioComponent = () => {
                         <div className="portfolio-totalamt-subparent4" style={{ background: "#2C2B44", width: "100%", paddingLeft: "20px" }}>
                             <div className="todays-pl">
                                 <p className="today-text">Total P&L</p>
-                                <p className="today-amount">₹5,624.35</p>
-                                <Image src={load1} alt="" height={20} width={264} />
-                                <div className="today-team-names-new">
-                                    <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
-                                    <p>MSVC, PSVC</p>
-                                </div>
+                                <p className="today-amount">₹{netHoldings}</p>
+
+                                {netHoldings == 0 ? (
+                                    <div style={{ display: "flex", flexDirection: "column" }}>
+                                        <Image src={noPLImg} alt="" height={20} width={300} />
+
+                                        <div className="no-teams-con">
+                                            <Image src={noWinImg} alt="" height={20} width={20} style={{ marginTop: "0px", marginBottom: "0px" }} />
+                                            <h2>No Coins to display</h2>
+                                        </div>
+                                    </div>
+
+                                ) : (
+                                    <>
+                                        <Image src={load1} alt="" height={20} width={264} />
+                                        <div className="today-team-names-new">
+                                            <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
+                                            <p>MSVC, PSVC</p>
+                                        </div>
+                                    </>
+
+
+                                )}
+
+
+
+
                             </div>
                         </div>
                         <div className="portfolio-totalamt-subparent5" style={{ background: "#2C2B44", width: "100%", paddingLeft: "20px" }}>
                             <div className="todays-pl">
                                 <p className="today-text">Today&apos;s P&L</p>
-                                <p className="today-amount">₹15,253.50</p>
-                                <Image src={load2} alt="" height={20} width={264} />
-                                <div className="today-team-names-new">
-                                    <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
-                                    <p>MSVC, PSVC</p>
-                                </div>
+                                <p className="today-amount">₹{netHoldings}</p>
+
+
+                                {netHoldings == 0 ? (
+                                    <div style={{ display: "flex", flexDirection: "column" }}>
+                                        <Image src={noPLImg} alt="" height={20} width={300} />
+
+                                        <div className="no-teams-con">
+                                            <Image src={noWinImg} alt="" height={20} width={20} style={{ marginTop: "0px", marginBottom: "0px" }} />
+                                            <h2>No Coins to display</h2>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <Image src={load2} alt="" height={20} width={264} />
+                                        <div className="today-team-names-new">
+                                            <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
+                                            <p>MSVC, PSVC</p>
+                                        </div>
+
+                                    </>
+
+
+
+                                )}
+
                             </div>
                         </div>
                     </div>

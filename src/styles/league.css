@@ -129,3 +129,23 @@
 
   color: #0bbb70;
 }
+.no-hist-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60%;
+  margin-left: 150%;
+}
+.no-hist-con p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+
+  color: #ffffff;
+
+  opacity: 0.15;
+}

@@ -35,6 +35,8 @@ import { tokenTenFetch } from '@/components/redux/tokenSlicer/tokenTenSlice';
 const Dashboard = dynamic(() => import('../components/dashboardComponent.js'), { ssr: false })
 
 const DashBoardPage = (props) => {
+
+    const mustafa_wallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D"
     const dispatch = useDispatch()
     const router = useRouter()
     const fireUserWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
@@ -65,27 +67,27 @@ const DashBoardPage = (props) => {
     useEffect(() => {
         const f = async () => {
 
-            let i = await getWalletBalance("0xb39370D66472cD8e25E542b7FaE4C641f89d1a3c", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let i = await getWalletBalance("0xb39370D66472cD8e25E542b7FaE4C641f89d1a3c", fireUserWallet)
             dispatch(bsvFetch(i))
-            let j = await getWalletBalance("0xb90ed1bd876ab378b001b702b38a73fb39e23d25", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let j = await getWalletBalance("0xb90ed1bd876ab378b001b702b38a73fb39e23d25", fireUserWallet)
             dispatch(csvFetch(j))
-            let k = await getWalletBalance("0xb39370d66472cd8e25e542b7fae4c641f89d1a3c", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let k = await getWalletBalance("0xb39370d66472cd8e25e542b7fae4c641f89d1a3c", fireUserWallet)
             dispatch(dsvFetch(k))
-            let l = await getWalletBalance("0x34141d62b66857d409e3eefb7c07eb23cf98b06f", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let l = await getWalletBalance("0x34141d62b66857d409e3eefb7c07eb23cf98b06f", fireUserWallet)
             dispatch(gsvFetch(l))
 
-            let m = await getWalletBalance("0x9dbe1a074cf62d3b276eedd54952d179299a4892", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let m = await getWalletBalance("0x9dbe1a074cf62d3b276eedd54952d179299a4892", fireUserWallet)
             dispatch(hsvFetch(m))
-            let n = await getWalletBalance("0xeea6661a8f6d5bdb83c3bb5cd0684bf8bf841952", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let n = await getWalletBalance("0xeea6661a8f6d5bdb83c3bb5cd0684bf8bf841952", fireUserWallet)
             dispatch(ksvFetch(n))
-            let x = await getWalletBalance("0x3edc3c21e798d0cc2336500871abeb05e3cb5166", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let x = await getWalletBalance("0x3edc3c21e798d0cc2336500871abeb05e3cb5166", fireUserWallet)
             dispatch(lsvFetch(x))
-            let p = await getWalletBalance("0x33e5dfe148ace06a2c9acee17f59d7aba07e1da3", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let p = await getWalletBalance("0x33e5dfe148ace06a2c9acee17f59d7aba07e1da3", fireUserWallet)
             dispatch(msvFetch(p))
 
-            let q = await getWalletBalance("0x6b32f2a2c0484eb7f7f089dd45ccc33291317ab0", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let q = await getWalletBalance("0x6b32f2a2c0484eb7f7f089dd45ccc33291317ab0", fireUserWallet)
             dispatch(psvFetch(q))
-            let z = await getWalletBalance("0x4ced951389405decf9e82efaba1854e109b93c38", "0xa9f729E5437806248210eCbe3e3c7dE80542b28D")
+            let z = await getWalletBalance("0x4ced951389405decf9e82efaba1854e109b93c38", fireUserWallet)
             dispatch(rsvFetch(z))
 
         }

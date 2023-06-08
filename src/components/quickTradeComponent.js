@@ -59,6 +59,8 @@ import Web3 from "web3";
 import qs from "qs"
 import abi from "../../abis/abi.json"
 const BigNumber = require('bignumber.js');
+import noPLImg from "../../public/images/no-p&l-img.svg"
+import noWinImg from "../../public/images/win-teams-line.svg"
 
 const Dashboardcenter = () => {
     const web3 = new Web3(
@@ -679,24 +681,56 @@ const Dashboardcenter = () => {
                             <div className="totalamt-subparent4">
                                 <div className="todays-pl">
                                     <p className="today-text" style={{ marginBottom: "0rem" }}>Today’s P&L</p>
-                                    <p className="today-amount">₹5,624.35</p>
-                                    <Image src={load1} alt="" height={20} width={300} />
+                                    <p className="today-amount">₹{totalHoldings}</p>
+                                    {totalHoldings == 0 ? (
+                                        <div style={{ display: "flex", flexDirection: "column" }}>
+                                            <Image src={noPLImg} alt="" height={20} width={300} />
+                                            <div className="no-teams-con">
+                                                <Image src={noWinImg} alt="" height={20} width={20} style={{ marginTop: "0px", marginBottom: "0px" }} />
+                                                <h2>No Coins to display</h2>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <Image src={load1} alt="" height={20} width={300} />
 
-                                    <div className="today-team-names">
-                                        <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
-                                        <p>MSVC, PSVC</p>
-                                    </div>
+                                            <div className="today-team-names">
+                                                <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
+                                                <p>MSVC, PSVC</p>
+                                            </div>
+
+
+
+                                        </>
+                                    )}
+
                                 </div>
                             </div>
                             <div className="totalamt-subparent5">
                                 <div className="todays-pl">
                                     <p className="today-text">Total P&L</p>
-                                    <p className="today-amount">₹15,253.50</p>
-                                    <Image src={load2} alt="" height={20} width={300} />
-                                    <div className="today-team-names">
-                                        <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
-                                        <p>MSVC, PSVC</p>
-                                    </div>
+                                    <p className="today-amount">₹{totalHoldings}</p>
+                                    {totalHoldings == 0 ? (
+                                        <div style={{ display: "flex", flexDirection: "column" }}>
+                                            <Image src={noPLImg} alt="" height={20} width={300} />
+
+                                            <div className="no-teams-con">
+                                                <Image src={noWinImg} alt="" height={20} width={20} style={{ marginTop: "0px", marginBottom: "0px" }} />
+                                                <h2>No Coins to display</h2>
+                                            </div>
+                                        </div>
+
+                                    ) : (
+                                        <>
+                                            <Image src={load2} alt="" height={20} width={300} />
+                                            <div className="today-team-names">
+                                                <p>RSVC, BSVC, HSVC, CSVC, KSVC</p>
+                                                <p>MSVC, PSVC</p>
+                                            </div>
+                                        </>
+
+                                    )}
+
                                 </div>
                             </div>
                         </div>

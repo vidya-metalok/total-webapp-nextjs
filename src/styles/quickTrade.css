@@ -16,8 +16,7 @@
    display: flex; 
 }  */
 
-
-.totalamt-child1{
+.totalamt-child1 {
   width: 65%;
 }
 
@@ -55,7 +54,6 @@
   padding-left: 18px;
 }
 .totalamt-subparent1 {
-  
   padding-left: 18px;
   padding-top: 22px;
 }
@@ -72,7 +70,7 @@
 
 .totalamt-parent {
   display: flex;
-  width:100%;
+  width: 100%;
 }
 
 .totalamt-child1-0 {
@@ -85,7 +83,7 @@
 .totalamt-subparent4,
 .totalamt-subparent5 {
   /* width: 338px; */
-  width:50%;
+  width: 50%;
   height: 184px;
 
   background: #232234;
@@ -402,7 +400,7 @@ today-team-names-new p:nth-child(1) {
 }
 
 /* --------------------portfolio css  */
-.portfolio-totalamt-subparent4{
+.portfolio-totalamt-subparent4 {
   width: 338px;
   height: 235px;
   background: #232234;
@@ -413,7 +411,7 @@ today-team-names-new p:nth-child(1) {
   padding-left: 28px;
 }
 
-  .portfolio-totalamt-subparent5{
+.portfolio-totalamt-subparent5 {
   width: 338px;
   height: 235px;
   background: #232234;
@@ -422,13 +420,9 @@ today-team-names-new p:nth-child(1) {
   display: flex;
   align-items: center;
   padding-left: 28px;
-  
 }
 
-  
-  
 /*  ----------------------end  */
-
 
 .dropdown-trade option {
   font-family: "Poppins";
@@ -440,8 +434,7 @@ today-team-names-new p:nth-child(1) {
 }
 
 @media (max-width: 1400px) {
-  
-  .totalamt-child1{
+  .totalamt-child1 {
     width: 100%;
   }
   .totalamt-parent {
@@ -555,7 +548,7 @@ today-team-names-new p:nth-child(1) {
   align-items: center;
   width: 100%;
   margin-top: 10px;
-  margin-bottom:6px;
+  margin-bottom: 6px;
 }
 
 .pop-select {
@@ -664,8 +657,27 @@ today-team-names-new p:nth-child(1) {
   gap: 20px;
 }
 .token-out-result p {
-  font-size:8px;
-  position:absolute;
-  bottom:-3px;
-  margin:0px;
+  font-size: 8px;
+  position: absolute;
+  bottom: -3px;
+  margin: 0px;
+}
+.no-teams-con {
+  display: flex;
+  align-items: center;
+}
+.no-teams-con h2 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
+
+  letter-spacing: -0.312463px;
+
+  color: #cccccc;
+
+  opacity: 0.1;
+  margin-bottom: 0px !important;
 }
