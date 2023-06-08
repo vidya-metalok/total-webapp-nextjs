@@ -72,6 +72,18 @@ var mumbaiBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webap
 var punjabBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/psvBanner.png"
 var rsvcBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rrBanner.png";
 
+// import rajasthanBanner from "../../public/images/rr(1).svg"
+// import rcbBanner from "../../public/images/rcb(1).svg"
+// import cskBanner from "../../public/images/CSKSVG(1)(1).svg"
+// // import cskBanner from "../../public/images/CSKSVG(1)(2).svg"
+// import delhiBanner from "../../public/images/dc(1).svg"
+// import gujarathBanner from "../../public/images/gtsvg(1).svg"
+// import sunriseBanner from "../../public/images/SRH(1).svg"
+// import kkrBanner from "../../public/images/kkr(1).svg"
+// import lkBanner from "../../public/images/lsg(1).svg"
+// import mumbaiBanner from "../../public/images/mi(1).svg"
+// import punjabBanner from "../../public/images/pk(1).svg"
+// import rsvcBanner from "../../public/images/rr(1).svg"
 
 import dhoniImg from "../../public/images/dhoniImg.svg"
 import transArr from "../../public/images/trans-hist-arr.svg"
