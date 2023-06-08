@@ -30,8 +30,43 @@ const RefferalsComponent = () => {
    
     // const [userDetails, setUserDetails] = useState(null);
   const [userCode, setUserCode] = useState(null);
-  const [referralList, setReferralList] = useState();
+  const [referralList, setReferralList] = useState([]);
+  console.log("newRef....", referralList)
 
+  const [refwallet,setrefwallet] =useState()
+  const [refname,setrefname] = useState()
+  const [refmail,setrefmail] = useState()
+  const [reftime,setreftime] = useState()
+
+  const [refdata,setrefdata] = useState({
+      wallet:refwallet,
+      name:refname,
+      mail:refmail,
+      time:reftime  
+  })
+
+  useEffect(() => {
+    setrefdata({
+      wallet: refwallet,
+      name: refname,
+      mail: refmail,
+      time: reftime  
+    });
+  }, [refwallet, refname, refmail, reftime]);
+
+
+
+  console.log("refffffffffffffffdataa" , refdata, "walletttttttttttttttttttttttf",refdata.wallet)
+
+  
+  const timestamp = reftime;
+
+  const date = new Date(timestamp * 1000);
+  const formattedDate = date.toLocaleDateString(); // Change the format as per your requirements
+
+
+  // const parsedObj = JSON.parse(referralList)
+  // console.log("obj1...", parsedObj)
 
 
   // console.log("userall ", userall)
@@ -42,6 +77,7 @@ const RefferalsComponent = () => {
 
     // console.log("userInfo " , userInfo)
     console.log("referralcode", referralCode)
+    
 
     const [copyClick, setcopyclick] = useState(false)
 
@@ -112,20 +148,42 @@ const RefferalsComponent = () => {
         },
         body: JSON.stringify(object),
       });
-
+// console.log("response" , response)
 
       if (!response.ok) {
         throw response;
       }
       const json = await response.json();
 
-      setReferralList(json.users[0]);
-      console.log("user" , referralList)
+      console.log("json" , json)
+      // const convetedObj = JSON.parse(json.users)
+      const listOfUsers = json.users
+
+      const parsearr = JSON.parse(listOfUsers)
+      console.log("parseuser.....", parsearr.walletAddress, parsearr, typeof(parsearr))
+      console.log("walllettttttttttttttttttttttttttt",parsearr.walletAddress)
+      setrefwallet(parsearr.walletAddress)
+      setrefname(parsearr.name)
+      setrefmail(parsearr.email)
+      setreftime(parsearr.timestamp)
+
+
+      const updatedArr = [...parsearr]
+      // console.log("update...", updatedArr)
+
+      
+      
+
+      // console.log("list...", updatedArr)
+    
+
+      setReferralList(parsearr);
+      // console.log("user" , typeof(referralList))
 
     } catch (error) {
-      error.text().then((errMessage) => {
-        console.log('err', errMessage);
-      });
+      
+        console.log('err', error);
+     
     }
    
 
@@ -167,13 +225,11 @@ const RefferalsComponent = () => {
 useEffect(() => {
   getDetails(publicKey, idToken);
   getReferrals(publicKey, idToken);
-}, []);
+}, [publicKey, idToken]);
+console.log('settttttttttttttttt' , refwallet,reftime,refmail,refname)
 
 
- 
- 
-
-  console.log("refferalllllllllllllllllllllllllllll:=---------" , referralList)
+const dataArray = ['{"walletAddress":"0xe05D666604Ee00fE15AE7856add9c115Fc6ca6BA","email":"badboyscars916@gmail.com","name":"murali manoj","timestamp":1686135450}'];
 
 
 
@@ -190,22 +246,22 @@ useEffect(() => {
   // console.log(walletAddress);
   // console.log(name);
   // console.log(timestamp);
-console.log("listtttttttttttttttttttttttt", referralList)
+console.log("listtttttttttttttttttttttttt", referralList.name)
 
-  const referrallist2 = ['{"walletAddress":"0xe05D666604Ee00fE15AE7856add9c1…om","name":"murali manoj","timestamp":1686135450}'];
+//   const referrallist2 = ['{"walletAddress":"0xe05D666604Ee00fE15AE7856add9c1…om","name":"murali manoj","timestamp":1686135450}'];
 
-// Parsing the JSON string
-const parsedObject = JSON.parse(referrallist2[0]);
+// // Parsing the JSON string
+// const parsedObject = JSON.parse(referrallist2[0]);
 
-// Accessing the data
-const walletAddress = parsedObject.walletAddress;
-const email = parsedObject.email;
-const name = parsedObject.name;
-const timestamp = parsedObject.timestamp;
+// // Accessing the data
+// const walletAddress = parsedObject.walletAddress;
+// const email = parsedObject.email;
+// const name = parsedObject.name;
+// const timestamp = parsedObject.timestamp;
 
-console.log(walletAddress);
-console.log(name);
-console.log(timestamp);
+// console.log(walletAddress);
+// console.log(name);
+// console.log(timestamp);
 
 
 
@@ -254,34 +310,25 @@ console.log(timestamp);
 
                                     <Image src={sebastianImg} alt="" height={"auto"} width={"auto"} />
                                     <div className='reff-address'>
-                                        {/* <h1 className='reff-name'>{referralList.name}</h1> */}
-                                        <p className='ref-user'>@username</p>
+                                        <h1 className='reff-name'>{refname}</h1>
+                                        {/* <p className='ref-user'>{refwallet}</p> */}
 
                                     </div>
                                 </div>
                                 <div className='reff-email'>
-                                    <p4 className="reff-date">26/10/2023</p4>
-                                    <p3 className="reff-mail">sebastian343@gmail.com</p3>
+                                    <p4 className="reff-date">{formattedDate}</p4>
+                                    <p3 className="reff-mail">{refmail}</p3>
 
                                 </div>
 
                             </div>
 
-                           {/* {
-                            referralList.map((each,index)=>(
-                              <div key={index}>  
-                               
-
-                                <h1> {each[0].name}</h1>
-                                <h1 style={{color:'white'}}>hellllllllllllllllllllllllllllllllllo</h1>
-                              </div>
-                      
-                            ))
-                           } */}
+                         
                            
 
                         </div>
 
+                      
                     </div>
                 </div>
 

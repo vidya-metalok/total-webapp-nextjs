@@ -23,12 +23,20 @@ import deposit from '../../public/images/arrow-1.svg'
 import cskdhoni from "../../public/images/cskdhoni.png";
 
 import hydekohili from "../../public/images/hydekohili.png";
+import {user} from "../components/redux/userSlice"
+import { useSelector } from 'react-redux';
+import transaction_nodata from '../../public/images/transiction-nodata-img.svg'
 
 
 
 const HistoryDashboard = () => {
     const [transactionData, setTransactionData] = useState([]);
-    const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
+    
+
+    const walletAddress = useSelector((store)=>store?.user?.loginInfo?.walletAddress)
+    console.log("tttttttttttttttttttttttttttttttttuserwallet" , walletAddress)
+    // const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
+    const userWallet = walletAddress;
 
     //   const userWallet = useSelector((store) => store.user.loginInfo.walletAddress);
 
@@ -371,8 +379,14 @@ const HistoryDashboard = () => {
                                     <th>Time</th>
                                     {/* <th>Status</th> */}
                                 </tr>
-
-                                <tbody>
+                                {transactionData.length===0 ?
+                                <div className='dashboard-no-transiction' style={{display:transactionData.length===0 ? '' : 'none'}}>
+                                    <Image src={transaction_nodata } alt="img" height="250px" width="300px" />
+                                        <h1 style={{color:'white'}}>You don’t have any<br/> transactions Made</h1>
+                                </div> 
+                                
+                                    : 
+                                    <tbody >
                                     {transactionData.map((each, index) => (
                                             <tr key={index} style={{borderBottom:"1px solid rgb(57,56,72)"}}>
                                             <Card
@@ -384,8 +398,9 @@ const HistoryDashboard = () => {
                                                 tokenSymbol={each.tokenSymbol}
                                             />
                                         </tr>
-                                    ))}
+                                ))}
                                 </tbody>
+                                }
                             </table>
                         </div>
                     </div>

@@ -49,6 +49,10 @@ import { useRouter } from "next/router";
 import firestore, { getFirestore } from "firebase/firestore";
 // import settings from "../../public/images/setting-4.png";
 
+import {user} from "../components/redux/userSlice"
+import { useSelector } from 'react-redux';
+import transaction_nodata from '../../public/images/transiction-nodata-img.svg'
+
 
 import "firebase/firestore";
 import {
@@ -120,7 +124,6 @@ import TransactionHistoryComponent from "./transactionHistoryComponent";
 import PortFolioComponent from "./portfolioComponent";
 import BarComponent from "./barComponent";
 import ReverseChart from "./reverseChart";
-import { useSelector } from "react-redux";
 
 import db from "../firestore/fireConfig";
 const TeamsComponent = (props) => {
@@ -133,6 +136,12 @@ const TeamsComponent = (props) => {
   let start = Math.floor(len - 7);
   // let end = start + 40;
   let walletaddress = str?.substring(0, 7) + "*****" + str?.substring(start, len);
+
+
+  const walletAddress = useSelector((store)=>store?.user?.loginInfo?.walletAddress)
+  console.log("tttttttttttttttttttttttttttttttttuserwallet" , walletAddress)
+  // const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
+  const userWallet = walletAddress;
 
   console.log("details....", userLogin)
   console.log("teamsComponentProps...", props);
@@ -396,7 +405,6 @@ const TeamsComponent = (props) => {
 
 
   const [transactionData, setTransactionData] = useState([]);
-  const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
 
   const web3 = new Web3(
     "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF"
@@ -881,7 +889,16 @@ const TeamsComponent = (props) => {
                   <th>Time</th>
                   <th>Status</th>
                 </tr>
-                <tbody>
+                {transactionData.length===0 ?
+
+<div className='no-transiction' style={{display:transactionData.length===0 ? '' : 'none'}}>
+<Image src={transaction_nodata } alt="img" height="250px" width="300px" />
+<h1 style={{color:'white'}}>You don’t have any<br/> transactions Made</h1>
+</div>
+                
+              : 
+
+              <tbody style={{display:transactionData.length!==0 ? '' : 'none'}}>
                   {transactionData.map((each, index) => (
                     <tr key={index} style={{ borderBottom: "2px solid rgba(255, 255, 255, 0.1)" }}>
                       <Card
@@ -895,6 +912,7 @@ const TeamsComponent = (props) => {
                     </tr>
                   ))}
                 </tbody>
+                }
               </table>
             </div>
           </div>
