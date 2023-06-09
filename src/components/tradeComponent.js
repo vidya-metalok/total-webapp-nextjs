@@ -22,6 +22,10 @@ import upImg from "../../public/images/uparrow1.svg"
 
 
 import { useCallback } from "react";
+import mumbaiIndia from "../../public/images/mumbai-indians-svg.svg"
+import punjabKings from "../../public/images/punjab-kings-svg.svg"
+import TransactionHistoryComponent from "./transactionHistoryComponent";
+
 
 const TradeComponent = () => {
 
@@ -30,15 +34,15 @@ const TradeComponent = () => {
   const [liveData, setliveData] = useState(null);
   const [notinlive, setnotinlive] = useState(true)
 
-  if (notinlive == true) {
-    document.body.style.overflow = 'hidden'
-    document.body.style.height = '100vh'
-  }
-  else {
-    document.body.style.overflow = 'auto'
-    document.body.style.height = '100vh'
+  // if (notinlive == true) {
+  //   document.body.style.overflow = 'hidden'
+  //   document.body.style.height = '100vh'
+  // }
+  // else {
+  //   document.body.style.overflow = 'auto'
+  //   document.body.style.height = '100vh'
 
-  }
+  // }
 
   const totalmatches = useSelector((abc) => {
     return abc?.priceMatches?.matchesList;
@@ -173,15 +177,15 @@ const TradeComponent = () => {
 
     // document.body.style.overflow = 'hidden';
 
-    document.body.style.overflow = 'hidden'
-    document.body.style.height = '100vh'
+    // document.body.style.overflow = 'hidden'
+    // document.body.style.height = '100vh'
 
   }
   const closeBatsmendata = () => {
     setbatars(false)
     setbatars(false)
-    document.body.style.overflow = 'auto'
-    document.body.style.height = 'auto'
+    // document.body.style.overflow = 'auto'
+    // document.body.style.height = 'auto'
 
 
   }
@@ -192,8 +196,8 @@ const TradeComponent = () => {
 
   const scroreClose = () => {
     setbatars(false)
-    document.body.style.overflow = 'auto'
-    document.body.style.height = 'auto'
+    // document.body.style.overflow = 'auto'
+    // document.body.style.height = 'auto'
 
   }
 
@@ -205,46 +209,52 @@ const TradeComponent = () => {
 
   const trade_teams = [
     {
-      team_img: teamAImgUrl,
+      team_img: mumbaiIndia,
       team_key: teamATokenName,
-      holding_val: "$5.54",
-      team_name: "Delhi capitals",
-      holding_percent: "-0.43%",
+      Current_Price:'$5,203',
+      team_name: "Mumbai Indians",
+      holding_percent: "+0.2%",
+      Total_Value:'+$5,203USDT'
     },
     {
-      team_img: teamBImgUrl,
+      team_img: punjabKings,
       team_key: teamBTokenName,
-      hodling_val: "$5.54",
-      team_name: "Sunrisers",
+      Current_Price:'$5,203',
+      team_name: "Kings XI Punjab",
       holding_percent: "-0.43%",
+      Total_Value:'-$5,203USDT'
     },
     {
-      team_img: teamAImgUrl,
-      hodling_val: "$5.54",
+      team_img: mumbaiIndia,
+      Current_Price:'$5,203',
       team_key: teamATokenName,
-      team_name: "Delhi capitals",
+      team_name: "Mumbai Indians",
       holding_percent: "-0.43%",
+      Total_Value:'-$5,203USDT'
     },
     {
-      team_img: teamBImgUrl,
+      team_img: punjabKings,
       team_key: teamBTokenName,
-      hodling_val: "$5.54",
-      team_name: "Delhi capitals",
+      Current_Price:'$5,203',
+      team_name: "Kings XI Punjab",
       holding_percent: "-0.43%",
+      Total_Value:'-$5,203USDT'
     },
     {
-      team_img: teamAImgUrl,
+      team_img: mumbaiIndia,
       team_key: teamATokenName,
-      hodling_val: "$5.54",
-      team_name: "Delhi capitals",
+      Current_Price:'$5,203',
+      team_name: "Mumbai Indians",
       holding_percent: "-0.43%",
+      Total_Value:'-$5,203USDT'
     },
     {
-      team_img: teamBImgUrl,
+      team_img: punjabKings,
       team_key: teamBTokenName,
-      hodling_val: "$5.54",
-      team_name: "Delhi capitals",
+      Current_Price:'$5,203',
+      team_name: "Kings XI Punjab",
       holding_percent: "-0.43%",
+      Total_Value:'-$5,203USDT'
     },
   ];
 
@@ -329,9 +339,9 @@ const TradeComponent = () => {
               <h3>Target</h3>
               {/* <h4>181</h4> */}
             </div>
-            <h3 className="live-drop" onClick={batmensData}>
+            {/* <h3 className="live-drop" onClick={batmensData}>
               <Image src={upImg} alt="arrowimg" height={15} width={24} style={{ transform: batars ? 'rotate(180deg)' : 'rotate(0deg)' }} />
-            </h3>
+            </h3> */}
           </div>
         </div>
         <div className="this-over-section">
@@ -366,99 +376,7 @@ const TradeComponent = () => {
       {/* live score popup  */}
 
 
-      <div className="liveplayers-data" style={{ display: batars ? 'block' : 'none' }}>
-        <div className="badding-team-nm">
-          <h1>Sunrisers Hyderabad</h1>
-          <div className="d-flex gap-5 align-items-center justify-content-center">
-            <h2>
-              <span>{liveData?.live?.score?.runs}</span>/
-              <span>{liveData?.live?.score?.wickets}</span>(
-              {liveData?.live?.score?.overs[0]}.{liveData?.live?.score?.overs[1]})
-            </h2>
-            <h3 onClick={closeBatsmendata} style={{ cursor: 'pointer', color: 'white' }}>
-              <Image src={downImg} alt="arrowimg" />
-            </h3>
-          </div>
-        </div>
-
-        <div className="liveplayers-table" style={{ display: bowlingT ? 'none' : 'block' }}>
-          <div className="batsmen-main-div batsmen-border">
-            <h1>Batsman</h1>
-            <div className="batsmen-table-li batsmen-table-head">
-              <p>R</p>
-              <p>B</p>
-              <p>6s</p>
-              <p>4s</p>
-              <p>SR</p>
-            </div>
-          </div>
-          {trade_teams.map((each, index) => (
-            <div className="batsmen-main-div" key={index}>
-              <div className="batsmens-scrore-data">
-                <h1>Abhishek Sharma</h1>
-                <h2>c Warner b Axar</h2>
-              </div>
-              <div className="batsmen-table-li">
-                <p className="batsmen-table-li-active">70</p>
-                <p>30</p>
-                <p>7</p>
-                <p>5</p>
-                <p>200.1</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="d-flex align-items-center justify-content-between px-4  royal-border">
-          <h1 className="filding-team-name">Royal Challengers Banglore</h1>
-          <div className="d-flex gap-5 align-items-center">
-            <h1 className="filding-team-score">181/6 (20)</h1>
-            <h1 style={{ transform: "rotate(180deg)", cursor: 'pointer', transform: bowlingT ? 'rotate(0deg)' : 'rotate(180deg)' }} onClick={filding_team}>
-              <Image src={downImg} alt="arrowimg" />
-            </h1>
-          </div>
-
-        </div>
-
-
-
-
-
-
-        <div className="liveplayers-table" style={{ display: bowlingT ? 'block' : 'none' }}>
-          <div className="batsmen-main-div batsmen-border">
-            <h1>Batsman</h1>
-            <div className="batsmen-table-li batsmen-table-head">
-              <p>R</p>
-              <p>B</p>
-              <p>6s</p>
-              <p>4s</p>
-              <p>SR</p>
-            </div>
-          </div>
-          {trade_teams.map((each, index) => (
-            <div className="batsmen-main-div" key={index}>
-              <div className="batsmens-scrore-data">
-                <h1>Denish Karthik</h1>
-                <h2>c Warner b Axar</h2>
-              </div>
-              <div className="batsmen-table-li">
-                <p className="batsmen-table-li-active">70</p>
-                <p>30</p>
-                <p>7</p>
-                <p>5</p>
-                <p>200.1</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-
-
-
-
-
-      </div>
+     
 
 
 
@@ -569,7 +487,7 @@ const TradeComponent = () => {
 
       </div>
 
-      <div className="container-fluid trade-team-main-section ">
+      {/* <div className="container-fluid trade-team-main-section ">
         {trade_teams.map((team_data, index) => (
           <div className="trade-team-parent" key={index}>
             <Image src={team_data.team_img} alt="" height={36.5} width={36.5} />
@@ -584,8 +502,161 @@ const TradeComponent = () => {
             </div>
           </div>
         ))}
+      </div> */}
+
+
+
+
+
+
+      
+      {/* ------------------------------------------------------new added sections  */}
+
+<div className="live-scoreboard-holdings">
+      <div className="liveplayers-data" style={{ display: batars ? 'block' : 'block' }}>
+        
+        <div className="badding-team-nm">
+          <h1>Sunrisers Hyderabad</h1>
+          <div className="d-flex gap-5 align-items-center justify-content-center">
+            <h2>
+              <span>{liveData?.live?.score?.runs}</span>/
+              <span>{liveData?.live?.score?.wickets}</span>(
+              {liveData?.live?.score?.overs[0]}.{liveData?.live?.score?.overs[1]})
+            </h2>
+            <h3 onClick={closeBatsmendata} style={{ cursor: 'pointer', color: 'white' }}>
+              <Image src={downImg} alt="arrowimg" />
+            </h3>
+          </div>
+        </div>
+
+        <div className="liveplayers-table" style={{ display: bowlingT ? 'none' : 'block' }}>
+          <div className="batsmen-main-div batsmen-border">
+            <h1>Batsman</h1>
+            <div className="batsmen-table-li batsmen-table-head">
+              <p>R</p>
+              <p>B</p>
+              <p>6s</p>
+              <p>4s</p>
+              <p>SR</p>
+            </div>
+          </div>
+          {trade_teams.map((each, index) => (
+            <div className="batsmen-main-div" key={index}>
+              <div className="batsmens-scrore-data">
+                <h1>Abhishek Sharma</h1>
+                <h2>c Warner b Axar</h2>
+              </div>
+              <div className="batsmen-table-li">
+                <p className="batsmen-table-li-active">70</p>
+                <p>30</p>
+                <p>7</p>
+                <p>5</p>
+                <p>200.1</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="d-flex align-items-center justify-content-between px-4  royal-border">
+          <h1 className="filding-team-name">Royal Challengers Banglore</h1>
+          <div className="d-flex gap-5 align-items-center">
+            <h1 className="filding-team-score">181/6 (20)</h1>
+            <h1 style={{ transform: "rotate(180deg)", cursor: 'pointer', transform: bowlingT ? 'rotate(0deg)' : 'rotate(180deg)' }} onClick={filding_team}>
+              <Image src={downImg} alt="arrowimg" />
+            </h1>
+          </div>
+
+        </div>
+        <div className="liveplayers-table" style={{ display: bowlingT ? 'block' : 'none' }}>
+          <div className="batsmen-main-div batsmen-border">
+            <h1>Batsman</h1>
+            <div className="batsmen-table-li batsmen-table-head">
+              <p>R</p>
+              <p>B</p>
+              <p>6s</p>
+              <p>4s</p>
+              <p>SR</p>
+            </div>
+          </div>
+          {trade_teams.map((each, index) => (
+            <div className="batsmen-main-div" key={index}>
+              <div className="batsmens-scrore-data">
+                <h1>Denish Karthik</h1>
+                <h2>c Warner b Axar</h2>
+              </div>
+              <div className="batsmen-table-li">
+                <p className="batsmen-table-li-active">70</p>
+                <p>30</p>
+                <p>7</p>
+                <p>5</p>
+                <p>200.1</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+
+  <div style={{color:'white'}} className="trade-tokens-main"> 
+  <div className='sidebar-tocken'>
+      {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
+      <p className='my-tokens-text' >My Tokens</p>
+      <p className='all-tokens-text' >All Tokens</p>
+  </div>
+    <table>
+        <tr className='live-token-headings'>
+            <th>Token Name</th>
+            <th>Current Price</th>
+            <th>24H</th>
+            <th>Total Value</th>
+           
+        </tr>
+        <tbody>
+        {trade_teams.map((team_data, index) => (
+         
+               <tr key={index} className="trade-tokens">
+                 <td className="token-name-column">  
+                       <Image src={team_data.team_img} alt="" height={36.5} width={36.5} />
+                       <div>
+                          <h1 className="live-team-kay">{team_data.team_key}</h1>
+                          <h3 className="live-team-name">{team_data.team_name}</h3>
+                       </div>
+                  </td>
+                 <td className="live-current-price">
+                    <h2>{team_data.Current_Price}</h2>
+                 </td>
+                 <td className="live-holding-percent">
+                   <h2 style={{color:index==0 ? '#0BBB70' : '#EC3E47'}}>{team_data.holding_percent}</h2>
+                 </td>
+                 <td className="live-total-value">
+                 <h2 style={{color:index==0 ? '#0BBB70' : '#EC3E47'}}> {team_data.Total_Value}</h2>
+                 </td>
+                 
+               </tr>
+              
+
+        ))}
+        </tbody>
+
+
+    </table>
+  </div>
+
+
+
+
+
+      
+</div>
+<TransactionHistoryComponent componentName="wallet" />
+
+
+      
     </div>
+
+
+
+
+
   );
 };
 

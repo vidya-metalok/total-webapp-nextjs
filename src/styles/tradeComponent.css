@@ -512,18 +512,18 @@
 /*----------------------------------------------------------------------Live table data section  */
 
 .liveplayers-data {
-  position: fixed;
+  /* position: fixed; */
   z-index: 30;
-  width: 492px;
-  height: 514px;
-  background: #2c2a41;
+  width: 35%;
+  height: 534px;
+  background: #232234;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   /* margin:auto; */
   overflow: auto;
   color: #cbcbcb;
-  left: 50%;
-  transform: translateX(-50%);
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   top: 248px;
 }
 .batsmen-main-div .batsmen-table-li-active {
@@ -743,3 +743,117 @@
   justify-content: center;
   height: 85vh;
 }
+
+
+
+
+.live-scoreboard-holdings{
+  display: flex;
+  gap:14px;
+  padding:14px;
+}
+.trade-tokens-main{  
+ width: 65%;
+ padding:10px 20px 10px 40px;
+ background-color: #232234
+
+}
+.trade-tokens{
+height: 74px;
+
+}
+
+.trade-tokens{
+ border-bottom: 1px solid #393848;
+ 
+}
+
+.live-team-kay{
+ font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+
+letter-spacing: -0.312463px;
+
+color: #FFFFFF;
+margin:0px;
+}
+
+.live-team-name{
+ font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 15px;
+/* identical to box height */
+
+letter-spacing: -0.312463px;
+
+color: #9492A0;
+margin:0px;
+}
+
+.token-name-column{
+ height: 74px;
+ display: flex;
+ align-items: center;
+ gap:10px;
+}
+
+.live-token-headings th{
+ font-family: 'Poppins';
+font-style: normal;
+font-weight: 600 !important;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #9492A0;
+
+opacity: 0.5;
+width: 25%;
+}
+
+.live-total-value h2{
+ font-family: 'Lato';
+ font-style: normal;
+ font-weight: 600;
+ font-size: 16px;
+ line-height: 19px;
+ letter-spacing: -0.312463px;
+ 
+ 
+ opacity: 0.75;
+
+}
+
+.live-holding-percent h2{
+ font-family: 'Lato';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+letter-spacing: -0.312463px;
+
+
+opacity: 0.75;
+}
+
+.live-current-price h2{
+ font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+
+letter-spacing: -0.312463px;
+
+color: #FFFFFF;
+
+opacity: 0.5;
+}
+
