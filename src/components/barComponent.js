@@ -10,6 +10,7 @@ import {
     Tooltip,
     Legend
 } from 'chart.js'
+import { useSelector } from 'react-redux';
 
 chartJS.register(
     CategoryScale,
@@ -25,8 +26,9 @@ export const BarComponent = () => {
     const [chartData, setChartData] = useState({
         datasets: []
     })
-
     const [chartOptions, setChartOptions] = useState({})
+    const userLoginInfo = useSelector((store) => store?.user?.loginInfo)
+
 
     useEffect(() => {
         setChartData({
@@ -34,16 +36,16 @@ export const BarComponent = () => {
             datasets: [
                 {
                     label: 'Sales $',
-                    data: [5, 10, 0, -5, -10],
+                    data: userLoginInfo !== null && [5, 10, 0, -5, -10],
                     label: 'Accepted',
-                    borderColor: '#EC3E47',
-                    backgroundColor: '#EC3E47',
+                    borderColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : '#EC3E47',
+                    backgroundColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : '#EC3E47',
                 },
                 {
-                    data: [6, -4, 2, -4, -2.8, 8.9],
+                    data: userLoginInfo !== null && [6, -4, 2, -4, -2.8, 8.9],
                     label: 'Applied',
-                    borderColor: '#0BBB70',
-                    backgroundColor: '#0BBB70',
+                    borderColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : '#0BBB70',
+                    backgroundColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : '#0BBB70',
                 }
             ]
 

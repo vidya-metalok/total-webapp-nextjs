@@ -50,6 +50,7 @@ import { useSelector } from 'react-redux';
 
 
 import noTokenImg from "../../public/images/no-tabler_coins.svg"
+import Link from 'next/link';
 
 
 
@@ -165,11 +166,11 @@ const Sidebar = () => {
     }, []);
 
 
-    const onClickTeam = (eachToken) => {
-        // console.log("tokenName, tokenKey...", tokenName, tokenKey)
-        router.push({ query: eachToken, pathname: "/teamsPage" })
+    // const onClickTeam = (eachToken) => {
+    //     // console.log("tokenName, tokenKey...", tokenName, tokenKey)
+    //     router.push({ query: eachToken, pathname: "/teamsPage" })
 
-    }
+    // }
 
     // new added 08-05
     const [mytokenclick, setmytokenclick] = useState(true);
@@ -213,19 +214,22 @@ const Sidebar = () => {
                                             <tbody>
                                                 {
                                                     newTokenList.map((eachToken, index) => (
-                                                        <tr className="token-container" key={index} onClick={(each) => onClickTeam(eachToken)} >
-                                                            <td>
-                                                                <Image src={eachToken.logoUrl} alt="" height={40} width={40} />
-                                                            </td>
-                                                            <td>
-                                                                <h1>${eachToken.price.price}</h1>
-                                                            </td>
-                                                            <td>
-                                                                {eachToken.wallet >= 0
-                                                                    ? <p>+{eachToken.wallet}</p>
-                                                                    : <p style={{ color: 'red' }}>-{eachToken.wallet}</p>}
-                                                            </td>
-                                                        </tr>
+                                                        <Link href={{ pathname: "/teamspage", query: { eachToken: JSON.stringify(eachToken) } }} as="/teamspage" key={index}>
+
+                                                            <tr className="token-container" key={index}>
+                                                                <td>
+                                                                    <Image src={eachToken?.logoUrl} alt="" height={40} width={40} />
+                                                                </td>
+                                                                <td>
+                                                                    <h1>${eachToken?.price?.price}</h1>
+                                                                </td>
+                                                                <td>
+                                                                    {eachToken?.wallet >= 0
+                                                                        ? <p>+{eachToken?.wallet}</p>
+                                                                        : <p style={{ color: 'red' }}>-{eachToken?.wallet}</p>}
+                                                                </td>
+                                                            </tr>
+                                                        </Link>
                                                     ))}
                                             </tbody>
                                         </table>

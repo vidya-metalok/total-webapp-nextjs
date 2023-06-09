@@ -5,19 +5,21 @@ import Sidebar from '@/components/sidebarComponent.js'
 const TeamsComponent = dynamic(() => import('../components/teamsComponent.js'), { ssr: false })
 const LayoutComponent = dynamic(() => import("../components/layoutComponent.js"), { ssr: false })
 const TeamPage = () => {
-    const router = useRouter()
-    const eachToken = router.query
+  const router = useRouter()
+  const eachToken = router.query
+  const parsedObj = JSON.parse(eachToken?.eachToken)
+  console.log("EACHPARSE", eachToken?.eachToken)
 
 
-    return (
+  return (
 
-        <LayoutComponent>
-          <TeamsComponent tokenDetails={eachToken} />
-        </LayoutComponent>
-        
+    <LayoutComponent>
+      <TeamsComponent tokenDetails={parsedObj} />
+    </LayoutComponent>
 
 
-    )
+
+  )
 }
 
 export { TeamPage as default } 

@@ -27,6 +27,9 @@ import transArr from "../../public/images/trans-hist-arr.svg"
 
 import noPLImg from "../../public/images/no-p&l-img.svg"
 import noWinImg from "../../public/images/win-teams-line.svg"
+import noAssetIcon from "../../public/images/no-asset-icon.svg"
+import noPieIcon from "../../public/images/no-pie-icon.svg"
+
 
 
 
@@ -40,7 +43,8 @@ const PortFolioComponent = () => {
     const [pieOpenDropDown, setPieOpenDropDown] = useState(false)
 
 
-    const netHoldings = useSelector((store) => store.user.totalHoldings)
+    const netHoldings = useSelector((store) => store?.user?.totalHoldings)
+    const userLoginInfo = useSelector((store) => store?.user?.loginInfo)
     console.log("nettttholdings", netHoldings)
 
     // const chartRef = useRef(null);
@@ -126,10 +130,10 @@ const PortFolioComponent = () => {
         // });
         // bar chart end 
 
-        const pieChartElement = pieChartRef.current;
-        const pieChartContext = pieChartElement.getContext('2d');
-        const lineChartElement = lineChartRef.current;
-        const lineChartContext = lineChartElement.getContext('2d');
+        const pieChartElement = pieChartRef?.current;
+        const pieChartContext = pieChartElement?.getContext('2d');
+        const lineChartElement = lineChartRef?.current;
+        const lineChartContext = lineChartElement?.getContext('2d');
 
         pieChartInstanceRef.current = new Chart(pieChartContext, {
             type: 'doughnut',
@@ -216,11 +220,11 @@ const PortFolioComponent = () => {
                     {
                         label: "My First Dataset",
 
-                        data: [null, 5000, 6000, 8000, 10000, 7000, 6500, 4000],
+                        data: userLoginInfo == null ? [0, 0, 0, 0, 0, 0, 0, 0] : [null, 5000, 6000, 8000, 10000, 7000, 6500, 4000],
 
                         fill: true,
                         backgroundColor: "#403d4a",
-                        borderColor: "#EA9528",
+                        borderColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : "#EA9528",
                         borderCapStyle: "butt",
                         tension: 0.1,
                     },
@@ -613,10 +617,34 @@ const PortFolioComponent = () => {
                                 <p>yearly</p>
                             </div>
                         )}
-                        <div style={{ width: '350px', height: '350px', padding: "20px" }} >
-                            <canvas className='cnavass pie-canva' id="myChart" ref={pieChartRef} />
+                        <div style={{ height: '350px', padding: "20px" }} >
+
+                            {userLoginInfo == null ? (
+                                <div className="no-pie-details-con">
+                                    <Image src={noPieIcon} alt="" height="250px" width="300px" />
+                                    <div className='no-pie-data'>
+                                        <Image src={noAssetIcon} alt="img" height="250px" width="300px" />
+                                        <h1 style={{ color: 'white' }}>You don’t have any Assets</h1>
+                                    </div>
+                                </div>
+
+                            ) : (
+
+
+                                <div style={{ width: "350px", height: "250px" }}>
+
+                                    <canvas className='cnavass pie-canva' id="myChart" ref={pieChartRef} />
+                                </div>
+
+
+                            )}
+
                         </div>
                     </div>
+
+
+
+
                 </div>
 
 
@@ -625,7 +653,7 @@ const PortFolioComponent = () => {
                     <h3 className='asset-head'>Your Assets</h3>
                 </div>
 
-                <div className='token-asset-main'>
+                <div className='token-asset-main' style={{ position: 'relative', height: "400px" }}>
                     <table>
                         <tr>
                             <th> Token Name </th>
@@ -636,31 +664,40 @@ const PortFolioComponent = () => {
                             <th> Current Price </th>
                             <th> Total P&L </th>
                         </tr>
-                        <tbody>
-                            {tokenAssests.map((each, index) => (
+                        {userLoginInfo == null ? (
+                            <div className='no-transiction'>
+                                <Image src={noAssetIcon} alt="img" height="250px" width="300px" />
+                                <h1 style={{ color: 'white' }}>You don’t have any Assets</h1>
+                            </div>
+                        ) : (
+                            <tbody>
+                                {tokenAssests.map((each, index) => (
 
-                                <tr key={index} className='token-asset-parent'>
+                                    <tr key={index} className='token-asset-parent'>
 
-                                    <td >
-                                        <div className='asset-name'>
+                                        <td >
+                                            <div className='asset-name'>
 
 
-                                            <Image src={each.tokenImg} alt="" height={40} width={40} />
-                                            <div>
-                                                <h3>{each.assetToken}</h3>
-                                                <p>{each.tokenColin}</p>
+                                                <Image src={each.tokenImg} alt="" height={40} width={40} />
+                                                <div>
+                                                    <h3>{each.assetToken}</h3>
+                                                    <p>{each.tokenColin}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td className='asset-hold'>{each.holdings}</td>
-                                    <td className='asset-total'>{each.totalValue}</td>
-                                    <td className='asset-invest'>{each.invested}</td>
-                                    <td className='asset-total'>{each.hour}</td>
-                                    <td className='asset-invest'>{each.currectPrice}</td>
-                                    <td className='asset-total'>{each.profit}</td>
-                                </tr>
-                            ))}
-                        </tbody>
+                                        </td>
+                                        <td className='asset-hold'>{each.holdings}</td>
+                                        <td className='asset-total'>{each.totalValue}</td>
+                                        <td className='asset-invest'>{each.invested}</td>
+                                        <td className='asset-total'>{each.hour}</td>
+                                        <td className='asset-invest'>{each.currectPrice}</td>
+                                        <td className='asset-total'>{each.profit}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+
+                        )}
+
                     </table>
 
                 </div>

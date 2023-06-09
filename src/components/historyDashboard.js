@@ -23,7 +23,7 @@ import deposit from '../../public/images/arrow-1.svg'
 import cskdhoni from "../../public/images/cskdhoni.png";
 
 import hydekohili from "../../public/images/hydekohili.png";
-import {user} from "../components/redux/userSlice"
+import { user } from "../components/redux/userSlice"
 import { useSelector } from 'react-redux';
 import transaction_nodata from '../../public/images/transiction-nodata-img.svg'
 
@@ -31,10 +31,12 @@ import transaction_nodata from '../../public/images/transiction-nodata-img.svg'
 
 const HistoryDashboard = () => {
     const [transactionData, setTransactionData] = useState([]);
-    
 
-    const walletAddress = useSelector((store)=>store?.user?.loginInfo?.walletAddress)
-    console.log("tttttttttttttttttttttttttttttttttuserwallet" , walletAddress)
+
+    const walletAddress = useSelector((store) => store?.user?.loginInfo?.walletAddress)
+    const userLoginInfo = useSelector((store) => store?.user?.loginInfo)
+
+    console.log("tttttttttttttttttttttttttttttttttuserwallet", walletAddress)
     // const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
     const userWallet = walletAddress;
 
@@ -353,21 +355,21 @@ const HistoryDashboard = () => {
 
             <div >
                 <div className="transaction-tabs-div ">
-                <div onClick={matchClick} style={{ position: 'relative',width:'50%' }}>
+                    <div onClick={matchClick} style={{ position: 'relative', width: '50%' }}>
                         <h3 className="histTabClass">Transaction History</h3>
 
                     </div>
 
-                    <div onClick={matchPointClick} style={{ position: 'relative',width:'50%' }} className='d-flex'>
+                    <div onClick={matchPointClick} style={{ position: 'relative', width: '50%' }} className='d-flex'>
                         <h3 className='newsTabClass'>Top News</h3>
-                        <input type="text" className='top-news-input'/> 
+                        <input type="text" className='top-news-input' />
                     </div>
 
                 </div>
 
 
 
-                <div className='row' style={{padding:"4px 12px"}}>
+                <div className='row' style={{ padding: "4px 12px" }}>
                     <div className="transaction-main col-6">
                         <div className='table-responsive' >
                             <table>
@@ -379,27 +381,27 @@ const HistoryDashboard = () => {
                                     <th>Time</th>
                                     {/* <th>Status</th> */}
                                 </tr>
-                                {transactionData.length===0 ?
-                                <div className='dashboard-no-transiction' style={{display:transactionData.length===0 ? '' : 'none'}}>
-                                    <Image src={transaction_nodata } alt="img" height="250px" width="300px" />
-                                        <h1 style={{color:'white'}}>You don’t have any<br/> transactions Made</h1>
-                                </div> 
-                                
-                                    : 
+                                {(transactionData == "Error! Invalid address format" || transactionData.length == 0) ?
+                                    <div className='dashboard-no-transiction'>
+                                        <Image src={transaction_nodata} alt="img" height="250px" width="300px" />
+                                        <h1 style={{ color: 'white' }}>You don’t have any<br /> transactions Made</h1>
+                                    </div>
+
+                                    :
                                     <tbody >
-                                    {transactionData.map((each, index) => (
-                                            <tr key={index} style={{borderBottom:"1px solid rgb(57,56,72)"}}>
-                                            <Card
-                                                hash={each.hash}
-                                                value={each.value}
-                                                timeStamp={each.timeStamp}
-                                                tokenDecimal={each.tokenDecimal}
-                                                toAddress={each.to}
-                                                tokenSymbol={each.tokenSymbol}
-                                            />
-                                        </tr>
-                                ))}
-                                </tbody>
+                                        {transactionData.map((each, index) => (
+                                            <tr key={index} style={{ borderBottom: "1px solid rgb(57,56,72)" }}>
+                                                <Card
+                                                    hash={each.hash}
+                                                    value={each.value}
+                                                    timeStamp={each.timeStamp}
+                                                    tokenDecimal={each.tokenDecimal}
+                                                    toAddress={each.to}
+                                                    tokenSymbol={each.tokenSymbol}
+                                                />
+                                            </tr>
+                                        ))}
+                                    </tbody>
                                 }
                             </table>
                         </div>
@@ -409,7 +411,7 @@ const HistoryDashboard = () => {
 
                     <div className='col-6'>
 
-                     <div className='d-flex topnews-scroll' style={{overflow:'auto'}}>
+                        <div className='d-flex topnews-scroll' style={{ overflow: 'auto' }}>
                             {matches.map((each, index) => (
                                 <div key={index} className="topnews-div" style={{ margin: "0.5rem" }}>
                                     {/* <h3>{each.matchName}</h3> */}
@@ -432,7 +434,7 @@ const HistoryDashboard = () => {
 
 
 
-                     <div className='d-flex topnews-scroll' style={{overflow:'auto'}}>
+                        <div className='d-flex topnews-scroll' style={{ overflow: 'auto' }}>
                             {matches.map((each, index) => (
                                 <div key={index} className="topnews-div" style={{ margin: "0.5rem" }}>
                                     {/* <h3>{each.matchName}</h3> */}

@@ -37,7 +37,7 @@ var refferalIcon = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webap
 // import notificationIcon from "../../public/images/notification-icon.png";
 // import profileIcon from "../../public/images/profile-icon.png"
 // import dollerIcon from "../../public/images/doller-icon.png";
-import { loginUser,user, logoutUser, storePrivateKey } from './redux/userSlice';
+import { loginUser, user, logoutUser, storePrivateKey } from './redux/userSlice';
 import Link from 'next/link'
 import { useEffect, useState } from "react";
 // import personIcon from "../../public/images/person-icon-img.png";
@@ -76,7 +76,7 @@ const NavBarComponent = () => {
 
 
 
-    console.log("userinfooooo" , profileimg)
+    console.log("userinfooooo", profileimg)
     const [depositeOpen, setdepositeOpen] = useState(false)
     const dispatch = useDispatch()
     const router = useRouter()
@@ -284,7 +284,7 @@ const NavBarComponent = () => {
         setUserInfo(null);
         setShowlogout(false);
         await web3auth.logout();
-        dispatch(loginUser())
+        // dispatch(loginUser())
         router.push("/")
 
     };
@@ -362,8 +362,8 @@ const NavBarComponent = () => {
                         </Link>
                         <Image src={notificationIcon} alt="" height={27} width={36} />
                         {profileimg
-                            ? <Image src={profileimg} style={{borderRadius:'50%'}} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
-                            : <Image src={profileIcon} style={{borderRadius:'50%'}} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
+                            ? <Image src={profileimg} style={{ borderRadius: '50%' }} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
+                            : <Image src={profileIcon} style={{ borderRadius: '50%' }} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
                         }
 
                     </div>

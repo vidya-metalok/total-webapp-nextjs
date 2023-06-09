@@ -22,7 +22,7 @@ import eyeopen from "../../public/images/open-eye.svg"
 // import loginimg3 from "../../public/images/login-img3.png";
 // import loginimg4 from "../../public/images/login-img4.png";
 
-import { loginUser,userToken, storePrivateKey } from "./redux/userSlice";
+import { loginUser, userToken, storePrivateKey } from "./redux/userSlice";
 
 // import RPC from '../web3RPC.ts';
 import RPC from "../web3RPC";
@@ -106,7 +106,7 @@ const LoginComponent = () => {
         setUserInfo(res.user);
         // dispatch(loginUser(res.user));
         // setShowlogout(true);
-        // router.push("/dashboardpage");
+        router.push("/dashboardpage");
         return true;
     };
     dispatch(loginUser(userInfo));
@@ -183,7 +183,7 @@ const LoginComponent = () => {
         if (idToken && pubKey) {
             init3();
         }
-    }, [ idToken, pubKey]);
+    }, [idToken, pubKey]);
     useEffect(() => {
         const init = async () => {
             try {

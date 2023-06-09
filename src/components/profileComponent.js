@@ -87,8 +87,8 @@ const ProfileComponent = () => {
             return;
         }
         await web3auth.logout();
-        dispatch(loginUser(null))
-        setProvider(null);
+        // dispatch(loginUser(null))
+        // setProvider(null);
         router.push("/")
 
 

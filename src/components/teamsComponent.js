@@ -189,12 +189,12 @@ const TeamsComponent = (props) => {
 
   ]
 
-  const teamsLogo = allteamLogo[props.tokenDetails.id];
+  const teamsLogo = allteamLogo[props?.tokenDetails.id];
   // console.log("lis.....", banner[props.tokenDetails.id]);
-  const broadImg = banner[props.tokenDetails.id];
+  const broadImg = banner[props?.tokenDetails.id];
   // console.log("immmmm....", broadImg);
 
-  const { tokenName, tokenKey, teamName, teamShortName } = props.tokenDetails;
+  const { tokenName, tokenKey, teamName, teamShortName } = props?.tokenDetails;
   console.log("tokenKey...", tokenKey)
   const teams = [
     {
@@ -652,7 +652,7 @@ const TeamsComponent = (props) => {
           </div>
 
           <div className="teams-buysell">
-            <BuySellComponent eachTeamName={teamShortName.slice(0, 4)} />
+            <BuySellComponent eachTeamName={teamShortName?.slice(0, 4)} />
           </div>
         </div>
 
@@ -901,29 +901,29 @@ const TeamsComponent = (props) => {
                   <th>Time</th>
                   <th>Status</th>
                 </tr>
-                {transactionData.length===0 ?
+                {(transactionData == "Error! Invalid address format" || transactionData.length == 0) ?
 
-<div className='no-transiction' style={{display:transactionData.length===0 ? '' : 'none'}}>
-<Image src={transaction_nodata } alt="img" height="250px" width="300px" />
-<h1 style={{color:'white'}}>You don’t have any<br/> transactions Made</h1>
-</div>
-                
-              : 
+                  <div className='no-transiction'>
+                    <Image src={transaction_nodata} alt="img" height="250px" width="300px" />
+                    <h1 style={{color:'white'}}>You don’t have any<br/> transactions Made</h1>
+                  </div>
 
-              <tbody style={{display:transactionData.length!==0 ? '' : 'none'}}>
-                  {transactionData.map((each, index) => (
-                    <tr key={index} style={{ borderBottom: "2px solid rgba(255, 255, 255, 0.1)" }}>
-                      <Card
-                        hash={each.hash}
-                        value={each.value}
-                        timeStamp={each.timeStamp}
-                        tokenDecimal={each.tokenDecimal}
-                        toAddress={each.to}
-                        tokenSymbol={each.tokenSymbol}
-                      />
-                    </tr>
-                  ))}
-                </tbody>
+                  :
+
+                  <tbody>
+                    {transactionData?.map((each, index) => (
+                      <tr key={index} style={{ borderBottom: "2px solid rgba(255, 255, 255, 0.1)" }}>
+                        <Card
+                          hash={each.hash}
+                          value={each.value}
+                          timeStamp={each.timeStamp}
+                          tokenDecimal={each.tokenDecimal}
+                          toAddress={each.to}
+                          tokenSymbol={each.tokenSymbol}
+                        />
+                      </tr>
+                    ))}
+                  </tbody>
                 }
               </table>
             </div>
