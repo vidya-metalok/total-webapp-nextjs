@@ -304,6 +304,7 @@ nav {
   top: 10px;
   z-index: 59;
   font-size: 16px;
+  cursor: pointer;
 }
 .nav-onwrap {
   position: fixed;
@@ -325,4 +326,8 @@ nav {
 
 .onwrp-close:hover {
   color: #ea9528;
+}
+
+a:hover{
+  color:#ea9528 !important;
 }

@@ -93,8 +93,18 @@
 }
 
 .match-card-section::-webkit-scrollbar {
-  width: 0px;
+  width: 5px;
+  height: 6px;
 }
+.match-card-section::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.482);
+  border-radius: 4px;
+  
+
+}
+
+
+
 .league-card {
   background-color: #232234;
   border: 1px solid rgba(255, 255, 255, 0.1);

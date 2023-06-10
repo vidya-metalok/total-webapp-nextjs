@@ -559,7 +559,7 @@
   margin-bottom: -12px;
   position: sticky;
   top: -30px;
-  background-color: #2c2a41;
+  background-color: #232234;
 }
 .batsmen-main-div h1,
 .batsmen-table-head p {
@@ -755,7 +755,18 @@
 .trade-tokens-main{  
  width: 65%;
  padding:10px 20px 10px 40px;
- background-color: #232234
+ background-color: #232234;
+
+
+ height: 534px;
+ overflow: auto;
+
+}
+.trade-tokens-main::-webkit-scrollbar{
+  width: 5px;
+}
+.trade-tokens-main::-webkit-scrollbar-thumb {
+  background-color: #393848;
 
 }
 .trade-tokens{

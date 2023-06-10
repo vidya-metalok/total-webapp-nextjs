@@ -8,7 +8,9 @@ const initialState = {
     privKey: "",
     liveTeamAImgUrl: "",
     liveTeamBImgUrl: "",
-    idToken:''
+    idToken:'',
+    userEdit:{}
+
 
 }
 
@@ -39,6 +41,9 @@ const userSlice = createSlice({
         },
         liveTeamBImgUrl: (store, action) => {
             store.liveTeamBImgUrl = action.payload
+        },
+        userEdit:(store,action)=>{
+            store.userEdit = action.payload
         }
 
     }
@@ -46,5 +51,5 @@ const userSlice = createSlice({
 })
 
 
-export const { loginUser, holdings, storePrivateKey, liveTeamAImgUrl, liveTeamBImgUrl, logoutUser,userToken } = userSlice.actions
+export const { loginUser, holdings, storePrivateKey, liveTeamAImgUrl, liveTeamBImgUrl, logoutUser,userToken,userEdit} = userSlice.actions
 export default userSlice.reducer;
