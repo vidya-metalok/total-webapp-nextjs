@@ -370,8 +370,8 @@ const HistoryDashboard = () => {
 
 
                 <div className='row' style={{ padding: "4px 12px" }}>
-                    <div className="transaction-main col-6">
-                        <div className='table-responsive' >
+                    <div className="transaction-main col-6" style={{ position: "relative" }}>
+                        <div className='table-responsive-dash'>
                             <table>
                                 <tr>
                                     <th>Transaction Type</th>
@@ -381,7 +381,7 @@ const HistoryDashboard = () => {
                                     <th>Time</th>
                                     {/* <th>Status</th> */}
                                 </tr>
-                                {(transactionData == "Error! Invalid address format" || transactionData.length == 0) ?
+                                {(transactionData === "Error! Invalid address format" || transactionData.length === 0) ?
                                     <div className='dashboard-no-transiction'>
                                         <Image src={transaction_nodata} alt="img" height="250px" width="300px" />
                                         <h1 style={{ color: 'white' }}>You don’t have any<br /> transactions Made</h1>

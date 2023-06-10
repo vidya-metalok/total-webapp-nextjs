@@ -49,7 +49,7 @@ import { useRouter } from "next/router";
 import firestore, { getFirestore } from "firebase/firestore";
 // import settings from "../../public/images/setting-4.png";
 
-import {user} from "../components/redux/userSlice"
+import { user } from "../components/redux/userSlice"
 import { useSelector } from 'react-redux';
 import transaction_nodata from '../../public/images/transiction-nodata-img.svg'
 
@@ -142,6 +142,8 @@ const TeamsComponent = (props) => {
   const [openDropDown, setOpenDropDown] = useState(false)
   const [copyClick, setcopyclick] = useState(false)
   const userLogin = useSelector((store) => store?.user?.loginInfo)
+  const tokenDetails = useSelector((store) => store?.user?.eachTeamDetails)
+  console.log("tokenDetailsRedux...", tokenDetails)
   let str = userLogin?.walletAddress;
   console.log("str...", str, userLogin)
   let len = str?.length;
@@ -155,11 +157,11 @@ const TeamsComponent = (props) => {
   // const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
   const userWallet = walletAddress;
 
-  console.log("details....", userLogin)
-  console.log("teamsComponentProps...", props);
-  console.log("propsEachToken...", props.tokenDetails);
-  const teamTokenName = props.tokenDetails.tokenName
-  console.log("newName...", teamTokenName)
+  // console.log("details....", userLogin)
+  // console.log("teamsComponentProps...", props);
+  // console.log("propsEachToken...", props?.tokenDetails);
+  // const teamTokenName = props?.tokenDetails?.tokenName
+  // console.log("newName...", teamTokenName)
   const banner = [
     rcbBanner,
     cskBanner,
@@ -188,13 +190,12 @@ const TeamsComponent = (props) => {
 
 
   ]
-
-  const teamsLogo = allteamLogo[props?.tokenDetails.id];
+  const teamsLogo = allteamLogo[tokenDetails?.id];
   // console.log("lis.....", banner[props.tokenDetails.id]);
-  const broadImg = banner[props?.tokenDetails.id];
+  const broadImg = banner[tokenDetails?.id];
   // console.log("immmmm....", broadImg);
 
-  const { tokenName, tokenKey, teamName, teamShortName } = props?.tokenDetails;
+  const { tokenName, tokenKey, teamName, teamShortName } = tokenDetails;
   console.log("tokenKey...", tokenKey)
   const teams = [
     {
