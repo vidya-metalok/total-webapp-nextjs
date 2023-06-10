@@ -586,6 +586,12 @@ const TeamsComponent = (props) => {
     navigator.clipboard.writeText(userWallet);
     console.log("wallet address", userWallet)
     setcopyclick(true)
+    
+    setTimeout (() => {
+
+      setcopyclick(false)
+
+    }, [2500]);
   };
 
 

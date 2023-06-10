@@ -9,7 +9,9 @@ const initialState = {
     liveTeamAImgUrl: "",
     liveTeamBImgUrl: "",
     idToken: '',
-    eachTeamDetails: {}
+    eachTeamDetails: {},
+    userEdit: {}
+
 
 }
 
@@ -23,7 +25,7 @@ const userSlice = createSlice({
         logoutUser: (state) => {
             state.loginInfo = null;
         },
-        userToken:(state,action)=>{
+        userToken: (state, action) => {
             state.idToken = action.payload
         }
         ,
@@ -43,6 +45,9 @@ const userSlice = createSlice({
         },
         eachTeamDetails: (store, action) => {
             store.eachTeamDetails = action.payload
+        },
+        userEdit: (store, action) => {
+            store.userEdit = action.payload
         }
 
     }
@@ -50,5 +55,5 @@ const userSlice = createSlice({
 })
 
 
-export const { loginUser, holdings, storePrivateKey, liveTeamAImgUrl, liveTeamBImgUrl, logoutUser, userToken, eachTeamDetails } = userSlice.actions
+export const { loginUser, holdings, storePrivateKey, liveTeamAImgUrl, liveTeamBImgUrl, logoutUser, userToken, userEdit, eachTeamDetails } = userSlice.actions
 export default userSlice.reducer;

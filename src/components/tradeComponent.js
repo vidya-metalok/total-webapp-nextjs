@@ -255,6 +255,37 @@ const TradeComponent = () => {
       team_name: "Kings XI Punjab",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
+    }, {
+      team_img: mumbaiIndia,
+      team_key: teamATokenName,
+      Current_Price:'$5,203',
+      team_name: "Mumbai Indians",
+      holding_percent: "-0.43%",
+      Total_Value:'-$5,203USDT'
+    },
+    {
+      team_img: punjabKings,
+      team_key: teamBTokenName,
+      Current_Price:'$5,203',
+      team_name: "Kings XI Punjab",
+      holding_percent: "-0.43%",
+      Total_Value:'-$5,203USDT'
+    },
+    {
+      team_img: mumbaiIndia,
+      team_key: teamATokenName,
+      Current_Price:'$5,203',
+      team_name: "Mumbai Indians",
+      holding_percent: "-0.43%",
+      Total_Value:'-$5,203USDT'
+    },
+    {
+      team_img: punjabKings,
+      team_key: teamBTokenName,
+      Current_Price:'$5,203',
+      team_name: "Kings XI Punjab",
+      holding_percent: "-0.43%",
+      Total_Value:'-$5,203USDT'
     },
   ];
 

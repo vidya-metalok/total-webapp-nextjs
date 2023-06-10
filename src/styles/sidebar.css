@@ -24,6 +24,7 @@
 .tokens:nth-child(1) {
   height: 500px;
   overflow: auto;
+  border-bottom: 20px solid #232234;
 }
 .tokens:nth-child(1)::-webkit-scrollbar {
   width: 0px;

@@ -577,3 +577,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.copied-display{
+  margin-top:-15px;
+}
