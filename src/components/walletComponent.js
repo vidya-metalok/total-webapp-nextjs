@@ -914,7 +914,7 @@ const WalletComponent = () => {
                                     <div className="wallet-details-con">
                                         <div className="wallet-info">
                                             <h3>Wallet Name</h3>
-                                            <p>{editeddata?.firstName} {editeddata.lastName}</p>
+                                            <p>{editeddata?.firstName} {editeddata?.lastName}</p>
                                         </div>
                                         <div className="wallet-info">
                                             <h3>Tokens you will receive</h3>
