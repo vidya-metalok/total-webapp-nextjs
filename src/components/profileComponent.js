@@ -175,7 +175,7 @@ console.log("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                     <div className='profile-user-child1'>
                         <div className='d-flex align-items-center gap-5'>
                             {/* <Image className='profile-img' src={userprofile} alt="image" width={146} height={143} /> */}
-                            {profileimg ?<Image className='profile-img' src={profileimg} alt="image" width={146} height={143} />
+                            {profileimg ? <Image className='profile-img' src={profileimg} alt="image" width={146} height={143} />
                                         : <Image src={userprofile} style={{ borderRadius: '50%' }} alt="" width={146} height={143} onClick={() => setopenLogout(!openLogout)} />
                             }
                             <div className='user-name-data'>

@@ -25,7 +25,7 @@ const userSlice = createSlice({
         logoutUser: (state) => {
             state.loginInfo = null;
         },
-        userToken:(state,action)=>{
+        userToken: (state, action) => {
             state.idToken = action.payload
         }
         ,
