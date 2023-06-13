@@ -31,15 +31,15 @@ const ProfileComponent = () => {
     const userinfoname = userInfoDetails?.name;
     const userFirstName = userinfoname?.split(" ")[0]
     const userSecondName = userinfoname?.split(" ")[1]
-    const [userMobile, setUserMobile,] = useState(editeddata.userMobile)
-    const [professEmail, setProfessEmail] = useState(editeddata.professEmail)
-    const [personelEmail, setPersonelEmail] = useState(editeddata.personelEmail)
-    const [userAddress, setuserAddress] = useState(editeddata.userAddress)
+    const [userMobile, setUserMobile,] = useState(editeddata?.userMobile)
+    const [professEmail, setProfessEmail] = useState(editeddata?.professEmail)
+    const [personelEmail, setPersonelEmail] = useState(editeddata?.personelEmail)
+    const [userAddress, setuserAddress] = useState(editeddata?.userAddress)
     // console.log("user....", userInfoDetails, userinfoname)
     const router = useRouter()
     const dispatch = useDispatch()
-    const [firstName, setfirstName] = useState(editeddata.firstName)
-    const [lastName, setLastName] = useState(editeddata.lastName)
+    const [firstName, setfirstName] = useState(editeddata?.firstName)
+    const [lastName, setLastName] = useState(editeddata?.lastName)
     const [web3auth, setWeb3auth] = useState("");
     const [provider, setProvider] = useState("");
     const [idToken, setidToken] = useState("");
@@ -179,7 +179,7 @@ console.log("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                                         : <Image src={userprofile} style={{ borderRadius: '50%' }} alt="" width={146} height={143} onClick={() => setopenLogout(!openLogout)} />
                             }
                             <div className='user-name-data'>
-                                <h2>{editeddata?.firstName} {editeddata.lastName}</h2>
+                                <h2>{editeddata?.firstName} {editeddata?.lastName}</h2>
                                 <h3>Joined 21-10-2021</h3>
                             </div>
                         </div>

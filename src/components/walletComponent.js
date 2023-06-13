@@ -95,10 +95,10 @@ const WalletComponent = () => {
 
 
     let str = userWallet;
-    let len = str.length;
+    let len = str?.length;
     let start = Math.floor(len - 7);
     // let end = start + 40;
-    let walletaddress = str.substring(0, 7) + "....." + str.substring(start, len);
+    let walletaddress = str?.substring(0, 7) + "....." + str?.substring(start, len);
 
 
 
