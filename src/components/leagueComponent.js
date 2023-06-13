@@ -270,15 +270,15 @@ const LeagueComponent = () => {
                 }
 
                 <div className="drop-down-container  d-flex flex-direction-column justify-content-center">
-                    <div className="row container-fluid">
+                    <div className="row container-fluid p-0">
 
 
-                        <div className="col-12 col-sm-12  col-md-6 col-lg-6">
+                        <div className="col-12 col-sm-12  col-md-6 col-lg-6 p-0" style={{borderRight:'5px solid transparent'}}>
                             <BuySellComponent eachTeamName={teamATokenName} />
 
                         </div>
-                        <div className="col-12  col-sm-12 col-md-6 col-lg-6">
-                            <BuySellComponent eachTeamName={teamBTokenName} />
+                        <div className="col-12  col-sm-12 col-md-6 col-lg-6 p-0" style={{borderLeft:'5px solid transparent'}}>
+                            <BuySellComponent eachTeamName={teamBTokenName}  />
 
                         </div>
                     </div>

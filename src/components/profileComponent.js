@@ -112,6 +112,8 @@ const ProfileComponent = () => {
 
     const [useredit,setuseredit] = useState(false)
 
+    const [saveact,setsaveact] = useState(false)
+
     const onClickEditBtn = () => {
         setfirstName(firstName)
         setLastName(lastName)
@@ -120,12 +122,15 @@ const ProfileComponent = () => {
         setProfessEmail(professEmail)
         setuserAddress(userAddress)
 
-        setuseredit(!useredit)
-      if(useredit===false){
-        inputRef.current?.focus();
-        
+       setsaveact(true)
+        setTimeout(()=>{
+            setuseredit(!useredit)
+            setsaveact(false)
 
-      }
+        },1000)
+
+      if(useredit===false){
+        inputRef.current?.focus()      }
       else{
         dispatch(userEdit(afteredit))
       }
@@ -184,7 +189,7 @@ console.log("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                             </div>
                         </div>
                   
-                       <button className='edit-btn' onClick={onClickEditBtn}> <Image className='edit-img' src={editlogo} alt="" /> {useredit ? "Save" : 'Edit'}</button>
+                       <button className='edit-btn' onClick={onClickEditBtn}> <Image className='edit-img' src={editlogo} alt="" /> {useredit ? <span style={{ color: saveact ? 'green' : ''}}>{saveact ? <span>Saved</span> : <span>save</span>}</span> : <span>Edit</span> }</button>
                     </div>
                     <form className='user-info-form'>
                         <h2 className='mygeneral-info'>My General information</h2>

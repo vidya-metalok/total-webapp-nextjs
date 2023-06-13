@@ -559,7 +559,7 @@ const PortFolioComponent = () => {
                 <div className="bar-chart-con bar-two">
                     {/* <h3>Asset Net Worth</h3> */}
                     <div className="tocken-bar-head">
-                        <h3>Asset Allocation</h3>
+                        <h3>Asset Net Worth </h3>
                         {/* <div className="token-week">
                     <p>Weekly</p>
                     <Image src={down} alt="" height={10} width={10} />
@@ -593,7 +593,7 @@ const PortFolioComponent = () => {
                     <div className="bar-chart-con bar-two piechart">
                         {/* <h3> Asset Allocation</h3> */}
                         <div className="tocken-bar-head">
-                            <h3>Asset Net Worth</h3>
+                            <h3>Asset Allocation</h3>
                             {/* <div className="token-week">
                     <p>Weekly</p>
                     <Image src={down} alt="" height={10} width={10} />

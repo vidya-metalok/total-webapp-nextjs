@@ -212,7 +212,7 @@ const TradeComponent = () => {
       team_img: mumbaiIndia,
       team_key: teamATokenName,
       Current_Price:'$5,203',
-      team_name: "Mumbai Indians",
+      team_name: "Mumbai Sports Verse Coin",
       holding_percent: "+0.2%",
       Total_Value:'+$5,203USDT'
     },
@@ -220,7 +220,7 @@ const TradeComponent = () => {
       team_img: punjabKings,
       team_key: teamBTokenName,
       Current_Price:'$5,203',
-      team_name: "Kings XI Punjab",
+      team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
     },
@@ -228,7 +228,7 @@ const TradeComponent = () => {
       team_img: mumbaiIndia,
       Current_Price:'$5,203',
       team_key: teamATokenName,
-      team_name: "Mumbai Indians",
+      team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
     },
@@ -236,7 +236,7 @@ const TradeComponent = () => {
       team_img: punjabKings,
       team_key: teamBTokenName,
       Current_Price:'$5,203',
-      team_name: "Kings XI Punjab",
+      team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
     },
@@ -244,7 +244,7 @@ const TradeComponent = () => {
       team_img: mumbaiIndia,
       team_key: teamATokenName,
       Current_Price:'$5,203',
-      team_name: "Mumbai Indians",
+      team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
     },
@@ -252,14 +252,14 @@ const TradeComponent = () => {
       team_img: punjabKings,
       team_key: teamBTokenName,
       Current_Price:'$5,203',
-      team_name: "Kings XI Punjab",
+      team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
     }, {
       team_img: mumbaiIndia,
       team_key: teamATokenName,
       Current_Price:'$5,203',
-      team_name: "Mumbai Indians",
+      team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
     },
@@ -267,7 +267,7 @@ const TradeComponent = () => {
       team_img: punjabKings,
       team_key: teamBTokenName,
       Current_Price:'$5,203',
-      team_name: "Kings XI Punjab",
+      team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
     },
@@ -275,7 +275,7 @@ const TradeComponent = () => {
       team_img: mumbaiIndia,
       team_key: teamATokenName,
       Current_Price:'$5,203',
-      team_name: "Mumbai Indians",
+      team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
     },
@@ -283,7 +283,7 @@ const TradeComponent = () => {
       team_img: punjabKings,
       team_key: teamBTokenName,
       Current_Price:'$5,203',
-      team_name: "Kings XI Punjab",
+      team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
       Total_Value:'-$5,203USDT'
     },
@@ -306,7 +306,7 @@ const TradeComponent = () => {
 
   return (
     <div style={{ padding: "5px" }}>
-      <div className="not-inlive-section" style={{ display: notinlive ? 'block' : 'none' }}>
+      <div className="not-inlive-section" style={{ display: notinlive ? 'none' : 'block' }}>
         <h1>Will be active when match is Live</h1>
       </div>
 
@@ -357,7 +357,7 @@ const TradeComponent = () => {
             </h4>
           </div>
           <div className="d-flex gap-3 live-overs-line">
-            <Image src={liveUpdateBar} alt="" height={30} width={30} />
+            <Image src={liveUpdateBar} alt="" height={50} width={30} />
 
             <div className="live-overs">
               <h3>Overs</h3>
@@ -545,7 +545,7 @@ const TradeComponent = () => {
 
 <div className="live-scoreboard-holdings">
       <div className="liveplayers-data" style={{ display: batars ? 'block' : 'block' }}>
-        
+      <h6 className="score-card-heading">Score Card</h6>
         <div className="badding-team-nm">
           <h1>Sunrisers Hyderabad</h1>
           <div className="d-flex gap-5 align-items-center justify-content-center">

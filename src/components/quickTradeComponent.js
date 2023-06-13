@@ -101,6 +101,9 @@ const Dashboardcenter = () => {
     const ALLOWANCE_TRAGET = '0xdef1c0ded9bec7f1a1670819833240f027b25eff';
     const SPORTSVERSE_ADDRESS = '0xFDfDaE4d7f7731A09eD556C0e1F9D3b5C25FEf18';
     const PLATFORM_FEE = '0.01';
+
+    const [samein, setsamein] = useState("in")
+    const [sameout, setsameout] = useState('out')
     var contract = new web3.eth.Contract(abi, sellToken);
 
 
@@ -224,7 +227,8 @@ const Dashboardcenter = () => {
         setSellToken(param3)
         setopt(!opt)
 
-    }
+        setsamein(param2)
+    }   
     const storeTokenOut = (param1, param2, param3, param4) => {
         setTokenOutImage(param1)
         setTokenOutName(param2)
@@ -232,6 +236,9 @@ const Dashboardcenter = () => {
         setBuyToken(param3)
         setopt2(!opt2)
         setTokenFullName(param4)
+
+        setsameout(param2)
+    
     }
 
 
@@ -741,7 +748,7 @@ const Dashboardcenter = () => {
                             <h1 className="quick-trade-heading">Quick Trade</h1>
                             <div className="quick-trade-amt">
                                 <p>Enter Amount</p>
-                                <h6>Avbl : 30,000 USDT</h6>
+                                <h6>Avbl : {totalHoldings} USDT</h6>
                             </div>
 
                             <div className="quick-trade-child">
@@ -850,6 +857,13 @@ const Dashboardcenter = () => {
                                     /> */}
                                         <span>{isNaN(parseFloat(amountOut)) ? <input type="text" placeholder="0.00" className="token-names-select" /> : parseFloat(amountOut).toFixed(3)}</span>
                                     </div>
+                                </div>
+                                <div>
+
+                                {samein === sameout
+                                    ? <h6 className="same-teams-chosed">you are chosed same teams</h6> : ''
+                                
+                                }
                                 </div>
 
                             </div>

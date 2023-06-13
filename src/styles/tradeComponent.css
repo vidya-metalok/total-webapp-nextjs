@@ -47,7 +47,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 19px;
+  font-size: 17px;
   line-height: 100%;
 
   /* identical to box height */
@@ -238,7 +238,7 @@
 }
 
 .teams-name h3 {
-  width: 76.56px;
+  /* width: 76.56px; */
   height: 33px;
 
   border: 1.98px solid #ea9528;
@@ -257,6 +257,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding:0px 4px;
 }
 
 /* --------------------------------------------------------------------------------------------------team section 3 */
@@ -585,9 +586,10 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid #37354b;
-  padding: 20px 40px 6px 40px;
+  /* padding: 0px 40px 0px 40px; */
   color: #ea9528;
-  align-items: center;
+  align-items: end;
+  margin: 0px 20px 0px 14px;
 }
 .badding-team-nm h1 {
   font-family: "Poppins";
@@ -596,6 +598,7 @@
   font-size: 18px;
   letter-spacing: -0.422099px;
   color: #ea9528;
+  margin-left:23px;
 }
 
 .batsmens-scrore-data h1 {
@@ -868,3 +871,17 @@ color: #FFFFFF;
 opacity: 0.5;
 }
 
+.score-card-heading{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+
+  color: #FFFFFF;
+
+  opacity: 0.7;
+  margin: 20px 0px 0px 40px;
+}
