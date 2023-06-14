@@ -95,10 +95,10 @@ const WalletComponent = () => {
 
 
     let str = userWallet;
-    let len = str.length;
+    let len = str?.length;
     let start = Math.floor(len - 7);
     // let end = start + 40;
-    let walletaddress = str.substring(0, 7) + "....." + str.substring(start, len);
+    let walletaddress = str?.substring(0, 7) + "....." + str?.substring(start, len);
 
 
 
@@ -706,10 +706,17 @@ const WalletComponent = () => {
     //       web3.utils.fromWei(value.toString(), 'mwei'),
     //     ).toFixed(2);}
 
+    const usdtBalance = useSelector((store) => store?.user?.usdtBalance)
+    const maticBalance = useSelector((store) => store?.user?.usdtBalance)
+
+
+
+
+
     return (
         <div className="wallet-main-con">
             <div className="details-balance-con">
-                <div style={{width:'30%'}}>
+                <div style={{ width: '30%' }}>
                     <div className="wallet-card t-wallet" style={{ width: "100%" }}>
                         <div className="img-con">
                             <Image src={wallet} alt="" height={25} width={25} />
@@ -724,7 +731,7 @@ const WalletComponent = () => {
 
                             <p>Total Wallet balance</p>
                         </div>
-                        <h2><span>$</span>{totalHoldings}</h2>
+                        <h2><span>$</span>{parseFloat(usdtBalance)?.toFixed(6)}</h2>
                     </div>
                     <div className="wallet-card-new wallet t-wallet">
                         <div className="img-con">
@@ -732,7 +739,7 @@ const WalletComponent = () => {
 
                             <p> Total MATIC balance</p>
                         </div>
-                        <h2>20 Matic ($20)</h2>
+                        <h2>{parseFloat(maticBalance)?.toFixed(6)}</h2>
                     </div>
                     <div className="wallet-card-2 wallet t-wallet">
                         <div>
@@ -767,7 +774,7 @@ const WalletComponent = () => {
 
                                     <div className="quick-trade-amt">
                                         <p className="amount"> Enter Amount</p>
-                                        <p className="amount">Avbl : 30,000 USDT</p>
+                                        <p className="amount">Avbl : {usdtBalance} USDT</p>
                                     </div>
 
 

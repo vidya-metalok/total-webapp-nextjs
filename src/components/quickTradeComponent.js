@@ -613,7 +613,8 @@ const Dashboardcenter = () => {
 
 
 
-
+    const usdtBalance = useSelector((store) => store?.user?.usdtBalance)
+    // const maticBalance = useSelector((store) => store?.user?.usdtBalance)
 
 
 
@@ -741,7 +742,7 @@ const Dashboardcenter = () => {
                             <h1 className="quick-trade-heading">Quick Trade</h1>
                             <div className="quick-trade-amt">
                                 <p>Enter Amount</p>
-                                <h6>Avbl : 30,000 USDT</h6>
+                                <h6>Avbl : {usdtBalance} USDT</h6>
                             </div>
 
                             <div className="quick-trade-child">

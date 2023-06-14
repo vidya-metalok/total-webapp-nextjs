@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo,useRef } from 'react'
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import ProfileLinksComponent from './profileLinksComponent'
 import Image from 'next/image';
 
@@ -13,16 +13,16 @@ import { loginUser, logoutUser, storePrivateKey } from './redux/userSlice';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 
-import {userEdit} from '../components/redux/userSlice'
+import { userEdit } from '../components/redux/userSlice'
 
 
 const ProfileComponent = () => {
-    
+
     const userInfoDetails = useSelector((store) => store?.user?.loginInfo)
     const profileimg = useSelector((store) => store?.user?.loginInfo?.profileImage)
 
-    const editeddata =  useSelector((store)=>store?.user?.userEdit)
-   
+    const editeddata = useSelector((store) => store?.user?.userEdit)
+
 
 
 
@@ -104,13 +104,13 @@ const ProfileComponent = () => {
 
 
     // });
-    const profileLogout=() =>{
+    const profileLogout = () => {
         router.push("/")
     }
 
-    
 
-    const [useredit,setuseredit] = useState(false)
+
+    const [useredit, setuseredit] = useState(false)
 
     const onClickEditBtn = () => {
         setfirstName(firstName)
@@ -121,50 +121,50 @@ const ProfileComponent = () => {
         setuserAddress(userAddress)
 
         setuseredit(!useredit)
-      if(useredit===false){
-        inputRef.current?.focus();
-        
+        if (useredit === false) {
+            inputRef.current?.focus();
 
-      }
-      else{
-        dispatch(userEdit(afteredit))
-      }
 
-        console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' , afteredit)
+        }
+        else {
+            dispatch(userEdit(afteredit))
+        }
 
-      
+        console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', afteredit)
+
+
     }
 
 
 
-    const [afteredit,setafteredit] = useState({
-        firstName:firstName,
-        lastName:lastName,
-        userMobile:userMobile,
-        personelEmail:personelEmail,
-        professEmail:professEmail,
-        userAddress:userAddress
+    const [afteredit, setafteredit] = useState({
+        firstName: firstName,
+        lastName: lastName,
+        userMobile: userMobile,
+        personelEmail: personelEmail,
+        professEmail: professEmail,
+        userAddress: userAddress
     })
 
     useEffect(() => {
         setafteredit({
-          firstName: firstName,
-          lastName: lastName,
-          userMobile: userMobile,
-          personelEmail: personelEmail,
-          professEmail: professEmail,
-          userAddress: userAddress,
+            firstName: firstName,
+            lastName: lastName,
+            userMobile: userMobile,
+            personelEmail: personelEmail,
+            professEmail: professEmail,
+            userAddress: userAddress,
         });
-       
-
-      }, [firstName, lastName, userMobile, personelEmail, professEmail, userAddress]);
-
-   console.log("afteredit data" , afteredit)
 
 
-console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", editeddata)
+    }, [firstName, lastName, userMobile, personelEmail, professEmail, userAddress]);
 
-console.log("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll", userInfoDetails)
+    console.log("afteredit data", afteredit)
+
+
+    console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", editeddata)
+
+    console.log("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll", userInfoDetails)
 
 
     return (
@@ -176,15 +176,15 @@ console.log("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                         <div className='d-flex align-items-center gap-5'>
                             {/* <Image className='profile-img' src={userprofile} alt="image" width={146} height={143} /> */}
                             {profileimg ? <Image className='profile-img' src={profileimg} alt="image" width={146} height={143} />
-                                        : <Image src={userprofile} style={{ borderRadius: '50%' }} alt="" width={146} height={143} onClick={() => setopenLogout(!openLogout)} />
+                                : <Image src={userprofile} style={{ borderRadius: '50%' }} alt="" width={146} height={143} onClick={() => setopenLogout(!openLogout)} />
                             }
                             <div className='user-name-data'>
-                                <h2>{editeddata?.firstName} {editeddata.lastName}</h2>
+                                <h2>{editeddata?.firstName} {editeddata?.lastName}</h2>
                                 <h3>Joined 21-10-2021</h3>
                             </div>
                         </div>
-                  
-                       <button className='edit-btn' onClick={onClickEditBtn}> <Image className='edit-img' src={editlogo} alt="" /> {useredit ? "Save" : 'Edit'}</button>
+
+                        <button className='edit-btn' onClick={onClickEditBtn}> <Image className='edit-img' src={editlogo} alt="" /> {useredit ? "Save" : 'Edit'}</button>
                     </div>
                     <form className='user-info-form'>
                         <h2 className='mygeneral-info'>My General information</h2>
@@ -192,15 +192,15 @@ console.log("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="firstname">first Name</label>
                                 <br />
-                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName}  ref={inputRef}  onChange={(e) => setfirstName(e.target.value)} />
-                                          : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName}/>}
+                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} />
+                                    : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} />}
                             </div>
 
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="lastname">last Name</label>
                                 <br />
-                                { useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                                           : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName}/>}
+                                {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                                    : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} />}
                             </div>
                         </div>
                         <div className='col-12 d-md-flex gap-4'>
@@ -208,27 +208,27 @@ console.log("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
                                 <label className='label-name' htmlFor="mobile">Mobile</label>
                                 <br />
                                 {useredit ? <input id="mobile" name="mobile" className='profile-input form-control' type="text" placeholder='7584684641' value={userMobile} onChange={(e) => setUserMobile(e.target.value)} />
-                                          : <input id="mobile" name="mobile" className='profile-input form-control' type="text" placeholder='7584684641' value={userMobile}  />}
+                                    : <input id="mobile" name="mobile" className='profile-input form-control' type="text" placeholder='7584684641' value={userMobile} />}
                             </div>
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="personalemail">Personal Email</label>
                                 <br />
                                 {useredit ? <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} onChange={(e) => setPersonelEmail(e.target.value)} />
-                                          : <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} />}
+                                    : <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} />}
                             </div>
                         </div>
                         <div>
                             <label className='label-name' htmlFor="professionalemail">Professional email</label>
                             <br />
-                            { useredit ? <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} onChange={(e) => setProfessEmail(e.target.value)} />
-                                       : <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail}  />}
+                            {useredit ? <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} onChange={(e) => setProfessEmail(e.target.value)} />
+                                : <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} />}
 
                         </div>
                         <div>
                             <label className='label-name' htmlFor="address">Address</label>
                             <br />
                             {useredit ? <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' value={userAddress} onChange={(e) => setuserAddress(e.target.value)} />
-                                      : <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' value={userAddress} />}
+                                : <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' value={userAddress} />}
 
                         </div>
                     </form>

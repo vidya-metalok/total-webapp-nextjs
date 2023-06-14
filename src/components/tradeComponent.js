@@ -70,7 +70,7 @@ const TradeComponent = () => {
   }, [livematch]);
 
   useEffect(() => {
-    const liveMatchData = totalmatches?.find((each, index) => each.status === "not_started")
+    const liveMatchData = totalmatches?.find((each, index) => each.status === "live")
     console.log("live...", liveMatchData)
     if (liveMatchData) {
       setnotinlive(false)
@@ -79,7 +79,7 @@ const TradeComponent = () => {
 
   }, [])
 
-  const liveMatchData = totalmatches?.find((each, index) => each.status === "not_started")
+  const liveMatchData = totalmatches?.find((each, index) => each.status === "live")
   console.log("live...", liveMatchData)
   // if (liveMatchData) {
   //   setnotinlive(false)
@@ -407,7 +407,7 @@ const TradeComponent = () => {
       {/* live score popup  */}
 
 
-     
+
 
 
 
@@ -540,148 +540,148 @@ const TradeComponent = () => {
 
 
 
-      
+
       {/* ------------------------------------------------------new added sections  */}
 
-<div className="live-scoreboard-holdings">
-      <div className="liveplayers-data" style={{ display: batars ? 'block' : 'block' }}>
-        
-        <div className="badding-team-nm">
-          <h1>Sunrisers Hyderabad</h1>
-          <div className="d-flex gap-5 align-items-center justify-content-center">
-            <h2>
-              <span>{liveData?.live?.score?.runs}</span>/
-              <span>{liveData?.live?.score?.wickets}</span>(
-              {liveData?.live?.score?.overs[0]}.{liveData?.live?.score?.overs[1]})
-            </h2>
-            <h3 onClick={closeBatsmendata} style={{ cursor: 'pointer', color: 'white' }}>
-              <Image src={downImg} alt="arrowimg" />
-            </h3>
-          </div>
-        </div>
+      <div className="live-scoreboard-holdings">
+        <div className="liveplayers-data" style={{ display: batars ? 'block' : 'block' }}>
 
-        <div className="liveplayers-table" style={{ display: bowlingT ? 'none' : 'block' }}>
-          <div className="batsmen-main-div batsmen-border">
-            <h1>Batsman</h1>
-            <div className="batsmen-table-li batsmen-table-head">
-              <p>R</p>
-              <p>B</p>
-              <p>6s</p>
-              <p>4s</p>
-              <p>SR</p>
+          <div className="badding-team-nm">
+            <h1>Sunrisers Hyderabad</h1>
+            <div className="d-flex gap-5 align-items-center justify-content-center">
+              <h2>
+                <span>{liveData?.live?.score?.runs}</span>/
+                <span>{liveData?.live?.score?.wickets}</span>(
+                {liveData?.live?.score?.overs[0]}.{liveData?.live?.score?.overs[1]})
+              </h2>
+              <h3 onClick={closeBatsmendata} style={{ cursor: 'pointer', color: 'white' }}>
+                <Image src={downImg} alt="arrowimg" />
+              </h3>
             </div>
-          </div>
-          {trade_teams.map((each, index) => (
-            <div className="batsmen-main-div" key={index}>
-              <div className="batsmens-scrore-data">
-                <h1>Abhishek Sharma</h1>
-                <h2>c Warner b Axar</h2>
-              </div>
-              <div className="batsmen-table-li">
-                <p className="batsmen-table-li-active">70</p>
-                <p>30</p>
-                <p>7</p>
-                <p>5</p>
-                <p>200.1</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="d-flex align-items-center justify-content-between px-4  royal-border">
-          <h1 className="filding-team-name">Royal Challengers Banglore</h1>
-          <div className="d-flex gap-5 align-items-center">
-            <h1 className="filding-team-score">181/6 (20)</h1>
-            <h1 style={{ transform: "rotate(180deg)", cursor: 'pointer', transform: bowlingT ? 'rotate(0deg)' : 'rotate(180deg)' }} onClick={filding_team}>
-              <Image src={downImg} alt="arrowimg" />
-            </h1>
           </div>
 
-        </div>
-        <div className="liveplayers-table" style={{ display: bowlingT ? 'block' : 'none' }}>
-          <div className="batsmen-main-div batsmen-border">
-            <h1>Batsman</h1>
-            <div className="batsmen-table-li batsmen-table-head">
-              <p>R</p>
-              <p>B</p>
-              <p>6s</p>
-              <p>4s</p>
-              <p>SR</p>
+          <div className="liveplayers-table" style={{ display: bowlingT ? 'none' : 'block' }}>
+            <div className="batsmen-main-div batsmen-border">
+              <h1>Batsman</h1>
+              <div className="batsmen-table-li batsmen-table-head">
+                <p>R</p>
+                <p>B</p>
+                <p>6s</p>
+                <p>4s</p>
+                <p>SR</p>
+              </div>
             </div>
+            {trade_teams.map((each, index) => (
+              <div className="batsmen-main-div" key={index}>
+                <div className="batsmens-scrore-data">
+                  <h1>Abhishek Sharma</h1>
+                  <h2>c Warner b Axar</h2>
+                </div>
+                <div className="batsmen-table-li">
+                  <p className="batsmen-table-li-active">70</p>
+                  <p>30</p>
+                  <p>7</p>
+                  <p>5</p>
+                  <p>200.1</p>
+                </div>
+              </div>
+            ))}
           </div>
-          {trade_teams.map((each, index) => (
-            <div className="batsmen-main-div" key={index}>
-              <div className="batsmens-scrore-data">
-                <h1>Denish Karthik</h1>
-                <h2>c Warner b Axar</h2>
-              </div>
-              <div className="batsmen-table-li">
-                <p className="batsmen-table-li-active">70</p>
-                <p>30</p>
-                <p>7</p>
-                <p>5</p>
-                <p>200.1</p>
+
+          <div className="d-flex align-items-center justify-content-between px-4  royal-border">
+            <h1 className="filding-team-name">Royal Challengers Banglore</h1>
+            <div className="d-flex gap-5 align-items-center">
+              <h1 className="filding-team-score">181/6 (20)</h1>
+              <h1 style={{ transform: "rotate(180deg)", cursor: 'pointer', transform: bowlingT ? 'rotate(0deg)' : 'rotate(180deg)' }} onClick={filding_team}>
+                <Image src={downImg} alt="arrowimg" />
+              </h1>
+            </div>
+
+          </div>
+          <div className="liveplayers-table" style={{ display: bowlingT ? 'block' : 'none' }}>
+            <div className="batsmen-main-div batsmen-border">
+              <h1>Batsman</h1>
+              <div className="batsmen-table-li batsmen-table-head">
+                <p>R</p>
+                <p>B</p>
+                <p>6s</p>
+                <p>4s</p>
+                <p>SR</p>
               </div>
             </div>
-          ))}
+            {trade_teams.map((each, index) => (
+              <div className="batsmen-main-div" key={index}>
+                <div className="batsmens-scrore-data">
+                  <h1>Denish Karthik</h1>
+                  <h2>c Warner b Axar</h2>
+                </div>
+                <div className="batsmen-table-li">
+                  <p className="batsmen-table-li-active">70</p>
+                  <p>30</p>
+                  <p>7</p>
+                  <p>5</p>
+                  <p>200.1</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
   <div style={{color:'white'}} className="trade-tokens-main"> 
-  <div className='sidebar-tocken'>
-      {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
-      <p className='my-tokens-text' >My Tokens</p>
-      <p className='all-tokens-text' >All Tokens</p>
-  </div>
-    <table>
-        <tr className='live-token-headings'>
-            <th>Token Name</th>
-            <th>Current Price</th>
-            <th>24H</th>
-            <th>Total Value</th>
-           
-        </tr>
-        <tbody>
-        {trade_teams.map((team_data, index) => (
-         
-               <tr key={index} className="trade-tokens">
-                 <td className="token-name-column">  
-                       <Image src={team_data.team_img} alt="" height={36.5} width={36.5} />
-                       <div>
-                          <h1 className="live-team-kay">{team_data.team_key}</h1>
-                          <h3 className="live-team-name">{team_data.team_name}</h3>
-                       </div>
+          <div className='sidebar-tocken'>
+            {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
+            <p className='my-tokens-text' >My Tokens</p>
+            <p className='all-tokens-text' >All Tokens</p>
+          </div>
+          <table>
+            <tr className='live-token-headings'>
+              <th>Token Name</th>
+              <th>Current Price</th>
+              <th>24H</th>
+              <th>Total Value</th>
+
+            </tr>
+            <tbody>
+              {trade_teams.map((team_data, index) => (
+
+                <tr key={index} className="trade-tokens">
+                  <td className="token-name-column">
+                    <Image src={team_data.team_img} alt="" height={36.5} width={36.5} />
+                    <div>
+                      <h1 className="live-team-kay">{team_data.team_key}</h1>
+                      <h3 className="live-team-name">{team_data.team_name}</h3>
+                    </div>
                   </td>
-                 <td className="live-current-price">
+                  <td className="live-current-price">
                     <h2>{team_data.Current_Price}</h2>
-                 </td>
-                 <td className="live-holding-percent">
+                  </td>
+                  <td className="live-holding-percent">
                    <h2 style={{color:index==0 ? '#0BBB70' : '#EC3E47'}}>{team_data.holding_percent}</h2>
-                 </td>
-                 <td className="live-total-value">
+                  </td>
+                  <td className="live-total-value">
                  <h2 style={{color:index==0 ? '#0BBB70' : '#EC3E47'}}> {team_data.Total_Value}</h2>
-                 </td>
-                 
-               </tr>
-              
+                  </td>
 
-        ))}
-        </tbody>
+                </tr>
 
 
-    </table>
-  </div>
+              ))}
+            </tbody>
 
 
+          </table>
+        </div>
 
 
 
-      
-</div>
-<TransactionHistoryComponent componentName="wallet" />
 
 
-      
+
+      </div>
+      <TransactionHistoryComponent componentName="wallet" />
+
+
+
     </div>
 
 
