@@ -193,3 +193,13 @@
 .profile-user-section::-webkit-scrollbar {
   width: 0px;
 }
+
+
+.profile-input:focus,.profile-input6:focus{
+  color: #212529;
+  background-color:transparent;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0rem rgba(13,110,253,.0);
+  color:white;
+}

@@ -306,7 +306,7 @@ const TradeComponent = () => {
 
   return (
     <div style={{ padding: "5px" }}>
-      <div className="not-inlive-section" style={{ display: notinlive ? 'none' : 'block' }}>
+      <div className="not-inlive-section" style={{ display: notinlive ? 'block' : 'none' }}>
         <h1>Will be active when match is Live</h1>
       </div>
 
@@ -560,7 +560,7 @@ const TradeComponent = () => {
           </div>
         </div>
 
-          <div className="badding-team-nm">
+          {/* <div className="badding-team-nm">
             <h1>Sunrisers Hyderabad</h1>
             <div className="d-flex gap-5 align-items-center justify-content-center">
               <h2>
@@ -572,7 +572,7 @@ const TradeComponent = () => {
                 <Image src={downImg} alt="arrowimg" />
               </h3>
             </div>
-          </div>
+          </div> */}
 
           <div className="liveplayers-table" style={{ display: bowlingT ? 'none' : 'block' }}>
             <div className="batsmen-main-div batsmen-border">

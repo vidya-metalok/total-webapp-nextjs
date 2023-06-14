@@ -281,7 +281,7 @@ const NavBarComponent = () => {
         }
 
         setProvider(null);
-        setUserInfo(null);
+        // setUserInfo(null);
         setShowlogout(false);
         await web3auth.logout();
         // dispatch(loginUser())
