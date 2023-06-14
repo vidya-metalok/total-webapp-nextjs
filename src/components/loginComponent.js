@@ -33,6 +33,9 @@ import { useRouter } from "next/router";
 // import { loginServer, postAvatarURL } from "../services/userService";
 // import { loginServer } from "../../services/userService";
 
+import { userEdit } from '../components/redux/userSlice'
+
+
 const LoginComponent = () => {
     const dispatch = useDispatch();
     const router = useRouter();
@@ -109,8 +112,13 @@ const LoginComponent = () => {
         router.push("/dashboardpage");
         return true;
     };
+
+    const userinfoname = userInfo?.name;
+    const userFirstName = userinfoname?.split(" ")[0]
+    const userSecondName = userinfoname?.split(" ")[1]
     dispatch(loginUser(userInfo));
     dispatch(userToken(idToken))
+    dispatch(userEdit({ firstName:userFirstName, lastName:userSecondName, personelEmail:userInfo?.email, professEmail:'123@gmail.com', userMobile:'0123456789',userAddress:'H.No 3-2 Hyderabad 500082'}))
 
     // const senData = async () =>{
     //   const apiURl = "https://backend.sportsverse.cricket/users/login/"

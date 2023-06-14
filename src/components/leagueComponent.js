@@ -61,14 +61,25 @@ const LeagueComponent = () => {
         }, [teams]);
 
 
-        console.log("totalmatches...", totalmatches)
+        // console.log("totalmatches...", totalmatches)
+
+
+// console.log("wwwwwwwwwwwwwwwwwwwwww", teams?.start_at)
+
+const startedTime = teams?.start_at
+
+        const timestamp = startedTime * 1000; // Convert timestamp to milliseconds
+        const date = new Date(timestamp);
 
 
 
+const weekday = date.toLocaleString('en-US', { weekday: 'short' });
+const year = date.toLocaleString('en-US', { year: 'numeric' });
+const month = date.toLocaleString('en-US', { month: 'short' });
+const day = date.toLocaleString('en-US', { day: 'numeric' });
 
-
-
-
+const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
+const formattedTime = date.toLocaleString('en-US', timeOptions);
 
 
         return (
@@ -93,13 +104,24 @@ const LeagueComponent = () => {
                     </div>
                     <div className="live-score-container">
                         <div>
-                            <p>
-                                {" "}
-                                {teams?.teams?.a?.code} - {teams?.innings?.a_1?.score_str}
+                             <p>{teams?.status==="not_started" ?
+                                <p>{weekday} | {day}<sup>th</sup> <span>{month}</span><br/>
+                                <span>{formattedTime}</span>
+
+                            </p>
+                                : <p>{teams?.teams?.a?.code} - {teams?.innings?.a_1?.score_str}</p>
+                                
+                                }
                             </p>
                             <p>
-                                {" "}
-                                {teams?.teams?.b?.code} - {teams?.innings?.b_1?.score_str}
+                        
+                                
+
+                                {teams?.status==="not_started" ?
+                                ''
+                                : <p>{teams?.teams?.b?.code} - {teams?.innings?.b_1?.score_str}</p>
+                                
+                                }
                             </p>
                         </div>
                         <div>
@@ -120,7 +142,7 @@ const LeagueComponent = () => {
     const matchTab1 = activeMatches === "ipl" ? "ipl-active" : "ipl-not-active"
     const matchTab2 = activeMatches === "t20" ? "ipl-active" : "ipl-not-active"
     const matchTab3 = activeMatches === "asia" ? "ipl-active" : "ipl-not-active"
-    console.log("activematches", activeMatches, matchTab1)
+    // console.log("activematches", activeMatches, matchTab1)
 
 
 
@@ -141,7 +163,7 @@ const LeagueComponent = () => {
 
     // const presentmonth = new Date().getMonth() + 1;
     const presentday = new Date().getDate();
-    console.log("present day thi", presentday)
+    // console.log("present day thi", presentday)
 
 
     useState(() => {
@@ -176,25 +198,25 @@ const LeagueComponent = () => {
         setCompletedMatches(completed);
         setNotCompletedMatches(notCompleted);
     }, []);
-    console.log("live.....", liveMatches)
+    // console.log("live.....", liveMatches)
 
 
 
 
 
-    console.log("completeddd++++++++++++++++++++++++++++++++++++++++++", liveMatches)
+    // console.log("completeddd++++++++++++++++++++++++++++++++++++++++++", liveMatches)
 
     // console.log("notcompleteddd++++++++++++++++++++++++++++++++++++++++++= ",notCompletedMatches)
 
     const allMatches = [...liveMatches, ...notCompletedMatches, ...completedMatches]
 
-    console.log("allcompleteddd++++++++++++++++++++++++++++++++++++++++++= ", allMatches)
+    // console.log("allcompleteddd++++++++++++++++++++++++++++++++++++++++++= ", allMatches)
 
     // this is the live team code
 
 
     const sellLiveObj = iplMatches?.find((each, index) => each.status === "not_started")
-    console.log("objeeeee", sellLiveObj)
+    // console.log("objeeeee", sellLiveObj)
     const teamACode = sellLiveObj.teams["a"].code
     const teamBCode = sellLiveObj.teams["b"].code
 
