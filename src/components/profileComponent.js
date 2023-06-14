@@ -31,15 +31,15 @@ const ProfileComponent = () => {
     const userinfoname = userInfoDetails?.name;
     const userFirstName = userinfoname?.split(" ")[0]
     const userSecondName = userinfoname?.split(" ")[1]
-    const [userMobile, setUserMobile,] = useState(editeddata.userMobile)
-    const [professEmail, setProfessEmail] = useState(editeddata.professEmail)
-    const [personelEmail, setPersonelEmail] = useState(editeddata.personelEmail)
-    const [userAddress, setuserAddress] = useState(editeddata.userAddress)
+    const [userMobile, setUserMobile,] = useState(editeddata?.userMobile)
+    const [professEmail, setProfessEmail] = useState(editeddata?.professEmail)
+    const [personelEmail, setPersonelEmail] = useState(editeddata?.personelEmail)
+    const [userAddress, setuserAddress] = useState(editeddata?.userAddress)
     // console.log("user....", userInfoDetails, userinfoname)
     const router = useRouter()
     const dispatch = useDispatch()
-    const [firstName, setfirstName] = useState(editeddata.firstName)
-    const [lastName, setLastName] = useState(editeddata.lastName)
+    const [firstName, setfirstName] = useState(editeddata?.firstName)
+    const [lastName, setLastName] = useState(editeddata?.lastName)
     const [web3auth, setWeb3auth] = useState("");
     const [provider, setProvider] = useState("");
     const [idToken, setidToken] = useState("");
@@ -112,6 +112,8 @@ const ProfileComponent = () => {
 
     const [useredit, setuseredit] = useState(false)
 
+    const [saveact, setsaveact] = useState(false)
+
     const onClickEditBtn = () => {
         setfirstName(firstName)
         setLastName(lastName)
@@ -120,22 +122,21 @@ const ProfileComponent = () => {
         setProfessEmail(professEmail)
         setuserAddress(userAddress)
 
-        setuseredit(!useredit)
+        setsaveact(true)
+        setTimeout(() => {
+            setuseredit(!useredit)
+            setsaveact(false)
+
+        }, 1000)
+
         if (useredit === false) {
-            inputRef.current?.focus();
-
-
+            inputRef.current?.focus()
         }
         else {
             dispatch(userEdit(afteredit))
         }
 
-        console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', afteredit)
-
-
     }
-
-
 
     const [afteredit, setafteredit] = useState({
         firstName: firstName,
@@ -184,7 +185,7 @@ const ProfileComponent = () => {
                             </div>
                         </div>
 
-                        <button className='edit-btn' onClick={onClickEditBtn}> <Image className='edit-img' src={editlogo} alt="" /> {useredit ? "Save" : 'Edit'}</button>
+                        <button className='edit-btn' onClick={onClickEditBtn}> <Image className='edit-img' src={editlogo} alt="" /> {useredit ? <span style={{ color: saveact ? 'green' : '' }}>{saveact ? <span>Saved</span> : <span>save</span>}</span> : <span>Edit</span>}</button>
                     </div>
                     <form className='user-info-form'>
                         <h2 className='mygeneral-info'>My General information</h2>

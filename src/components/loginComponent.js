@@ -338,7 +338,7 @@ const LoginComponent = () => {
                         </div> */}
                         <div>
                             <input type="text" className="login-input-con" placeholder="Email Address" value={email} onChange={(e) => setemailAndError(e)} />
-                            <h5 style={{ color: 'red' }}>{emailerr}</h5>
+                            <h5 style={{ color: 'red', marginTop:'-23px'}}>{emailerr}</h5>
                         </div>
                         <div className="login-visible-con">
                             {showPassword ? (
@@ -353,7 +353,7 @@ const LoginComponent = () => {
                             <Image src={showPassword ? eyeopen : eyeSlash} alt="" height={20} width={20} onClick={() => setShowPassword(!showPassword)} />
 
                         </div>
-                        <h5 style={{ color: 'red' }}>{passworderr}</h5>
+                        <h5 style={{ color: 'red',marginTop:'-23px' }}>{passworderr}</h5>
 
                     </div>
                     <div>

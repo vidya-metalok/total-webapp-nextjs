@@ -130,7 +130,6 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  color: rgba(255, 255, 255, 0.38);
   padding: 10px 10px 10px 0px;
   border: none;
   background-color: transparent;
@@ -138,6 +137,7 @@
   margin-bottom: 2rem;
   outline: none;
   width: 100%;
+  color:white;
 }
 
 .login-visible-con {
@@ -159,7 +159,7 @@
 .login-visible-con input {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.38);
+  /* color: rgba(255, 255, 255, 0.38); */
   outline: none;
   color: white;
 }
