@@ -33,44 +33,164 @@ import faqsNotActive from "../../public/images/faqs-icon-inactive.svg"
 const ProfileLinksComponent = () => {
     const [changeLink, setChangeLink] = useState("profile")
     const router = useRouter()
+    const [isProfileHovered, setIsProfileHovered] = useState(false);
+    const [isFeedbackHovered, setIsFeedbackHovered] = useState(false)
+    const [isCommunityHovered, setIsCommunityHovered] = useState(false)
+    const [isReferralHovered, setIsReferralHovered] = useState(false)
+    const [isTermsHovered, setIsTermsHovered] = useState(false)
+    const [isAboutHovered, setIsAboutHovered] = useState(false)
+    const [isFaqsHovered, setIsFaqsHovered] = useState(false)
 
-    const profilLinkIcon = router.pathname === '/profilepage' ? profileActive : profileNotActive
-    const feedbackLinkIcon = router.pathname === '/feedbackpage' ? feedbackActive : feedbackNotActive
-    const communityLinkIcon = router.pathname === '/communitypage' ? communityActive : communityNotActive
 
-    const refferalsLinkIcon = router.pathname === '/refferalspage' ? refferalActive : refferalNotActive
-    const fqasLinkIcon = router.pathname === '/faqspage' ? faqActive : faqsNotActive
+
+
+
+    const handleProfileHover = () => {
+        setIsProfileHovered(true)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+        setIsTermsHovered(false)
+        setIsAboutHovered(false)
+        setIsReferralHovered(false)
+        setIsFaqsHovered(false)
+
+    }
+    const handleMouseProfileLeave = () => {
+        setIsProfileHovered(false)
+
+    }
+
+    const handleFeedbackHover = () => {
+        setIsFeedbackHovered(true)
+        setIsProfileHovered(false)
+
+        setIsCommunityHovered(false)
+        setIsTermsHovered(false)
+        setIsAboutHovered(false)
+        setIsReferralHovered(false)
+        setIsFaqsHovered(false)
+
+    }
+    const handleMouseFeedbackLeave = () => {
+        setIsFeedbackHovered(false)
+
+    }
+    const handleCommunityHover = () => {
+        setIsCommunityHovered(true)
+        setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+
+        setIsTermsHovered(false)
+        setIsAboutHovered(false)
+        setIsReferralHovered(false)
+        setIsFaqsHovered(false)
+
+    }
+    const handleMouseCommunityLeave = () => {
+        setIsCommunityHovered(false)
+
+    }
+
+    const handleReferralHover = () => {
+        setIsReferralHovered(true)
+        setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+        setIsTermsHovered(false)
+        setIsAboutHovered(false)
+
+        setIsFaqsHovered(false)
+
+    }
+    const handleMouseReferralLeave = () => {
+        setIsReferralHovered(false)
+
+
+    }
+    const handleTermsOfServeHover = () => {
+        setIsTermsHovered(true)
+        setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+
+        setIsAboutHovered(false)
+        setIsReferralHovered(false)
+        setIsFaqsHovered(false)
+
+    }
+    const handleMouseTermsOfServiceLeave = () => {
+        setIsTermsHovered(false)
+
+    }
+    const handleAboutHover = () => {
+        setIsAboutHovered(true)
+        setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+        setIsTermsHovered(false)
+
+        setIsReferralHovered(false)
+        setIsFaqsHovered(false)
+
+    }
+    const handleMouseAboutLeave = () => {
+        setIsAboutHovered(false)
+
+    }
+    const handleFaqsHovered = () => {
+        setIsFaqsHovered(true)
+        setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+        setIsTermsHovered(false)
+        setIsAboutHovered(false)
+        setIsReferralHovered(false)
+
+
+    }
+    const handleFaqsLeave = () => {
+        setIsFaqsHovered(false)
+
+    }
+
+
+    const profilLinkIcon = isProfileHovered || router.pathname === '/profilepage' ? profileActive : profileNotActive
+    const feedbackLinkIcon = isFeedbackHovered || router.pathname === '/feedbackpage' ? feedbackActive : feedbackNotActive
+    const communityLinkIcon = isCommunityHovered || router.pathname === '/communitypage' ? communityActive : communityNotActive
+
+    const refferalsLinkIcon = isReferralHovered || router.pathname === '/refferalspage' ? refferalActive : refferalNotActive
+    const fqasLinkIcon = isFaqsHovered || router.pathname === '/faqspage' ? faqActive : faqsNotActive
 
     // const changeLinkClass = changeLink == "profile" ? "active-link-name" : "not-active-link-name"
     return (
         <div className='refferal-links-con'>
             <div>
-                <div className="logout-con">
+                <div className="logout-con" onMouseEnter={handleProfileHover} onMouseLeave={handleMouseProfileLeave}>
                     <Link href="/profilepage" passHref className={router.pathname === '/profilepage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={profilLinkIcon} alt="" height={20} width={20} />
 
                         <h2>Profile</h2>
                     </Link>
                 </div>
-                <div className="logout-con">
+                <div className="logout-con" onMouseEnter={handleFeedbackHover} onMousLeave={handleMouseFeedbackLeave}>
                     <Link href="/feedbackpage" passHref className={router.pathname === '/feedbackpage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={feedbackLinkIcon} alt="" height={20} width={20} />
                         <h2>Feedback & Support</h2>
                     </Link>
                 </div>
-                <div className="logout-con">
+                <div className="logout-con" onMouseEnter={handleCommunityHover} onMousLeave={handleMouseCommunityLeave}>
                     <Link href="/communitypage" passHref className={router.pathname === '/communitypage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={communityLinkIcon} alt="" height={20} width={20} />
                         <h2>Community</h2>
                     </Link>
                 </div>
-                <div className="logout-con">
+                <div className="logout-con" onMouseEnter={handleReferralHover} onMousLeave={handleMouseReferralLeave}>
                     <Link href="/refferalspage" passHref className={router.pathname === '/refferalspage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={refferalsLinkIcon} alt="" height={20} width={20} />
                         <h2>Refferals</h2>
                     </Link>
                 </div>
-                <div className="logout-con" >
+                <div className="logout-con" onMouseEnter={handleFaqsHovered} onMousLeave={handleFaqsLeave}>
                     <Link href="/faqspage" passHref className={router.pathname === '/faqspage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={fqasLinkIcon} alt="" height={20} width={20} />
                         <h2>FAQs</h2>
@@ -79,8 +199,8 @@ const ProfileLinksComponent = () => {
                 <div className="profile-underline"></div>
             </div>
             <div className="logout-con3">
-                <a href='https://metalok-testbucket.s3.ap-south-1.amazonaws.com/privacy_policy.pdf' target='_blank'>Terms of Service</a>
-                <a href='https://www.sportsverse.trade/' target='_blank'>About</a>
+                <a href='https://metalok-testbucket.s3.ap-south-1.amazonaws.com/privacy_policy.pdf' target='_blank' onMouseEnter={handleTermsOfServeHover} onMouseLeave={handleMouseTermsOfServiceLeave}>Terms of Service</a>
+                <a href='https://www.sportsverse.trade/' target='_blank' onMouseEnter={handleAboutHover} onMouseLeave={handleMouseAboutLeave}>About</a>
 
             </div>
 

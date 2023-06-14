@@ -78,15 +78,88 @@ const NavBarComponent = () => {
 
     console.log("userinfooooo", profileimg)
     const [depositeOpen, setdepositeOpen] = useState(false)
+    const [isProfileHovered, setIsProfileHovered] = useState(false);
+    const [isFeedbackHovered, setIsFeedbackHovered] = useState(false)
+    const [isCommunityHovered, setIsCommunityHovered] = useState(false)
+    const [isReferralHovered, setIsReferralHovered] = useState(false)
+    const [isTermsHovered, setIsTermsHovered] = useState(false)
+    const [isAboutHovered, setIsAboutHovered] = useState(false)
+    const [isFaqsHovered, setIsFaqsHovered] = useState(false)
+
     const dispatch = useDispatch()
     const router = useRouter()
 
 
-    const profilLinkIcon = router.pathname === '/profilepage' ? profileActive : profileNotActive
-    const feedbackLinkIcon = router.pathname === '/feedbackpage' ? feedbackActive : feedbackNotActive
-    const communityLinkIcon = router.pathname === '/communitypage' ? communityActive : communityNotActive
-    const refferalsLinkIcon = router.pathname === '/refferalspage' ? refferalActive : refferalNotActive
-    const fqasLinkIcon = router.pathname === '/faqspage' ? faqActive : faqsNotActive
+
+    const handleProfileHover = () => {
+        setIsProfileHovered(true)
+
+    }
+    const handleMouseProfileLeave = () => {
+        setIsProfileHovered(false)
+
+    }
+
+    const handleFeedbackHover = () => {
+        setIsFeedbackHovered(true)
+
+    }
+    const handleMouseFeedbackLeave = () => {
+        setIsFeedbackHovered(false)
+
+    }
+    const handleCommunityHover = () => {
+        setIsCommunityHovered(true)
+
+    }
+    const handleMouseCommunityLeave = () => {
+        setIsCommunityHovered(false)
+
+    }
+
+    const handleReferralHover = () => {
+        setIsReferralHovered(true)
+
+    }
+    const handleMouseReferralLeave = () => {
+        setIsReferralHovered(false)
+
+    }
+    const handleTermsOfServeHover = () => {
+        setIsTermsHovered(true)
+
+    }
+    const handleMouseTermsOfServiceLeave = () => {
+        setIsTermsHovered(false)
+
+    }
+    const handleAboutHover = () => {
+        setIsAboutHovered(true)
+
+    }
+    const handleMouseAboutLeave = () => {
+        setIsAboutHovered(false)
+
+    }
+    const handleFaqsHovered = () => {
+        setIsFaqsHovered(true)
+
+    }
+    const handleFaqsLeave = () => {
+        setIsFaqsHovered(false)
+
+    }
+
+
+
+
+
+
+    const profilLinkIcon = isProfileHovered || router.pathname === '/profilepage' ? profileActive : profileNotActive
+    const feedbackLinkIcon = isFeedbackHovered || router.pathname === '/feedbackpage' ? feedbackActive : feedbackNotActive
+    const communityLinkIcon = isCommunityHovered || router.pathname === '/communitypage' ? communityActive : communityNotActive
+    const refferalsLinkIcon = isReferralHovered || router.pathname === '/refferalspage' ? refferalActive : refferalNotActive
+    const fqasLinkIcon = isFaqsHovered || router.pathname === '/faqspage' ? faqActive : faqsNotActive
 
     const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
 
@@ -380,32 +453,32 @@ const NavBarComponent = () => {
                 <h3 className='profile-close' onClick={logoutCls}>x</h3>
 
                 <div>
-                    <div className="logout-con">
+                    <div className="logout-con" onMouseEnter={handleProfileHover} onMouseLeave={handleMouseProfileLeave}>
                         <Link href="/profilepage" className={router.pathname === '/profilepage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={profilLinkIcon} alt="" height={20} width={20} />
 
                             <p>Profile</p>
                         </Link>
                     </div>
-                    <div className="logout-con">
+                    <div className="logout-con" onMouseEnter={handleFeedbackHover} onMouseLeave={handleMouseFeedbackLeave}>
                         <Link href="/feedbackpage" className={router.pathname === '/feedbackpage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={feedbackLinkIcon} alt="" height={20} width={20} />
                             <p>Feedback & Support</p>
                         </Link>
                     </div>
-                    <div className="logout-con">
+                    <div className="logout-con" onMouseEnter={handleCommunityHover} onMouseLeave={handleMouseCommunityLeave}>
                         <Link href="/communitypage" className={router.pathname === '/communitypage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={communityLinkIcon} alt="" height={20} width={20} />
                             <p>Community</p>
                         </Link>
                     </div>
-                    <div className="logout-con">
+                    <div className="logout-con" onMouseEnter={handleReferralHover} onMouseLeave={handleMouseReferralLeave}>
                         <Link href="/refferalspage" className={router.pathname === '/refferalspage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={refferalsLinkIcon} alt="" height={20} width={20} />
                             <p>Refferals</p>
                         </Link>
                     </div>
-                    <div className="logout-con">
+                    <div className="logout-con" onMouseEnter={handleFaqsHovered} onMouseLeave={handleFaqsLeave}>
                         <Link href="/faqspage" className={router.pathname === '/faqspage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={fqasLinkIcon} alt="" height={20} width={20} />
                             <p>Faqs</p>
@@ -413,8 +486,8 @@ const NavBarComponent = () => {
                     </div>
                     <div className="profile-underline"></div>
                     <div className="logout-con2">
-                        <h3><a href="https://metalok-testbucket.s3.ap-south-1.amazonaws.com/privacy_policy.pdf" target='_blank'> Terms of Service </a></h3>
-                        <h3><a href="https://www.sportsverse.trade/" target='_blank'>About</a></h3>
+                        <h3><a href="https://metalok-testbucket.s3.ap-south-1.amazonaws.com/privacy_policy.pdf" target='_blank' onMouseEnter={handleTermsOfServeHover} onMouseLeave={handleMouseTermsOfServiceLeave}> Terms of Service </a></h3>
+                        <h3><a href="https://www.sportsverse.trade/" target='_blank' onMouseEnter={handleAboutHover} onMouseLeave={handleMouseAboutLeave}>About</a></h3>
                         <h3 className='logout-head' onClick={logout}>Logout</h3>
                     </div>
                 </div>
