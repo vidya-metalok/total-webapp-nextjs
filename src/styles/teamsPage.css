@@ -555,7 +555,7 @@
 .chart-hist {
   
   color: #ea9528;
-  top: 85px;
+  /* top: 85px; */
   border-radius: 10px;
     padding: 20px;
     display: flex;

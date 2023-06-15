@@ -634,7 +634,7 @@ const TeamsComponent = (props) => {
               </div>
               <div onClick={handleCopyClick} style={{ position: 'relative' }} >
                 <Image style={{ transform: copyClick ? 'rotate(90deg)' : 'rotate(0deg)', cursor: 'pointer' }} src={frameLogo} height={30} width={30} alt="frame" />
-                <h3 className="copied-display" style={{ display: copyClick ? "block" : "none" }}>wallet copied</h3>
+                <h3 className="copied-display" style={{ display: copyClick ? "block" : "none" }}>copied</h3>
 
               </div>
             </div>
@@ -830,6 +830,7 @@ const TeamsComponent = (props) => {
 
                 <div className="single-team-hist">
                   <div className="single-team-titles">
+                    <h3 style={{width: "57px", marginLeft: "8px"}}>Team</h3>
                     <h3>P</h3>
                     <h3>W</h3>
                     <h3>L</h3>
@@ -837,8 +838,11 @@ const TeamsComponent = (props) => {
                     <h3>NRR</h3>
                   </div>
                   <div className="single-team-score">
-                    <p>{matchHistory.won}</p>
-                    <p>{matchHistory.team_code}</p>
+                    <div className="d-flex">
+                      <p style={{marginLeft:'-10px'}}>{matchHistory.won}</p>
+                      <Image src={bengaloreImg} alt="img" width={20} height={20} />
+                      <p>{matchHistory.team_code}</p>
+                    </div>
                     <p>{matchHistory.played}</p>
                     <p>{matchHistory.won}</p>
                     <p>{matchHistory.lost}</p>

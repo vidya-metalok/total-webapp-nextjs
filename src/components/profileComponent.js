@@ -185,20 +185,20 @@ const ProfileComponent = () => {
                             </div>
                         </div>
 
-                        <button className='edit-btn' onClick={onClickEditBtn}> <Image className='edit-img' src={editlogo} alt="" /> {useredit ? <span style={{ color: saveact ? 'green' : '' }}>{saveact ? <span>Saved</span> : <span>save</span>}</span> : <span>Edit</span>}</button>
+                        <button className='edit-btn' onClick={onClickEditBtn}> <Image className='edit-img' src={editlogo} alt="" /> {useredit ? <span>{saveact ? <span>Saved</span> : <span>save</span>}</span> : <span>Edit</span>}</button>
                     </div>
                     <form className='user-info-form'>
                         <h2 className='mygeneral-info'>My General information</h2>
                         <div className='col-12 d-md-flex gap-4'>
                             <div className='w-100'>
-                                <label className='label-name' htmlFor="firstname">first Name</label>
+                                <label className='label-name' htmlFor="firstname">First Name</label>
                                 <br />
                                 {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} />
                                     : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} />}
                             </div>
 
                             <div className='w-100'>
-                                <label className='label-name' htmlFor="lastname">last Name</label>
+                                <label className='label-name' htmlFor="lastname">Last Name</label>
                                 <br />
                                 {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                                     : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} />}
@@ -208,8 +208,8 @@ const ProfileComponent = () => {
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="mobile">Mobile</label>
                                 <br />
-                                {useredit ? <input id="mobile" name="mobile" className='profile-input form-control' type="text" placeholder='7584684641' value={userMobile} onChange={(e) => setUserMobile(e.target.value)} />
-                                    : <input id="mobile" name="mobile" className='profile-input form-control' type="text" placeholder='7584684641' value={userMobile} />}
+                                {useredit ? <input id="mobile" name="mobile" className='profile-input form-control' type="number" placeholder='7584684641' value={userMobile} onChange={(e) => setUserMobile(e.target.value)} />
+                                    : <input id="mobile" name="mobile" className='profile-input form-control' type="number" placeholder='7584684641' value={userMobile} />}
                             </div>
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="personalemail">Personal Email</label>

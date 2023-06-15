@@ -15,6 +15,9 @@
   background-color: #232234;
   padding: 30px;
 }
+.bar-chart-con::-webkit-scrollbar{
+  width: 0;
+}
 
 .bar-chart-con:nth-child(1) {
   border: 3px solid #3d3b4c !important;
@@ -259,4 +262,11 @@
   justify-content: space-between;
   width: 100%;
   text-align: center;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

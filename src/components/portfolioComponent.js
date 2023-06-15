@@ -284,7 +284,22 @@ const PortFolioComponent = () => {
     const psvAmount = useSelector((store) => store.tokenNineSlice.tokenNine.price)
     const rsvAmount = useSelector((store) => store.tokenTenSlice.tokenTen.price)
 
+    const [graphline,setgraphline] = useState(300)
 
+    useEffect(() => {
+        const handleResize = () => {
+          if (window.innerWidth < 1128) {
+            setgraphline(150);
+          } else {
+            setgraphline(300);
+          }
+        };
+        window.addEventListener('resize', handleResize);
+    return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+// console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", graphline)
     const data = useMemo(() =>
 
 
@@ -346,8 +361,8 @@ const PortFolioComponent = () => {
             assetToken: "DSVC",
             tokenColin: "Delhi Sports Verse Coin",
             holdings: "25.12",
-            totalValue: "+$5203USDT",
-            invested: "25,000",
+            totalValue: "+$5203 USDT",
+            invested: "₹25,000",
             hour: "+0.2%",
             currectPrice: "$5,203",
             profit: "+$52.03"
@@ -359,8 +374,8 @@ const PortFolioComponent = () => {
             assetToken: "DSVC",
             tokenColin: "Rajasthan Sports Verse Coin",
             holdings: "25.12",
-            totalValue: "+$5203USDT",
-            invested: "25,000",
+            totalValue: "+$5203 USDT",
+            invested: "₹25,000",
             hour: "+0.2%",
             currectPrice: "$5,203",
             profit: "+$52.03"
@@ -372,8 +387,8 @@ const PortFolioComponent = () => {
             assetToken: "DSVC",
             tokenColin: "Delhi Sports Verse Coin",
             holdings: "25.12",
-            totalValue: "+$5203USDT",
-            invested: "25,000",
+            totalValue: "+$5203 USDT",
+            invested: "₹25,000",
             hour: "+0.2%",
             currectPrice: "$5,203",
             profit: "+$52.03"
@@ -385,8 +400,8 @@ const PortFolioComponent = () => {
             assetToken: "DSVC",
             tokenColin: "Rajasthan Sports Verse Coin",
             holdings: "25.12",
-            totalValue: "+$5203USDT",
-            invested: "25,000",
+            totalValue: "+$5203 USDT",
+            invested: "₹25,000",
             hour: "+0.2%",
             currectPrice: "$5,203",
             profit: "+$52.03"
@@ -394,6 +409,11 @@ const PortFolioComponent = () => {
         },
 
     ]
+
+    
+    
+
+ 
 
 
     return (
@@ -411,7 +431,7 @@ const PortFolioComponent = () => {
 
                                 {netHoldings == 0 ? (
                                     <div style={{ display: "flex", flexDirection: "column" }}>
-                                        <Image src={noPLImg} alt="" height={20} width={300} />
+                                        <Image src={noPLImg} alt="" height={20} width={graphline} />
 
                                         <div className="no-teams-con">
                                             <Image src={noWinImg} alt="" height={20} width={20} style={{ marginTop: "0px", marginBottom: "0px" }} />
@@ -444,7 +464,7 @@ const PortFolioComponent = () => {
 
                                 {netHoldings == 0 ? (
                                     <div style={{ display: "flex", flexDirection: "column" }}>
-                                        <Image src={noPLImg} alt="" height={20} width={300} />
+                                        <Image src={noPLImg} alt="" height={20} width={graphline} />
 
                                         <div className="no-teams-con">
                                             <Image src={noWinImg} alt="" height={20} width={20} style={{ marginTop: "0px", marginBottom: "0px" }} />
@@ -687,7 +707,11 @@ const PortFolioComponent = () => {
                                             </div>
                                         </td>
                                         <td className='asset-hold'>{each.holdings}</td>
-                                        <td className='asset-total'>{each.totalValue}</td>
+                                        <td className='asset-total'>
+                                            {/* {each.totalValue} */}
+                                           <span>{each.totalValue.split(' ')[0]}</span>
+                                           <span style={{fontSize:'12px'}}>{each.totalValue.split(' ')[1]}</span>
+                                        </td>
                                         <td className='asset-invest'>{each.invested}</td>
                                         <td className='asset-total'>{each.hour}</td>
                                         <td className='asset-invest'>{each.currectPrice}</td>
