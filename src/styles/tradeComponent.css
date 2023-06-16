@@ -257,7 +257,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:0px 4px;
+  padding: 0px 4px;
 }
 
 /* --------------------------------------------------------------------------------------------------team section 3 */
@@ -598,7 +598,7 @@
   font-size: 18px;
   letter-spacing: -0.422099px;
   color: #ea9528;
-  margin-left:23px;
+  margin-left: 23px;
 }
 
 .batsmens-scrore-data h1 {
@@ -747,140 +747,127 @@
   height: 85vh;
 }
 
-
-
-
-.live-scoreboard-holdings{
+.live-scoreboard-holdings {
   display: flex;
-  gap:14px;
-  padding:14px;
+  gap: 14px;
+  padding: 14px;
 }
-.trade-tokens-main{  
- width: 65%;
- padding:10px 20px 10px 40px;
- background-color: #232234;
+.trade-tokens-main {
+  width: 65%;
+  padding: 10px 20px 10px 40px;
+  background-color: #232234;
 
-
- height: 534px;
- overflow: auto;
-
+  height: 534px;
+  overflow: auto;
 }
-.trade-tokens-main::-webkit-scrollbar{
+.trade-tokens-main::-webkit-scrollbar {
   width: 5px;
 }
 .trade-tokens-main::-webkit-scrollbar-thumb {
   background-color: #393848;
-
 }
-.trade-tokens{
-height: 74px;
-
+.trade-tokens {
+  height: 74px;
 }
 
-.trade-tokens{
- border-bottom: 1px solid #393848;
- 
+.trade-tokens {
+  border-bottom: 1px solid #393848;
 }
 
-.live-team-kay{
- font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 24px;
-/* identical to box height */
+.live-team-kay {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
 
-letter-spacing: -0.312463px;
+  letter-spacing: -0.312463px;
 
-color: #FFFFFF;
-margin:0px;
+  color: #ffffff;
+  margin: 0px;
 }
 
-.live-team-name{
- font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 10px;
-line-height: 15px;
-/* identical to box height */
+.live-team-name {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 15px;
+  /* identical to box height */
 
-letter-spacing: -0.312463px;
+  letter-spacing: -0.312463px;
 
-color: #9492A0;
-margin:0px;
+  color: #9492a0;
+  margin: 0px;
 }
 
-.token-name-column{
- height: 74px;
- display: flex;
- align-items: center;
- gap:10px;
+.token-name-column {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.live-token-headings th{
- font-family: 'Poppins';
-font-style: normal;
-font-weight: 600 !important;
-font-size: 14px;
-line-height: 21px;
-/* identical to box height */
+.live-token-headings th {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
 
+  color: #9492a0;
 
-color: #9492A0;
-
-opacity: 0.5;
-width: 25%;
+  opacity: 0.5;
+  width: 25%;
 }
 
-.live-total-value h2{
- font-family: 'Lato';
- font-style: normal;
- font-weight: 600;
- font-size: 16px;
- line-height: 19px;
- letter-spacing: -0.312463px;
- 
- 
- opacity: 0.75;
+.live-total-value h2 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.312463px;
 
+  opacity: 0.75;
 }
 
-.live-holding-percent h2{
- font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 19px;
-letter-spacing: -0.312463px;
+.live-holding-percent h2 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.312463px;
 
-
-opacity: 0.75;
+  opacity: 0.75;
 }
 
-.live-current-price h2{
- font-family: 'Lato';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
+.live-current-price h2 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
 
-letter-spacing: -0.312463px;
+  letter-spacing: -0.312463px;
 
-color: #FFFFFF;
+  color: #ffffff;
 
-opacity: 0.5;
+  opacity: 0.5;
 }
 
-.score-card-heading{
-  font-family: 'Poppins';
+.score-card-heading {
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 27px;
   /* identical to box height */
 
-
-  color: #FFFFFF;
+  color: #ffffff;
 
   opacity: 0.7;
   margin: 20px 0px 0px 40px;

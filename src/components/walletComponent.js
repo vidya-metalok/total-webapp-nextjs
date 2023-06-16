@@ -83,13 +83,13 @@ const BigNumber = require("bignumber.js");
 import walletHrLine from "../../public/images/wallet-hr-line.svg"
 
 import TransactionHistoryComponent from "./transactionHistoryComponent";
-import {userEdit,loginUser} from '../components/redux/userSlice'
+import { userEdit, loginUser } from '../components/redux/userSlice'
 
 
 const WalletComponent = () => {
-    const editeddata =  useSelector((store)=>store?.user?.userEdit)
+    const editeddata = useSelector((store) => store?.user?.userEdit)
 
-    const userWallet = useSelector((store)=>store?.user?.loginInfo?.walletAddress)
+    const userWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
     // const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
 
     const [copyClick, setcopyclick] = useState(false)
@@ -108,7 +108,7 @@ const WalletComponent = () => {
         navigator.clipboard.writeText(userWallet);
         console.log("wallet address", userWallet)
         setcopyclick(true)
-        setTimeout(()=>{
+        setTimeout(() => {
             setcopyclick(false)
         },[1000])
 
@@ -933,7 +933,7 @@ console.log("pppppppppppppppppppppppp", privkey)
                                     <div className="wallet-details-con">
                                         <div className="wallet-info">
                                             <h3>Wallet Name</h3>
-                                            <p>{editeddata?.firstName} {editeddata?.lastName}</p>
+                                            <p style={{ textAlign: "left" }}>{editeddata?.firstName} {editeddata?.lastName}</p>
                                         </div>
                                         <div className="wallet-info">
                                             <h3>Tokens you will receive</h3>
