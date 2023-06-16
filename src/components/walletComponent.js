@@ -28,6 +28,8 @@ var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/g
 var tsymbal = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/tsymbal.png";
 // var wallet = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/wallet-money.png";
 import wallet from "../../public/images/wallet-money.svg"
+import money from "../../public/images/money-add.svg"
+import empty from "../../public/images/empty-wallet.svg"
 // var money = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/money-add.png";
 // var empty = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/empty-wallet.png";
 // var load1 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/graphload-img.png";
@@ -108,7 +110,7 @@ const WalletComponent = () => {
         setcopyclick(true)
         setTimeout(() => {
             setcopyclick(false)
-        }, [2500])
+        },[1000])
 
 
 
@@ -120,6 +122,19 @@ const WalletComponent = () => {
     //   const userWallet = useSelector((store) => store.user.loginInfo.walletAddress);
 
     const privateKey = useSelector((store) => store.user.privKey);
+
+    console.log("priiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii", privateKey)
+
+    
+    let pristr = privateKey;
+    let prilen = pristr?.length;
+    let pristart = Math.floor(len - 7);
+    // let end = start + 40;
+    let privkey = pristr?.substring(0, 7) + "....." + pristr?.substring(pristart, len);
+
+
+console.log("pppppppppppppppppppppppp", privkey)
+
 
     const userName = useSelector((store) => store.user.loginInfo?.name);
     const web3 = new Web3(
@@ -727,7 +742,7 @@ const WalletComponent = () => {
                     </div>
                     <div className="wallet-card-new wallet t-wallet">
                         <div className="img-con">
-                            <Image src={wallet} alt="" height={25} width={25} />
+                            <Image src={money} alt="" height={25} width={25} />
 
                             <p>Total Wallet balance</p>
                         </div>
@@ -735,7 +750,7 @@ const WalletComponent = () => {
                     </div>
                     <div className="wallet-card-new wallet t-wallet">
                         <div className="img-con">
-                            <Image src={wallet} alt="" height={25} width={25} />
+                            <Image src={empty} alt="" height={25} width={25} />
 
                             <p> Total MATIC balance</p>
                         </div>
@@ -747,18 +762,15 @@ const WalletComponent = () => {
                             <h3>{walletaddress}</h3>
                         </div>
                         <div onClick={handleCopyClick} style={{ position: 'relative' }} >
-                            <Image style={{ transform: copyClick ? 'scale(0.8)' : 'scale(1)', transition: 'all .2s ease', cursor: 'pointer' }} src={frame} height={29} width={29} alt="frame" />
-                            <h3 className="copied-display" style={{ display: copyClick ? "block" : "none" }}>wallet copied</h3>
+                            <Image style={{ transform: copyClick ? 'scale(0.8)' : 'scale(1)',transition:'all .2s ease', cursor: 'pointer' }} src={frame} height={29} width={29} alt="frame" />
+                            <h3 className="copied-display" style={{ display: copyClick ? "block" : "none" }}>copied</h3>
 
                         </div>
                     </div>
                 </div>
                 <div className="buy-sell-main-con">
                     <div className="text-card">
-                        <p>
-                            DIsclaimer : Lorem Ipsum has been the industry&apos standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley
-                            of
+                        <p>privateKey: {privkey}
                         </p>
                         <button className="key-btn">key</button>
                     </div>
@@ -834,7 +846,7 @@ const WalletComponent = () => {
 
                                         <div className="quick-trade-suchild2">
                                             <input className="amt-out-show"
-                                                type="text"
+                                                type="number"
                                                 placeholder="0.00"
                                                 value={inputAmount}
                                                 onChange={(e) => setUserInput(e.target.value)}

@@ -243,8 +243,17 @@
   background-color: #232234;
   padding: 14px;
   /* margin-top: 1rem; */
-  width: 340px;
+  width: 346px;
+  height: 520px;
+  overflow: auto;
   border-radius: 9px;
+}
+.team-matches-hist::-webkit-scrollbar{
+  width: 7px;
+}
+.team-matches-hist::-webkit-scrollbar-thumb{
+  background-color:  #393848;
+  border-radius: 6px;
 }
 
 .team-matches-hist:nth-child(2) {
@@ -566,6 +575,7 @@
     right: 16px;
     background: #191c1c;
     width: 162px;
+    text-align: end;
 
 }
 .tocken-bar-head h6 {
@@ -580,4 +590,9 @@
 
 .copied-display{
   margin-top:-15px;
+}
+
+
+.teams-transaction::-webkit-scrollbar{
+  width: 0px !important;
 }

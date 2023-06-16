@@ -239,6 +239,54 @@ const TeamsComponent = (props) => {
       teamBest: "Best : 100*",
       teamsSr: "150",
     },
+     {
+      id: "4",
+      teamImg: dhoniImg,
+      teamsName: "MS DHONI",
+      teamRole: "Batsman",
+      teamBest: "Best : 100*",
+      teamsSr: "150",
+    },
+    {
+      id: "5",
+      teamImg: dhoniImg,
+      teamsName: "MS DHONI",
+      teamRole: "Batsman",
+      teamBest: "Best : 100*",
+      teamsSr: "150",
+    },
+    {
+      id: "4",
+      teamImg: dhoniImg,
+      teamsName: "MS DHONI",
+      teamRole: "Batsman",
+      teamBest: "Best : 100*",
+      teamsSr: "150",
+    },
+    {
+      id: "5",
+      teamImg: dhoniImg,
+      teamsName: "MS DHONI",
+      teamRole: "Batsman",
+      teamBest: "Best : 100*",
+      teamsSr: "150",
+    },
+    {
+      id: "4",
+      teamImg: dhoniImg,
+      teamsName: "MS DHONI",
+      teamRole: "Batsman",
+      teamBest: "Best : 100*",
+      teamsSr: "150",
+    },
+    {
+      id: "5",
+      teamImg: dhoniImg,
+      teamsName: "MS DHONI",
+      teamRole: "Batsman",
+      teamBest: "Best : 100*",
+      teamsSr: "150",
+    },
   ];
 
   const matches = [
@@ -374,7 +422,7 @@ const TeamsComponent = (props) => {
     };
 
     fetchData();
-  });
+  },[]);
 
   console.log("matchData....", matchHistory);
 
@@ -879,7 +927,7 @@ const TeamsComponent = (props) => {
               </div>
             </div>
             {openDropDown && (
-              <div className="chart-hist" style={{ top: "24px", left: "80%", zIndex: 20 }} >
+              <div className="chart-hist" style={{ top: "24px", zIndex: 20 }} >
                 <p>weekly</p>
                 <p>monthly</p>
                 <p>yearly</p>
@@ -900,8 +948,8 @@ const TeamsComponent = (props) => {
 
       {transactionclick && (
         <div className="">
-          <div className="transaction-main">
-            <div className="t-history table-responsive">
+          <div className="transaction-main teams-transaction">
+            <div className="t-history table-responsive teams-transaction">
               <table>
                 <tr className="transaction-header-sticky ">
                   <th>Transaction Type</th>
