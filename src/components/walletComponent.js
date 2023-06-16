@@ -723,7 +723,7 @@ const WalletComponent = () => {
                             <p>Total sportsverse Holdings</p>
                         </div>
                         <p><span>₹</span>{totalHoldings}</p>
-                        <h3>+9.2%</h3>
+                        {/* <h3>+9.2%</h3> */}
                     </div>
                     <div className="wallet-card-new wallet t-wallet">
                         <div className="img-con">
@@ -820,7 +820,7 @@ const WalletComponent = () => {
                                                     </div>
                                                 ))}
                                             </div>
-                                            <Image onClick={selectClick} style={{ marginTop: "0px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
+                                            <Image onClick={selectClick} style={{ marginTop: "0px", marginLeft: '4px', cursor: "pointer" }} src={trabdeArrow} alt="" height={10} width={10} />
 
                                             {/* <select className="dropdown-trade">
                                         <option value="volvo"> USDT</option>
@@ -842,6 +842,7 @@ const WalletComponent = () => {
                                         </div>
                                     </div>
                                     <h1 className="onw-quial">1 RSVC = 21.02 USDT</h1>
+                                    {inputAmount < 0 && <p style={{ color: "red" }}>Please enter positive value</p>}
 
                                     <h1 className="will-receive-heading">You will Receive</h1>
 
@@ -884,7 +885,7 @@ const WalletComponent = () => {
                                                     </div>
                                                 ))}
                                             </div>
-                                            <Image onClick={setOnClickTwo} style={{ marginTop: "0px", marginLeft: '4px' }} src={trabdeArrow} alt="" height={10} width={10} />
+                                            <Image onClick={setOnClickTwo} style={{ marginTop: "0px", marginLeft: '4px', cursor: "pointer" }} src={trabdeArrow} alt="" height={10} width={10} />
 
                                         </div>
 

@@ -57,6 +57,13 @@ const ProfileLinksComponent = () => {
     }
     const handleMouseProfileLeave = () => {
         setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+        setIsTermsHovered(false)
+        setIsAboutHovered(false)
+        setIsReferralHovered(false)
+        setIsFaqsHovered(false)
+
 
     }
 
@@ -73,6 +80,12 @@ const ProfileLinksComponent = () => {
     }
     const handleMouseFeedbackLeave = () => {
         setIsFeedbackHovered(false)
+        setIsProfileHovered(false)
+        setIsCommunityHovered(false)
+        setIsReferralHovered(false)
+        setIsAboutHovered(false)
+        setIsTermsHovered(false)
+        setIsFaqsHovered(false)
 
     }
     const handleCommunityHover = () => {
@@ -88,6 +101,12 @@ const ProfileLinksComponent = () => {
     }
     const handleMouseCommunityLeave = () => {
         setIsCommunityHovered(false)
+        setIsFeedbackHovered(false)
+        setIsProfileHovered(false)
+        setIsReferralHovered(false)
+        setIsAboutHovered(false)
+        setIsTermsHovered(false)
+        setIsFaqsHovered(false)
 
     }
 
@@ -104,6 +123,13 @@ const ProfileLinksComponent = () => {
     }
     const handleMouseReferralLeave = () => {
         setIsReferralHovered(false)
+        setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+        setIsTermsHovered(false)
+        setIsAboutHovered(false)
+
+        setIsFaqsHovered(false)
 
 
     }
@@ -120,6 +146,13 @@ const ProfileLinksComponent = () => {
     }
     const handleMouseTermsOfServiceLeave = () => {
         setIsTermsHovered(false)
+        setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+
+        setIsAboutHovered(false)
+        setIsReferralHovered(false)
+        setIsFaqsHovered(false)
 
     }
     const handleAboutHover = () => {
@@ -135,6 +168,13 @@ const ProfileLinksComponent = () => {
     }
     const handleMouseAboutLeave = () => {
         setIsAboutHovered(false)
+        setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+        setIsTermsHovered(false)
+
+        setIsReferralHovered(false)
+        setIsFaqsHovered(false)
 
     }
     const handleFaqsHovered = () => {
@@ -150,6 +190,12 @@ const ProfileLinksComponent = () => {
     }
     const handleFaqsLeave = () => {
         setIsFaqsHovered(false)
+        setIsProfileHovered(false)
+        setIsFeedbackHovered(false)
+        setIsCommunityHovered(false)
+        setIsTermsHovered(false)
+        setIsAboutHovered(false)
+        setIsReferralHovered(false)
 
     }
 
@@ -172,25 +218,25 @@ const ProfileLinksComponent = () => {
                         <h2>Profile</h2>
                     </Link>
                 </div>
-                <div className="logout-con" onMouseEnter={handleFeedbackHover} onMousLeave={handleMouseFeedbackLeave}>
+                <div className="logout-con" onMouseEnter={handleFeedbackHover} onMouseLeave={handleMouseFeedbackLeave}>
                     <Link href="/feedbackpage" passHref className={router.pathname === '/feedbackpage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={feedbackLinkIcon} alt="" height={20} width={20} />
                         <h2>Feedback & Support</h2>
                     </Link>
                 </div>
-                <div className="logout-con" onMouseEnter={handleCommunityHover} onMousLeave={handleMouseCommunityLeave}>
+                <div className="logout-con" onMouseEnter={handleCommunityHover} onMouseLeave={handleMouseCommunityLeave}>
                     <Link href="/communitypage" passHref className={router.pathname === '/communitypage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={communityLinkIcon} alt="" height={20} width={20} />
                         <h2>Community</h2>
                     </Link>
                 </div>
-                <div className="logout-con" onMouseEnter={handleReferralHover} onMousLeave={handleMouseReferralLeave}>
+                <div className="logout-con" onMouseEnter={handleReferralHover} onMouseLeave={handleMouseReferralLeave}>
                     <Link href="/refferalspage" passHref className={router.pathname === '/refferalspage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={refferalsLinkIcon} alt="" height={20} width={20} />
                         <h2>Refferals</h2>
                     </Link>
                 </div>
-                <div className="logout-con" onMouseEnter={handleFaqsHovered} onMousLeave={handleFaqsLeave}>
+                <div className="logout-con" onMouseEnter={handleFaqsHovered} onMouseLeave={handleFaqsLeave}>
                     <Link href="/faqspage" passHref className={router.pathname === '/faqspage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={fqasLinkIcon} alt="" height={20} width={20} />
                         <h2>FAQs</h2>

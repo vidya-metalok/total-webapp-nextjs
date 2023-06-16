@@ -57,6 +57,10 @@ import Link from 'next/link';
 const Sidebar = () => {
     const router = useRouter()
     const { query } = router
+    const [notInLive, setNotInLive] = useState(true)
+
+
+
 
     // const teamALiveImg = useSelector((store) => store?.user?.liveTeamAImgUrl)
     // const teamBLiveImg = useSelector((store) => store?.user?.liveTeamBImgUrl)
@@ -112,8 +116,19 @@ const Sidebar = () => {
 
 
 
-    const sideLiveObj = iplMatches?.find((each, index) => each.status === "not_started")
-    console.log("side..objeeeee", sideLiveObj)
+    const sideLiveObj = iplMatches?.find((each, index) => each.status === "live")
+    // console.log("side..objeeeee", sideLiveObj)
+
+    useEffect(() => {
+        const sideLiveObjMatch = iplMatches?.find((each, index) => each.status === "live")
+        console.log("side..objeeeee", sideLiveObjMatch)
+        if (sideLiveObj) {
+            setNotInLive(false)
+
+
+        }
+
+    }, [iplMatches])
 
 
     const [teamAImgUrl, setTeamAImgUrl] = useState("");
@@ -258,74 +273,91 @@ const Sidebar = () => {
 
 
                 <div className='tokens2' style={{ marginTop: "1rem" }}>
-                    <h2 className='main-heading'>Live Score</h2>
-                    <div className='score-team'>
-                        {/* <Image className='live-topimg' src={teamALiveImg} alt="" height={30} width={30} /> */}
-                        {/* <Image className='live-topimg' src={teamALiveImg} alt="" height={30} width={30} /> */}
-                        <Image className='live-topimg' src={livetopimg} alt="" />
-                        <div className='d-flex live-sc'>
-                            <Image src={teamAImgUrl} alt="" height={30} width={40} />
-                            <div className='all-headings'>
-                                <h1 >{sideLiveObj?.teams["a"].code} </h1>
-                                <h2 className="sub-heading">Batting </h2>
-                            </div>
+                    {notInLive && (
+                        <div className="side-bar-live-section" >
+                            <h1>Will be active when <br /> match is Live</h1>
                         </div>
-                        <h1 className='vs-heading'>vs</h1>
-                        <div className='d-flex justify-content-center'>
-                            <Image src={teamBImgUrl} alt="" height={30} width={40} />
-                            <div className='all-headings'>
-                                <h1>{sideLiveObj?.teams["b"].code} </h1>
-                                <h2 className='sub-heading'>Bowling </h2>
-                            </div>
-                        </div>
-                        {/* <Image className='live-bottomimg' src={teamBLiveImg} alt="" height={30} width={30} /> */}
-                        <Image className='live-bottomimg' src={livebottomimg} alt="" />
-                    </div>
-                    <h1 className='score-value'>{sideLiveObj?.innings?.a_1?.score_str?.split(" ")?.slice(0, 1)}<span className="score-points">({sideLiveObj?.innings?.a_1?.score_str?.split(" ")?.slice(2)})</span></h1>
-                    <p className='this-over-heading'  >This over</p>
-                    <div className='numbers-bar'>
-                        <p>2</p>
-                        <p>4</p>
-                        <p>6</p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                    </div>
-                    <div className='side-live-batsmen'>
-                        <div className='side-live-bat-bow'>
-                            <h1 className='batter'>Batters</h1>
-                            <h2 className='bowler'>Bowler</h2>
-                        </div>
-                        <div className='side-live-bat-bow'>
-                            <div className='side-live-batsmens-name'>
-                                <div className='side-live-batsmens1'>
-                                    <h1>Kane Williamson</h1>
-                                    <h2> 45(20)</h2>
-                                </div>
-                                <div className='side-live-batsmens1'>
-                                    <h1>Abishek Sharma</h1>
-                                    <h2>12(10)</h2>
+
+
+                    )}
+
+
+                    <div>
+                        <h2 className='main-heading'>Live Score</h2>
+                        <div className='score-team'>
+                            {/* <Image className='live-topimg' src={teamALiveImg} alt="" height={30} width={30} /> */}
+                            {/* <Image className='live-topimg' src={teamALiveImg} alt="" height={30} width={30} /> */}
+                            <Image className='live-topimg' src={livetopimg} alt="" />
+                            <div className='d-flex live-sc'>
+                                <Image src={teamAImgUrl} alt="" height={30} width={40} />
+                                <div className='all-headings'>
+                                    <h1 >{sideLiveObj?.teams["a"].code} </h1>
+                                    <h2 className="sub-heading">Batting </h2>
                                 </div>
                             </div>
-                            <div className='side-livebowler-name'>
-                                <h1>Siraj 20(3.2)</h1>
+                            <h1 className='vs-heading'>vs</h1>
+                            <div className='d-flex justify-content-center'>
+                                <Image src={teamBImgUrl} alt="" height={30} width={40} />
+                                <div className='all-headings'>
+                                    <h1>{sideLiveObj?.teams["b"].code} </h1>
+                                    <h2 className='sub-heading'>Bowling </h2>
+                                </div>
+                            </div>
+                            {/* <Image className='live-bottomimg' src={teamBLiveImg} alt="" height={30} width={30} /> */}
+                            <Image className='live-bottomimg' src={livebottomimg} alt="" />
+                        </div>
+                        <h1 className='score-value'>{sideLiveObj?.innings?.a_1?.score_str?.split(" ")?.slice(0, 1)}<span className="score-points">({sideLiveObj?.innings?.a_1?.score_str?.split(" ")?.slice(2)})</span></h1>
+                        <p className='this-over-heading'  >This over</p>
+                        <div className='numbers-bar'>
+                            <p>2</p>
+                            <p>4</p>
+                            <p>6</p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <div className='side-live-batsmen'>
+                            <div className='side-live-bat-bow'>
+                                <h1 className='batter'>Batters</h1>
+                                <h2 className='bowler'>Bowler</h2>
+                            </div>
+                            <div className='side-live-bat-bow'>
+                                <div className='side-live-batsmens-name'>
+                                    <div className='side-live-batsmens1'>
+                                        <h1>Kane Williamson</h1>
+                                        <h2> 45(20)</h2>
+                                    </div>
+                                    <div className='side-live-batsmens1'>
+                                        <h1>Abishek Sharma</h1>
+                                        <h2>12(10)</h2>
+                                    </div>
+                                </div>
+                                <div className='side-livebowler-name'>
+                                    <h1>Siraj 20(3.2)</h1>
+                                </div>
                             </div>
                         </div>
+                        <div className='sidebar-buysell'>
+                            <div className="score-team2">
+                                <Image src={teamAImgUrl} alt="" height={20} width={20} />
+                                <h3 className='side-holding side-holding-text' >{sideLiveObj?.teams["a"]?.code}</h3>
+                                <p className="side-holding">$250</p>
+                                <h4 className='lose-or-gain1'>+0.547</h4>
+                            </div>
+                            <div className='score-team2'>
+                                <Image src={teamBImgUrl} alt="" height={20} width={20} />
+                                <h3 className='side-holding side-holding-text'>{sideLiveObj?.teams["b"]?.code}</h3>
+                                <p className='side-holding'>$250</p>
+                                <h4 className='lose-or-gain2'>-1.263</h4>
+                            </div>
+                        </div >
+
+
+
                     </div>
-                    <div className='sidebar-buysell'>
-                        <div className="score-team2">
-                            <Image src={teamAImgUrl} alt="" height={20} width={20} />
-                            <h3 className='side-holding side-holding-text' >{sideLiveObj?.teams["a"]?.code}</h3>
-                            <p className="side-holding">$250</p>
-                            <h4 className='lose-or-gain1'>+0.547</h4>
-                        </div>
-                        <div className='score-team2'>
-                            <Image src={teamBImgUrl} alt="" height={20} width={20} />
-                            <h3 className='side-holding side-holding-text'>{sideLiveObj?.teams["b"]?.code}</h3>
-                            <p className='side-holding'>$250</p>
-                            <h4 className='lose-or-gain2'>-1.263</h4>
-                        </div>
-                    </div >
+
+
+
 
                 </div >
             </div>
