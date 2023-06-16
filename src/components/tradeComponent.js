@@ -172,6 +172,15 @@ const TradeComponent = () => {
 
   const [bowlingT, setbowlingT] = useState(false)
 
+  if(batars==false){
+     document.body.style.overflow = 'hidden'
+    document.body.style.height = '100vh'
+  }
+  else{
+     document.body.style.overflow = 'auto'
+    document.body.style.height = 'auto'
+  }
+
   const batmensData = () => {
     setbatars(!batars)
 

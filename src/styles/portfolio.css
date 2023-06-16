@@ -128,9 +128,9 @@
   left: 15rem;
   padding: 30px;
 }
-.transaction-main::-webkit-scrollbar {
+/* .transaction-main::-webkit-scrollbar {
   width: 0px;
-}
+} */
 
 .bar-one::-webkit-scollbar {
   width: 0px;

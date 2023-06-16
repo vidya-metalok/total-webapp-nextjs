@@ -135,7 +135,8 @@
   align-items: center;
   color: rgba(93, 97, 102, 0.8);
   opacity: 0.4;
-  width: 80%;
+  /* width: 80%; */
+  margin-bottom:0px;
 }
 
 .buy-btn {
@@ -172,7 +173,8 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
-  color: #5d6166;
+  /* color: #5d6166; */
+  color: #9492a0;
 }
 .wallet-info p {
   /* font-family: 'Poppins';
@@ -220,7 +222,7 @@
   margin-left: 10px;
 }
 .trade-details {
-  width: 450px;
+  width: 220px;
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
@@ -263,11 +265,12 @@
   height: 490px;
   overflow: auto;
   padding: 20px;
+  padding-right:95px;
 }
 
-.transaction-main::-webkit-scrollbar {
+/* .transaction-main::-webkit-scrollbar {
   width: 0px;
-}
+} */
 .trans-type-con {
   display: flex;
   align-items: flex-start;
@@ -370,6 +373,7 @@
   margin-left: 11px;
   margin-top: -5px;
   cursor: pointer;
+  width: 194px;
 }
 
 .completed-text {
@@ -500,8 +504,8 @@
 }
 .copied-display {
   position: absolute;
-  top: 14px;
-  left: -48px;
+  top: -5px;
+  left: -14px;
   width: 158px;
   font-size: 12px !important;
   font-family: "Poppins" !important;
@@ -525,21 +529,24 @@
 }
 
 .wallet-center-border{
-  border-left:1px solid rgba(255, 255, 255, 0.838);
-  position:absolute;
-  left: 50%;
-  top:50%;
-  transform: translate(-50%,-50%);
-  height: 70%;
+    /* border-left: 1px solid rgba(255, 255, 255, 0.838); */
+    /* position: absolute; */
+    /* left: 50%; */
+    /* top: 50%; */
+    /* transform: translate(-50%,-50%); */
+    /* height: 70%; */
+    border-left: 1px solid #73737e;
+    width: 0px;
+    height: 278px;
   
 }
 
 
-@media(max-width:1440px){
+/* @media(max-width:1440px){
   .trade-details {
     border-left:1px solid white;
   }
   .wallet-center-border{
     display: none;
   }
-}
+} */

@@ -370,7 +370,7 @@ const HistoryDashboard = () => {
 
 
                 <div className='row' style={{ padding: "4px 12px" }}>
-                    <div className="transaction-main col-6" style={{ position: "relative" }}>
+                    <div className="transaction-main dash-transaction col-6" style={{ position: "relative" }}>
                         <div className='table-responsive-dash'>
                             <table>
                                 <tr>
