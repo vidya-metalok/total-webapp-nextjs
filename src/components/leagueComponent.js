@@ -64,22 +64,22 @@ const LeagueComponent = () => {
         // console.log("totalmatches...", totalmatches)
 
 
-// console.log("wwwwwwwwwwwwwwwwwwwwww", teams?.start_at)
+        // console.log("wwwwwwwwwwwwwwwwwwwwww", teams?.start_at)
 
-const startedTime = teams?.start_at
+        const startedTime = teams?.start_at
 
         const timestamp = startedTime * 1000; // Convert timestamp to milliseconds
         const date = new Date(timestamp);
 
 
 
-const weekday = date.toLocaleString('en-US', { weekday: 'short' });
-const year = date.toLocaleString('en-US', { year: 'numeric' });
-const month = date.toLocaleString('en-US', { month: 'short' });
-const day = date.toLocaleString('en-US', { day: 'numeric' });
+        const weekday = date.toLocaleString('en-US', { weekday: 'short' });
+        const year = date.toLocaleString('en-US', { year: 'numeric' });
+        const month = date.toLocaleString('en-US', { month: 'short' });
+        const day = date.toLocaleString('en-US', { day: 'numeric' });
 
-const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
-const formattedTime = date.toLocaleString('en-US', timeOptions);
+        const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
+        const formattedTime = date.toLocaleString('en-US', timeOptions);
 
 
         return (
@@ -104,23 +104,23 @@ const formattedTime = date.toLocaleString('en-US', timeOptions);
                     </div>
                     <div className="live-score-container">
                         <div>
-                             <p>{teams?.status==="not_started" ?
-                                <p>{weekday} | {day}<sup>th</sup> <span>{month}</span><br/>
-                                <span>{formattedTime}</span>
+                            <p>{teams?.status === "not_started" ?
+                                <p>{weekday} | {day}<sup>th</sup> <span>{month}</span><br />
+                                    <span>{formattedTime}</span>
 
-                            </p>
+                                </p>
                                 : <p>{teams?.teams?.a?.code} - {teams?.innings?.a_1?.score_str}</p>
-                                
-                                }
+
+                            }
                             </p>
                             <p>
-                        
-                                
 
-                                {teams?.status==="not_started" ?
-                                ''
-                                : <p>{teams?.teams?.b?.code} - {teams?.innings?.b_1?.score_str}</p>
-                                
+
+
+                                {teams?.status === "not_started" ?
+                                    ''
+                                    : <p>{teams?.teams?.b?.code} - {teams?.innings?.b_1?.score_str}</p>
+
                                 }
                             </p>
                         </div>
@@ -262,11 +262,28 @@ const formattedTime = date.toLocaleString('en-US', timeOptions);
                 {
 
                     activeMatches == "ipl" && (
-                        <div className="match-card-section">
-                            {allMatches.map((each, index) => (
-                                <Card key={index} teams={each} />
-                            ))}
-                        </div>
+                        <>
+                            <div className="match-card-section">
+                                {allMatches.map((each, index) => (
+                                    <Card key={index} teams={each} />
+                                ))}
+                            </div>
+                            <div className="drop-down-container  d-flex flex-direction-column justify-content-center">
+                                <div className="row container-fluid p-0">
+
+
+                                    <div className="col-12 col-sm-12  col-md-6 col-lg-6 p-0" style={{ borderRight: '5px solid transparent' }}>
+                                        <BuySellComponent eachTeamName={teamATokenName} />
+
+                                    </div>
+                                    <div className="col-12  col-sm-12 col-md-6 col-lg-6 p-0" style={{ borderLeft: '5px solid transparent' }}>
+                                        <BuySellComponent eachTeamName={teamBTokenName} />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+
 
                     )
                 }
@@ -291,20 +308,6 @@ const formattedTime = date.toLocaleString('en-US', timeOptions);
                     )
                 }
 
-                <div className="drop-down-container  d-flex flex-direction-column justify-content-center">
-                    <div className="row container-fluid p-0">
-
-
-                        <div className="col-12 col-sm-12  col-md-6 col-lg-6 p-0" style={{borderRight:'5px solid transparent'}}>
-                            <BuySellComponent eachTeamName={teamATokenName} />
-
-                        </div>
-                        <div className="col-12  col-sm-12 col-md-6 col-lg-6 p-0" style={{borderLeft:'5px solid transparent'}}>
-                            <BuySellComponent eachTeamName={teamBTokenName}  />
-
-                        </div>
-                    </div>
-                </div>
 
 
 

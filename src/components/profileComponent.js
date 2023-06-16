@@ -193,15 +193,15 @@ const ProfileComponent = () => {
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="firstname">First Name</label>
                                 <br />
-                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} />
-                                    : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} />}
+                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} placeholder="Kiran" />
+                                    : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} placeholder="Kiran" />}
                             </div>
 
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="lastname">Last Name</label>
                                 <br />
-                                {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                                    : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} />}
+                                {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Sharma" />
+                                    : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} placeholder="Sharma" />}
                             </div>
                         </div>
                         <div className='col-12 d-md-flex gap-4'>
@@ -214,8 +214,8 @@ const ProfileComponent = () => {
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="personalemail">Personal Email</label>
                                 <br />
-                                {useredit ? <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} onChange={(e) => setPersonelEmail(e.target.value)} />
-                                    : <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} />}
+                                {useredit ? <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} onChange={(e) => setPersonelEmail(e.target.value)} placeholder="kiran@gmail.com" />
+                                    : <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} placeholder="kiran@gmail.com" />}
                             </div>
                         </div>
                         <div>
