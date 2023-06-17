@@ -87,6 +87,11 @@ import { userEdit, loginUser } from '../components/redux/userSlice'
 
 
 const WalletComponent = () => {
+
+    const [sameIn, setSameIn] = useState("in")
+    const [sameOut, setSameOut] = useState('out')
+    const [selectTokenInErr, setSelectTokenInErr] = useState(false)
+    const [selectTokenOutErr, setSelectTokenOutErr] = useState(false)
     const editeddata = useSelector((store) => store?.user?.userEdit)
 
     const userWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
@@ -110,7 +115,7 @@ const WalletComponent = () => {
         setcopyclick(true)
         setTimeout(() => {
             setcopyclick(false)
-        },[1000])
+        }, [1000])
 
 
 
@@ -125,7 +130,7 @@ const WalletComponent = () => {
 
     console.log("priiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii", privateKey)
 
-    
+
     let pristr = privateKey;
     let prilen = pristr?.length;
     let pristart = Math.floor(len - 7);
@@ -133,7 +138,7 @@ const WalletComponent = () => {
     let privkey = pristr?.substring(0, 7) + "....." + pristr?.substring(pristart, len);
 
 
-console.log("pppppppppppppppppppppppp", privkey)
+    console.log("pppppppppppppppppppppppp", privkey)
 
 
     const userName = useSelector((store) => store.user.loginInfo?.name);
@@ -248,6 +253,8 @@ console.log("pppppppppppppppppppppppp", privkey)
         setTokenIn(param3);
         setSellToken(param3);
         setopt(!opt);
+        setSameIn(param2)
+        setSelectTokenInErr(false)
     };
     const storeTokenOut = (param1, param2, param3) => {
         setTokenOutImage(param1);
@@ -255,6 +262,8 @@ console.log("pppppppppppppppppppppppp", privkey)
         setTokenOut(param3);
         setBuyToken(param3);
         setopt2(!opt2);
+        setSameOut(param2)
+        setSelectTokenOutErr(false)
     };
 
     const tokenDetails = [
@@ -724,7 +733,18 @@ console.log("pppppppppppppppppppppppp", privkey)
     const usdtBalance = useSelector((store) => store?.user?.usdtBalance)
     const maticBalance = useSelector((store) => store?.user?.usdtBalance)
 
+    const onChangeUserInput = (e) => {
+        setUserInput(e.target.value)
+        if (tokenName == "Select Token") {
+            setSelectTokenInErr(true)
+        }
+        if (tokenOutName == "Select Token") {
+            setSelectTokenOutErr(true)
 
+
+        }
+
+    }
 
 
 
@@ -762,7 +782,7 @@ console.log("pppppppppppppppppppppppp", privkey)
                             <h3>{walletaddress}</h3>
                         </div>
                         <div onClick={handleCopyClick} style={{ position: 'relative' }} >
-                            <Image style={{ transform: copyClick ? 'scale(0.8)' : 'scale(1)',transition:'all .2s ease', cursor: 'pointer' }} src={frame} height={29} width={29} alt="frame" />
+                            <Image style={{ transform: copyClick ? 'scale(0.8)' : 'scale(1)', transition: 'all .2s ease', cursor: 'pointer' }} src={frame} height={29} width={29} alt="frame" />
                             <h3 className="copied-display" style={{ display: copyClick ? "block" : "none" }}>copied</h3>
 
                         </div>
@@ -849,12 +869,16 @@ console.log("pppppppppppppppppppppppp", privkey)
                                                 type="number"
                                                 placeholder="0.00"
                                                 value={inputAmount}
-                                                onChange={(e) => setUserInput(e.target.value)}
+                                                onChange={(e) => onChangeUserInput(e)}
                                             />
                                         </div>
                                     </div>
                                     <h1 className="onw-quial">1 RSVC = 21.02 USDT</h1>
+
                                     {inputAmount < 0 && <p style={{ color: "red" }}>Please enter positive value</p>}
+                                    {selectTokenInErr ? (
+                                        <p style={{ color: "red" }}>Please select token </p>
+                                    ) : ""}
 
                                     <h1 className="will-receive-heading">You will Receive</h1>
 
@@ -915,6 +939,13 @@ console.log("pppppppppppppppppppppppp", privkey)
                                         </div>
                                     </div>
                                     <h3 className="onw-quial">1 RSVC = 21.02 USDT</h3>
+                                    {sameIn === sameOut
+                                        ? <h6 className="same-teams-chosed">you are choosed same teams</h6> : ''
+
+                                    }
+                                    {selectTokenOutErr ? (
+                                        <p style={{ color: "red" }}>Please select token </p>
+                                    ) : ""}
 
 
 

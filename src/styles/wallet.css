@@ -60,7 +60,9 @@
 }
 .wallet-card-2 h3 {
   font-family: "Lato";
-  font-size: 22px;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.312463px;
   color: #cccccc;
   font-weight: 600;
 }
@@ -136,7 +138,7 @@
   color: rgba(93, 97, 102, 0.8);
   opacity: 0.4;
   /* width: 80%; */
-  margin-bottom:0px;
+  margin-bottom: 0px;
 }
 
 .buy-btn {
@@ -265,7 +267,7 @@
   height: 490px;
   overflow: auto;
   padding: 20px;
-  padding-right:95px;
+  padding-right: 95px;
 }
 
 /* .transaction-main::-webkit-scrollbar {
@@ -515,7 +517,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position:relative;
+  position: relative;
 }
 .quick-new-trade {
   display: flex;
@@ -528,19 +530,17 @@
   max-width: 70%;
 }
 
-.wallet-center-border{
-    /* border-left: 1px solid rgba(255, 255, 255, 0.838); */
-    /* position: absolute; */
-    /* left: 50%; */
-    /* top: 50%; */
-    /* transform: translate(-50%,-50%); */
-    /* height: 70%; */
-    border-left: 1px solid #73737e;
-    width: 0px;
-    height: 278px;
-  
+.wallet-center-border {
+  /* border-left: 1px solid rgba(255, 255, 255, 0.838); */
+  /* position: absolute; */
+  /* left: 50%; */
+  /* top: 50%; */
+  /* transform: translate(-50%,-50%); */
+  /* height: 70%; */
+  border-left: 1px solid #73737e;
+  width: 0px;
+  height: 278px;
 }
-
 
 /* @media(max-width:1440px){
   .trade-details {

@@ -302,7 +302,7 @@ const LeagueComponent = () => {
 
                     activeMatches == "asia" && (
                         <h4 className="t20-desc">
-                            AsiaCup Matches  coming soon
+                            Asia Cup Matches  coming soon
                         </h4>
 
                     )

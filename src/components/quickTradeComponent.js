@@ -63,6 +63,8 @@ import noPLImg from "../../public/images/no-p&l-img.svg"
 import noWinImg from "../../public/images/win-teams-line.svg"
 
 const Dashboardcenter = () => {
+    const [selectTokenInErr, setSelectTokenInErr] = useState(false)
+    const [selectTokenOutErr, setSelectTokenOutErr] = useState(false)
     const web3 = new Web3(
         'https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF',
     );
@@ -102,8 +104,8 @@ const Dashboardcenter = () => {
     const SPORTSVERSE_ADDRESS = '0xFDfDaE4d7f7731A09eD556C0e1F9D3b5C25FEf18';
     const PLATFORM_FEE = '0.01';
 
-    const [samein, setsamein] = useState("in")
-    const [sameout, setsameout] = useState('out')
+    const [sameIn, setSameIn] = useState("in")
+    const [sameOut, setSameOut] = useState('out')
     var contract = new web3.eth.Contract(abi, sellToken);
 
 
@@ -227,8 +229,10 @@ const Dashboardcenter = () => {
         setSellToken(param3)
         setopt(!opt)
 
-        setsamein(param2)
-    }   
+        setSameIn(param2)
+        setSelectTokenInErr(false)
+
+    }
     const storeTokenOut = (param1, param2, param3, param4) => {
         setTokenOutImage(param1)
         setTokenOutName(param2)
@@ -237,8 +241,10 @@ const Dashboardcenter = () => {
         setopt2(!opt2)
         setTokenFullName(param4)
 
-        setsameout(param2)
-    
+        setSameOut(param2)
+        setSelectTokenOutErr(false)
+
+
     }
 
 
@@ -625,7 +631,17 @@ const Dashboardcenter = () => {
 
 
 
+    const onChangeUserInput = (e) => {
+        setUserInput(e.target.value)
+        if (tokenName == "Select Token") {
+            setSelectTokenInErr(true)
+        }
+        if (tokenOutName == "Select Token") {
+            setSelectTokenOutErr(true)
 
+
+        }
+    }
 
     return (
         <div style={{ marginTop: "0px" }}>
@@ -797,7 +813,7 @@ const Dashboardcenter = () => {
                                     </div>
                                 </div>
                                 <div className="quick-trade-suchild2">
-                                    <input type="text" placeholder="0.00" className="token-names-select" value={inputAmount} onChange={(e) => setUserInput(e.target.value)
+                                    <input type="text" placeholder="0.00" className="token-names-select" value={inputAmount} onChange={(e) => onChangeUserInput(e)
 
                                     }
                                     />
@@ -806,6 +822,11 @@ const Dashboardcenter = () => {
 
 
                             <div style={{ marginTop: "22px" }}>
+                                {inputAmount < 0 && <p style={{ color: "red" }}>Please enter positive value</p>}
+                                {selectTokenInErr ? (
+                                    <p style={{ color: "red" }}>Please select token </p>
+                                ) : ""}
+
                                 <p className="token-rcv-text">You will Receive</p>
 
 
@@ -861,10 +882,13 @@ const Dashboardcenter = () => {
                                 </div>
                                 <div>
 
-                                {samein === sameout
-                                    ? <h6 className="same-teams-chosed">you are chosed same teams</h6> : ''
-                                
-                                }
+                                    {sameIn === sameOut
+                                        ? <h6 className="same-teams-chosed">you are choosed same teams</h6> : ''
+
+                                    }
+                                    {selectTokenOutErr ? (
+                                        <p style={{ color: "red" }}>Please select token </p>
+                                    ) : ""}
                                 </div>
 
                             </div>

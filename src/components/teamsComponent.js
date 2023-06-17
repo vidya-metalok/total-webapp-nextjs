@@ -152,8 +152,8 @@ const TeamsComponent = (props) => {
   let walletaddress = str?.substring(0, 7) + "*****" + str?.substring(start, len);
 
 
-  const walletAddress = useSelector((store)=>store?.user?.loginInfo?.walletAddress)
-  console.log("tttttttttttttttttttttttttttttttttuserwallet" , walletAddress)
+  const walletAddress = useSelector((store) => store?.user?.loginInfo?.walletAddress)
+  console.log("tttttttttttttttttttttttttttttttttuserwallet", walletAddress)
   // const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
   const userWallet = walletAddress;
 
@@ -239,7 +239,7 @@ const TeamsComponent = (props) => {
       teamBest: "Best : 100*",
       teamsSr: "150",
     },
-     {
+    {
       id: "4",
       teamImg: dhoniImg,
       teamsName: "MS DHONI",
@@ -422,7 +422,7 @@ const TeamsComponent = (props) => {
     };
 
     fetchData();
-  },[]);
+  }, []);
 
   console.log("matchData....", matchHistory);
 
@@ -634,8 +634,8 @@ const TeamsComponent = (props) => {
     navigator.clipboard.writeText(userWallet);
     console.log("wallet address", userWallet)
     setcopyclick(true)
-    
-    setTimeout (() => {
+
+    setTimeout(() => {
 
       setcopyclick(false)
 
@@ -682,7 +682,7 @@ const TeamsComponent = (props) => {
               </div>
               <div onClick={handleCopyClick} style={{ position: 'relative' }} >
                 <Image style={{ transform: copyClick ? 'rotate(90deg)' : 'rotate(0deg)', cursor: 'pointer' }} src={frameLogo} height={30} width={30} alt="frame" />
-                <h3 className="copied-display" style={{ display: copyClick ? "block" : "none" }}>copied</h3>
+                <h3 className="copied-display" style={{ display: copyClick ? "block" : "none", marginTop: "-10px" }}>copied</h3>
 
               </div>
             </div>
@@ -878,7 +878,7 @@ const TeamsComponent = (props) => {
 
                 <div className="single-team-hist">
                   <div className="single-team-titles">
-                    <h3 style={{width: "57px", marginLeft: "8px"}}>Team</h3>
+                    <h3 style={{ width: "57px", marginLeft: "8px" }}>Team</h3>
                     <h3>P</h3>
                     <h3>W</h3>
                     <h3>L</h3>
@@ -887,7 +887,7 @@ const TeamsComponent = (props) => {
                   </div>
                   <div className="single-team-score">
                     <div className="d-flex">
-                      <p style={{marginLeft:'-10px'}}>{matchHistory.won}</p>
+                      <p style={{ marginLeft: '-10px' }}>{matchHistory.won}</p>
                       <Image src={bengaloreImg} alt="img" width={20} height={20} />
                       <p>{matchHistory.team_code}</p>
                     </div>
@@ -964,7 +964,7 @@ const TeamsComponent = (props) => {
 
                   <div className='no-transiction'>
                     <Image src={transaction_nodata} alt="img" height="250px" width="300px" />
-                    <h1 style={{color:'white'}}>You don’t have any<br/> transactions Made</h1>
+                    <h1 style={{ color: 'white' }}>You don’t have any<br /> transactions Made</h1>
                   </div>
 
                   :
