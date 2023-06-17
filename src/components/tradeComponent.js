@@ -172,12 +172,12 @@ const TradeComponent = () => {
 
   const [bowlingT, setbowlingT] = useState(false)
 
-  if(batars==false){
-     document.body.style.overflow = 'hidden'
+  if (batars == false) {
+    document.body.style.overflow = 'hidden'
     document.body.style.height = '100vh'
   }
-  else{
-     document.body.style.overflow = 'auto'
+  else {
+    document.body.style.overflow = 'auto'
     document.body.style.height = 'auto'
   }
 
@@ -220,81 +220,81 @@ const TradeComponent = () => {
     {
       team_img: mumbaiIndia,
       team_key: teamATokenName,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "+0.2%",
-      Total_Value:'+$5,203USDT'
+      Total_Value: '+$5,203USDT'
     },
     {
       team_img: punjabKings,
       team_key: teamBTokenName,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value:'-$5,203USDT'
+      Total_Value: '-$5,203USDT'
     },
     {
       team_img: mumbaiIndia,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_key: teamATokenName,
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value:'-$5,203USDT'
+      Total_Value: '-$5,203USDT'
     },
     {
       team_img: punjabKings,
       team_key: teamBTokenName,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value:'-$5,203USDT'
+      Total_Value: '-$5,203USDT'
     },
     {
       team_img: mumbaiIndia,
       team_key: teamATokenName,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value:'-$5,203USDT'
+      Total_Value: '-$5,203USDT'
     },
     {
       team_img: punjabKings,
       team_key: teamBTokenName,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value:'-$5,203USDT'
+      Total_Value: '-$5,203USDT'
     }, {
       team_img: mumbaiIndia,
       team_key: teamATokenName,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value:'-$5,203USDT'
+      Total_Value: '-$5,203USDT'
     },
     {
       team_img: punjabKings,
       team_key: teamBTokenName,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value:'-$5,203USDT'
+      Total_Value: '-$5,203USDT'
     },
     {
       team_img: mumbaiIndia,
       team_key: teamATokenName,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value:'-$5,203USDT'
+      Total_Value: '-$5,203USDT'
     },
     {
       team_img: punjabKings,
       team_key: teamBTokenName,
-      Current_Price:'$5,203',
+      Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value:'-$5,203USDT'
+      Total_Value: '-$5,203USDT'
     },
   ];
 
@@ -552,22 +552,22 @@ const TradeComponent = () => {
 
       {/* ------------------------------------------------------new added sections  */}
 
-<div className="live-scoreboard-holdings">
-      <div className="liveplayers-data" style={{ display: batars ? 'block' : 'block' }}>
-      <h6 className="score-card-heading">Score Card</h6>
-        <div className="badding-team-nm">
-          <h1>Sunrisers Hyderabad</h1>
-          <div className="d-flex gap-5 align-items-center justify-content-center">
-            <h2>
-              <span>{liveData?.live?.score?.runs}</span>/
-              <span>{liveData?.live?.score?.wickets}</span>(
-              {liveData?.live?.score?.overs[0]}.{liveData?.live?.score?.overs[1]})
-            </h2>
-            <h3 onClick={closeBatsmendata} style={{ cursor: 'pointer', color: 'white' }}>
-              <Image src={downImg} alt="arrowimg" />
-            </h3>
+      <div className="live-scoreboard-holdings">
+        <div className="liveplayers-data" style={{ display: batars ? 'block' : 'block' }}>
+          <h6 className="score-card-heading">Score Card</h6>
+          <div className="badding-team-nm">
+            <h1>Sunrisers Hyderabad</h1>
+            <div className="d-flex gap-5 align-items-center justify-content-center">
+              <h2>
+                <span>{liveData?.live?.score?.runs}</span>/
+                <span>{liveData?.live?.score?.wickets}</span>(
+                {liveData?.live?.score?.overs[0]}.{liveData?.live?.score?.overs[1]})
+              </h2>
+              <h3 onClick={closeBatsmendata} style={{ cursor: 'pointer', color: 'white' }}>
+                <Image src={downImg} alt="arrowimg" />
+              </h3>
+            </div>
           </div>
-        </div>
 
           {/* <div className="badding-team-nm">
             <h1>Sunrisers Hyderabad</h1>
@@ -650,7 +650,7 @@ const TradeComponent = () => {
           </div>
         </div>
 
-  <div style={{color:'white'}} className="trade-tokens-main"> 
+        <div style={{ color: 'white' }} className="trade-tokens-main">
           <div className='sidebar-tocken'>
             {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
             <p className='my-tokens-text' >My Tokens</p>
@@ -679,10 +679,10 @@ const TradeComponent = () => {
                     <h2>{team_data.Current_Price}</h2>
                   </td>
                   <td className="live-holding-percent">
-                   <h2 style={{color:index==0 ? '#0BBB70' : '#EC3E47'}}>{team_data.holding_percent}</h2>
+                    <h2 style={{ color: index == 0 ? '#0BBB70' : '#EC3E47' }}>{team_data.holding_percent}</h2>
                   </td>
                   <td className="live-total-value">
-                 <h2 style={{color:index==0 ? '#0BBB70' : '#EC3E47'}}> {team_data.Total_Value}</h2>
+                    <h2 style={{ color: index == 0 ? '#0BBB70' : '#EC3E47' }}> {team_data.Total_Value}</h2>
                   </td>
 
                 </tr>
