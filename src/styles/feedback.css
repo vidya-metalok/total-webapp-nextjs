@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-height: 90vh;
+  /* max-height: 90vh; */
   padding: 35px;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }

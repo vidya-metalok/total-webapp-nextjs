@@ -797,7 +797,7 @@ const Dashboardcenter = () => {
                                     </div>
                                 </div>
                                 <div className="quick-trade-suchild2">
-                                    <input type="text" placeholder="0.00" className="token-names-select" value={inputAmount} onChange={(e) => setUserInput(e.target.value)
+                                    <input type="number" placeholder="0.00" className="token-names-select" value={inputAmount} onChange={(e) => setUserInput(e.target.value)
 
                                     }
                                     />

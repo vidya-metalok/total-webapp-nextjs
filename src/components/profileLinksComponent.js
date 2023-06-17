@@ -15,6 +15,8 @@ import { useRouter } from 'next/router';
 
 // import faqIcon from "../../public/images/faqs-icon.svg"
 
+import sessionmenu from "../../public/images/sessionmenu-icon.svg"
+
 import profileActive from "../../public/images/profile-active-icon.svg"
 import feedbackActive from "../../public/images/feedback-active.svg"
 import communityActive from '../../public/images/community-active.svg'
@@ -208,6 +210,54 @@ const ProfileLinksComponent = () => {
     const fqasLinkIcon = isFaqsHovered || router.pathname === '/faqspage' ? faqActive : faqsNotActive
 
     // const changeLinkClass = changeLink == "profile" ? "active-link-name" : "not-active-link-name"
+
+
+
+    const loginsession=[
+        {
+            days :' 1 day ago',
+            time : '3:30pm',
+            minits : '45mins',
+            imgmenu:sessionmenu
+
+
+        },
+        {
+            days :' 2 day ago',
+            time : '1:30pm',
+            minits : '20mins',
+            imgmenu:sessionmenu
+
+        },
+        {
+            days :' 1 day ago',
+            time : '3:30pm',
+            minits : '45mins',
+            imgmenu:sessionmenu
+
+        }
+
+]
+
+const Loginsession =({sessiondata})=>{
+    console.log("ssssssssssssssssssssssssssssssssssss",sessiondata)
+
+    return(
+        <div className='session-child'>
+           <h5>{sessiondata.days}</h5>
+           <h5>{sessiondata.time}</h5>
+           <h5>{sessiondata.minits}</h5>
+           <h5><Image src={sessiondata.imgmenu} alt="img" width='4px' height='20px' /></h5>
+        
+
+        </div>
+)
+}
+
+
+
+
+
     return (
         <div className='refferal-links-con'>
             <div>
@@ -242,6 +292,43 @@ const ProfileLinksComponent = () => {
                         <h2>FAQs</h2>
                     </Link>
                 </div>
+
+
+
+
+
+
+
+{router.pathname === '/profilepage' &&
+    <div className='loginsession' >
+        <h4 className='last3-heading'>Last 3 logins</h4>
+        <div className='loginsession-parent1'>
+            {
+                loginsession.map((each,index)=>(
+
+                    <Loginsession key={index} sessiondata={each} />
+                )
+                    
+                )
+            }
+        </div>
+
+            <h4 className='last3-heading'>Last 3 Activities</h4>
+            <div className='loginsession-parent1'>
+
+
+            </div>
+        
+    <div> 
+
+    </div>
+
+</div>}
+
+
+
+
+
                 <div className="profile-underline"></div>
             </div>
             <div className="logout-con3">
