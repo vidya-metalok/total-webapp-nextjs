@@ -37,7 +37,7 @@ import { tokenNineFetch } from '@/components/redux/tokenSlicer/tokenNineSlice';
 // import Faqspage from './faqspage';
 // import Refferalspage from "./refferalspage"a
 
-import { LoginAuthenticate } from './loginAuthenticate';
+import { LoginAuthenticate } from '../components/loginAuthenticate';
 import { bsvFetch } from '@/components/redux/walletSlicer/bsvcSlice';
 import { csvFetch } from '@/components/redux/walletSlicer/csvcSlice';
 import { dsvFetch } from '@/components/redux/walletSlicer/dsvcSlice';
