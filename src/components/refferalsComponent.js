@@ -40,7 +40,7 @@ const RefferalsComponent = () => {
 
   const [dataArraylist, setDataArray] = useState([]);
 
-  const [refdata, setrefdata] = useState({ wallet: refwallet, name: refname, mail: refmail, time: reftime })
+  const [refdata,setrefdata] = useState({wallet:refwallet, name:refname, mail:refmail, time:reftime})
 
   useEffect(() => {
     setrefdata({
@@ -51,28 +51,28 @@ const RefferalsComponent = () => {
     });
     // setDataArray(prevArray => [...prevArray, refdata]);
 
-
+    
   }, [refwallet, refname, refmail, reftime]);
 
-  useEffect(() => {
+ useEffect(()=>{
 
-    if (refdata.wallet === undefined) {
-      // setDataArray(prevArray => [...prevArray, refdata])
-      console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnodata")
-    }
-    else {
-      setDataArray(prevArray => [...prevArray, refdata])
-      console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnget data")
-    }
-
-
-
-  }, [refdata])
+  if(refdata.wallet===undefined){ 
+    // setDataArray(prevArray => [...prevArray, refdata])
+    console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnodata")
+}
+else{
+  setDataArray(prevArray => [...prevArray, refdata])
+  console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnget data")
+}
 
 
 
+},[refdata])
+  
 
-  console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", dataArraylist, refdata)
+
+
+  console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",dataArraylist,refdata)
 
 
   const timestamp = reftime;
@@ -176,8 +176,8 @@ const RefferalsComponent = () => {
       const listOfUsers = json.users
 
       const parsearr = JSON.parse(listOfUsers)
-      console.log("parseuser.....", parsearr.walletAddress, parsearr, typeof (parsearr))
-      console.log("walllettttttttttttttttttttttttttt", parsearr?.walletAddress)
+      console.log("parseuser.....", parsearr.walletAddress, parsearr, typeof(parsearr))
+      console.log("walllettttttttttttttttttttttttttt",parsearr?.walletAddress)
       setrefwallet(parsearr?.walletAddress)
       setrefname(parsearr?.name)
       setrefmail(parsearr?.email)
@@ -280,35 +280,35 @@ const RefferalsComponent = () => {
   // console.log(timestamp);
 
 
-  const Refferallist = ({ refferal }) => {
-    const date = new Date(refferal.time * 1000);
-    const time = date.toLocaleDateString()
+const Refferallist =({refferal})=>{
+  const date = new Date(refferal.time * 1000);
+  const time = date.toLocaleDateString()
 
 
-    console.log("nnnnnnnnnnnnnnnnn", refferal, "hlllllllllllllllllllll")
+  console.log("nnnnnnnnnnnnnnnnn",refferal,"hlllllllllllllllllllll")
     return (<div >
-      <div className='reff-card'>
-        <div className='reff-details'>
+    <div className='reff-card'>
+       <div className='reff-details'>
 
 
-          <Image src={sebastianImg} alt="" height={"auto"} width={"auto"} />
-          <div className='reff-address'>
-            <h1 className='reff-name' >{refferal.name}</h1>
-            <p className='ref-user'>{refferal.wallet}</p>
+        <Image src={sebastianImg} alt="" height={"auto"} width={"auto"} />
+       <div className='reff-address'>
+         <h1 className='reff-name' >{refferal.name}</h1>
+         <p className='ref-user'>{refferal.wallet}</p>
 
-          </div>
-        </div>
-        <div className='reff-email'>
-          <p4 className="reff-date">{time}</p4>
-          <p3 className="reff-mail">{refferal.mail}</p3>
+       </div>
+     </div>
+     <div className='reff-email'>
+       <p4 className="reff-date">{time}</p4>
+       <p3 className="reff-mail">{refferal.mail}</p3>
 
-        </div>
+     </div>
 
-      </div>
-
-
-    </div>)
-  }
+     </div>
+       
+       
+ </div>)
+}
 
 
   return (
@@ -367,20 +367,20 @@ const RefferalsComponent = () => {
 
               </div> */}
 
-              {
-                dataArraylist.map((each, index) => (
+{
+  dataArraylist.map((each,index)=>(
 
-                  <Refferallist key={index} refferal={each} />
+        <Refferallist key={index} refferal={each} />
 
 
-                )
+  )
 
-                )
-              }
+  )
+}
 
-              {dataArraylist.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals Yet</p>}
+{dataArraylist.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals Yet</p>}
             </div>
-
+          
 
 
           </div>
