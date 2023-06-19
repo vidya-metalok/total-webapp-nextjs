@@ -5,7 +5,7 @@ import sebastianImg from "../../public/images/sebastian-img.svg"
 import natalicImg from "../../public/images/natalie-img.svg"
 import serinityImg from "../../public/images/serinity-img.svg"
 import jsonImg from "../../public/images/json-img.svg"
-import earnTokenImg from "../../public/images/earn-token-img.svg"
+import earnTokenImg from "../../public/images/earn-token-img2.svg"
 import { user, privKey, idToken, publicKey } from './redux/userSlice';
 import { useSelector } from 'react-redux'
 import { useCallback } from 'react';
@@ -15,16 +15,16 @@ const RefferalsComponent = () => {
 
   const referralCode = useSelector((store) => store?.user?.loginInfo?.referralCode)
   const userInfo = useSelector((store) => store?.user?.loginInfo)
-    const userall = useSelector((store)=>store?.user)
+  const userall = useSelector((store) => store?.user)
 
-  const privKey = useSelector((store)=>store?.user?.privKey)
-  const idToken = useSelector((store)=>store?.user?.idToken)
-  const publicKey = useSelector((store)=>store?.user?.loginInfo?.publicKey)
+  const privKey = useSelector((store) => store?.user?.privKey)
+  const idToken = useSelector((store) => store?.user?.idToken)
+  const publicKey = useSelector((store) => store?.user?.loginInfo?.publicKey)
 
   // const publicKey = '0424affb8450aeae8f3a37b57b68126f176d29dbe2623f9621cfbdca0deaa1c683da1c408923864a631d1d065bcfe8ca40232d8982d54641553f037a5e414737f1'
   // const idToken = 'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlRZT2dnXy01RU9FYmxhWS1WVlJZcVZhREFncHRuZktWNDUzNU1aUEMwdzAifQ.eyJpYXQiOjE2ODYxMjk5NDUsImF1ZCI6IkJLX1RYNDhudFVpZXZpVmlMT3k4eHdVaENpcnpUUUkzdUw3TndIc0trWmtfLVI3Wnpwb3hjMldOSkRhdVQzT01ScG9sSTd3bE5SSFVnVDhTRDBoak5ERSIsIm5vbmNlIjoiMDNlN2ZjNDY5YmIwMDM1ZTlhZjZmOGQwNzkxYzZmYTljMWVkZjlmYjRkMGE4MGQwMTlkNTIzNWYxYmU4ZTYxN2ViIiwiaXNzIjoiaHR0cHM6Ly9hcGkub3BlbmxvZ2luLmNvbSIsIndhbGxldHMiOlt7InB1YmxpY19rZXkiOiIwMzI0YWZmYjg0NTBhZWFlOGYzYTM3YjU3YjY4MTI2ZjE3NmQyOWRiZTI2MjNmOTYyMWNmYmRjYTBkZWFhMWM2ODMiLCJ0eXBlIjoid2ViM2F1dGhfYXBwX2tleSIsImN1cnZlIjoic2VjcDI1NmsxIn1dLCJlbWFpbCI6InZpZHlhdmF0aGkxNUBnbWFpbC5jb20iLCJuYW1lIjoidmlkeWEgdmF0aGkiLCJwcm9maWxlSW1hZ2UiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQWNIVHRmandvN0o4SlhmS292aUZUMFN3N3JVTHhBYjFZdklNTEJwSzlnTz1zOTYtYyIsInZlcmlmaWVyIjoidG9ydXMiLCJ2ZXJpZmllcklkIjoidmlkeWF2YXRoaTE1QGdtYWlsLmNvbSIsImFnZ3JlZ2F0ZVZlcmlmaWVyIjoidGtleS1nb29nbGUiLCJleHAiOjE2ODYyMTYzNDV9.RTcaSx5xxdlzBVW3l7_gAAvDDboG5RciDuIg0SLXFJQEFYrIYDMGZFlprUfob3hvHt8a0YI7INU9Re-tXGbOwA'
 
-    const  walletId = useSelector((store)=>store?.user?.loginInfo?.walletAddress)
+  const walletId = useSelector((store) => store?.user?.loginInfo?.walletAddress)
 
 
 
@@ -33,17 +33,14 @@ const RefferalsComponent = () => {
   const [referralList, setReferralList] = useState([]);
   console.log("newRef....", referralList)
 
-  const [refwallet,setrefwallet] =useState()
-  const [refname,setrefname] = useState()
-  const [refmail,setrefmail] = useState()
-  const [reftime,setreftime] = useState()
+  const [refwallet, setrefwallet] = useState()
+  const [refname, setrefname] = useState()
+  const [refmail, setrefmail] = useState()
+  const [reftime, setreftime] = useState()
 
-  const [refdata,setrefdata] = useState({
-      wallet:refwallet,
-      name:refname,
-      mail:refmail,
-      time:reftime  
-  })
+  const [dataArraylist, setDataArray] = useState([]);
+
+  const [refdata, setrefdata] = useState({ wallet: refwallet, name: refname, mail: refmail, time: reftime })
 
   useEffect(() => {
     setrefdata({
@@ -52,11 +49,30 @@ const RefferalsComponent = () => {
       mail: refmail,
       time: reftime
     });
+    // setDataArray(prevArray => [...prevArray, refdata]);
+
+
   }, [refwallet, refname, refmail, reftime]);
 
+  useEffect(() => {
+
+    if (refdata.wallet === undefined) {
+      // setDataArray(prevArray => [...prevArray, refdata])
+      console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnodata")
+    }
+    else {
+      setDataArray(prevArray => [...prevArray, refdata])
+      console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnget data")
+    }
 
 
-  console.log("refffffffffffffffdataa", refdata, "walletttttttttttttttttttttttf", refdata.wallet)
+
+  }, [refdata])
+
+
+
+
+  console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", dataArraylist, refdata)
 
 
   const timestamp = reftime;
@@ -155,17 +171,17 @@ const RefferalsComponent = () => {
       }
       const json = await response.json();
 
-      console.log("json" , json)
+      console.log("json", json)
       // const convetedObj = JSON.parse(json.users)
       const listOfUsers = json.users
 
       const parsearr = JSON.parse(listOfUsers)
-      console.log("parseuser.....", parsearr.walletAddress, parsearr, typeof(parsearr))
-      console.log("walllettttttttttttttttttttttttttt",parsearr.walletAddress)
-      setrefwallet(parsearr.walletAddress)
-      setrefname(parsearr.name)
-      setrefmail(parsearr.email)
-      setreftime(parsearr.timestamp)
+      console.log("parseuser.....", parsearr.walletAddress, parsearr, typeof (parsearr))
+      console.log("walllettttttttttttttttttttttttttt", parsearr?.walletAddress)
+      setrefwallet(parsearr?.walletAddress)
+      setrefname(parsearr?.name)
+      setrefmail(parsearr?.email)
+      setreftime(parsearr?.timestamp)
 
 
       const updatedArr = [...parsearr]
@@ -226,7 +242,7 @@ const RefferalsComponent = () => {
     getDetails(publicKey, idToken);
     getReferrals(publicKey, idToken);
   }, [publicKey, idToken]);
-console.log('settttttttttttttttt' , refwallet,reftime,refmail,refname)
+  console.log('settttttttttttttttt', refwallet, reftime, refmail, refname)
 
 
   const dataArray = ['{"walletAddress":"0xe05D666604Ee00fE15AE7856add9c115Fc6ca6BA","email":"badboyscars916@gmail.com","name":"murali manoj","timestamp":1686135450}'];
@@ -264,7 +280,35 @@ console.log('settttttttttttttttt' , refwallet,reftime,refmail,refname)
   // console.log(timestamp);
 
 
+  const Refferallist = ({ refferal }) => {
+    const date = new Date(refferal.time * 1000);
+    const time = date.toLocaleDateString()
 
+
+    console.log("nnnnnnnnnnnnnnnnn", refferal, "hlllllllllllllllllllll")
+    return (<div >
+      <div className='reff-card'>
+        <div className='reff-details'>
+
+
+          <Image src={sebastianImg} alt="" height={"auto"} width={"auto"} />
+          <div className='reff-address'>
+            <h1 className='reff-name' >{refferal.name}</h1>
+            <p className='ref-user'>{refferal.wallet}</p>
+
+          </div>
+        </div>
+        <div className='reff-email'>
+          <p4 className="reff-date">{time}</p4>
+          <p3 className="reff-mail">{refferal.mail}</p3>
+
+        </div>
+
+      </div>
+
+
+    </div>)
+  }
 
 
   return (
@@ -303,8 +347,8 @@ console.log('settttttttttttttttt' , refwallet,reftime,refmail,refname)
           </div>
           <div className='refferals-list'>
             <h5 className='reff-cpy-nbr'>Your Referral List</h5>
-            {/* <div className='list-out'>
-              <div className='reff-card'>
+            <div className='list-out'>
+              {/* <div className='reff-card'>
                 <div className='reff-details'>
 
 
@@ -321,13 +365,22 @@ console.log('settttttttttttttttt' , refwallet,reftime,refmail,refname)
 
                 </div>
 
-              </div>
+              </div> */}
+
+              {
+                dataArraylist.map((each, index) => (
+
+                  <Refferallist key={index} refferal={each} />
 
 
+                )
 
+                )
+              }
 
-            </div> */}
-            {referralList.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals Yet</p>}
+              {dataArraylist.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals Yet</p>}
+            </div>
+
 
 
           </div>

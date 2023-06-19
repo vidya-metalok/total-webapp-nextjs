@@ -177,7 +177,7 @@ const ProfileComponent = () => {
                         <div className='d-flex align-items-center gap-5'>
                             {/* <Image className='profile-img' src={userprofile} alt="image" width={146} height={143} /> */}
                             {profileimg ? <Image className='profile-img' src={profileimg} alt="image" width={146} height={143} />
-                                : <Image src={userprofile} style={{ borderRadius: '50%' }} alt="" width={146} height={143} onClick={() => setopenLogout(!openLogout)} />
+                                        : <Image src={userprofile} style={{ borderRadius: '50%',background:'#232234' }} alt="" width={146} height={143}/>
                             }
                             <div className='user-name-data'>
                                 <h2>{editeddata?.firstName} {editeddata?.lastName}</h2>
@@ -228,8 +228,8 @@ const ProfileComponent = () => {
                         <div>
                             <label className='label-name' htmlFor="address">Address</label>
                             <br />
-                            {useredit ? <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' value={userAddress} onChange={(e) => setuserAddress(e.target.value)} />
-                                : <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 2132133, 2nd floor, huda colony, hyderabad' value={userAddress} />}
+                            {useredit ? <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 3-2, 2nd floor, huda colony, hyderabad' value={userAddress} onChange={(e) => setuserAddress(e.target.value)} />
+                                : <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 3-2, 2nd floor, huda colony, hyderabad' value={userAddress} />}
 
                         </div>
                     </form>

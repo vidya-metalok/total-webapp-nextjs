@@ -234,6 +234,7 @@ nav {
 
   opacity: 0.7;
   margin: 24px 0px;
+  cursor: pointer;
 }
 .logout-con a {
   display: flex;
@@ -330,4 +331,14 @@ nav {
 
 a:hover{
   color:#ea9528 !important;
+}
+
+.onwrap-main{
+position: fixed;
+width: 100vw;
+height: 100vh;
+left: 50%;
+background: #1615156b;
+transform: translateX(-50%);
+z-index: 50;
 }
