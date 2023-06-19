@@ -555,16 +555,15 @@ today-team-names-new p:nth-child(1) {
 
 .pop-select {
   position: absolute;
-  background: #232234;;
-  top:0px;
+  background: #232234;
+  top:50px;
   /* margin-top: 30px; */
   width: 112px;
   border-radius: 4px;
   border:1px solid #b0c1be;
   z-index: 5;
   padding:8px;
-  left:-30px;
-
+  left:45px;
 }
 
 /* new added 09-05-23 */
@@ -573,7 +572,7 @@ today-team-names-new p:nth-child(1) {
   display: flex;
   justify-content: center;
   color: white;
-  gap:20px;
+  gap: 20px;
 }
 .subparentsubchild5 {
   margin-top: 20px;

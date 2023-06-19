@@ -30,7 +30,8 @@ import empty from "../../public/images/empty-wallet.svg"
 var load1 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/graphload-img.png";
 var load2 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/graphload-img2.png";
 var matic = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/matic.png";
-var usdt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/usdt.png"
+// var usdt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/usdt.png"
+import usdt from "../../public/images/USDT 40-40.svg"
 
 var delhiCapital = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhicapital.png";
 var chennaiSupers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/chennaiSuperkings.png";
@@ -40,7 +41,8 @@ var rajasthanRoyals = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/we
 var punjabKings = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/punjabKings.png";
 var sunrisers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sunrisers.png";
 var kkr = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkr.png";
-var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
+// var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
+import lk from "../../public/images/Frame 35.svg"
 var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gt.png";
 import trabdeArrow from "../../public/images/trade-arr.svg"
 
@@ -65,6 +67,8 @@ import noWinImg from "../../public/images/win-teams-line.svg"
 const Dashboardcenter = () => {
     const [selectTokenInErr, setSelectTokenInErr] = useState(false)
     const [selectTokenOutErr, setSelectTokenOutErr] = useState(false)
+    const [inputAmountErr, setInputAmountErr] = useState(false)
+    const [mulDecimalErr, setMulDecimalErr] = useState(false)
     const web3 = new Web3(
         'https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF',
     );
@@ -632,7 +636,9 @@ const Dashboardcenter = () => {
 
 
     const onChangeUserInput = (e) => {
-        setUserInput(e.target.value)
+        const userInput = e.target.value
+        // setUserInput(e.target.value)
+
         if (tokenName == "Select Token") {
             setSelectTokenInErr(true)
         }
@@ -641,6 +647,25 @@ const Dashboardcenter = () => {
 
 
         }
+        const decimalCount = (userInput.split(".")[1] || "").length
+        if (decimalCount > 2) {
+            setInputAmountErr(true)
+
+        }
+        else {
+            setInputAmountErr(false)
+        }
+        // Check if the user input has multiple decimal points
+        const hasMultipleDecimalPoints = userInput.split(".").length - 1 > 1;
+        if (hasMultipleDecimalPoints) {
+            setMulDecimalErr(true);
+        }
+        else {
+            setMulDecimalErr(false)
+        }
+
+        // Update the userInput state
+        setUserInput(userInput);
     }
 
     return (
@@ -661,7 +686,7 @@ const Dashboardcenter = () => {
                                         <p>Total sportsverse Holdings</p>
                                     </div>
                                     <div className="subparentsubchild2">
-                                        <p>₹{totalHoldings}</p>
+                                        <p>₹{isNaN(totalHoldings) ? 0 : totalHoldings}</p>
                                         <p className="totalhold-percent">+9.2%</p>
                                     </div>
                                 </div>
@@ -775,7 +800,7 @@ const Dashboardcenter = () => {
 
                                     <div className="select-opt" onClick={selectClick}>
                                         <div className="token-out-result">
-                                            {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={20} width={20} />}
+                                            {tokenImage && <Image src={tokenImage} alt="ffgdfdf" height={25} width={25} />}
 
                                             <h3 className="token-names-select" style={{ marginLeft: tokenImage ? "-12px" : '0px' }}>{tokenName}</h3>
 
@@ -813,7 +838,7 @@ const Dashboardcenter = () => {
                                     </div>
                                 </div>
                                 <div className="quick-trade-suchild2">
-                                    <input type="text" placeholder="0.00" className="token-names-select" value={inputAmount} onChange={(e) => onChangeUserInput(e)
+                                    <input type="number" placeholder="0.00" className="token-names-select" value={inputAmount} onChange={(e) => onChangeUserInput(e)
 
                                     }
                                     />
@@ -823,6 +848,8 @@ const Dashboardcenter = () => {
 
                             <div style={{ marginTop: "22px" }}>
                                 {inputAmount < 0 && <p style={{ color: "red" }}>Please enter positive value</p>}
+                                {inputAmountErr && <p style={{ color: "red" }}>Please enter a valid amount with up to two decimal places</p>}
+                                {mulDecimalErr && <p style={{ color: "red" }}>Please enter a valid amount with only one decimal point</p>}
                                 {selectTokenInErr ? (
                                     <p style={{ color: "red" }}>Please select token </p>
                                 ) : ""}
@@ -877,7 +904,7 @@ const Dashboardcenter = () => {
                                     <div className="quick-trade-suchild2">
                                         {/* <input type="text" placeholder="0.00" value={amountOut}
                                     /> */}
-                                        <span>{isNaN(parseFloat(amountOut)) ? <input type="text" placeholder="0.00" className="token-names-select" /> : parseFloat(amountOut).toFixed(3)}</span>
+                                        <span>{isNaN(parseFloat(amountOut)) ? <input type="text" placeholder="0.00" disabled={true} className="token-names-select" /> : parseFloat(amountOut).toFixed(3)}</span>
                                     </div>
                                 </div>
                                 <div>

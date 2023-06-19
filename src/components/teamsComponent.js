@@ -124,7 +124,8 @@ import sunrisers from "../../public/images/live-score-sunrise.svg"
 // var kkr = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkr.png";
 import kkr from "../../public/images/kkr-svg.svg"
 // var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
-import lk from "../../public/images/lk-svg.svg"
+// import lk from "../../public/images/lk-svg.svg"
+import lk from "../../public/images/Frame 35.svg"
 // var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gt.png";
 import gt from "../../public/images/gt-svg.svg"
 

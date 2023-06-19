@@ -92,6 +92,8 @@ const WalletComponent = () => {
     const [sameOut, setSameOut] = useState('out')
     const [selectTokenInErr, setSelectTokenInErr] = useState(false)
     const [selectTokenOutErr, setSelectTokenOutErr] = useState(false)
+    const [inputAmountErr, setInputAmountErr] = useState(false)
+    const [mulDecimalErr, setMulDecimalErr] = useState(false)
     const editeddata = useSelector((store) => store?.user?.userEdit)
 
     const userWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
@@ -734,7 +736,8 @@ const WalletComponent = () => {
     const maticBalance = useSelector((store) => store?.user?.usdtBalance)
 
     const onChangeUserInput = (e) => {
-        setUserInput(e.target.value)
+        const userInput = e.target.value
+        // setUserInput(e.target.value)
         if (tokenName == "Select Token") {
             setSelectTokenInErr(true)
         }
@@ -743,6 +746,26 @@ const WalletComponent = () => {
 
 
         }
+        const hasMultipleDecimalPoints = userInput.split(".").length - 1 > 1;
+        if (hasMultipleDecimalPoints) {
+            setMulDecimalErr(true);
+        }
+        else {
+            setMulDecimalErr(false)
+        }
+        const decimalCount = (userInput.split(".")[1] || "").length
+        if (decimalCount > 2) {
+            setInputAmountErr(true)
+
+        }
+        else {
+            setInputAmountErr(false)
+        }
+        // Check if the user input has multiple decimal points
+
+
+        // Update the userInput state
+        setUserInput(userInput);
 
     }
 
@@ -876,6 +899,8 @@ const WalletComponent = () => {
                                     <h1 className="onw-quial">1 RSVC = 21.02 USDT</h1>
 
                                     {inputAmount < 0 && <p style={{ color: "red" }}>Please enter positive value</p>}
+                                    {inputAmountErr && <p style={{ color: "red" }}>Please enter a valid amount with up to two decimal places</p>}
+                                    {mulDecimalErr && <p style={{ color: "red" }}>Please enter a valid amount with only one decimal point</p>}
                                     {selectTokenInErr ? (
                                         <p style={{ color: "red" }}>Please select token </p>
                                     ) : ""}

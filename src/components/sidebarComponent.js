@@ -28,7 +28,8 @@ import rajasthanRoyals from "../../public/images/rajasthan-royals-svg.svg"
 import punjabKings from "../../public/images/punjab-kings-svg.svg"
 import sunrisers from "../../public/images/live-score-sunrise.svg";
 import kkr from "../../public/images/kkr-svg.svg"
-import lk from "../../public/images/lk-svg.svg"
+// import lk from "../../public/images/lk-svg.svg"
+import lk from "../../public/images/Frame 35.svg"
 import gt from "../../public/images/gt-svg.svg"
 
 // import delhiCapital from "../../public/images/delhicapital.png"
@@ -127,8 +128,11 @@ const Sidebar = () => {
 
 
         }
+        else {
+            setNotInLive(true)
+        }
 
-    }, [iplMatches])
+    }, [iplMatches, sideLiveObj, notInLive])
 
 
     const [teamAImgUrl, setTeamAImgUrl] = useState("");
@@ -213,6 +217,54 @@ const Sidebar = () => {
 
 
                         {mytokenclick && (
+                            <p style={{ color: "white" }}>My Tokens</p>
+                            // <>
+
+
+                            //     {newTokenList.length == 0 ? (
+
+                            //         <div className='no-hist-con'>
+                            //             <Image src={noTokenImg} alt="" height={20} width={20} />
+                            //             <h1 style={{ color: 'red' }}>You don’t have any tokens to display</h1>
+                            //         </div>
+                            //     ) : (
+
+                            //         <div className='side-tok-height'>
+                            //             <table>
+                            //                 <tbody>
+                            //                     {
+                            //                         newTokenList.map((eachToken, index) => (
+                            //                             <Link href={{ pathname: "/teamspage", query: { eachToken: JSON.stringify(eachToken) } }} as="/teamspage" key={index}>
+
+                            //                                 <tr className="token-container" key={index}>
+                            //                                     <td>
+                            //                                         <Image src={eachToken?.logoUrl} alt="" height={40} width={40} />
+                            //                                     </td>
+                            //                                     <td>
+                            //                                         <h1>${eachToken?.price?.price}</h1>
+                            //                                     </td>
+                            //                                     <td>
+                            //                                         {eachToken?.wallet >= 0
+                            //                                             ? <p>+{eachToken?.wallet}</p>
+                            //                                             : <p style={{ color: 'red' }}>-{eachToken?.wallet}</p>}
+                            //                                     </td>
+                            //                                 </tr>
+                            //                             </Link>
+                            //                         ))}
+                            //                 </tbody>
+                            //             </table>
+                            //         </div>
+
+                            //     )}
+
+
+
+
+
+                            // </>
+                        )}
+
+                        {alltokenclick && (
                             <>
 
 
@@ -257,13 +309,6 @@ const Sidebar = () => {
 
 
                             </>
-                        )}
-
-                        {alltokenclick && (
-                            <div>
-                                <h3 style={{ color: "white" }}>All Token</h3>
-
-                            </div>
                         )}
 
 
