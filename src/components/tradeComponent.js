@@ -34,15 +34,7 @@ const TradeComponent = () => {
   const [liveData, setliveData] = useState(null);
   const [notinlive, setnotinlive] = useState(true)
 
-  // if (notinlive == true) {
-  //   document.body.style.overflow = 'hidden'
-  //   document.body.style.height = '100vh'
-  // }
-  // else {
-  //   document.body.style.overflow = 'auto'
-  //   document.body.style.height = '100vh'
 
-  // }
 
   const totalmatches = useSelector((abc) => {
     return abc?.priceMatches?.matchesList;
@@ -172,29 +164,25 @@ const TradeComponent = () => {
 
   const [bowlingT, setbowlingT] = useState(false)
 
-  if (batars == false) {
-    document.body.style.overflow = 'hidden'
-    document.body.style.height = '100vh'
-  }
-  else {
-    document.body.style.overflow = 'auto'
-    document.body.style.height = 'auto'
-  }
+  // if (batars == false) {
+  //   document.body.style.overflow = 'hidden'
+  //   document.body.style.height = '100vh'
+  // }
+  // else {
+  //   document.body.style.overflow = 'auto'
+  //   document.body.style.height = 'auto'
+  // }
 
   const batmensData = () => {
     setbatars(!batars)
 
-    // document.body.style.overflow = 'hidden';
-
-    // document.body.style.overflow = 'hidden'
-    // document.body.style.height = '100vh'
+  
 
   }
   const closeBatsmendata = () => {
     setbatars(false)
     setbatars(false)
-    // document.body.style.overflow = 'auto'
-    // document.body.style.height = 'auto'
+  
 
 
   }
@@ -205,8 +193,7 @@ const TradeComponent = () => {
 
   const scroreClose = () => {
     setbatars(false)
-    // document.body.style.overflow = 'auto'
-    // document.body.style.height = 'auto'
+
 
   }
 
@@ -315,7 +302,7 @@ const TradeComponent = () => {
 
   return (
     <div style={{ padding: "5px" }}>
-      <div className="not-inlive-section" style={{ display: notinlive ? 'block' : 'none' }}>
+      <div className="not-inlive-section" style={{ display: notinlive ? 'none' : 'block' }}>
         <h1>Will be active when match is Live</h1>
       </div>
 
