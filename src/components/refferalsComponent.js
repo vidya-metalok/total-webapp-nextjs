@@ -51,24 +51,24 @@ const RefferalsComponent = () => {
     });
     // setDataArray(prevArray => [...prevArray, refdata]);
 
-
+    
   }, [refwallet, refname, refmail, reftime]);
 
   useEffect(() => {
 
     if (refdata.wallet === undefined) {
-      // setDataArray(prevArray => [...prevArray, refdata])
-      console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnodata")
-    }
+    // setDataArray(prevArray => [...prevArray, refdata])
+    console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnodata")
+}
     else {
-      setDataArray(prevArray => [...prevArray, refdata])
-      console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnget data")
-    }
+  setDataArray(prevArray => [...prevArray, refdata])
+  console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnget data")
+}
 
 
 
   }, [refdata])
-
+  
 
 
 
@@ -281,34 +281,34 @@ const RefferalsComponent = () => {
 
 
   const Refferallist = ({ refferal }) => {
-    const date = new Date(refferal.time * 1000);
-    const time = date.toLocaleDateString()
+  const date = new Date(refferal.time * 1000);
+  const time = date.toLocaleDateString()
 
 
     console.log("nnnnnnnnnnnnnnnnn", refferal, "hlllllllllllllllllllll")
     return (<div >
-      <div className='reff-card'>
-        <div className='reff-details'>
+    <div className='reff-card'>
+       <div className='reff-details'>
 
 
-          <Image src={sebastianImg} alt="" height={"auto"} width={"auto"} />
-          <div className='reff-address'>
-            <h1 className='reff-name' >{refferal.name}</h1>
-            <p className='ref-user'>{refferal.wallet}</p>
+        <Image src={sebastianImg} alt="" height={"auto"} width={"auto"} />
+       <div className='reff-address'>
+         <h1 className='reff-name' >{refferal.name}</h1>
+         <p className='ref-user'>{refferal.wallet}</p>
 
-          </div>
-        </div>
-        <div className='reff-email'>
-          <p4 className="reff-date">{time}</p4>
-          <p3 className="reff-mail">{refferal.mail}</p3>
+       </div>
+     </div>
+     <div className='reff-email'>
+       <p4 className="reff-date">{time}</p4>
+       <p3 className="reff-mail">{refferal.mail}</p3>
 
-        </div>
+     </div>
 
-      </div>
-
-
-    </div>)
-  }
+     </div>
+       
+       
+ </div>)
+}
 
 
   return (
@@ -367,20 +367,20 @@ const RefferalsComponent = () => {
 
               </div> */}
 
-              {
+{
                 dataArraylist.map((each, index) => (
 
-                  <Refferallist key={index} refferal={each} />
+        <Refferallist key={index} refferal={each} />
 
 
-                )
+  )
 
-                )
-              }
+  )
+}
 
-              {dataArraylist.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals Yet</p>}
+{dataArraylist.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals Yet</p>}
             </div>
-
+          
 
 
           </div>
