@@ -89,7 +89,15 @@ const NavBarComponent = () => {
     const dispatch = useDispatch()
     const router = useRouter()
 
-
+if(depositeOpen==true){
+    document.body.style.overflow='hidden'
+    document.body.style.height = '100vh'
+    console.log("ffffffffffffffffffffffffffffffffffffffffffffffffi")
+}
+else{
+    document.body.style.overflow='auto'
+    document.body.style.height = 'auto'
+}
 
     const handleProfileHover = () => {
         setIsProfileHovered(true)
@@ -499,7 +507,7 @@ const NavBarComponent = () => {
 
 
             {depositeOpen && (
-                <div>
+                <div className='onwrap-main'>
                     <div className='nav-onwrap'>
                         <iframe className="on-wrap-site" src={`https://onramp.money/main/buy/?appId=114893&walletAddress=${userWallet}&network=matic20&coinCode=usdt`}>
 

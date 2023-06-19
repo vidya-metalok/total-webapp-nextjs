@@ -5,7 +5,7 @@ import sebastianImg from "../../public/images/sebastian-img.svg"
 import natalicImg from "../../public/images/natalie-img.svg"
 import serinityImg from "../../public/images/serinity-img.svg"
 import jsonImg from "../../public/images/json-img.svg"
-import earnTokenImg from "../../public/images/earn-token-img.svg"
+import earnTokenImg from "../../public/images/earn-token-img2.svg"
 import { user, privKey, idToken, publicKey } from './redux/userSlice';
 import { useSelector } from 'react-redux'
 import { useCallback } from 'react';
@@ -38,12 +38,9 @@ const RefferalsComponent = () => {
   const [refmail,setrefmail] = useState()
   const [reftime,setreftime] = useState()
 
-  const [refdata,setrefdata] = useState({
-      wallet:refwallet,
-      name:refname,
-      mail:refmail,
-      time:reftime  
-  })
+  const [dataArraylist, setDataArray] = useState([]);
+
+  const [refdata,setrefdata] = useState({wallet:refwallet, name:refname, mail:refmail, time:reftime})
 
   useEffect(() => {
     setrefdata({
@@ -52,11 +49,30 @@ const RefferalsComponent = () => {
       mail: refmail,
       time: reftime
     });
+    // setDataArray(prevArray => [...prevArray, refdata]);
+
+    
   }, [refwallet, refname, refmail, reftime]);
 
+ useEffect(()=>{
+
+  if(refdata.wallet===undefined){ 
+    // setDataArray(prevArray => [...prevArray, refdata])
+    console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnodata")
+}
+else{
+  setDataArray(prevArray => [...prevArray, refdata])
+  console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnget data")
+}
 
 
-  console.log("refffffffffffffffdataa", refdata, "walletttttttttttttttttttttttf", refdata.wallet)
+
+},[refdata])
+  
+
+
+
+  console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",dataArraylist,refdata)
 
 
   const timestamp = reftime;
@@ -161,11 +177,11 @@ const RefferalsComponent = () => {
 
       const parsearr = JSON.parse(listOfUsers)
       console.log("parseuser.....", parsearr.walletAddress, parsearr, typeof(parsearr))
-      console.log("walllettttttttttttttttttttttttttt",parsearr.walletAddress)
-      setrefwallet(parsearr.walletAddress)
-      setrefname(parsearr.name)
-      setrefmail(parsearr.email)
-      setreftime(parsearr.timestamp)
+      console.log("walllettttttttttttttttttttttttttt",parsearr?.walletAddress)
+      setrefwallet(parsearr?.walletAddress)
+      setrefname(parsearr?.name)
+      setrefmail(parsearr?.email)
+      setreftime(parsearr?.timestamp)
 
 
       const updatedArr = [...parsearr]
@@ -264,7 +280,35 @@ console.log('settttttttttttttttt' , refwallet,reftime,refmail,refname)
   // console.log(timestamp);
 
 
+const Refferallist =({refferal})=>{
+  const date = new Date(refferal.time * 1000);
+  const time = date.toLocaleDateString()
 
+
+  console.log("nnnnnnnnnnnnnnnnn",refferal,"hlllllllllllllllllllll")
+    return (<div >
+    <div className='reff-card'>
+       <div className='reff-details'>
+
+
+        <Image src={sebastianImg} alt="" height={"auto"} width={"auto"} />
+       <div className='reff-address'>
+         <h1 className='reff-name' >{refferal.name}</h1>
+         <p className='ref-user'>{refferal.wallet}</p>
+
+       </div>
+     </div>
+     <div className='reff-email'>
+       <p4 className="reff-date">{time}</p4>
+       <p3 className="reff-mail">{refferal.mail}</p3>
+
+     </div>
+
+     </div>
+       
+       
+ </div>)
+}
 
 
   return (
@@ -303,8 +347,8 @@ console.log('settttttttttttttttt' , refwallet,reftime,refmail,refname)
           </div>
           <div className='refferals-list'>
             <h5 className='reff-cpy-nbr'>Your Referral List</h5>
-            {/* <div className='list-out'>
-              <div className='reff-card'>
+            <div className='list-out'>
+              {/* <div className='reff-card'>
                 <div className='reff-details'>
 
 
@@ -321,13 +365,22 @@ console.log('settttttttttttttttt' , refwallet,reftime,refmail,refname)
 
                 </div>
 
-              </div>
+              </div> */}
+
+{
+  dataArraylist.map((each,index)=>(
+
+        <Refferallist key={index} refferal={each} />
 
 
+  )
 
+  )
+}
 
-            </div> */}
-            {referralList.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals Yet</p>}
+{dataArraylist.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals Yet</p>}
+            </div>
+          
 
 
           </div>

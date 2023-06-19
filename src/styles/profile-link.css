@@ -24,9 +24,9 @@
 
   letter-spacing: -0.471534px;
 
-  color: #ffffff;
+  color: #bfbfc6;
 
-  opacity: 0.6;
+  /* opacity: 0.6; */
   /* margin: 5px 0px 5px 0px; */
 }
 .logout-con a h2 {
@@ -39,14 +39,62 @@
   width: 182px;
 }
 .refferal-links-con a:hover {
-  color: #ffffff;
+  color: #bfbfc6;
 
-  opacity: 0.6;
+  /* opacity: 0.6; */
 }
 .refferal-links-con a:hover:active {
   color: #ea9528;
 }
 .logout-con a {
   gap: 20px;
-  height: 45px;
+  height: 30px;
+  margin: 15px 0px
+}
+
+
+
+
+.loginsession-parent1{
+  width: 228.73px;
+  height: 129.12px;
+  background: #1F1C2D;
+  border-radius: 6.20526px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:8px;
+}
+.session-child{
+  display: flex;
+
+justify-content: space-around;
+}
+
+.session-child h5{
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 11.8055px;
+line-height: 16px;
+/* identical to box height, or 138% */
+
+display: flex;
+align-items: center;
+
+color: #606981;
+}
+
+.last3-heading{
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 500;
+font-size: 11.0677px;
+line-height: 12px;
+/* or 107% */
+
+letter-spacing: 0.184461px;
+
+color: #E3E3E3;
+margin-top:18px;
 }
