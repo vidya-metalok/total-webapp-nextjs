@@ -11,7 +11,8 @@
   /* width: 50%; */
 
   background-color: #282739;
-  margin-right: 1rem;
+
+  margin-right: 8px;
   padding: 10px;
 }
 .teams-banner {
@@ -30,7 +31,7 @@
   width: 100px;
   height: 100px;
   border: 1.5px solid #ea9528;
-  background-color:#1f1c2d;
+  background-color: #1f1c2d;
 }
 .teams-name-con {
   position: relative;
@@ -178,7 +179,7 @@
   line-height: 18px;
   letter-spacing: -0.312463px;
   color: rgba(255, 255, 255, 0.65);
-  margin-bottom:0px;
+  margin-bottom: 0px;
 }
 .bastman-best {
   display: flex;
@@ -249,11 +250,11 @@
   overflow: auto;
   border-radius: 9px;
 }
-.team-matches-hist::-webkit-scrollbar{
+.team-matches-hist::-webkit-scrollbar {
   width: 7px;
 }
-.team-matches-hist::-webkit-scrollbar-thumb{
-  background-color:  #393848;
+.team-matches-hist::-webkit-scrollbar-thumb {
+  background-color: #393848;
   border-radius: 6px;
 }
 
@@ -340,7 +341,7 @@
 }
 .single-team-titles h3 {
   font-family: "Poppins";
-  font-size: 16px;
+  font-size: 12px;
   color: #6e6e6e;
   margin: 0.5rem;
 }
@@ -388,7 +389,7 @@
   opacity: 0.75;
   text-align: center;
   padding-left: 20%;
-  margin:0px;
+  margin: 0px;
 }
 .d-time {
   font-family: "Poppins";
@@ -563,21 +564,19 @@
   }
 }
 .chart-hist {
-  
   color: #ea9528;
   /* top: 85px; */
   border-radius: 10px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    color: #ea9528;
-    z-index: 10;
-    right: 16px;
-    background: #191c1c;
-    width: 162px;
-    text-align: end;
-
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  color: #ea9528;
+  z-index: 10;
+  right: 16px;
+  background: #191c1c;
+  width: 162px;
+  text-align: end;
 }
 .tocken-bar-head h6 {
   color: #ea9528;
@@ -589,11 +588,10 @@
   justify-content: center;
 }
 
-.copied-display{
-  margin-top:-15px;
+.copied-display {
+  margin-top: -15px;
 }
 
-
-.teams-transaction::-webkit-scrollbar{
+.teams-transaction::-webkit-scrollbar {
   width: 0px !important;
 }

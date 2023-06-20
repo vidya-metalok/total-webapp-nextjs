@@ -131,16 +131,22 @@ const WalletComponent = () => {
     const privateKey = useSelector((store) => store.user.privKey);
 
     console.log("priiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii", privateKey)
+    const firstSix = privateKey.substring(0, 6);
+    const lastSix = privateKey.substring(privateKey.length - 6);
+    const obfuscatedMiddle = "............";
+
+    const newVariable = `${firstSix}${obfuscatedMiddle}${lastSix}`;
 
 
-    let pristr = privateKey;
-    let prilen = pristr?.length;
-    let pristart = Math.floor(len - 7);
-    // let end = start + 40;
-    let privkey = pristr?.substring(0, 7) + "....." + pristr?.substring(pristart, len);
+
+    // let pristr = privateKey;
+    // let prilen = pristr?.length;
+    // let pristart = Math.floor(len - 7);
+    // // let end = start + 40;
+    // let privkey = pristr?.substring(0, 7) + "....." + pristr?.substring(pristart, len);
 
 
-    console.log("pppppppppppppppppppppppp", privkey)
+    // console.log("pppppppppppppppppppppppp", privkey)
 
 
     const userName = useSelector((store) => store.user.loginInfo?.name);
@@ -813,7 +819,7 @@ const WalletComponent = () => {
                 </div>
                 <div className="buy-sell-main-con">
                     <div className="text-card">
-                        <p>privateKey: {privkey}
+                        <p>privateKey:  {newVariable}
                         </p>
                         <button className="key-btn">key</button>
                     </div>
@@ -999,8 +1005,9 @@ const WalletComponent = () => {
                                         <div className="wallet-info">
                                             <h3>Gas fee</h3>
                                             <p>
-                                                0.02 Matic <span>($0.02)</span>
+                                                <span style={{ width: '86px', marginRight: '6px' }}>0.02 Matic</span> <span>($0.02)</span>
                                             </p>
+
                                         </div>
                                     </div>
                                 </div>

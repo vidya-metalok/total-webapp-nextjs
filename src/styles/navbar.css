@@ -117,7 +117,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 30%;
+  /* width: 30%; */
 }
 @media (max-width: 1024px) {
   .profile-notification-container {
@@ -213,7 +213,7 @@ nav {
   margin: 24px 0px;
 }
 
-.logout-con2 h3 a{
+.logout-con2 h3 a {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -224,7 +224,7 @@ nav {
   opacity: 0.7;
   margin: 24px 0px;
 }
-.logout-con2 h3{
+.logout-con2 h3 {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -252,13 +252,12 @@ nav {
   align-items: center;
   margin-right: auto;
   width: 202px;
-  gap:25px;
+  gap: 25px;
   height: 45px;
-  color:white;
-  
+  color: white;
 }
 
-.logout-head{
+.logout-head {
   color: #ec3e47 !important;
 }
 
@@ -329,16 +328,16 @@ nav {
   color: #ea9528;
 }
 
-a:hover{
-  color:#ea9528 !important;
+a:hover {
+  color: #ea9528 !important;
 }
 
-.onwrap-main{
-position: fixed;
-width: 100vw;
-height: 100vh;
-left: 50%;
-background: #1615156b;
-transform: translateX(-50%);
-z-index: 50;
+.onwrap-main {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 50%;
+  background: #1615156b;
+  transform: translateX(-50%);
+  z-index: 50;
 }

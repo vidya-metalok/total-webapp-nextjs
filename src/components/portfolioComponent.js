@@ -223,7 +223,7 @@ const PortFolioComponent = () => {
                         data: userLoginInfo == null ? [0, 0, 0, 0, 0, 0, 0, 0] : [null, 5000, 6000, 8000, 10000, 7000, 6500, 4000],
 
                         fill: true,
-                        backgroundColor: "#403d4a",
+                        backgroundColor: "rgba(57,57,71,0.7)",
                         borderColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : "#EA9528",
                         borderCapStyle: "butt",
                         tension: 0.1,
@@ -284,22 +284,22 @@ const PortFolioComponent = () => {
     const psvAmount = useSelector((store) => store.tokenNineSlice.tokenNine.price)
     const rsvAmount = useSelector((store) => store.tokenTenSlice.tokenTen.price)
 
-    const [graphline,setgraphline] = useState(300)
+    const [graphline, setgraphline] = useState(300)
 
     useEffect(() => {
         const handleResize = () => {
-          if (window.innerWidth < 1128) {
-            setgraphline(150);
-          } else {
-            setgraphline(300);
-          }
+            if (window.innerWidth < 1128) {
+                setgraphline(150);
+            } else {
+                setgraphline(300);
+            }
         };
         window.addEventListener('resize', handleResize);
-    return () => {
-        window.removeEventListener('resize', handleResize);
-      };
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
-// console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", graphline)
+    // console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", graphline)
     const data = useMemo(() =>
 
 
@@ -410,10 +410,10 @@ const PortFolioComponent = () => {
 
     ]
 
-    
-    
 
- 
+
+
+
 
 
     return (
@@ -709,8 +709,8 @@ const PortFolioComponent = () => {
                                         <td className='asset-hold'>{each.holdings}</td>
                                         <td className='asset-total'>
                                             {/* {each.totalValue} */}
-                                           <span>{each.totalValue.split(' ')[0]}</span>
-                                           <span style={{fontSize:'12px'}}>{each.totalValue.split(' ')[1]}</span>
+                                            <span>{each.totalValue.split(' ')[0]}</span>
+                                            <span style={{ fontSize: '12px' }}>{each.totalValue.split(' ')[1]}</span>
                                         </td>
                                         <td className='asset-invest'>{each.invested}</td>
                                         <td className='asset-total'>{each.hour}</td>

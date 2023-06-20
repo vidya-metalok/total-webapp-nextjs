@@ -9,7 +9,7 @@
   padding: 20px 10px;
 }
 .layout-child {
-  margin-left: 1rem;
+  margin-left: 8px;
   height: 90vh;
   overflow-y: auto;
   overflow-x: hidden;
