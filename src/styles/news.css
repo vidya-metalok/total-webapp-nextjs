@@ -1,0 +1,7 @@
+.news-section{
+    width: 100vw;
+    height: 96vh;
+    background: radial-gradient(#ea9528, transparent);
+    color: #0e0d0c;
+    font-family: "Poppins";
+}

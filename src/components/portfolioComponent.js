@@ -294,10 +294,21 @@ const PortFolioComponent = () => {
                 setgraphline(300);
             }
         };
+      
+
         window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+  handleResize(); // Call the function immediately
+
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+
+
+        
+
+
+
+
     }, []);
     // console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww", graphline)
     const data = useMemo(() =>

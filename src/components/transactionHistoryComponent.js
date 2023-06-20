@@ -412,7 +412,7 @@ const TransactionHistoryComponent = (props) => {
 
                             {transHist && (
                                 <div className='trans-list'>
-                                    <p4>weekly</p4>
+                                    <p4>Weekly</p4>
                                     <p4>Monthly</p4>
                                     <p4>Yearly</p4>
                                 </div>

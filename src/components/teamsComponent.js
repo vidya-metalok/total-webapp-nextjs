@@ -400,32 +400,32 @@ const TeamsComponent = (props) => {
   // }, []);
   // console.log("teamMatchHistory....", teamMatchHistory)
 
-  const [matchHistory, setMatchHistory] = useState({});
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const firestore = getFirestore();
-        const matchHistoryRef = doc(firestore, "IPLStats", tokenKey);
-        const unsubscribe = onSnapshot(matchHistoryRef, (doc) => {
-          if (doc.exists()) {
-            setMatchHistory(doc.data());
-            console.log("====================================");
-            console.log(doc.data());
-            console.log("====================================");
-          } else {
-            console.log("No matching documents");
-          }
-        });
-        return () => unsubscribe();
-      } catch (err) {
-        console.log(`Error: ${err}`);
-      }
-    };
+  // const [matchHistory, setMatchHistory] = useState({});
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const firestore = getFirestore();
+  //       const matchHistoryRef = doc(firestore, "IPLStats", tokenKey);
+  //       const unsubscribe = onSnapshot(matchHistoryRef, (doc) => {
+  //         if (doc.exists()) {
+  //           setMatchHistory(doc.data());
+  //           console.log("====================================");
+  //           console.log(doc.data());
+  //           console.log("====================================");
+  //         } else {
+  //           console.log("No matching documents");
+  //         }
+  //       });
+  //       return () => unsubscribe();
+  //     } catch (err) {
+  //       console.log(`Error: ${err}`);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
-  console.log("matchData....", matchHistory);
+  // console.log("matchData....", matchHistory);
 
   // main div-----------------
   const [historyclick, sethistoryclick] = useState(true);
@@ -440,6 +440,115 @@ const TeamsComponent = (props) => {
     sethistoryclick(false);
     setmatchpointclick(true);
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const [matchHistory, setMatchHistory] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const firestore = getFirestore();
+  
+        const tokenKeys = ['rcb', 'csk', 'dc', 'gt', 'srh', 'kkr', 'lsg', 'mi','pbks', 'rr'];
+        const unsubscribeFunctions = [];
+  
+        tokenKeys.forEach((tokenKey) => {
+          const matchHistoryRef = doc(firestore, 'IPLStats', tokenKey);
+          const unsubscribe = onSnapshot(matchHistoryRef, (doc) => {
+            if (doc.exists()) {
+              const updatedMatchHistory = { [tokenKey]: doc.data() };
+
+              console.log("eaccccccccccccccccccccccccccccc", "dataaaaa",doc.data().team_code)
+              setMatchHistory((prevMatchHistory) => {
+                const existingMatchHistory = prevMatchHistory.find((item) => Object.keys(item)[0] === tokenKey);
+                if (existingMatchHistory) {
+                  // Update existing entry
+                  return prevMatchHistory.map((item) =>
+                    Object.keys(item)[0] === tokenKey ? updatedMatchHistory : item
+                  );
+                } else {
+                  // Add new entry
+                  return [...prevMatchHistory, updatedMatchHistory];
+                }
+              });
+            } else {
+              console.log('No matching documents for', tokenKey);
+            }
+          });
+  
+          unsubscribeFunctions.push(unsubscribe);
+        });
+        // Clean up the subscriptions when the component unmounts
+        return () => {
+          unsubscribeFunctions.forEach((unsubscribe) => unsubscribe());
+        };
+      } catch (err) {
+        console.log(`Error: ${err}`);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
+
+console.log("eaccccccccccccccccccccccccccccccmatchHistory", matchHistory, "tokendetails", tokenDetails )
+
+
+
+  const teamsData = [];
+
+const dataArray = Object.values(matchHistory); 
+
+ dataArray.map((teamData) => {
+  const team = Object.values(teamData)[0]; 
+  console.log('uuuuuuuuuuuuuuuuuuuuuuttttttttttt', team);
+  teamsData.push(team);
+
+});
+
+
+
+
+console.log("eacccccccccccccc", "team" , teamsData)
+
+console.log('eaccccccccccccccccccteams', allteamLogo, "team" , teamsData )
+
+
+
+
+const PointsTable =(each,index)=>{
+
+  console.log("eaccccccccccccccccccc", each.index)
+
+
+   return(
+    <div className="single-team-score">
+      <div className="points-teams-heading-section" style={{width:'32%'}}>
+        <h6 className="points-teams-heading index-change" >{each.index+1}</h6>
+        <Image src={allteamLogo[each.index]} alt="img" width={20} height={20} />
+        <h6 className="points-teams-heading">{each.each.team_code}</h6>
+      </div>
+      <p>{each.each.played}</p>
+      <p>{each.each.won}</p>
+      <p>{each.each.lost}</p>
+      <p>{each.each.points}</p>
+      <p>{each.each.net_run_rate}</p>
+  </div>
+   )
+}
+
+
 
   // new added 25-05 ------------------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -745,7 +854,7 @@ const TeamsComponent = (props) => {
 
             {sheduleclick && (
               <div>
-                <div className="match table-responsive">
+                <div className="match">
 
                   <table>
                     {shedule.map((each, index) => (
@@ -879,25 +988,26 @@ const TeamsComponent = (props) => {
 
                 <div className="single-team-hist">
                   <div className="single-team-titles">
-                    <h3 style={{ width: "57px", marginLeft: "8px" }}>Team</h3>
+                    <h3 style={{ width: "32%"}}>Team</h3>
                     <h3>P</h3>
                     <h3>W</h3>
                     <h3>L</h3>
                     <h3>Pts</h3>
                     <h3>NRR</h3>
                   </div>
-                  <div className="single-team-score">
-                    <div className="d-flex">
-                      <p style={{ marginLeft: '-10px' }}>{matchHistory.won}</p>
-                      <Image src={bengaloreImg} alt="img" width={20} height={20} />
-                      <p>{matchHistory.team_code}</p>
-                    </div>
-                    <p>{matchHistory.played}</p>
-                    <p>{matchHistory.won}</p>
-                    <p>{matchHistory.lost}</p>
-                    <p>{matchHistory.points}</p>
-                    <p>{matchHistory.net_run_rate}</p>
-                  </div>
+
+
+                  {teamsData.map((each,index)=>(
+                    <PointsTable each={each} index={index} key={index}/>
+                  ))
+
+                  }
+
+
+
+
+
+
                 </div>
               </div>
             )}

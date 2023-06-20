@@ -819,9 +819,9 @@ const WalletComponent = () => {
                 </div>
                 <div className="buy-sell-main-con">
                     <div className="text-card">
-                        <p>privateKey:  {newVariable}
+                        <p>PrivateKey:  {newVariable}
                         </p>
-                        <button className="key-btn">key</button>
+                        <button className="key-btn">Key</button>
                     </div>
 
                     <div className="wallet-child2">

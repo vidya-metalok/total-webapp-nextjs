@@ -643,7 +643,10 @@
   letter-spacing: -0.422099px;
 
   color: #dadada;
+  width: 109px;
+  margin-right: -10px;
 }
+
 /*-------------------------------------------------------------------------Live table data end  */
 
 .batting-con {
@@ -871,4 +874,9 @@
 
   opacity: 0.7;
   margin: 20px 0px 0px 40px;
+}
+
+
+.live-token-headings th:nth-child(1){
+  width: 40%;
 }
