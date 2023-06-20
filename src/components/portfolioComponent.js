@@ -29,6 +29,7 @@ import noPLImg from "../../public/images/no-p&l-img.svg"
 import noWinImg from "../../public/images/win-teams-line.svg"
 import noAssetIcon from "../../public/images/no-asset-icon.svg"
 import noPieIcon from "../../public/images/no-pie-icon.svg"
+import piAssetIcon from "../../public/images/asset-pi-chart-icon.svg"
 
 
 
@@ -215,7 +216,7 @@ const PortFolioComponent = () => {
         lineChartInstanceRef.current = new Chart(lineChartContext, {
             type: "line",
             data: {
-                labels: [null, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', "Sun"],
+                labels: [null, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', "Sun", null],
                 datasets: [
                     {
                         label: "My First Dataset",
@@ -224,7 +225,7 @@ const PortFolioComponent = () => {
 
                         fill: true,
                         backgroundColor: "rgba(57,57,71,0.7)",
-                        borderColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : "#EA9528",
+                        borderColor: userLoginInfo == null ? "#EA9528" : "#EA9528",
                         borderCapStyle: "butt",
                         tension: 0.1,
                     },
@@ -241,10 +242,15 @@ const PortFolioComponent = () => {
                         },
                     },
                     y: {
+                        beginAtZero: true,
                         ticks: {
                             color: "#9492A0",
                             callback: function (value, index, values) {
-                                return value / 1000 + "k";
+                                if (value >= 0) {
+                                    return value * 10 + "k";
+                                } else {
+                                    return ""; // Return an empty string for negative values
+                                }
                             },
                         },
                         grid: {
@@ -413,7 +419,7 @@ const PortFolioComponent = () => {
 
 
 
-
+    const assetArr = [0, 1, 2, 3]
 
 
     return (
@@ -503,7 +509,7 @@ const PortFolioComponent = () => {
                                     <p>Total sportsverse Holdings</p>
                                 </div>
                                 <div className="subparentsubchild6">
-                                    <p style={{ marginTop: "-12px" }}>{netHoldings}</p>
+                                    <p>{netHoldings}</p>
                                     <p>+9.2%</p>
                                 </div>
                             </div>
@@ -522,20 +528,20 @@ const PortFolioComponent = () => {
                                     {/* <p>+9.2%</p> */}
                                 </div>
                             </div>
-                            <div className="wallet-card port-folio-sub-devs" style={{ height: "108px", margin: "2px" }}>
+                            <div className="wallet-card port-folio-sub-devs" style={{ height: "108px", margin: "2px", paddingLeft: "18px" }}>
                                 <div className="img-con">
                                     <Image src={empty} alt="" height={25} width={25} />
 
-                                    <p>Wallet balance</p>
+                                    <p style={{ fontSize: "15px" }}>Wallet balance</p>
                                 </div>
 
-                                <p>{netHoldings}</p>
+                                <p style={{ fontSize: "26px", lineHeight: "31px" }}>{netHoldings}</p>
                             </div>
                         </div>
 
                         <div className="bar-chart-con  bar-one" style={{ width: "100%", overflow: "auto" }}>
-                            <div className="tocken-bar-head" style={{}}>
-                                <h3>Profit & loss analysis breakdown</h3>
+                            <div className="tocken-bar-head" style={{ marginLeft: "0% !important" }}>
+                                <h3 style={{ lineHeight: "20px" }} >Profit & loss analysis breakdown</h3>
                                 {/* <div className="token-week">
                     <p>Weekly</p>
                     <Image src={down} alt="" height={10} width={10} />
@@ -641,9 +647,22 @@ const PortFolioComponent = () => {
 
                             {userLoginInfo == null ? (
                                 <div className="no-pie-details-con">
-                                    <Image src={noPieIcon} alt="" height="250px" width="300px" />
+                                    <div>
+                                        <Image src={noPieIcon} alt="" height="250px" width="300px" />
+                                    </div>
+                                    <div>
+
+                                        {assetArr.map((each, index) => (
+                                            <div key={index} style={{ display: "flex", flexDirection: "column" }}>
+                                                <Image src={piAssetIcon} alt="" height={18} width={18} />
+                                                <br />
+                                            </div>
+                                        ))}
+                                    </div>
+
                                     <div className='no-pie-data'>
                                         <Image src={noAssetIcon} alt="img" height="250px" width="300px" />
+
                                         <h1 style={{ color: 'white' }}>You don’t have any Assets</h1>
                                     </div>
                                 </div>
@@ -685,9 +704,10 @@ const PortFolioComponent = () => {
                             <th> Total P&L </th>
                         </tr>
                         {userLoginInfo == null ? (
-                            <div className='no-transiction'>
+                            <div className='portfolio-no-trs'>
                                 <Image src={noAssetIcon} alt="img" height="250px" width="300px" />
-                                <h1 style={{ color: 'white' }}>You don’t have any Assets</h1>
+
+                                <h1 style={{ color: 'white', opacity: "0.15" }}>You don’t have any Assets</h1>
                             </div>
                         ) : (
                             <tbody>

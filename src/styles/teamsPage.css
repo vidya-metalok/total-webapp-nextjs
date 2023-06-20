@@ -23,6 +23,7 @@
 }
 .teams-banner .banner-img {
   border-radius: 15px;
+  width: 100% !important;
 }
 .teams-banner .banner-logo {
   position: absolute;
@@ -422,14 +423,14 @@
   cursor: pointer;
 }
 .tocken-pl {
-  height: 600px;
+  /* height: 600px; */
   background: #232234;
   border-radius: 7px;
   position: relative;
 }
 .tocken-bar-head {
   margin-top: 4%;
-  margin-left: 4%;
+  /* margin-left: 4%; */
   display: flex;
   justify-content: space-between;
   align-items: center;

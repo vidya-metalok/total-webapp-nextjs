@@ -59,6 +59,7 @@ const Sidebar = () => {
     const router = useRouter()
     const { query } = router
     const [notInLive, setNotInLive] = useState(true)
+    const [myTokenList, setMyTokenList] = useState([])
 
 
 
@@ -218,6 +219,7 @@ const Sidebar = () => {
 
                         {mytokenclick && (
                             <p style={{ color: "white" }}>My Tokens</p>
+
                             // <>
 
 
@@ -262,6 +264,8 @@ const Sidebar = () => {
 
 
                             // </>
+
+
                         )}
 
                         {alltokenclick && (
@@ -340,7 +344,9 @@ const Sidebar = () => {
                                     <h2 className="sub-heading">Batting </h2>
                                 </div>
                             </div>
-                            <h1 className='vs-heading'>vs</h1>
+                            <div>
+                                <h1 className='vs-heading'>vs</h1>
+                            </div>
                             <div className='d-flex justify-content-center'>
                                 <Image src={teamBImgUrl} alt="" height={30} width={40} />
                                 <div className='all-headings'>

@@ -36,14 +36,14 @@ export const BarComponent = () => {
             datasets: [
                 {
                     label: 'Sales $',
-                    data: userLoginInfo !== null && [5, 10, 0, -5, -10],
+                    data: userLoginInfo !== null ? [5, 10, 0, -5, -10] : [],
                     label: 'Accepted',
                     borderColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : '#EC3E47',
                     backgroundColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : '#EC3E47',
                 },
                 {
-                    data: userLoginInfo !== null && [6, -4, 2, -4, -2.8, 8.9],
                     label: 'Applied',
+                    data: userLoginInfo !== null ? [6, -4, 2, -4, -2.8, 8.9] : [],
                     borderColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : '#0BBB70',
                     backgroundColor: userLoginInfo == null ? "rgba(255,255,255,0.1)" : '#0BBB70',
                 }
@@ -51,15 +51,52 @@ export const BarComponent = () => {
 
         })
         setChartOptions({
+            indexAxis: "x",
+            customGridLines: (context) => {
+                const xAxis = context.chart.scales.x;
+                const yAxis = context.chart.scales.y;
+                const ticks = xAxis.getTicks();
+                const gridLinesPlugin = chartJS.registry.getPlugin('gridLines');
+                gridLinesPlugin.draw(context);
+
+                context.save();
+                context.beginPath();
+                context.lineWidth = 1;
+                context.strokeStyle = '#383748';
+                context.textAlign = 'center';
+                context.textBaseline = 'top';
+
+                ticks.forEach((value, index) => {
+                    const xPos = xAxis.getPixelForTick(index);
+                    const yPos = yAxis.top + 10; // Adjust the offset as needed
+
+                    // Align the label exactly below the gridline
+                    const labelWidth = context.measureText(value).width;
+                    const labelOffset = (xAxis.getPixelForTick(index + 1) - xPos - labelWidth) / 2;
+                    const finalXPos = xPos + labelOffset;
+
+                    context.moveTo(xPos, yAxis.top);
+                    context.lineTo(xPos, yAxis.bottom + 5);
+                    context.fillText(value, finalXPos, yPos);
+                });
+
+                context.stroke();
+                context.restore();
+            },
             scales: {
                 x: {
                     grid: {
-                        color: "#383748"
-                    }
+                        color: "#383748",
 
-
+                    },
+                    ticks: {
+                        color: "#9492A0",
+                        align: 'start',
+                        padding: 0
+                    },
                 },
                 y: {
+                    beginAtZero: true,
                     grid: {
                         color: "#383748"
 
@@ -79,7 +116,7 @@ export const BarComponent = () => {
             maintainAspectRatio: false,
             responsive: false
         })
-    }, [])
+    }, [userLoginInfo])
 
     return (
         <div className="w-100">
