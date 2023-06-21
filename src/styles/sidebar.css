@@ -122,6 +122,7 @@
   /* identical to box height */
 
   color: rgba(255, 255, 255, 0.8);
+  margin:0px;
 }
 .token-container p {
   font-family: "Lato";
@@ -131,7 +132,8 @@
   line-height: 17px;
 
   color: #0bbb70;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
+  margin:0px;
 }
 .score-points {
   font-family: "Lato";

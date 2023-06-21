@@ -6,7 +6,7 @@
 .wallet-card {
   background: #232234;
   border-radius: 7px;
-  padding: 18px 10px 18px 24px;
+  padding: 15px 10px 15px 24px;
   line-height: 30px;
   /* margin-bottom: 10px; */
   display: flex;
@@ -28,7 +28,7 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 32px;
   line-height: 26px;
   letter-spacing: -0.312463px;
   color: #cccccc;
@@ -48,7 +48,7 @@
   border-radius: 7px;
   padding: 16px 10px 16px 24px;
   line-height: 30px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,7 +60,7 @@
 }
 .wallet-card-2 h3 {
   font-family: "Lato";
-  font-size: 16px;
+  font-size: 22px;
   line-height: 19px;
   letter-spacing: -0.312463px;
   color: #cccccc;
@@ -70,11 +70,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   background: #232234;
   padding: 10px 34px 10px 15px;
   border-radius: 8px;
+  height: 72px;
 }
+/* .transaction-main th:nth-child(1){
+  border:4px solid red;
+  width: 21%;
+} */
+
 .img-con {
   display: flex;
   align-items: center;
@@ -97,11 +103,14 @@
   font-family: "Lato";
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 38px;
   letter-spacing: -0.312463px;
 
   color: #cccccc;
+}
+.wallet-card-new .tot-wallet{
+  font-size: 32px;
 }
 .img-con h3 {
   margin-right: 0.5rem;
@@ -125,20 +134,23 @@
   margin-left: 0.5rem;
   /* margin: auto; */
   width: 70%;
+  justify-content: space-between;
 }
 
 .buy-sell-main-con .text-card p {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
   display: flex;
   align-items: center;
-  color: rgba(93, 97, 102);
+  /* color: rgba(93, 97, 102); */
   /* opacity: 0.4; */
   /* width: 80%; */
   margin-bottom: 0px;
+  color: #9492a0;
+  opacity: 0.5;
 }
 
 .buy-btn {
@@ -209,7 +221,7 @@
   background: #232234;
   border-radius: 7px;
   position: relative;
-  padding: 24px 0px 4px 0px;
+  /* padding: 24px 0px 4px 0px; */
 }
 .hr-line {
   transform: rotateY(0deg) rotate(-90deg);
@@ -267,7 +279,7 @@
   height: 490px;
   overflow: auto;
   padding: 20px;
-  padding-right: 95px;
+  /* padding-right: 95px; */
 }
 
 /* .transaction-main::-webkit-scrollbar {
@@ -451,9 +463,9 @@
   .wallet-card-new p {
     font-size: 20px;
   }
-  .wallet-card p {
+  /* .wallet-card p {
     font-size: 20px;
-  }
+  } */
 }
 @media screen and (min-width: 1030px) and (max-width: 1090px) {
   /* .wallet-card {
@@ -463,9 +475,9 @@
   .img-con p {
     font-size: 12px !important;
   }
-  .wallet-card p {
+  /* .wallet-card p {
     font-size: 20px;
-  }
+  } */
 }
 
 /* new added 11-05-23 */
@@ -482,9 +494,9 @@
   .select-token {
     font-size: 13px;
   }
-  .wallet-info p {
+  /* .wallet-info p {
     font-size: 12px;
-  }
+  } */
   .onw-quial {
     margin-top: 2%;
     margin-left: 10px;
@@ -503,7 +515,7 @@
   color: #ffffff;
 
   opacity: 0.75;
-  padding-right: 8px;
+  padding-right: 45px;
 }
 .copied-display {
   position: absolute;
@@ -540,7 +552,8 @@
   /* height: 70%; */
   border-left: 1px solid #73737e;
   width: 0px;
-  height: 278px;
+  height: 234px;
+  margin-right: 10px;
 }
 
 /* @media(max-width:1440px){
@@ -551,3 +564,34 @@
     display: none;
   }
 } */
+
+.wallet-input-field{
+  width: 34% !important;
+}
+@media(max-width:1210px){
+  .wallet-card-2 h3{
+    font-size: 16px;
+  }
+}
+
+@media(max-width:1023px){
+  .details-balance-con{
+    display: block;
+  }
+  .buy-sell-main-con{
+    width: 100%;
+    margin:0px;
+  }
+  .holding-section{
+    width: 100% !important;
+  }
+
+  .wallet-card-2 h3{
+    font-size: 22px;
+  }
+
+  .wallet-card-2{
+    margin-bottom:10px;
+  }
+  
+}

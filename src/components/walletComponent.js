@@ -780,7 +780,7 @@ const WalletComponent = () => {
     return (
         <div className="wallet-main-con">
             <div className="details-balance-con">
-                <div style={{ width: '30%' }}>
+                <div className="holding-section" style={{ width: '30%' }}>
                     <div className="wallet-card t-wallet" style={{ width: "100%" }}>
                         <div className="img-con">
                             <Image src={wallet} alt="" height={25} width={25} />
@@ -795,7 +795,7 @@ const WalletComponent = () => {
 
                             <p>Total Wallet balance</p>
                         </div>
-                        <h2><span>$</span>{parseFloat(usdtBalance)?.toFixed(6)}</h2>
+                        <h2 className="tot-wallet"><span>$</span>{parseFloat(usdtBalance)?.toFixed(6)}</h2>
                     </div>
                     <div className="wallet-card-new wallet t-wallet">
                         <div className="img-con">
@@ -819,7 +819,7 @@ const WalletComponent = () => {
                 </div>
                 <div className="buy-sell-main-con">
                     <div className="text-card">
-                        <p>PrivateKey:  {newVariable}
+                        <p>Private Key :  {newVariable}
                         </p>
                         <button className="key-btn">Key</button>
                     </div>
@@ -893,11 +893,11 @@ const WalletComponent = () => {
                                     </select> */}
                                         </div>
 
-                                        <div className="quick-trade-suchild2">
+                                        <div className="quick-trade-suchild2 wallet-input-field">
                                             <input className="amt-out-show"
                                                 type="number"
                                                 placeholder="0.00"
-                                                value={inputAmount}
+                                                value={sameIn === sameOut ? "" : inputAmount}
                                                 onChange={(e) => onChangeUserInput(e)}
                                             />
                                         </div>
@@ -957,7 +957,7 @@ const WalletComponent = () => {
                                         </div>
 
 
-                                        <div className="quick-trade-suchild2">
+                                        <div className="quick-trade-suchild2  wallet-input-field">
                                             {/* <input type="text" placeholder="0.00" value={amountOut}
                                     /> */}
                                             <p className="amt-out-show">

@@ -171,6 +171,7 @@
   position: relative;
   margin-left: 20px;
   gap:4px;
+  cursor: pointer;
 
 }
 .trans-settings {
