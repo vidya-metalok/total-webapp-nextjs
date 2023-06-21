@@ -208,7 +208,7 @@ const LoginComponent = () => {
                         theme: "dark",
                         loginMethodsOrder: ["facebook", "google"],
                         appLogo:
-                            "https://metalok.io/wp-content/uploads/2022/06/image-1@2x.png", // Your App Logo Here
+                            "", // Your App Logo Here
                     },
                     defaultLanguage: "en",
                 });

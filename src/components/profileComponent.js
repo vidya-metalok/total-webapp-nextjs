@@ -105,6 +105,7 @@ const ProfileComponent = () => {
 
     // });
     const profileLogout = () => {
+        dispatch(loginUser(null))
         router.push("/")
     }
 
