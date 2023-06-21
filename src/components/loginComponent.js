@@ -77,7 +77,7 @@ const LoginComponent = () => {
 
     async function loginServer(idToken, pubKey) {
         const response = await fetch(
-            `https://backend.sportsverse.cricket/users/login`,
+            process.env.NEXT_PUBLIC_API_ENDPOINT,
             {
                 method: "POST",
                 headers: new Headers({
