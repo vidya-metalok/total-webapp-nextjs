@@ -256,19 +256,19 @@ const LoginComponent = () => {
             router.push("/dashboardpage");
         }
         if (userName == "") {
-            setuserNameerr("please enter fullname")
+            setuserNameerr("Please enter fullname")
 
         }
         if (userPassword == "") {
-            setpassworderr("please enter password")
+            setpassworderr("Please enter password")
         }
         if (email === '') {
-            setemailerr('please enter your email')
+            setemailerr('Please enter your email')
 
 
         }
         if (email !== userInfoDetails) {
-            setemailerr("please enter valid email")
+            setemailerr("Please enter valid email")
         }
 
         console.log("user email", userInfoDetails)
@@ -279,7 +279,7 @@ const LoginComponent = () => {
 
     const setemailAndError = (e) => {
         if (e.target.value !== userInfoDetails) {
-            setemailerr("please enter valid email id")
+            setemailerr("Please enter valid email id")
         }
         setemailerr("")
         setemail(e.target.value)

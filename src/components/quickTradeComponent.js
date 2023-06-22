@@ -910,12 +910,15 @@ const Dashboardcenter = () => {
                                 <div>
 
                                     {sameIn === sameOut
-                                        ? <h6 className="same-teams-chosed">you are choosed same teams</h6> : ''
+                                        ? <h6 className="same-teams-chosed">you are chosen same teams</h6> : ''
 
                                     }
                                     {selectTokenOutErr ? (
                                         <p style={{ color: "red" }}>Please select token </p>
                                     ) : ""}
+
+                                   {sameIn==='in' || sameOut==='out' || sameIn===sameOut ? '' : <h6 style={{color:'green',textAlign:'center'}}>you are converting from {tokenName} {tokenName==='MATIC' || tokenName==='USDT' ? 'balance' : 'token'} to {tokenOutName} {tokenOutName==='MATIC' || tokenOutName==='USDT' ? 'balance' : 'token'}</h6>} 
+
                                 </div>
 
                             </div>

@@ -24,9 +24,11 @@ import transArr from "../../public/images/trans-hist-arr.svg"
 import { user } from "../components/redux/userSlice"
 import { useSelector } from 'react-redux';
 import transaction_nodata from '../../public/images/transiction-nodata-img.svg'
+import { useRouter } from 'next/router';
 
 
 const TransactionHistoryComponent = (props) => {
+    const router = useRouter()
     const { componentName } = props
     const [transactionData, setTransactionData] = useState([]);
     const [transHist, setTransHist] = useState(false)
@@ -440,7 +442,7 @@ const TransactionHistoryComponent = (props) => {
                         <div className="transaction-main table-responsive">
                             <div className='' style={{ height: "500px" }}>
                                 <table>
-                                    <tr className='transaction-header-sticky'>
+                                    <tr className={router.pathname === '/walletpage' ? 'transaction-header-sticky  inwallet-heading' : 'transaction-header-sticky'}>
                                         <th>Transaction Type</th>
                                         <th>Tokens</th>
                                         <th>Amount</th>

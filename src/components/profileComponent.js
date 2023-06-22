@@ -114,6 +114,15 @@ const ProfileComponent = () => {
     const [useredit, setuseredit] = useState(false)
 
     const [saveact, setsaveact] = useState(false)
+    const [errorfirst,seterrorfirst] = useState('')
+    const [errorlast,seterrorlast] = useState('')
+    const [errormobile,seterrormobile] = useState('')
+    const [errpersonelEmail,seterrpersonelEmail] = useState('')
+    const [errProfessEmail,seterrProfessEmail] = useState('')
+    const [erruserAddress,seterruserAddress] = useState('')
+
+    const [allerrclr,setallerrclr] = useState('')
+
 
     const onClickEditBtn = () => {
         setfirstName(firstName)
@@ -123,19 +132,35 @@ const ProfileComponent = () => {
         setProfessEmail(professEmail)
         setuserAddress(userAddress)
 
+
+
+    if(errorfirst==='' && errorlast==='' && errormobile==='' && errpersonelEmail==='' && errProfessEmail==='' && erruserAddress===''){
+        console.log("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnoo eeeeerrs")
+        setallerrclr('')
+
         setsaveact(true)
         setTimeout(() => {
             setuseredit(!useredit)
             setsaveact(false)
 
-        }, 1000)
+        }, 1500)
 
         if (useredit === false) {
             inputRef.current?.focus()
+  
+
         }
         else {
             dispatch(userEdit(afteredit))
         }
+    }
+
+    else{
+        setallerrclr('you are entering incorrect data')
+    }
+        
+     
+
 
     }
 
@@ -148,6 +173,85 @@ const ProfileComponent = () => {
         userAddress: userAddress
     })
 
+    
+
+    useEffect(()=>{
+        const nameRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ']+([-'][a-zA-ZÀ-ÖØ-öø-ÿ]+)*$/
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const emailRegex2 = /^[a-zA-Z]([a-zA-Z0-9._%+-]+)@([^\-\_][a-zA-Z0-9.-]+[^\-\_]\.[a-zA-Z]{2,})$/;
+
+        if(firstName===''){
+                seterrorfirst('Please enter your first name')
+
+        }
+        else if(!nameRegex.test(firstName)){
+            seterrorfirst('Please enter valid Name')
+        }
+        else{
+            seterrorfirst('')
+        }
+        
+        
+        if(lastName===''){
+            seterrorlast('Please enter your last name')
+        }
+        else if(!nameRegex.test(lastName)){
+            seterrorlast('Please enter valid Name')
+        }
+        
+        else{
+            seterrorlast('')
+        }
+        if(userMobile===''){
+            seterrormobile('Please enter mobile number')
+        }
+        else if(userMobile.length!==10){
+            seterrormobile('Please enter valid mobile number')
+        }
+       else{
+        seterrormobile('')
+       }
+         if(personelEmail===""){
+            seterrpersonelEmail('Please enter your email')
+
+         }
+         else if (!emailRegex.test(personelEmail)) {
+            seterrpersonelEmail('Please enter a valid email');
+          }
+          else if (!emailRegex2.test(personelEmail)) {
+            seterrpersonelEmail('Please enter a valid email');
+          }
+         else{
+            seterrpersonelEmail('')
+         }
+        if(professEmail===''){
+            seterrProfessEmail('Please enter your personal email')
+        }
+        else if (!emailRegex.test(professEmail)) {
+            seterrProfessEmail('Please enter a valid email');
+          }
+          else if (!emailRegex2.test(professEmail)) {
+            seterrProfessEmail('Please enter a valid email');
+          }
+        else{
+            seterrProfessEmail('')
+        }
+       if(userAddress===''){
+        seterruserAddress('Please enter your address')
+       }
+       else if(userAddress.length<5){
+        seterruserAddress('Please enter proper address')
+       }
+       else{
+        seterruserAddress('')
+       }
+
+
+    },[firstName,lastName,userMobile,personelEmail,professEmail,userAddress])
+
+
+
+
     useEffect(() => {
         setafteredit({
             firstName: firstName,
@@ -159,12 +263,12 @@ const ProfileComponent = () => {
         });
 
 
-    }, [firstName, lastName, userMobile, personelEmail, professEmail, userAddress]);
+    }, [firstName, lastName, userMobile, personelEmail, professEmail, userAddress,professEmail]);
 
     console.log("afteredit data", afteredit)
 
 
-    console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", editeddata)
+    console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", erruserAddress. allerrclr)
 
     console.log("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll", userInfoDetails)
 
@@ -181,12 +285,15 @@ const ProfileComponent = () => {
                                         : <Image src={userprofile} style={{ borderRadius: '50%',background:'#232234' }} alt="" width={146} height={143}/>
                             }
                             <div className='user-name-data'>
-                                <h2>{editeddata?.firstName} {editeddata?.lastName}</h2>
+                                <h2><span style={{marginRight:'7px'}}>{editeddata?.firstName}</span> {editeddata?.lastName}</h2>
                                 <h3>Joined 21-10-2021</h3>
                             </div>
                         </div>
 
                         <button className='edit-btn' onClick={onClickEditBtn}> <Image className='edit-img' src={editlogo} alt="" /> {useredit ? <span>{saveact ? <span>Saved</span> : <span>save</span>}</span> : <span>Edit</span>}</button>
+                       
+                            <h6 className='allerr-heading'>{allerrclr}</h6>
+                        
                     </div>
                     <form className='user-info-form'>
                         <h2 className='mygeneral-info'>My General information</h2>
@@ -194,15 +301,17 @@ const ProfileComponent = () => {
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="firstname">First Name</label>
                                 <br />
-                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} placeholder="Kiran" />
-                                    : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} placeholder="Kiran" />}
+                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} placeholder="firstname" />
+                                    : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} placeholder="firstname" />}
+                                    {useredit === true ? <p style={{color:'red'}}>{errorfirst}</p> :''}
                             </div>
 
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="lastname">Last Name</label>
                                 <br />
-                                {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Sharma" />
-                                    : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} placeholder="Sharma" />}
+                                {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="lastname" />
+                                    : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} placeholder="lastname" />}
+                                    {useredit === true ? <p style={{color:'red'}}>{errorlast}</p> : ''}
                             </div>
                         </div>
                         <div className='col-12 d-md-flex gap-4'>
@@ -211,12 +320,14 @@ const ProfileComponent = () => {
                                 <br />
                                 {useredit ? <input id="mobile" name="mobile" className='profile-input form-control' type="number" placeholder='7584684641' value={userMobile} onChange={(e) => setUserMobile(e.target.value)} />
                                     : <input id="mobile" name="mobile" className='profile-input form-control' type="number" placeholder='7584684641' value={userMobile} />}
+                                    {useredit === true ? <p style={{color:'red'}}>{errormobile}</p> : ''}
                             </div>
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="personalemail">Personal Email</label>
                                 <br />
                                 {useredit ? <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} onChange={(e) => setPersonelEmail(e.target.value)} placeholder="kiran@gmail.com" />
                                     : <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} placeholder="kiran@gmail.com" />}
+                                    {useredit === true ? <p style={{color:'red'}}>{errpersonelEmail}</p> : ''}
                             </div>
                         </div>
                         <div>
@@ -224,14 +335,14 @@ const ProfileComponent = () => {
                             <br />
                             {useredit ? <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} onChange={(e) => setProfessEmail(e.target.value)} />
                                 : <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} />}
-
+                                {useredit === true ? <p style={{color:'red'}}>{errProfessEmail}</p> : ''}
                         </div>
                         <div>
                             <label className='label-name' htmlFor="address">Address</label>
                             <br />
                             {useredit ? <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 3-2, 2nd floor, huda colony, hyderabad' value={userAddress} onChange={(e) => setuserAddress(e.target.value)} />
                                 : <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 3-2, 2nd floor, huda colony, hyderabad' value={userAddress} />}
-
+                               {useredit === true ? <p style={{color:'red'}}>{erruserAddress}</p> :''}
                         </div>
                     </form>
                     <div className='text-end'>

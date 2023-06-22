@@ -3,11 +3,11 @@
 .profile-user-section {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   padding-left: 40px;
-  padding-top: 220px;
+  padding-top: 60px;
   overflow: auto;
-  height: 75vh;
+  height: 84vh;
   padding-right: 40px;
   width: 100%;
 }
@@ -22,6 +22,7 @@
   justify-content: space-between;
   gap: 30px;
   align-items: center;
+  position:relative;
 }
 
 .logout-btn {
@@ -202,4 +203,12 @@
   outline: 0;
   box-shadow: 0 0 0 0rem rgba(13,110,253,.0);
   color:white;
+}
+
+.allerr-heading{
+  font-family: 'Poppins';
+  color:red;
+  position:absolute;
+  right: 0;
+  bottom:0px;
 }
