@@ -5,7 +5,7 @@
   flex-direction: column;
   /* justify-content: space-evenly; */
   padding-left: 40px;
-  padding-top: 60px;
+  padding-top: 30px;
   overflow: auto;
   height: 84vh;
   padding-right: 40px;
@@ -22,7 +22,7 @@
   justify-content: space-between;
   gap: 30px;
   align-items: center;
-  position:relative;
+  position: relative;
 }
 
 .logout-btn {
@@ -195,20 +195,20 @@
   width: 0px;
 }
 
-
-.profile-input:focus,.profile-input6:focus{
+.profile-input:focus,
+.profile-input6:focus {
   color: #212529;
-  background-color:transparent;
+  background-color: transparent;
   border-color: #ffc107;
   outline: 0;
-  box-shadow: 0 0 0 0rem rgba(13,110,253,.0);
-  color:white;
+  box-shadow: 0 0 0 0rem rgba(13, 110, 253, 0);
+  color: white;
 }
 
-.allerr-heading{
-  font-family: 'Poppins';
-  color:red;
-  position:absolute;
+.allerr-heading {
+  font-family: "Poppins";
+  color: red;
+  position: absolute;
   right: 0;
-  bottom:0px;
+  bottom: 0px;
 }

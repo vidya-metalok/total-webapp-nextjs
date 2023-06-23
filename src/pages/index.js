@@ -51,7 +51,7 @@ import { rsvFetch } from '@/components/redux/walletSlicer/rsvcSlice';
 
 
 const Home = (props) => {
-  LoginAuthenticate()
+  // LoginAuthenticate()
   const router = useRouter()
   const mustafa_wallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D"
   const dispatch = useDispatch()

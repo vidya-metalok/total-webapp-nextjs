@@ -589,7 +589,7 @@
   /* padding: 0px 40px 0px 40px; */
   color: #ea9528;
   align-items: flex-end;
-  margin: 0px 20px 0px 14px;
+  margin: 0px 20px 0px 25px;
 }
 .badding-team-nm h1 {
   font-family: "Poppins";
@@ -598,7 +598,7 @@
   font-size: 18px;
   letter-spacing: -0.422099px;
   color: #ea9528;
-  margin-left: 23px;
+  /* margin-left: 23px; */
 }
 
 .batsmens-scrore-data h1 {
@@ -873,10 +873,9 @@
   color: #ffffff;
 
   opacity: 0.7;
-  margin: 20px 0px 0px 40px;
+  margin: 20px 0px 0px 25px;
 }
 
-
-.live-token-headings th:nth-child(1){
+.live-token-headings th:nth-child(1) {
   width: 40%;
 }

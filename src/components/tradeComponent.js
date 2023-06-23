@@ -27,12 +27,29 @@ import punjabKings from "../../public/images/punjab-kings-svg.svg"
 import TransactionHistoryComponent from "./transactionHistoryComponent";
 
 
+// alltoken trade images
+import delhiCapital from "../../public/images/delhi-capitals-svg.svg"
+import chennaiSupers from "../../public/images/chennai-super-kings-svg.svg"
+import rcbs from "../../public/images/live-rcb-img.svg"
+// import mumbaiIndia from "../../public/images/mumbai-indians-svg.svg"
+import rajasthanRoyals from "../../public/images/rajasthan-royals-svg.svg"
+// import punjabKings from "../../public/images/punjab-kings-svg.svg"
+import sunrisers from "../../public/images/live-score-sunrise.svg";
+import kkr from "../../public/images/kkr-svg.svg"
+// import lk from "../../public/images/lk-svg.svg"
+import lk from "../../public/images/Frame 35.svg"
+import gt from "../../public/images/gt-svg.svg"
+import Link from "next/link";
+
+
 const TradeComponent = () => {
 
 
 
   const [liveData, setliveData] = useState(null);
   const [notinlive, setnotinlive] = useState(true)
+  const [myTokensTab, setMyTokensTab] = useState(true)
+  const [allTokensTab, setAllTokensTab] = useState(false)
 
 
 
@@ -40,6 +57,8 @@ const TradeComponent = () => {
     return abc?.priceMatches?.matchesList;
   });
   console.log("alllllllll matches", totalmatches);
+  const pricesList = useSelector((store) => store?.priceMatches?.tokenPrices)
+  console.log("priceList..", pricesList)
 
   const livematch = useCallback(() => {
     totalmatches.map((i) => {
@@ -176,13 +195,13 @@ const TradeComponent = () => {
   const batmensData = () => {
     setbatars(!batars)
 
-  
+
 
   }
   const closeBatsmendata = () => {
     setbatars(false)
     setbatars(false)
-  
+
 
 
   }
@@ -210,7 +229,7 @@ const TradeComponent = () => {
       Current_Price: '$5,203',
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "+0.2%",
-      Total_Value: '+$5,203USDT'
+      Total_Value: '+$5,203USDT',
     },
     {
       team_img: punjabKings,
@@ -218,7 +237,7 @@ const TradeComponent = () => {
       Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value: '-$5,203USDT'
+      Total_Value: '-$5,203USDT',
     },
     {
       team_img: mumbaiIndia,
@@ -226,7 +245,7 @@ const TradeComponent = () => {
       team_key: teamATokenName,
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value: '-$5,203USDT'
+      Total_Value: '-$5,203USDT',
     },
     {
       team_img: punjabKings,
@@ -234,7 +253,7 @@ const TradeComponent = () => {
       Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value: '-$5,203USDT'
+      Total_Value: '-$5,203USDT',
     },
     {
       team_img: mumbaiIndia,
@@ -242,7 +261,8 @@ const TradeComponent = () => {
       Current_Price: '$5,203',
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value: '-$5,203USDT'
+      Total_Value: '-$5,203USDT',
+
     },
     {
       team_img: punjabKings,
@@ -250,14 +270,14 @@ const TradeComponent = () => {
       Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value: '-$5,203USDT'
+      Total_Value: '-$5,203USDT',
     }, {
       team_img: mumbaiIndia,
       team_key: teamATokenName,
       Current_Price: '$5,203',
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value: '-$5,203USDT'
+      Total_Value: '-$5,203USDT',
     },
     {
       team_img: punjabKings,
@@ -265,7 +285,7 @@ const TradeComponent = () => {
       Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value: '-$5,203USDT'
+      Total_Value: '-$5,203USDT',
     },
     {
       team_img: mumbaiIndia,
@@ -273,7 +293,7 @@ const TradeComponent = () => {
       Current_Price: '$5,203',
       team_name: "Mumbai Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value: '-$5,203USDT'
+      Total_Value: '-$5,203USDT',
     },
     {
       team_img: punjabKings,
@@ -281,19 +301,64 @@ const TradeComponent = () => {
       Current_Price: '$5,203',
       team_name: "Punjab Sports Verse Coin",
       holding_percent: "-0.43%",
-      Total_Value: '-$5,203USDT'
+      Total_Value: '-$5,203USDT',
     },
   ];
 
 
 
+  const bsvAmount = useSelector((store) => store.tokenOneSlice.tokenOne.price)
+  const csvAmount = useSelector((store) => store.tokenTwoSlice.tokenTwo.price)
+  const dsvAmount = useSelector((store) => store.tokenThreeSlice.tokenThree.price)
+  const gsvAmount = useSelector((store) => store.tokenFourSlice.tokenFour.price)
+  const hsvAmount = useSelector((store) => store.tokenFiveSlice.tokenFive.price)
+  const ksvAmount = useSelector((store) => store.tokenSixSlice.tokenSix.price)
+  const lsvAmount = useSelector((store) => store.tokenSevenSlice.tokenSeven.price)
+  const msvAmount = useSelector((store) => store.tokenEightSlice.tokenEight.price)
+  const psvAmount = useSelector((store) => store.tokenNineSlice.tokenNine.price)
+  const rsvAmount = useSelector((store) => store.tokenTenSlice.tokenTen.price)
+  const amountArray = [bsvAmount, csvAmount, dsvAmount, gsvAmount, hsvAmount, hsvAmount, ksvAmount, lsvAmount, msvAmount, psvAmount, rsvAmount]
+  const logosArray = [rcbs, chennaiSupers, delhiCapital, gt, sunrisers, kkr, lk, mumbaiIndia, punjabKings, rajasthanRoyals]
+  const tokenNames = ["BSVC", "CSVC", "DSVC", "GSVC", "HSVC", "KSVC", "LSVC", "MSVC", "PSVC", "RSVC"]
+  const tokenKeys = ["rcb", "csk", "dc", "gt", "srh", "kkr", "lsg", "mi", "pbks", "rr"]
+  const teamNames = ["Royal Challengers Bangalore", "ChennaiSuper Kings", "Delhi Capital", "Gujarath Titans", "Sunrisers Hyderabad", "Kolkatha Knight Riders", "Lucknow Super Giants", "Mumbai Indians", "Punjab Kings", "Rajasthan Royals"]
+  const teamShortNames = ["BSVC(Bangalore Sports Verse Coin)", "CSVC(Chennai Sports Verse Coin)", "DSVC(Delhi Sports Verse Coin)", "GSVC(Gujarath Sports Verse Coin)", "HSVC(Hyderabad Sports Verse Coin)", "KSVC(Kolkatha Sports Verse Coin)", "LSVC(Lucknow Sports Verse Coin)", "MSVC(Mumbai Sports Verse Coin)", "PSVC(Punjab Sports Verse Coin)", "RSVC(Rajasthan Sports Verse Coin)"]
 
 
 
 
 
 
+  const newTokenList = pricesList.map((each, index) => {
+    const tokenObj = {
+      id: index,
+      price: each,
+      wallet: amountArray[index],
+      logoUrl: logosArray[index],
+      bannerImg: kkr,
 
+      tokenName: tokenNames[index],
+      tokenKey: tokenKeys[index],
+      teamName: teamNames[index],
+      teamShortName: teamShortNames[index]
+    }
+
+
+    return tokenObj
+  })
+
+  console.log("tradeTokens", newTokenList)
+
+
+
+  const onClickMyTokensTab = () => {
+    setMyTokensTab(true)
+    setAllTokensTab(false)
+  }
+  const onClickAllTokensTab = () => {
+    setAllTokensTab(true)
+    setMyTokensTab(false)
+  }
 
 
 
@@ -551,7 +616,7 @@ const TradeComponent = () => {
                 {liveData?.live?.score?.overs[0]}.{liveData?.live?.score?.overs[1]})
               </h2>
               <h3 onClick={closeBatsmendata} style={{ cursor: 'pointer', color: 'white' }}>
-                <Image src={downImg} alt="arrowimg" />
+                {/* <Image src={downImg} alt="arrowimg" /> */}
               </h3>
             </div>
           </div>
@@ -640,46 +705,96 @@ const TradeComponent = () => {
         <div style={{ color: 'white' }} className="trade-tokens-main">
           <div className='sidebar-tocken'>
             {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
-            <p className='my-tokens-text' >My Tokens</p>
-            <p className='all-tokens-text' >All Tokens</p>
+            <p className='my-tokens-text' onClick={onClickMyTokensTab}>My Tokens</p>
+            <p className='all-tokens-text' onClick={onClickAllTokensTab}>All Tokens</p>
           </div>
-          <table>
-            <tr className='live-token-headings'>
-              <th>Token Name</th>
-              <th>Current Price</th>
-              <th>24H</th>
-              <th>Total Value</th>
+          {myTokensTab && (
+            <table>
+              <tr className='live-token-headings'>
+                <th>Token Name</th>
+                <th>Current Price</th>
+                <th>24H</th>
+                <th>Total Value</th>
 
-            </tr>
-            <tbody>
-              {trade_teams.map((team_data, index) => (
+              </tr>
+              <tbody>
+                {trade_teams.map((team_data, index) => (
 
-                <tr key={index} className="trade-tokens">
-                  <td className="token-name-column">
-                    <Image src={team_data.team_img} alt="" height={36.5} width={36.5} />
-                    <div>
-                      <h1 className="live-team-kay">{team_data.team_key}</h1>
-                      <h3 className="live-team-name">{team_data.team_name}</h3>
-                    </div>
-                  </td>
-                  <td className="live-current-price">
-                    <h2>{team_data.Current_Price}</h2>
-                  </td>
-                  <td className="live-holding-percent">
-                    <h2 style={{ color: index == 0 ? '#0BBB70' : '#EC3E47' }}>{team_data.holding_percent}</h2>
-                  </td>
-                  <td className="live-total-value">
-                    <h2 style={{ color: index == 0 ? '#0BBB70' : '#EC3E47' }}> {team_data.Total_Value}</h2>
-                  </td>
+                  <tr key={index} className="trade-tokens">
+                    <td className="token-name-column">
+                      <Image src={team_data.team_img} alt="" height={36.5} width={36.5} />
+                      <div>
+                        <h1 className="live-team-kay">{team_data.team_key}</h1>
+                        <h3 className="live-team-name">{team_data.team_name}</h3>
+                      </div>
+                    </td>
+                    <td className="live-current-price">
+                      <h2>{team_data.Current_Price}</h2>
+                    </td>
+                    <td className="live-holding-percent">
+                      <h2 style={{ color: index == 0 ? '#0BBB70' : '#EC3E47' }}>{team_data.holding_percent}</h2>
+                    </td>
+                    <td className="live-total-value">
+                      <h2 style={{ color: index == 0 ? '#0BBB70' : '#EC3E47' }}> {team_data.Total_Value}</h2>
+                    </td>
 
-                </tr>
-
-
-              ))}
-            </tbody>
+                  </tr>
 
 
-          </table>
+                ))}
+              </tbody>
+
+
+            </table>
+
+          )}
+          {allTokensTab && (
+            <>
+
+
+              {newTokenList.length == 0 ? (
+
+                <div className='no-hist-con'>
+                  <Image src={noTokenImg} alt="" height={20} width={20} />
+                  <h1 style={{ color: 'red' }}>You don’t have any tokens to display</h1>
+                </div>
+              ) : (
+
+                <div className='side-tok-height'>
+                  <table>
+                    <tbody>
+                      {
+                        newTokenList.map((eachToken, index) => (
+                          <Link href={{ pathname: "/teamspage", query: { eachToken: JSON.stringify(eachToken) } }} as="/teamspage" key={index}>
+
+                            <tr className="token-container" key={index} style={{ marginTop: "5%" }}>
+                              <td>
+                                <Image src={eachToken?.logoUrl} alt="" height={40} width={40} />
+                              </td>
+                              <td>
+                                <h1>${eachToken?.price?.price}</h1>
+                              </td>
+                              <td>
+                                {eachToken?.wallet >= 0
+                                  ? <p>+{eachToken?.wallet}</p>
+                                  : <p style={{ color: 'red' }}>-{eachToken?.wallet}</p>}
+                              </td>
+                            </tr>
+                          </Link>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
+
+              )}
+
+
+
+
+
+            </>
+          )}
+
         </div>
 
 
