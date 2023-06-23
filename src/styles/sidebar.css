@@ -108,7 +108,7 @@
 .token-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-top: 13%;
   /* margin-top: 2rem; */

@@ -77,7 +77,7 @@ const LoginComponent = () => {
 
     async function loginServer(idToken, pubKey) {
         const response = await fetch(
-            process.env.NEXT_PUBLIC_API_ENDPOINT,
+            "https://backend.sportsverse.cricket/users/login",
             {
                 method: "POST",
                 headers: new Headers({
@@ -119,14 +119,6 @@ const LoginComponent = () => {
     dispatch(loginUser(userInfo));
     dispatch(userToken(idToken))
     dispatch(userEdit({ firstName:userFirstName, lastName:userSecondName, personelEmail:userInfo?.email, professEmail:'123@gmail.com', userMobile:'0123456789',userAddress:'H.No 3-2 Hyderabad 500082'}))
-
-    // const senData = async () =>{
-    //   const apiURl = "https://backend.sportsverse.cricket/users/login/"
-    //   const object ={
-    //     publicKey:pubKey,
-    //     userName:userInfo.user
-    //   }
-    // }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const getPrivateKey = useCallback(async () => {
