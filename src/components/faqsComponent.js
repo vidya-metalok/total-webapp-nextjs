@@ -15,7 +15,7 @@ const FaqsComponent = () => {
                             <p className="the-basic-border-down"></p>
                             <Accordion eventKey="0" flush>
                                 <Accordion.Item eventKey="0">
-                                    <Accordion.Header className="collaps-text faq-para">
+                                    <Accordion.Header className="collaps-text faq-para" style={{ marginRight: "-23px" }}>
                                         What are Fan tokens?
                                     </Accordion.Header>
                                     <Accordion.Body>
@@ -27,7 +27,7 @@ const FaqsComponent = () => {
                                     </Accordion.Body>
                                 </Accordion.Item>
                                 <Accordion.Item eventKey="1" className="faq-para">
-                                    <Accordion.Header>
+                                    <Accordion.Header style={{ marginRight: "-23px" }}>
                                         What is a Digital Wallet? Are they necessary to buy NFTs?
                                     </Accordion.Header>
                                     <Accordion.Body>
@@ -45,7 +45,7 @@ const FaqsComponent = () => {
 
 
                                 <Accordion.Item eventKey="2" className="faq-para">
-                                    <Accordion.Header>
+                                    <Accordion.Header style={{ marginRight: "-23px" }}>
                                         Which Cryptocurrencies can be used for Trading on
                                         Sportsverse?
                                     </Accordion.Header>
@@ -56,7 +56,7 @@ const FaqsComponent = () => {
                                 </Accordion.Item>
 
                                 <Accordion.Item eventKey="3" className="faq-para">
-                                    <Accordion.Header>
+                                    <Accordion.Header style={{ marginRight: "-23px" }}>
                                         Are my transactions secured on the Sportsverse Platform?
                                     </Accordion.Header>
                                     <Accordion.Body>
@@ -68,7 +68,7 @@ const FaqsComponent = () => {
                                 </Accordion.Item>
 
                                 <Accordion.Item eventKey="4" className="faq-para">
-                                    <Accordion.Header>
+                                    <Accordion.Header style={{ marginRight: "-23px" }}>
                                         When will the NFT marketplace open on Sportsverse?
                                     </Accordion.Header>
                                     <Accordion.Body>
@@ -79,7 +79,7 @@ const FaqsComponent = () => {
                                 </Accordion.Item>
 
                                 <Accordion.Item eventKey="5" className="faq-para">
-                                    <Accordion.Header>
+                                    <Accordion.Header style={{ marginRight: "-23px" }}>
                                         Can the Fan Tokens of Sportsverse be considered NFTs? If
                                         not, how do they differ?
                                     </Accordion.Header>
@@ -92,7 +92,7 @@ const FaqsComponent = () => {
                                 </Accordion.Item>
 
                                 <Accordion.Item eventKey="6" className="faq-para">
-                                    <Accordion.Header>
+                                    <Accordion.Header style={{ marginRight: "-23px" }}>
                                         How to convert my profits on Sportsverse to FIAT currency?
                                     </Accordion.Header>
                                     <Accordion.Body>
@@ -103,7 +103,7 @@ const FaqsComponent = () => {
                                 </Accordion.Item>
 
                                 <Accordion.Item eventKey="7" className="faq-para">
-                                    <Accordion.Header>
+                                    <Accordion.Header style={{ marginRight: "-23px" }}>
                                         What are the advantages of Staking?
                                     </Accordion.Header>
                                     <Accordion.Body>

@@ -77,7 +77,6 @@ const NavBarComponent = () => {
 
 
     console.log("userinfooooo", profileimg)
-    const [depositeOpen, setdepositeOpen] = useState(false)
     const [isProfileHovered, setIsProfileHovered] = useState(false);
     const [isFeedbackHovered, setIsFeedbackHovered] = useState(false)
     const [isCommunityHovered, setIsCommunityHovered] = useState(false)
@@ -88,16 +87,6 @@ const NavBarComponent = () => {
 
     const dispatch = useDispatch()
     const router = useRouter()
-
-if(depositeOpen==true){
-    document.body.style.overflow='hidden'
-        document.body.style.height = '100vh'
-        console.log("ffffffffffffffffffffffffffffffffffffffffffffffffi")
-    }
-else{
-    document.body.style.overflow='auto'
-        document.body.style.height = 'auto'
-    }
 
     const handleProfileHover = () => {
         setIsProfileHovered(true)
@@ -171,14 +160,6 @@ else{
 
     const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
 
-    const depositcls = () => {
-        setdepositeOpen(false)
-        console.log("clicked")
-    }
-
-
-
-
     const clientId =
         "BK_TX48ntUieviViLOy8xwUhCirzTQI3uL7NwHsKkZk_-R7Zzpoxc2WNJDauT3OMRpolI7wlNRHUgT8SD0hjNDE";
 
@@ -190,10 +171,7 @@ else{
 
     const [showlogout, setShowlogout] = useState(false);
     const [openLogout, setopenLogout] = useState(false)
-    // const logoutCls = () => {
-    //     setopenLogout(false)
-    //     console.log("clicked")
-    // }
+
 
     const logoutCls = () => {
         setopenLogout(false)
@@ -431,15 +409,22 @@ else{
 
 
                     <div style={{ marginRight: "20px", display: 'flex' }}>
-                        <button className="deposit-btn" onClick={() => setdepositeOpen(!depositeOpen)}>
-                            <Image src={moneySendIcon} alt="" height={20} width={20} />
-                            <span style={{ marginLeft: "1rem", fontSize: "14px" }}> Deposit</span>
+                        <a href='https://onramp.money/main/sell/?appId=114893' target="_blank">
 
-                        </button>
-                        <button className="deposit-btn" onClick={() => setdepositeOpen(!depositeOpen)}>
-                            <Image src={moneyReceiveIcon} alt="" height={20} width={20} />
-                            <span style={{ marginLeft: "1rem", fontSize: "14px" }}> Withdraw</span>
-                        </button>
+                            <button className="deposit-btn">
+                                <Image src={moneySendIcon} alt="" height={20} width={20} />
+                                <span style={{ marginLeft: "1rem", fontSize: "14px" }}> Deposit</span>
+
+                            </button>
+                        </a>
+                        <a href='https://onramp.money/main/sell/?appId=114893' target="_blank">
+
+                            <button className="deposit-btn" onClick={() => setdepositeOpen(!depositeOpen)}>
+                                <Image src={moneyReceiveIcon} alt="" height={20} width={20} />
+                                <span style={{ marginLeft: "1rem", fontSize: "14px" }}> Withdraw</span>
+                            </button>
+                        </a>
+
 
                     </div>
                     <div className='icon-container'>
@@ -509,22 +494,6 @@ else{
 
 
             {/* <div className='logout-nav' style={{ display: openLogout ? "block" : "none", }} onClick={logoutCls}></div> */}
-
-
-            {depositeOpen && (
-                <div className='onwrap-main'>
-                    <div className='nav-onwrap'>
-                        <iframe className="on-wrap-site" src={`https://onramp.money/main/buy/?appId=114893&walletAddress=${userWallet}&network=matic20&coinCode=usdt`}>
-
-                        </iframe>
-                        <h1 className='onwrp-close' onClick={depositcls}>x</h1>
-                    </div>
-                </div>
-
-            )
-
-
-            }
 
         </>
 
