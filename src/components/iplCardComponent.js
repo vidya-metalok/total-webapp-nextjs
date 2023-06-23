@@ -7,7 +7,7 @@ import abi from "../../abis/abi.json"
 const BigNumber = require('bignumber.js');
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "@/firestore/fireConfig";
-import playImage from "../../public/images/Vector (3).png";
+import playImage from "../../public/images/Vector (3).svg";
 
 
 

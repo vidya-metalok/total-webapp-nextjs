@@ -180,7 +180,7 @@
   align-items: center;
   /* justify-content: space-between; */
   position: relative;
-  /* gap: 28px; */
+  gap: 28px;
 }
 .trans-settings :nth-last-child(1) {
   margin-left: 3px;

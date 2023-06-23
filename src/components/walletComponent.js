@@ -35,7 +35,8 @@ import empty from "../../public/images/empty-wallet.svg"
 // var load1 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/graphload-img.png";
 // var load2 = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/graphload-img2.png";
 var matic = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/matic.png";
-var usdt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/usdt.png";
+// var usdt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/usdt.png";
+import usdt from "../../public/images/USDT 40-40.svg"
 // https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rrimg-logo.png
 
 
@@ -971,7 +972,7 @@ const WalletComponent = () => {
                                     </div>
                                     <h3 className="onw-quial">1 RSVC = 21.02 USDT</h3>
                                     {sameIn === sameOut
-                                        ? <h6 className="same-teams-chosed">you are choosed same teams</h6> : ''
+                                        ? <h6 className="same-teams-chosed">you are chosen the same {sameIn==="MATIC" && sameOut==="MATIC" ? 'MATIC' : ''} {sameIn==='USDT' && sameOut==='USDT' ? 'USDT' : ''} {sameIn!=='MATIC' && sameOut!=='USDT' &&  sameIn===sameOut ? 'Token'  : ''}</h6> : ''
 
                                     }
                                     {selectTokenOutErr ? (

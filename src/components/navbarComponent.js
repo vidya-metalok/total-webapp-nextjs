@@ -89,15 +89,15 @@ const NavBarComponent = () => {
     const dispatch = useDispatch()
     const router = useRouter()
 
-if(depositeOpen==true){
-    document.body.style.overflow='hidden'
-        document.body.style.height = '100vh'
-        console.log("ffffffffffffffffffffffffffffffffffffffffffffffffi")
-    }
-else{
-    document.body.style.overflow='auto'
-        document.body.style.height = 'auto'
-    }
+// if(depositeOpen==true){
+//     document.body.style.overflow='hidden'
+//         document.body.style.height = '100vh'
+//         console.log("ffffffffffffffffffffffffffffffffffffffffffffffffi")
+//     }
+// else{
+//     document.body.style.overflow='auto'
+//         document.body.style.height = 'auto'
+//     }
 
     const handleProfileHover = () => {
         setIsProfileHovered(true)
@@ -374,6 +374,30 @@ else{
         router.push("/")
 
     }
+
+
+
+
+
+    useEffect(() => {
+        const handleWheel = (event) => {
+          if (depositeOpen) {
+            event.preventDefault();
+          }
+        };
+    
+        window.addEventListener('wheel', handleWheel, { passive: false });
+    
+        return () => {
+          window.removeEventListener('wheel', handleWheel);
+        };
+      }, [depositeOpen]);
+
+
+
+
+
+
 
     return (
         <>

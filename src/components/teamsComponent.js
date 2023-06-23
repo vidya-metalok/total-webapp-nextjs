@@ -877,7 +877,7 @@ const PointsTable =(each,index)=>{
                             <th><div className="verse">VS</div> </th>
                             <th>
                               <div className="delhi-c">
-                                <Image src={each.match2Img} alt="" height={60} width={60} />
+                                <Image src={each.match2Img} alt="" height={50} width={50} />
                               </div>
                             </th>
                           </tr>

@@ -383,6 +383,53 @@ const Dashboardcenter = () => {
 
     ]
 
+
+
+
+
+
+
+
+
+
+
+
+
+    const handleKeyPress = (event) => {
+        const keyCode = event.which || event.keyCode;
+        const keyValue = String.fromCharCode(keyCode);
+        const regex = /^[0-9\b]+$/; // Regular expression to match only numbers and backspace (\b)
+    
+        if (!regex.test(keyValue)) {
+          event.preventDefault();
+        }
+      };
+
+
+      const [chosentime,setchosentime] = useState(false)
+
+  
+useEffect(()=>{
+    if(sameIn==='in' || sameOut==='out' || sameIn===sameOut){
+        console.log('heeeeeeeeeeeeeeeeeeeeeeeeeeeeeee if useeffect')
+        setchosentime(false)
+    }
+    else{
+        setchosentime(true)
+        setTimeout(()=>{
+            setchosentime(false)
+
+        },2000)
+
+        
+      
+    }
+ 
+   
+},[sameIn,sameOut])
+
+
+
     function handleErrors(trade) {
         let message = 'Error: ';
         if (trade.code) {
@@ -838,7 +885,7 @@ const Dashboardcenter = () => {
                                     </div>
                                 </div>
                                 <div className="quick-trade-suchild2">
-                                    <input type="number" placeholder="0.00" className="token-names-select" value={sameIn === sameOut ? "" :inputAmount} onChange={(e) => onChangeUserInput(e)
+                                    <input type="number" placeholder="0.00" onKeyPress={handleKeyPress} className="token-names-select" value={sameIn === sameOut ? "" :inputAmount} onChange={(e) => onChangeUserInput(e)
 
                                     }
                                     />
@@ -851,7 +898,7 @@ const Dashboardcenter = () => {
                                 {inputAmountErr && <p style={{ color: "red" }}>Please enter a valid amount with up to two decimal places</p>}
                                 {mulDecimalErr && <p style={{ color: "red" }}>Please enter a valid amount with only one decimal point</p>}
                                 {selectTokenInErr ? (
-                                    <p style={{ color: "red" }}>Please select token </p>
+                                    <p style={{ color: "red" }}>Please select the token </p>
                                 ) : ""}
 
                                 <p className="token-rcv-text">You will Receive</p>
@@ -910,14 +957,22 @@ const Dashboardcenter = () => {
                                 <div>
 
                                     {sameIn === sameOut
-                                        ? <h6 className="same-teams-chosed">you are chosen same teams</h6> : ''
+                                        ? <h6 className="same-teams-chosed">you are chosen the same {sameIn==="MATIC" && sameOut==="MATIC" ? 'MATIC' : ''} {sameIn==='USDT' && sameOut==='USDT' ? 'USDT' : ''} {sameIn!=='MATIC' && sameOut!=='USDT' &&  sameIn===sameOut ? 'Token'  : ''}</h6> : ''
 
                                     }
                                     {selectTokenOutErr ? (
-                                        <p style={{ color: "red" }}>Please select token </p>
+                                        <p style={{ color: "red" }}>Please select the token </p>
                                     ) : ""}
 
-                                   {sameIn==='in' || sameOut==='out' || sameIn===sameOut ? '' : <h6 style={{color:'green',textAlign:'center'}}>you are converting from {tokenName} {tokenName==='MATIC' || tokenName==='USDT' ? 'balance' : 'token'} to {tokenOutName} {tokenOutName==='MATIC' || tokenOutName==='USDT' ? 'balance' : 'token'}</h6>} 
+                                    {chosentime &&
+                                        <div>
+
+                                             {sameIn==='in' || sameOut==='out' || sameIn===sameOut ? '' :  <h6 style={{color:'green',textAlign:'center' }}>you are converting from {tokenName} {tokenName==='MATIC' || tokenName==='USDT' ? 'balance' : 'token'} to {tokenOutName} {tokenOutName==='MATIC' || tokenOutName==='USDT' ? 'balance' : 'token'} </h6>} 
+
+                                        </div>
+                                    }
+
+
 
                                 </div>
 
