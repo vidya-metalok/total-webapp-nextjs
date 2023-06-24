@@ -19,7 +19,9 @@ var rajasthanRoyals = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/we
 var punjabKings = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/punjabKings.png";
 var sunrisers = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/sunrisers.png";
 var kkr = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkr.png";
-var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
+// var lk = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lk.jpg";
+import lk from "../../public/images/Frame 35.svg"
+
 var gt = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gt.png";
 
 
@@ -864,6 +866,8 @@ console.log('traddddddddddddddddddddddddddddddddddddddd efffffffffffffffffffffff
 
     }
 
+    console.log("tokenName", tokenName, tokenOutName)
+
 
 
     const [chosentime,setchosentime] = useState(false)
@@ -1017,7 +1021,7 @@ console.log('traddddddddddddddddddddddddddddddddddddddd efffffffffffffffffffffff
                                         <div className="quick-trade-suchild2 wallet-input-field">
                                             <input className="amt-out-show"
                                                 type="number"
-                                                placeholder="0.00"
+                                                placeholder={`Enter ${tokenName} value`}
                                                 value={sameIn === sameOut ? "" : inputAmount}
                                                 onChange={(e) => onChangeUserInput(e)}
                                                 onKeyPress={handleKeyPress}
@@ -1085,7 +1089,7 @@ console.log('traddddddddddddddddddddddddddddddddddddddd efffffffffffffffffffffff
                                     /> */}
                                             <p className="amt-out-show">
                                                 {isNaN(parseFloat(amountOut)) ? (
-                                                    <p >0.00</p>
+                                                    <input placeholder={`Enter ${tokenOutName} value`} ></input>
                                                 ) : (
                                                     parseFloat(amountOut).toFixed(3)
                                                 )}

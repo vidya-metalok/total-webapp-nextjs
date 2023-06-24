@@ -459,10 +459,10 @@ const TeamsComponent = (props) => {
     const fetchData = async () => {
       try {
         const firestore = getFirestore();
-  
+
         const tokenKeys = ['rcb', 'csk', 'dc', 'gt', 'srh', 'kkr', 'lsg', 'mi','pbks', 'rr'];
         const unsubscribeFunctions = [];
-  
+
         tokenKeys.forEach((tokenKey) => {
           const matchHistoryRef = doc(firestore, 'IPLStats', tokenKey);
           const unsubscribe = onSnapshot(matchHistoryRef, (doc) => {
@@ -486,7 +486,7 @@ const TeamsComponent = (props) => {
               console.log('No matching documents for', tokenKey);
             }
           });
-  
+
           unsubscribeFunctions.push(unsubscribe);
         });
         // Clean up the subscriptions when the component unmounts
@@ -497,10 +497,10 @@ const TeamsComponent = (props) => {
         console.log(`Error: ${err}`);
       }
     };
-  
+
     fetchData();
   }, []);
-  
+
 
 console.log("eaccccccccccccccccccccccccccccccmatchHistory", matchHistory, "tokendetails", tokenDetails )
 
@@ -508,14 +508,14 @@ console.log("eaccccccccccccccccccccccccccccccmatchHistory", matchHistory, "token
 
   const teamsData = [];
 
-const dataArray = Object.values(matchHistory); 
+  const dataArray = Object.values(matchHistory);
 
- dataArray.map((teamData) => {
-  const team = Object.values(teamData)[0]; 
-  console.log('uuuuuuuuuuuuuuuuuuuuuuttttttttttt', team);
-  teamsData.push(team);
+  dataArray.map((teamData) => {
+    const team = Object.values(teamData)[0];
+    console.log('uuuuuuuuuuuuuuuuuuuuuuttttttttttt', team);
+    teamsData.push(team);
 
-});
+  });
 
 
 
@@ -529,24 +529,24 @@ console.log('eaccccccccccccccccccteams', allteamLogo, "team" , teamsData )
 
 const PointsTable =(each,index)=>{
 
-  console.log("eaccccccccccccccccccc", each.index)
+    console.log("eaccccccccccccccccccc", each.index)
 
 
    return(
-    <div className="single-team-score">
+      <div className="single-team-score">
       <div className="points-teams-heading-section" style={{width:'32%'}}>
         <h6 className="points-teams-heading index-change" >{each.index+1}</h6>
-        <Image src={allteamLogo[each.index]} alt="img" width={20} height={20} />
-        <h6 className="points-teams-heading">{each.each.team_code}</h6>
+          <Image src={allteamLogo[each.index]} alt="img" width={20} height={20} />
+          <h6 className="points-teams-heading">{each.each.team_code}</h6>
+        </div>
+        <p>{each.each.played}</p>
+        <p>{each.each.won}</p>
+        <p>{each.each.lost}</p>
+        <p>{each.each.points}</p>
+        <p>{each.each.net_run_rate}</p>
       </div>
-      <p>{each.each.played}</p>
-      <p>{each.each.won}</p>
-      <p>{each.each.lost}</p>
-      <p>{each.each.points}</p>
-      <p>{each.each.net_run_rate}</p>
-  </div>
-   )
-}
+    )
+  }
 
 
 
@@ -988,7 +988,7 @@ const PointsTable =(each,index)=>{
 
                 <div className="single-team-hist">
                   <div className="single-team-titles">
-                    <h3 style={{ width: "32%"}}>Team</h3>
+                    <h3 style={{ width: "32%", textAlign: "left" }}>Team</h3>
                     <h3>P</h3>
                     <h3>W</h3>
                     <h3>L</h3>
