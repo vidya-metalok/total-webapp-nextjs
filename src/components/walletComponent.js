@@ -191,6 +191,11 @@ const WalletComponent = () => {
     const ALLOWANCE_TRAGET = "0xdef1c0ded9bec7f1a1670819833240f027b25eff";
     const SPORTSVERSE_ADDRESS = "0xFDfDaE4d7f7731A09eD556C0e1F9D3b5C25FEf18";
     const PLATFORM_FEE = "0.01";
+
+
+    const [oneinputval,setoneinputval] = useState('0')
+    const [oneinputrev,setoneinputrev] = useState('0')
+
     var contract = new web3.eth.Contract(abi, USDT);
 
 
@@ -425,6 +430,89 @@ const WalletComponent = () => {
             // setLoader(false);
         }
     }
+
+
+
+
+
+    async function getOneValue() {
+
+        const inputAmountone=1
+
+        const params = {
+          sellToken: sellToken,
+          buyToken: buyToken,
+          sellAmount: amount,
+          feeRecipient: SPORTSVERSE_ADDRESS,
+          buyTokenPercentageFee: PLATFORM_FEE,
+        };
+      
+        const response = await fetch(
+          `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`
+        );
+      
+        let trade = await response.json();
+        console.log('traddddddddddddddddddddddddddddddddddde first one', trade)
+
+        setoneinputval(parseFloat(trade.price * parseFloat(inputAmountone)));
+    }
+    
+ 
+
+      console.log("trrrrrrrrrrrrrrrrrrrrrrrrrrrrr", "asdfasd",oneinputval)
+
+
+
+
+
+
+
+
+
+      async function getOneValueRev() {
+
+        const inputAmountone2=1
+
+        const params = {
+          sellToken: buyToken,
+          buyToken: sellToken,
+          sellAmount: amount,
+          feeRecipient: SPORTSVERSE_ADDRESS,
+          buyTokenPercentageFee: PLATFORM_FEE,
+        };
+      
+        const response = await fetch(
+          `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`
+        );
+      
+        let trade = await response.json();  
+
+
+        console.log('traddddddddddddddddddddddddddddddddddde second one', trade)
+        setoneinputrev(parseFloat(trade.price * parseFloat(inputAmountone2)));
+    }
+    
+    useEffect(() => {
+       
+            getOneValue();
+            getOneValueRev();
+console.log('traddddddddddddddddddddddddddddddddddddddd effffffffffffffffffffffffffffffffffect' )
+   
+      }, [buyToken, sellToken,tokenName,tokenOutName,oneinputrev]);
+
+      console.log("trrrrrrrrrrrrrrrrrrrrrrrrrrrrr", "asdfasd",oneinputval)
+
+
+
+
+
+
+
+
+
+
+
+    
 
     useEffect(() => {
         const fun = async () => {
@@ -778,6 +866,38 @@ const WalletComponent = () => {
 
 
 
+    const [chosentime,setchosentime] = useState(false)
+
+  
+    useEffect(()=>{
+        if(sameIn==='in' || sameOut==='out' || sameIn===sameOut){
+            console.log('heeeeeeeeeeeeeeeeeeeeeeeeeeeeeee if useeffect')
+            setchosentime(false)
+        }
+        else{
+            setchosentime(true)
+            setTimeout(()=>{
+                setchosentime(false)
+    
+            },2000)
+    
+            
+          
+        }
+     
+       
+    },[sameIn,sameOut])
+
+    const handleKeyPress = (event) => {
+        const keyCode = event.which || event.keyCode;
+        const keyValue = String.fromCharCode(keyCode);
+        const regex = /^[0-9.]$/;
+      
+        if (!regex.test(keyValue)) {
+          event.preventDefault();
+        }
+      };
+
     return (
         <div className="wallet-main-con">
             <div className="details-balance-con">
@@ -900,14 +1020,16 @@ const WalletComponent = () => {
                                                 placeholder="0.00"
                                                 value={sameIn === sameOut ? "" : inputAmount}
                                                 onChange={(e) => onChangeUserInput(e)}
+                                                onKeyPress={handleKeyPress}
                                             />
                                         </div>
                                     </div>
-                                    <h1 className="onw-quial">1 RSVC = 21.02 USDT</h1>
+                                    {tokenName==='Select Token' || tokenOutName==='Select Token'  ?  '' : <h3 className="onw-quial">1 {tokenName} =  {parseFloat(oneinputval).toFixed(3)} {tokenOutName}</h3>}
+
 
                                     {inputAmount < 0 && <p style={{ color: "red" }}>Please enter positive value</p>}
-                                    {inputAmountErr && <p style={{ color: "red" }}>Please enter a valid amount with up to two decimal places</p>}
-                                    {mulDecimalErr && <p style={{ color: "red" }}>Please enter a valid amount with only one decimal point</p>}
+                                    {/* {inputAmountErr && <p style={{ color: "red" }}>Please enter a valid amount with up to two decimal places</p>} */}
+                                    {/* {mulDecimalErr && <p style={{ color: "red" }}>Please enter a valid amount with only one decimal point</p>} */}
                                     {selectTokenInErr ? (
                                         <p style={{ color: "red" }}>Please select token </p>
                                     ) : ""}
@@ -970,7 +1092,8 @@ const WalletComponent = () => {
                                             </p>
                                         </div>
                                     </div>
-                                    <h3 className="onw-quial">1 RSVC = 21.02 USDT</h3>
+
+                                    {tokenName==='Select Token' || tokenOutName==='Select Token'  ?  '' : <h3 className="onw-quial">1 {tokenOutName} =  {parseFloat(oneinputrev).toFixed(3)}    {tokenName}</h3>}
                                     {sameIn === sameOut
                                         ? <h6 className="same-teams-chosed">you are chosen the same {sameIn==="MATIC" && sameOut==="MATIC" ? 'MATIC' : ''} {sameIn==='USDT' && sameOut==='USDT' ? 'USDT' : ''} {sameIn!=='MATIC' && sameOut!=='USDT' &&  sameIn===sameOut ? 'Token'  : ''}</h6> : ''
 
@@ -979,7 +1102,13 @@ const WalletComponent = () => {
                                         <p style={{ color: "red" }}>Please select token </p>
                                     ) : ""}
 
+                                    {chosentime &&
+                                        <div>
 
+                                             {sameIn==='in' || sameOut==='out' || sameIn===sameOut ? '' :  <h6 style={{color:'green',textAlign:'center' }}>you are converting from {tokenName} {tokenName==='MATIC' || tokenName==='USDT' ? 'balance' : 'token'} to {tokenOutName} {tokenOutName==='MATIC' || tokenOutName==='USDT' ? 'balance' : 'token'} </h6>} 
+
+                                        </div>
+                                    }
 
 
 
