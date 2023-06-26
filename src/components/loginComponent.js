@@ -118,7 +118,7 @@ const LoginComponent = () => {
     const userSecondName = userinfoname?.split(" ")[1]
     dispatch(loginUser(userInfo));
     dispatch(userToken(idToken))
-    dispatch(userEdit({ firstName:userFirstName, lastName:userSecondName, personelEmail:userInfo?.email, professEmail:'123@gmail.com', userMobile:'0123456789',userAddress:'H.No 3-2 Hyderabad 500082'}))
+    dispatch(userEdit({ firstName:userInfo ? userFirstName : 'Kiran', lastName:userInfo ? userSecondName : 'Sharma', personelEmail:userInfo ? userInfo?.email : 'kiran@gmail.com', professEmail:'hello@gmail.com', userMobile:'7584684641',userAddress:'H.No 3-2 Hyderabad 500082'}))
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const getPrivateKey = useCallback(async () => {
@@ -382,6 +382,7 @@ const LoginComponent = () => {
             <div style={{ width: "50vw" }}>
                 <div className="login-img-section">
                     <Image src={images[currentImage]} alt="img" height={500} width={500} />
+                    <button onClick={logout}>logout</button>
 
                     {/* <Image src={loginimg2} alt="img" />
               <Image src={loginimg3} alt="img" />
