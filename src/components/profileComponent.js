@@ -156,7 +156,7 @@ const ProfileComponent = () => {
     }
 
     else{
-        setallerrclr('you are entering incorrect data')
+        setallerrclr('Please enter all the fields')
     }
         
      
@@ -225,7 +225,7 @@ const ProfileComponent = () => {
             seterrpersonelEmail('')
          }
         if(professEmail===''){
-            seterrProfessEmail('Please enter your personal email')
+            seterrProfessEmail('Please enter your professional email')
         }
         else if (!emailRegex.test(professEmail)) {
             seterrProfessEmail('Please enter a valid email');
@@ -301,16 +301,16 @@ const ProfileComponent = () => {
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="firstname">First Name</label>
                                 <br />
-                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} placeholder="firstname" />
-                                    : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} placeholder="firstname" />}
+                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} placeholder="Kiran" />
+                                    : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} placeholder="Kiran" />}
                                     {useredit === true ? <p style={{color:'red'}}>{errorfirst}</p> :''}
                             </div>
 
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="lastname">Last Name</label>
                                 <br />
-                                {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="lastname" />
-                                    : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} placeholder="lastname" />}
+                                {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Sharma" />
+                                    : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} placeholder="Sharma" />}
                                     {useredit === true ? <p style={{color:'red'}}>{errorlast}</p> : ''}
                             </div>
                         </div>
