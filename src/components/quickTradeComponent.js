@@ -763,7 +763,7 @@ useEffect(()=>{
                                         height={20} width={20}
                                         style={{ width: "15px;height:15px" }}
                                     />
-                                    <p>Wallet Balance</p>
+                                    <p>USDT Balance</p>
                                 </div>
                                 <div className="subparentsubchild6">
                                     <p>${totalHoldings}</p>

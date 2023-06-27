@@ -609,7 +609,7 @@ const TradeComponent = () => {
           <h6 className="score-card-heading">Score Card</h6>
           <div className="badding-team-nm">
             <h1>Sunrisers Hyderabad</h1>
-            <div className="d-flex gap-5 align-items-center justify-content-center">
+            <div className="d-flex gap-1 align-items-center justify-content-center">
               <h2>
                 <span>{liveData?.live?.score?.runs}</span>/
                 <span>{liveData?.live?.score?.wickets}</span>(
@@ -665,7 +665,7 @@ const TradeComponent = () => {
 
           <div className="d-flex align-items-center justify-content-between px-4  royal-border">
             <h1 className="filding-team-name">Royal Challengers Banglore</h1>
-            <div className="d-flex gap-5 align-items-center">
+            <div className="d-flex gap-3 align-items-center">
               <h1 className="filding-team-score">181/6 (20)</h1>
               <h1 style={{ transform: "rotate(180deg)", cursor: 'pointer', transform: bowlingT ? 'rotate(0deg)' : 'rotate(180deg)' }} onClick={filding_team}>
                 <Image src={downImg} alt="arrowimg" />

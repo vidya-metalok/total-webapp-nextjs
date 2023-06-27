@@ -382,7 +382,7 @@ const LoginComponent = () => {
             <div style={{ width: "50vw" }}>
                 <div className="login-img-section">
                     <Image src={images[currentImage]} alt="img" height={500} width={500} />
-                    <button onClick={logout}>logout</button>
+                   
 
                     {/* <Image src={loginimg2} alt="img" />
               <Image src={loginimg3} alt="img" />
