@@ -98,6 +98,11 @@ const WalletComponent = () => {
     const [inputAmountErr, setInputAmountErr] = useState(false)
     const [mulDecimalErr, setMulDecimalErr] = useState(false)
     const editeddata = useSelector((store) => store?.user?.userEdit)
+    const [tokenOutInput, setTokenOutInput] = useState("")
+    const [checkingOnChange, setCheckingOnChange] = useState(false)
+    const [recevedInput, setReceivedInput] = useState("")
+
+
 
     const userWallet = useSelector((store) => store?.user?.loginInfo?.walletAddress)
     // const userWallet = "0xa9f729E5437806248210eCbe3e3c7dE80542b28D";
@@ -157,15 +162,6 @@ const WalletComponent = () => {
         "https://polygon-mainnet.g.alchemy.com/v2/Nk7m4OIjCz5bq189rdj83esGinAAL7MF"
     );
 
-
-
-
-
-
-    console.log("privateKey--", privateKey);
-
-    console.log("username:- ", userName);
-
     const dispatch = useDispatch();
     //tokenIn
     const [tokenIn, setTokenIn] = useState(null);
@@ -195,8 +191,8 @@ const WalletComponent = () => {
     const PLATFORM_FEE = "0.01";
 
 
-    const [oneinputval,setoneinputval] = useState('0')
-    const [oneinputrev,setoneinputrev] = useState('0')
+    const [oneinputval, setoneinputval] = useState('0')
+    const [oneinputrev, setoneinputrev] = useState('0')
 
     var contract = new web3.eth.Contract(abi, USDT);
 
@@ -411,10 +407,81 @@ const WalletComponent = () => {
         return message;
     }
 
+
+
+    async function getOneValue() {
+        const inputAmountone = 1
+        const initialFinal = "1000000000000000000000"
+        const params = {
+            sellToken: sellToken,
+            buyToken: buyToken,
+            sellAmount: initialFinal,
+            feeRecipient: SPORTSVERSE_ADDRESS,
+            buyTokenPercentageFee: PLATFORM_FEE,
+        };
+
+        const response = await fetch(
+            `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`
+        );
+
+        let trade = await response.json();
+        console.log('traddddddddddddddddddddddddddddddddddde first one', trade)
+
+        setoneinputval(parseFloat(trade.price * parseFloat(inputAmountone)));
+    }
+
+    async function getOneValueRev() {
+        const inputAmountone2 = 1
+
+        const initialFinal = "1000000000000000000000"
+
+        const params = {
+            sellToken: buyToken,
+            buyToken: sellToken,
+            sellAmount: initialFinal,
+            feeRecipient: SPORTSVERSE_ADDRESS,
+            buyTokenPercentageFee: PLATFORM_FEE,
+        };
+
+        const response = await fetch(
+            `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`
+        );
+
+        let trade = await response.json();
+
+
+        console.log('traddddddddddddddddddddddddddddddddddde second one', trade)
+        setoneinputrev(parseFloat(trade.price * parseFloat(inputAmountone2)));
+    }
+
+    useEffect(() => {
+
+        const funOne = async () => {
+            await getOneValue();
+
+        }
+        funOne()
+        const funTwo = async () => {
+            await getOneValueRev();
+            console.log('traddddddddddddddddddddddddddddddddddddddd effffffffffffffffffffffffffffffffffect')
+
+        }
+        funTwo()
+
+    }, [buyToken, sellToken]);
+
+    console.log("trrrrrrrrrrrrrrrrrrrrrrrrrrrrr", "asdfasd", oneinputval)
+
+
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     async function getQuote() {
-        if (tokenIn != null && tokenOut != null && amount != null) {
+        console.log("quotes-calling", recevedInput)
+
+        if (tokenIn !== null && tokenOut !== null && amount !== null) {
             // setLoader(true);
+            console.log("amount..both", amount)
+
             const params = {
                 sellToken: sellToken,
                 buyToken: buyToken,
@@ -424,12 +491,22 @@ const WalletComponent = () => {
             };
 
             const response = await fetch(
-                `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`
+                `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`,
             );
 
             let trade = await response.json();
-            setAmountOut(parseFloat(trade.price * parseFloat(inputAmount)));
+            // if (amountOut !== "") {
+            //     setAmountOut("")
+            // }
+            const bothInputs = checkingOnChange ? parseFloat(recevedInput) : parseFloat(inputAmount)
+
+            setAmountOut(parseFloat(trade.price * parseFloat(bothInputs)));
+            console.log("res-quote", amountOut)
             // setLoader(false);
+
+
+
+
         }
     }
 
@@ -437,99 +514,26 @@ const WalletComponent = () => {
 
 
 
-    async function getOneValue() {
-
-        const inputAmountone=1
-
-        const params = {
-          sellToken: sellToken,
-          buyToken: buyToken,
-          sellAmount: amount,
-          feeRecipient: SPORTSVERSE_ADDRESS,
-          buyTokenPercentageFee: PLATFORM_FEE,
-        };
-      
-        const response = await fetch(
-          `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`
-        );
-      
-        let trade = await response.json();
-        console.log('traddddddddddddddddddddddddddddddddddde first one', trade)
-
-        setoneinputval(parseFloat(trade.price * parseFloat(inputAmountone)));
-    }
-    
- 
-
-      console.log("trrrrrrrrrrrrrrrrrrrrrrrrrrrrr", "asdfasd",oneinputval)
 
 
 
 
-
-
-
-
-
-      async function getOneValueRev() {
-
-        const inputAmountone2=1
-
-        const params = {
-          sellToken: buyToken,
-          buyToken: sellToken,
-          sellAmount: amount,
-          feeRecipient: SPORTSVERSE_ADDRESS,
-          buyTokenPercentageFee: PLATFORM_FEE,
-        };
-      
-        const response = await fetch(
-          `https://polygon.api.0x.org/swap/v1/quote?${qs.stringify(params)}`
-        );
-      
-        let trade = await response.json();  
-
-
-        console.log('traddddddddddddddddddddddddddddddddddde second one', trade)
-        setoneinputrev(parseFloat(trade.price * parseFloat(inputAmountone2)));
-    }
-    
-    useEffect(() => {
-       
-            getOneValue();
-            getOneValueRev();
-console.log('traddddddddddddddddddddddddddddddddddddddd effffffffffffffffffffffffffffffffffect' )
-   
-      }, [buyToken, sellToken,tokenName,tokenOutName,oneinputrev]);
-
-      console.log("trrrrrrrrrrrrrrrrrrrrrrrrrrrrr", "asdfasd",oneinputval)
-
-
-
-
-
-
-
-
-
-
-
-    
 
     useEffect(() => {
         const fun = async () => {
             await getQuote();
         };
-        if (parseFloat(inputAmount)) fun();
-        else {
-            setAmountOut("");
-        }
-    }, [inputAmount, buyToken, sellToken, getQuote]);
+        if (parseFloat(inputAmount) || checkingOnChange) fun();
+        // else {
+        //     setAmountOut('');
+        // }
+
+    }, [inputAmount, buyToken, sellToken, getQuote, amountOut]);
 
     useEffect(() => {
         // setLoader(true);
-        if (parseFloat(inputAmount)) {
-            let amt = parseFloat(inputAmount);
+        if (parseFloat(inputAmount) || checkingOnChange) {
+            let amt = checkingOnChange ? parseFloat(recevedInput) : parseFloat(inputAmount)
             if (tokenIn == USDT) {
                 setAmount(amt * 1e6);
             } else {
@@ -537,7 +541,7 @@ console.log('traddddddddddddddddddddddddddddddddddddddd efffffffffffffffffffffff
             }
             // setLoader(false);
         }
-    }, [inputAmount, tokenIn]);
+    }, [tokenIn, recevedInput, inputAmount]);
 
     async function setAllowance() {
         setLoader(true);
@@ -863,6 +867,8 @@ console.log('traddddddddddddddddddddddddddddddddddddddd efffffffffffffffffffffff
 
         // Update the userInput state
         setUserInput(userInput);
+        setCheckingOnChange(false)
+
 
     }
 
@@ -872,7 +878,7 @@ console.log('traddddddddddddddddddddddddddddddddddddddd efffffffffffffffffffffff
 
     const [chosentime,setchosentime] = useState(false)
 
-  
+
     useEffect(()=>{
         if(sameIn==='in' || sameOut==='out' || sameIn===sameOut){
             console.log('heeeeeeeeeeeeeeeeeeeeeeeeeeeeeee if useeffect')
@@ -882,25 +888,43 @@ console.log('traddddddddddddddddddddddddddddddddddddddd efffffffffffffffffffffff
             setchosentime(true)
             setTimeout(()=>{
                 setchosentime(false)
-    
+
             },2000)
-    
-            
-          
+
+
+
         }
-     
-       
+
+
     },[sameIn,sameOut])
 
     const handleKeyPress = (event) => {
         const keyCode = event.which || event.keyCode;
         const keyValue = String.fromCharCode(keyCode);
         const regex = /^[0-9.]$/;
-      
+
         if (!regex.test(keyValue)) {
-          event.preventDefault();
+            event.preventDefault();
         }
-      };
+    };
+
+    const setUserAmountOut = (e) => {
+
+        console.log("amount-changing-input", amountOut)
+        if (amountOut) {
+            setAmountOut("")
+            console.log("emptying amount-out")
+        }
+
+        // if (outValue) {
+        //     setAmountOut("")
+        // }
+        const outValue = e.target.value
+        setReceivedInput(outValue)
+        setCheckingOnChange(true)
+        // setAmountOut("")
+
+    }
 
     return (
         <div className="wallet-main-con">
@@ -1019,16 +1043,17 @@ console.log('traddddddddddddddddddddddddddddddddddddddd efffffffffffffffffffffff
                                         </div>
 
                                         <div className="quick-trade-suchild2 wallet-input-field">
-                                            <input className="amt-out-show"
+                                            <input className="token-names-select"
                                                 type="number"
-                                                placeholder={`Enter ${tokenName} value`}
-                                                value={sameIn === sameOut ? "" : inputAmount}
+                                                placeholder="0.00"
+                                                value={checkingOnChange ? amountOut ? parseFloat(amountOut).toFixed(3) : "" : inputAmount}
                                                 onChange={(e) => onChangeUserInput(e)}
                                                 onKeyPress={handleKeyPress}
+                                                style={{ color: "white", opacity: "0.75" }}
                                             />
                                         </div>
                                     </div>
-                                    {tokenName==='Select Token' || tokenOutName==='Select Token'  ?  '' : <h3 className="onw-quial">1 {tokenName} =  {parseFloat(oneinputval).toFixed(3)} {tokenOutName}</h3>}
+                                    {tokenName === 'Select Token' || tokenOutName === 'Select Token' ? '' : <h3 className="onw-quial">1 {tokenName} =  {oneinputval ? parseFloat(oneinputval).toFixed(3) : "0.000"} {tokenOutName}</h3>}
 
 
                                     {inputAmount < 0 && <p style={{ color: "red" }}>Please enter positive value</p>}
@@ -1084,16 +1109,19 @@ console.log('traddddddddddddddddddddddddddddddddddddddd efffffffffffffffffffffff
                                         </div>
 
 
-                                        <div className="quick-trade-suchild2  wallet-input-field">
-                                            {/* <input type="text" placeholder="0.00" value={amountOut}
-                                    /> */}
-                                            <p className="amt-out-show">
+                                        <div className="quick-trade-suchild2 wallet-input-field">
+                                            <input type="text" value={checkingOnChange ? recevedInput : amountOut ? parseFloat(amountOut).toFixed(3) : ""} placeholder="0.00" className="token-names-select" onChange={(e) => setUserAmountOut(e)} style={{ color: "white", opacity: "0.75" }} />
+
+                                            {/* <input className="amt-out-show" type="text" placeholder="0.00" value={isNaN(parseFloat(amountOut)) ? amountOut : parseFloat(amountOut).toFixed(3)} onChange={(e) => setAmountOut(e.target.value)}
+                                            /> */}
+                                            {/* <p className="amt-out-show">
                                                 {isNaN(parseFloat(amountOut)) ? (
-                                                    <input placeholder={`Enter ${tokenOutName} value`} ></input>
+                                                    { amountOut }
+
                                                 ) : (
                                                     parseFloat(amountOut).toFixed(3)
                                                 )}
-                                            </p>
+                                            </p> */}
                                         </div>
                                     </div>
 
