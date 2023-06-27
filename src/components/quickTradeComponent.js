@@ -93,14 +93,16 @@ const Dashboardcenter = () => {
     const [tokenOutName, setTokenOutName] = useState('Select Token');
     const [tokenOutImage, setTokenOutImage] = useState('');
     const [inputAmount, setUserInput] = useState('');
-    const [amountOut, setAmountOut] = useState(0);
+    const [amountOut, setAmountOut] = useState("");
     const [amount, setAmount] = useState(0);
     const [trade, setTrade] = useState(null);
+    const [recevedInput, setReceivedInput] = useState("")
     //available balances
     const [tokInBalance, setSellTokenBalance] = useState(0);
     const [tokenOutBalance, setBuyTokenBalance] = useState(0);
     const [sellToken, setSellToken] = useState(null);
     const [buyToken, setBuyToken] = useState(null);
+    const [checkingOnChange, setCheckingOnChange] = useState(false)
 
     const USDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F';
     const MATIC = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE';
@@ -399,33 +401,33 @@ const Dashboardcenter = () => {
         const keyCode = event.which || event.keyCode;
         const keyValue = String.fromCharCode(keyCode);
         const regex = /^[0-9\b]+$/; // Regular expression to match only numbers and backspace (\b)
-    
+
         if (!regex.test(keyValue)) {
-          event.preventDefault();
+            event.preventDefault();
         }
-      };
+    };
 
 
       const [chosentime,setchosentime] = useState(false)
 
-  
+
 useEffect(()=>{
     if(sameIn==='in' || sameOut==='out' || sameIn===sameOut){
         console.log('heeeeeeeeeeeeeeeeeeeeeeeeeeeeeee if useeffect')
-        setchosentime(false)
-    }
-    else{
-        setchosentime(true)
-        setTimeout(()=>{
             setchosentime(false)
+        }
+    else{
+            setchosentime(true)
+        setTimeout(()=>{
+                setchosentime(false)
 
         },2000)
 
-        
-      
-    }
- 
-   
+
+
+        }
+
+
 },[sameIn,sameOut])
 
 
@@ -503,7 +505,12 @@ useEffect(()=>{
             );
 
             let trade = await response.json();
-            setAmountOut(parseFloat(trade.price * parseFloat(inputAmount)));
+            // if (amountOut !== "") {
+            //     setAmountOut("")
+            // }
+            const bothInputs = checkingOnChange ? parseFloat(recevedInput) : parseFloat(inputAmount)
+
+            setAmountOut(parseFloat(trade.price * parseFloat(bothInputs)));
             // setLoader(false);
         }
     }
@@ -514,18 +521,20 @@ useEffect(()=>{
         const fun = async () => {
             await getQuote();
         };
-        if (parseFloat(inputAmount)) fun();
-        else {
-            setAmountOut('');
-        }
+        if (parseFloat(inputAmount) || checkingOnChange) fun();
+        // else {
+        //     setAmountOut('');
+        // }
 
-    }, [inputAmount, buyToken, sellToken, getQuote]);
+    }, [inputAmount, buyToken, sellToken, getQuote, amountOut]);
+
+
 
 
     useEffect(() => {
         // setLoader(true);
-        if (parseFloat(inputAmount)) {
-            let amt = parseFloat(inputAmount);
+        if (parseFloat(inputAmount) || checkingOnChange) {
+            let amt = checkingOnChange ? parseFloat(recevedInput) : parseFloat(inputAmount)
             if (tokenIn == USDT) {
                 setAmount(amt * 1e6);
             } else {
@@ -533,7 +542,7 @@ useEffect(()=>{
             }
             // setLoader(false);
         }
-    }, [inputAmount, tokenIn]);
+    }, [tokenIn, recevedInput, inputAmount]);
 
     async function setAllowance() {
         setLoader(true);
@@ -713,6 +722,24 @@ useEffect(()=>{
 
         // Update the userInput state
         setUserInput(userInput);
+        setCheckingOnChange(false)
+    }
+
+    const setUserAmountOut = (e) => {
+
+        console.log("amount-changing-input", amountOut)
+        if (amountOut) {
+            setAmountOut("")
+        }
+
+        // if (outValue) {
+        //     setAmountOut("")
+        // }
+        const outValue = e.target.value
+        setReceivedInput(outValue)
+        setCheckingOnChange(true)
+        setAmountOut("")
+
     }
 
     return (
@@ -885,7 +912,7 @@ useEffect(()=>{
                                     </div>
                                 </div>
                                 <div className="quick-trade-suchild2">
-                                    <input type="number" placeholder="0.00" onKeyPress={handleKeyPress} className="token-names-select" value={sameIn === sameOut ? "" :inputAmount} onChange={(e) => onChangeUserInput(e)
+                                    <input type="number" placeholder="0.00" onKeyPress={handleKeyPress} className="token-names-select" value={checkingOnChange ? amountOut ? parseFloat(amountOut).toFixed(3) : "0.00" : inputAmount} onChange={(e) => onChangeUserInput(e)
 
                                     }
                                     />
@@ -895,7 +922,7 @@ useEffect(()=>{
 
                             <div style={{ marginTop: "22px" }}>
                                 {inputAmount < 0 && <p style={{ color: "red" }}>Please enter positive value</p>}
-                                {inputAmountErr && <p style={{ color: "red" }}>Please enter a valid amount with up to two decimal places</p>}
+                                {/* {inputAmountErr && <p style={{ color: "red" }}>Please enter a valid amount with up to two decimal places</p>} */}
                                 {mulDecimalErr && <p style={{ color: "red" }}>Please enter a valid amount with only one decimal point</p>}
                                 {selectTokenInErr ? (
                                     <p style={{ color: "red" }}>Please select the token </p>
@@ -951,7 +978,8 @@ useEffect(()=>{
                                     <div className="quick-trade-suchild2">
                                         {/* <input type="text" placeholder="0.00" value={amountOut}
                                     /> */}
-                                        <span>{isNaN(parseFloat(amountOut)) ? <input type="text" placeholder="0.00" disabled={true} className="token-names-select" /> : parseFloat(amountOut).toFixed(3)}</span>
+                                        <input type="text" value={checkingOnChange ? recevedInput : amountOut ? parseFloat(amountOut).toFixed(3) : "0.00"} placeholder="0.00" className="token-names-select" onChange={(e) => setUserAmountOut(e)} />
+                                        {/* <span>{isNaN(parseFloat(amountOut)) ? <input type="text" placeholder="0.00" disabled={true} className="token-names-select" /> : parseFloat(amountOut).toFixed(3)}</span> */}
                                     </div>
                                 </div>
                                 <div>
