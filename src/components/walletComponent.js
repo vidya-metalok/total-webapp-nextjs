@@ -942,7 +942,7 @@ const WalletComponent = () => {
                         <div className="img-con">
                             <Image src={money} alt="" height={25} width={25} />
 
-                            <p>Total Wallet balance</p>
+                            <p>Total USDT balance</p>
                         </div>
                         <h2 className="tot-wallet"><span>$</span>{parseFloat(usdtBalance)?.toFixed(6)}</h2>
                     </div>
