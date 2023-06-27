@@ -301,16 +301,16 @@ const ProfileComponent = () => {
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="firstname">First Name</label>
                                 <br />
-                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} placeholder="Kiran" autocomplete="off"/>
-                                    : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} placeholder="Kiran" />}
+                                {useredit ? <input id="firstname" name="firstname" className='profile-input form-control' type="text" value={firstName} ref={inputRef} onChange={(e) => setfirstName(e.target.value)} placeholder="Kiran" autoComplete="off"/>
+                                    : <input id="firstname" name="firstname" className='profile-input form-control' ref={inputRef} type="text" value={firstName} placeholder="Kiran" autoComplete="off"/>}
                                     {useredit === true ? <p style={{color:'red'}}>{errorfirst}</p> :''}
                             </div>
 
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="lastname">Last Name</label>
                                 <br />
-                                {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Sharma" autocomplete="off"/>
-                                    : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} placeholder="Sharma" />}
+                                {useredit ? <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Sharma" autoComplete="off"/>
+                                    : <input id="lastname" name="lastname" className='profile-input form-control' type="text" value={lastName} placeholder="Sharma" autoComplete="off"/>}
                                     {useredit === true ? <p style={{color:'red'}}>{errorlast}</p> : ''}
                             </div>
                         </div>
@@ -318,30 +318,30 @@ const ProfileComponent = () => {
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="mobile">Mobile</label>
                                 <br />
-                                {useredit ? <input id="mobile" name="mobile" className='profile-input form-control' type="number" placeholder='7584684641' value={userMobile} onChange={(e) => setUserMobile(e.target.value)} autocomplete="off"/>
-                                    : <input id="mobile" name="mobile" className='profile-input form-control' type="number" placeholder='7584684641' value={userMobile} />}
+                                {useredit ? <input id="mobile" name="mobile" className='profile-input form-control' type="number" placeholder='7584684641' value={userMobile} onChange={(e) => setUserMobile(e.target.value)} autoComplete="off"/>
+                                    : <input id="mobile" name="mobile" className='profile-input form-control' type="number" placeholder='7584684641' value={userMobile} autoComplete="off"/>}
                                     {useredit === true ? <p style={{color:'red'}}>{errormobile}</p> : ''}
                             </div>
                             <div className='w-100'>
                                 <label className='label-name' htmlFor="personalemail">Personal Email</label>
                                 <br />
-                                {useredit ? <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} onChange={(e) => setPersonelEmail(e.target.value)} placeholder="kiran@gmail.com" autocomplete="off"/>
-                                    : <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} placeholder="kiran@gmail.com" />}
+                                {useredit ? <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} onChange={(e) => setPersonelEmail(e.target.value)} placeholder="kiran@gmail.com" autoComplete="off"/>
+                                    : <input id="personalemail" name="personalemail" className='profile-input form-control' type="text" value={personelEmail} placeholder="kiran@gmail.com" autoComplete="off"/>}
                                     {useredit === true ? <p style={{color:'red'}}>{errpersonelEmail}</p> : ''}
                             </div>
                         </div>
                         <div>
                             <label className='label-name' htmlFor="professionalemail">Professional email</label>
                             <br />
-                            {useredit ? <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} onChange={(e) => setProfessEmail(e.target.value)} autocomplete="off"/>
-                                : <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} />}
+                            {useredit ? <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} onChange={(e) => setProfessEmail(e.target.value)} autoComplete="off"/>
+                                : <input id="professionalemail" name="professionalemail" className='profile-input form-control' type="text" placeholder='Kiran@vardhaman.org' value={professEmail} autoComplete="off"/>}
                                 {useredit === true ? <p style={{color:'red'}}>{errProfessEmail}</p> : ''}
                         </div>
                         <div>
                             <label className='label-name' htmlFor="address">Address</label>
                             <br />
-                            {useredit ? <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 3-2, 2nd floor, huda colony, hyderabad' value={userAddress} onChange={(e) => setuserAddress(e.target.value)} autocomplete="off"/>
-                                : <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 3-2, 2nd floor, huda colony, hyderabad' value={userAddress} />}
+                            {useredit ? <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 3-2, 2nd floor, huda colony, hyderabad' value={userAddress} onChange={(e) => setuserAddress(e.target.value)} autoComplete="off"/>
+                                : <input id="address" name="address" className='profile-input6 form-control' type="text" placeholder='h.no 3-2, 2nd floor, huda colony, hyderabad' value={userAddress} autoComplete="off"/>}
                                {useredit === true ? <p style={{color:'red'}}>{erruserAddress}</p> :''}
                         </div>
                     </form>

@@ -538,6 +538,7 @@
   flex-direction: column;
   padding: 20px;
   width: 100%;
+  height: 400px;
 }
 .wallet-buy {
   margin-top: 20px;
@@ -598,5 +599,5 @@
 }
 
 .inwallet-heading th:nth-child(1){
-  width: 21%;
+  width: 25%;
 }
