@@ -10,8 +10,8 @@
   display: flex;
   flex-wrap: wrap;
   padding: 40px;
-  overflow: auto;
-  height: 75vh;
+  /* overflow: auto;
+  height: 75vh; */
 }
 .feedback-sub-child {
   width: 301px;
@@ -46,6 +46,6 @@
   margin-top: 30px;
 }
 
-a{
+a {
   text-decoration: none;
 }
