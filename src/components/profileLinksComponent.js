@@ -237,22 +237,22 @@ const ProfileLinksComponent = () => {
 
         }
 
-]
+    ]
 
 const Loginsession =({sessiondata})=>{
     console.log("ssssssssssssssssssssssssssssssssssss",sessiondata)
 
     return(
-        <div className='session-child'>
-           <h5>{sessiondata.days}</h5>
-           <h5>{sessiondata.time}</h5>
-           <h5>{sessiondata.minits}</h5>
-           <h5><Image src={sessiondata.imgmenu} alt="img" width='4px' height='20px' /></h5>
-        
+            <div className='session-child'>
+                <h5>{sessiondata.days}</h5>
+                <h5>{sessiondata.time}</h5>
+                <h5>{sessiondata.minits}</h5>
+                <h5><Image src={sessiondata.imgmenu} alt="img" width='4px' height='20px' /></h5>
 
-        </div>
-)
-}
+
+            </div>
+        )
+    }
 
 
 
@@ -283,7 +283,7 @@ const Loginsession =({sessiondata})=>{
                 <div className="logout-con" onMouseEnter={handleReferralHover} onMouseLeave={handleMouseReferralLeave}>
                     <Link href="/refferalspage" passHref className={router.pathname === '/refferalspage' ? 'active-link-name' : "not-active-link-name"}>
                         <Image src={refferalsLinkIcon} alt="" height={20} width={20} />
-                        <h2>Refferals</h2>
+                        <h2>Referrals</h2>
                     </Link>
                 </div>
                 <div className="logout-con" onMouseEnter={handleFaqsHovered} onMouseLeave={handleFaqsLeave}>
@@ -299,31 +299,31 @@ const Loginsession =({sessiondata})=>{
 
 
 
-{router.pathname === '/profilepage' &&
-    <div className='loginsession' >
-        <h4 className='last3-heading'>Last 3 logins</h4>
-        <div className='loginsession-parent1'>
-            {
+                {router.pathname === '/profilepage' &&
+                    <div className='loginsession' >
+                        <h4 className='last3-heading'>Last 3 logins</h4>
+                        <div className='loginsession-parent1'>
+                            {
                 loginsession.map((each,index)=>(
 
-                    <Loginsession key={index} sessiondata={each} />
-                )
-                    
-                )
-            }
-        </div>
+                                    <Loginsession key={index} sessiondata={each} />
+                                )
 
-            <h4 className='last3-heading'>Last 3 Activities</h4>
-            <div className='loginsession-parent1'>
+                                )
+                            }
+                        </div>
+
+                        <h4 className='last3-heading'>Last 3 Activities</h4>
+                        <div className='loginsession-parent1'>
 
 
-            </div>
-        
-    <div> 
+                        </div>
 
-    </div>
+                        <div>
 
-</div>}
+                        </div>
+
+                    </div>}
 
 
 
