@@ -328,7 +328,7 @@ const RefferalsComponent = () => {
               <div className='reff-share-con'>
                 <div className='reff-copy'>
                   <p2 className="reff-cpy-nbr">{referralCode}</p2>
-                  <p4 className="reff-cpy" onClick={handleCopyClick}>{copyClick ? <p style={{ color: 'green' }}>copied</p> : <p>copy</p>}</p4>
+                  <p4 className="reff-cpy" onClick={handleCopyClick}>{copyClick ? <p style={{ color: 'green' }}>copied</p> : <p>COPY</p>}</p4>
 
                 </div>
                 <button type="button" className='share-ref-btn' onClick={onSharePress}>SHARE</button>
