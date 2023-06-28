@@ -88,15 +88,15 @@ const NavBarComponent = () => {
     const dispatch = useDispatch()
     const router = useRouter()
 
-// if(depositeOpen==true){
-//     document.body.style.overflow='hidden'
-//         document.body.style.height = '100vh'
-//         console.log("ffffffffffffffffffffffffffffffffffffffffffffffffi")
-//     }
-// else{
-//     document.body.style.overflow='auto'
-//         document.body.style.height = 'auto'
-//     }
+    // if(depositeOpen==true){
+    //     document.body.style.overflow='hidden'
+    //         document.body.style.height = '100vh'
+    //         console.log("ffffffffffffffffffffffffffffffffffffffffffffffffi")
+    //     }
+    // else{
+    //     document.body.style.overflow='auto'
+    //         document.body.style.height = 'auto'
+    //     }
 
     const handleProfileHover = () => {
         setIsProfileHovered(true)
@@ -373,9 +373,9 @@ const NavBarComponent = () => {
     //         event.preventDefault();
     //       }
     //     };
-    
+
     //     window.addEventListener('wheel', handleWheel, { passive: false });
-    
+
     //     return () => {
     //       window.removeEventListener('wheel', handleWheel);
     //     };
@@ -507,7 +507,7 @@ const NavBarComponent = () => {
                     <div className="logout-con" onMouseEnter={handleReferralHover} onMouseLeave={handleMouseReferralLeave}>
                         <Link href="/refferalspage" className={router.pathname === '/refferalspage' ? 'active-link-name' : "not-active-link-name"}>
                             <Image src={refferalsLinkIcon} alt="" height={20} width={20} />
-                            <p>Refferals</p>
+                            <p>Referrals</p>
                         </Link>
                     </div>
                     <div className="logout-con" onMouseEnter={handleFaqsHovered} onMouseLeave={handleFaqsLeave}>
