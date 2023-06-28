@@ -341,6 +341,9 @@ const TransactionHistoryComponent = (props) => {
     const newsTabClass = matchpointclick ? "hist-active" : "hist-not-active"
     console.log("activeTabs...", histTabClass, newsTabClass)
 
+    const [analysis,setanalyse] = useState('Weekly')
+
+
     return (
 
         <>
@@ -414,9 +417,9 @@ const TransactionHistoryComponent = (props) => {
 
                             {transHist && (
                                 <div className='trans-list'>
-                                    <p4>Weekly</p4>
-                                    <p4>Monthly</p4>
-                                    <p4>Yearly</p4>
+                                    <p onClick={()=>setanalyse('Weekly')} style={{color:analysis ==='Weekly' ? '' : 'white'}}>Weekly</p>
+                                    <p onClick={()=>setanalyse('Monthly')} style={{color:analysis ==='Monthly' ? '' : 'white'}}>Monthly</p>
+                                    <p onClick={()=>setanalyse('Yearly')} style={{color:analysis ==='Yearly' ? '' : 'white'}}>Yearly</p>
                                 </div>
 
                             )}

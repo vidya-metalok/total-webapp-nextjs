@@ -563,14 +563,14 @@ today-team-names-new p:nth-child(1) {
   height: 176px;
   overflow: auto;
   border-radius: 4px;
-  border:1px solid #523f3c;
+  border:1px solid #52403d;
   z-index: 5;
   /* left:45px; */
   
 }
 
 .pop-select::-webkit-scrollbar{
-  width: 2px;
+  width: 4px;
 }
 .pop-select::-webkit-scrollbar-thumb{
   background: #5E5E5E;
@@ -583,7 +583,7 @@ today-team-names-new p:nth-child(1) {
   align-items: center;
   color: white;
   gap: 7px;
-  height: 34px;
+  height: 38px;
   padding-left:18px;
 }
 

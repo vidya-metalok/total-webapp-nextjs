@@ -201,10 +201,10 @@
   /* left: 92%; */
   z-index: 10;
   right: 16px;
-  background: #131313;
+  background: #2c2a41;
   width: 162px;
     gap:7px;
-  text-align: end;
+  /* text-align: end; */
 }
 
 .transaction-header-sticky {
