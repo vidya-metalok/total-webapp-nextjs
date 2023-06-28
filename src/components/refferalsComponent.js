@@ -379,7 +379,7 @@ const RefferalsComponent = () => {
                 )
               }
 
-              {dataArraylist.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals Yet</p>}
+              {dataArraylist.length == 0 && <p style={{ color: "white", textAlign: 'center' }}>No referrals yet</p>}
             </div>
 
 

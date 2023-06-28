@@ -68,6 +68,7 @@ import feedbackNotActive from "../../public/images/feedback-not-active.svg"
 import communityNotActive from "../../public/images/community-not-active.svg"
 import refferalNotActive from "../../public/images/refferal-not-active.svg"
 import faqsNotActive from "../../public/images/faqs-icon-inactive.svg"
+import notifiCircle from "../../public/images/notification-circle.svg"
 
 
 const NavBarComponent = () => {
@@ -84,6 +85,7 @@ const NavBarComponent = () => {
     const [isTermsHovered, setIsTermsHovered] = useState(false)
     const [isAboutHovered, setIsAboutHovered] = useState(false)
     const [isFaqsHovered, setIsFaqsHovered] = useState(false)
+    const [openNotifications, setOpenNotifications] = useState(false)
 
     const dispatch = useDispatch()
     const router = useRouter()
@@ -382,6 +384,39 @@ const NavBarComponent = () => {
     //   },[depositeOpen]);
 
 
+    const notifiList = [
+        {
+            id: 0,
+            logo: notifiCircle,
+            text: "Transaction successfull of cash withdrawal of amount 2000 rupees"
+        },
+        {
+            id: 1,
+            logo: notifiCircle,
+            text: "RSVC tokens added into your wallet the price of transaction is 5,000"
+        },
+        {
+            id: 2,
+            logo: notifiCircle,
+            text: "RSVC tokens added into your wallet the price of transaction is 5,000"
+        },
+        {
+            id: 3,
+            logo: notifiCircle,
+            text: "Transaction successfull of cash withdrawal of amount 2000 rupees"
+        },
+
+        {
+            id: 4,
+            logo: notifiCircle,
+            text: "RSVC tokens added into your wallet the price of transaction is 5,000"
+        },
+        {
+            id: 5,
+            logo: notifiCircle,
+            text: "Transaction successfull of cash withdrawal of amount 2000 rupees"
+        },
+    ]
 
 
 
@@ -465,7 +500,28 @@ const NavBarComponent = () => {
                         <Link href="/faqspage">
                             <Image src={helpLineIcon} alt="" height={30} width={30} />
                         </Link>
-                        <Image src={notificationIcon} alt="" height={27} width={36} />
+                        <div onClick={() => setOpenNotifications(!openNotifications)} style={{ position: "relative" }}>
+
+                            <Image src={notificationIcon} alt="" height={27} width={36} />
+
+                        </div>
+                        {openNotifications && (
+                            <div style={{ color: "white" }} className='notifi-con'>
+                                <h1>Notifications</h1>
+                                <hr className='notifi-line' />
+                                {notifiList.map((each, index) => (
+                                    <div key={index} className='notifi-item'>
+                                        <div>
+                                            <Image src={each.logo.src} alt="notifi-circle" height={9} width={9} />
+                                        </div>
+                                        <div>
+                                            <p>{each.text}</p>
+                                            <hr className='notifi-line' />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                         {profileimg
                             ? <Image src={profileimg} style={{ borderRadius: '50%', cursor: 'pointer' }} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />
                             : <Image src={profileIcon} style={{ borderRadius: '50%', cursor: 'pointer' }} alt="" height={35} width={35} onClick={() => setopenLogout(!openLogout)} />

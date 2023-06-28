@@ -342,3 +342,46 @@ a:hover {
   transform: translateX(-50%);
   z-index: 50;
 }
+.notifi-con {
+  position: absolute;
+  height: 250px;
+  width: 330px;
+  z-index: 20;
+  right: 106px;
+  top: 78px;
+  overflow: auto;
+  background-color: #2c2a41;
+  border: 2px solid #505b78;
+  border-radius: 7px;
+  font-family: "Poppins";
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.notifi-con::-webkit-scrollbar {
+  width: 0px;
+}
+.notifi-con h1 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #d1d1d1;
+}
+.notifi-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.notifi-item p {
+  color: #d1d1d1;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+.notifi-line {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
