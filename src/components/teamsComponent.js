@@ -450,6 +450,9 @@ const TeamsComponent = (props) => {
 
 
 
+  const [analysis,setanalyse] = useState('Weekly')
+  const [analysis2,setanalyse2] = useState('Weekly')
+
 
 
 
@@ -1039,9 +1042,9 @@ const PointsTable =(each,index)=>{
             </div>
             {openDropDown && (
               <div className="chart-hist" style={{ top: "24px", zIndex: 20 }} >
-                <p>weekly</p>
-                <p>monthly</p>
-                <p>yearly</p>
+                   <p onClick={()=>setanalyse('Weekly')} style={{color:analysis ==='Weekly' ? '' : '#D1D1D1'}}>Weekly</p>
+                    <p onClick={()=>setanalyse('Monthly')} style={{color:analysis ==='Monthly' ? '' : '#D1D1D1'}}>Monthly</p>
+                    <p onClick={()=>setanalyse('Yearly')} style={{color:analysis ==='Yearly' ? '' : '#D1D1D1'}}>Yearly</p>
               </div>
             )}
 
@@ -1117,7 +1120,7 @@ const PointsTable =(each,index)=>{
 
                   <div onClick={() => setOpenDropDown(!openDropDown)} className="trans-settings">
                     <div>
-                      <h6>Weekly</h6>
+                      <h6>{analysis}</h6>
                     </div>
 
                     <div>
@@ -1128,9 +1131,9 @@ const PointsTable =(each,index)=>{
                 </div>
                 {openDropDown && (
                   <div className="chart-hist" >
-                    <p>weekly</p>
-                    <p>monthly</p>
-                    <p>yearly</p>
+                      <p onClick={()=>setanalyse2('Weekly')} style={{color:analysis2 ==='Weekly' ? '' : '#D1D1D1'}}>Weekly</p>
+                      <p onClick={()=>setanalyse2('Monthly')} style={{color:analysis2 ==='Monthly' ? '' : '#D1D1D1'}}>Monthly</p>
+                      <p onClick={()=>setanalyse2('Yearly')} style={{color:analysis2 ==='Yearly' ? '' : '#D1D1D1'}}>Yearly</p>
                   </div>
                 )}
                 <div className="bar-main">
