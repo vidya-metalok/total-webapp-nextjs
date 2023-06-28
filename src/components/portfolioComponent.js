@@ -432,6 +432,10 @@ const PortFolioComponent = () => {
 
     const assetArr = [0, 1, 2, 3]
 
+    const [analysis,setanalyse] = useState('Weekly')
+    const [analysis2,setanalyse2] = useState('weekly')
+    const [analysis3,setanalyse3] = useState('weekly')
+
 
     return (
         <>
@@ -560,7 +564,7 @@ const PortFolioComponent = () => {
 
                                 <div onClick={() => setBarOpenDropDown(!barOpenDropDown)} className="trans-settings">
                                     <div>
-                                        <h6>Weekly</h6>
+                                        <h6>{analysis}</h6>
                                     </div>
 
                                     <div>
@@ -571,9 +575,9 @@ const PortFolioComponent = () => {
                             </div>
                             {barOpenDropDown && (
                                 <div className="chart-hist" >
-                                    <p>weekly</p>
-                                    <p>monthly</p>
-                                    <p>yearly</p>
+                                   <p onClick={()=>setanalyse('weekly')} style={{color:analysis ==='weekly' ? '' : 'white'}}>weekly</p>
+                                    <p onClick={()=>setanalyse('monthly')} style={{color:analysis ==='monthly' ? '' : 'white'}}>monthly</p>
+                                    <p onClick={()=>setanalyse('yearly')} style={{color:analysis ==='yearly' ? '' : 'white'}}>yearly</p>
                                 </div>
                             )}
                             {/* <canvas id="myChart" ref={chartRef} />  */}
@@ -604,7 +608,7 @@ const PortFolioComponent = () => {
 
                         <div onClick={() => setLineOpenDropDown(!lineOpenDropDown)} className="trans-settings">
                             <div>
-                                <h6>Weekly</h6>
+                                <h6>{analysis2}</h6>
                             </div>
 
                             <div>
@@ -615,9 +619,9 @@ const PortFolioComponent = () => {
                     </div>
                     {lineOpenDropDown && (
                         <div className="chart-hist" >
-                            <p>weekly</p>
-                            <p>monthly</p>
-                            <p>yearly</p>
+                           <p onClick={()=>setanalyse2('weekly')} style={{color:analysis2 ==='weekly' ? '' : 'white'}}>weekly</p>
+                           <p onClick={()=>setanalyse2('monthly')} style={{color:analysis2 ==='monthly' ? '' : 'white'}}>monthly</p>
+                           <p onClick={()=>setanalyse2('yearly')} style={{color:analysis2 ==='yearly' ? '' : 'white'}}>yearly</p>
                         </div>
                     )}
 
@@ -638,7 +642,7 @@ const PortFolioComponent = () => {
 
                             <div onClick={() => setPieOpenDropDown(!pieOpenDropDown)} className="trans-settings">
                                 <div>
-                                    <h6>Weekly</h6>
+                                    <h6>{analysis3}</h6>
                                 </div>
 
                                 <div>
@@ -649,9 +653,9 @@ const PortFolioComponent = () => {
                         </div>
                         {pieOpenDropDown && (
                             <div className="chart-hist" >
-                                <p>weekly</p>
-                                <p>monthly</p>
-                                <p>yearly</p>
+                                <p onClick={()=>setanalyse3('weekly')} style={{color:analysis3 ==='weekly' ? '' : 'white'}}>weekly</p>
+                                <p onClick={()=>setanalyse3('monthly')} style={{color:analysis3 ==='monthly' ? '' : 'white'}}>monthly</p>
+                                <p onClick={()=>setanalyse3('yearly')} style={{color:analysis3 ==='yearly' ? '' : 'white'}}>yearly</p>
                             </div>
                         )}
                         <div style={{ height: '350px', padding: "20px" }} >

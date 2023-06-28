@@ -24,6 +24,7 @@
 .teams-banner .banner-img {
   border-radius: 15px;
   width: 100% !important;
+  height: auto !important;
 }
 .teams-banner .banner-logo {
   /* position: absolute; */
@@ -254,6 +255,11 @@
 }
 .team-matches-hist::-webkit-scrollbar {
   width: 7px;
+  
+}
+.team-matches-hist::-webkit-scrollbar-button {
+  width: 0px;
+  
 }
 .team-matches-hist::-webkit-scrollbar-thumb {
   background-color: #393848;
@@ -286,7 +292,7 @@
 
 .team-matches-hist-1 {
   background-color: #232234;
-  padding: 14px;
+  padding: 14px 6px;
   width: 340px;
   border-radius: 9px;
   margin-top: 7%;
@@ -512,9 +518,9 @@
   .history-titles {
     width: 97% !important;
   }
-  .teams-left-con {
+  /* .teams-left-con {
     width: 62%;
-  }
+  } */
   .teams-banner .banner-img {
     width: 90%;
     margin-top: 5%;
@@ -538,10 +544,50 @@
 }
 
 /* new added  09-05-23 */
-@media screen and (min-width: 1020px) and (max-width: 1080px) {
-  .teams-left-con {
-    width: 53%;
+
+
+
+
+
+
+
+@media(max-width:1325px){
+  .teams-page-main-con{
+    display: block;
+    margin:0px;
   }
+  .teams-left-con{
+    margin-right:0px;
+    width: 100%;
+  }
+  .teams-right-con{
+    flex-direction: row;
+  }
+  .team-matches-hist-1{
+    margin:20px 0px 20px 6px;
+    width: 50%;
+  }
+
+  .team-matches-hist{
+    height: 680px;
+    margin:20px 6px 20px 0px;
+    width: 50%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1020px) and (max-width: 1080px) {
+  /* .teams-left-con {
+    width: 53%;
+  } */
   .side-live-batsmens1 h2 {
     font-size: 10px;
   }
@@ -552,7 +598,7 @@
     margin-left: -9px;
   }
 }
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .team-matches-hist {
     width: 250px;
   }
@@ -560,7 +606,7 @@
     width: 250px;
     overflow: auto;
   }
-}
+} */
 
 @media screen and (min-width: 1020px) and (max-width: 1060px) {
   .teams-right-teams {
@@ -587,16 +633,17 @@
   color: #ea9528;
   /* top: 85px; */
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   position: absolute;
   color: #ea9528;
   z-index: 10;
-  right: 16px;
-  background: #191c1c;
-  width: 162px;
-  text-align: end;
+  right: 29px;
+  background: #2c2a41;
+  width: 150px;
+  /* text-align: end; */
+  border:1px solid #513f3b;
 }
 .tocken-bar-head h6 {
   color: #ea9528;
@@ -634,12 +681,28 @@
   line-height: 24px;
   color: #FFFFFF;
 }
+.table-team-nm{
+  width: 40px;
+  margin:0px;
+}
 
 .points-teams-heading-section{
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 .index-change{
   position:absolute;
-  left:-7px;
+  left:-12px;
+  margin:0px;
 }
+
+
+.chart-hist p{
+  margin:0px;
+  height: 33px;
+  font-family:'Poppins';
+  font-weight: 400;
+}
+
+

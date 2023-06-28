@@ -223,3 +223,7 @@ input:-webkit-autofill:active{
 }
 
 
+
+input {
+  caret-color: white;
+}

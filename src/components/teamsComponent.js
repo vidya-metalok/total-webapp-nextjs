@@ -537,7 +537,7 @@ const PointsTable =(each,index)=>{
       <div className="points-teams-heading-section" style={{width:'32%'}}>
         <h6 className="points-teams-heading index-change" >{each.index+1}</h6>
           <Image src={allteamLogo[each.index]} alt="img" width={20} height={20} />
-          <h6 className="points-teams-heading">{each.each.team_code}</h6>
+          <h6 className="points-teams-heading table-team-nm">{each.each.team_code}</h6>
         </div>
         <p>{each.each.played}</p>
         <p>{each.each.won}</p>
@@ -951,7 +951,7 @@ const PointsTable =(each,index)=>{
                         {each.matchLost}
                       </h3> */}
                       <h4>
-                        Lost
+                        <span style={{marginRight:'4px'}}>Lost</span>
                         <span className="match-lost-txt-1"> {each.matchLost}</span>{" "}
                       </h4>
                     </div>

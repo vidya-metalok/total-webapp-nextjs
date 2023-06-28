@@ -890,7 +890,7 @@ useEffect(()=>{
                                             className="pop-select"
                                         >
                                             {tokenDetails.map((each, index) => (
-                                                <div onClick={() => storeTokenIn(each.tokenImg, each.tokenName, each.tokenIn)} key={index} style={{ paddingLeft: "8px" }} >
+                                                <div onClick={() => storeTokenIn(each.tokenImg, each.tokenName, each.tokenIn)} key={index}>
                                                     <Image
                                                         src={each.tokenImg}
                                                         alt="ffgdfdf"
@@ -899,7 +899,7 @@ useEffect(()=>{
                                                         style={{ marginRight: '6px' }}
                                                     />
 
-                                                    {each.tokenName}
+                                                    <p className="pop-select-text">{each.tokenName}</p>
 
 
                                                 </div>

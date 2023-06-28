@@ -1026,7 +1026,7 @@ const WalletComponent = () => {
                                                             height={20}
                                                             width={20}
                                                         />
-                                                        {each.tokenName}
+                                                        <p className="pop-select-text">{each.tokenName}</p>
                                                     </div>
                                                 ))}
                                             </div>
