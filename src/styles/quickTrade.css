@@ -105,7 +105,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
   letter-spacing: 0.01em;
   color: #9492a0;
@@ -557,23 +557,22 @@ today-team-names-new p:nth-child(1) {
 .pop-select {
   position: absolute;
   background: #232234;
-  top:54px;
+  top: 54px;
   /* margin-top: 30px; */
   width: 146px;
   height: 176px;
   overflow: auto;
   border-radius: 4px;
-  border:1px solid #52403d;
+  border: 1px solid #52403d;
   z-index: 5;
   /* left:45px; */
-  
 }
 
-.pop-select::-webkit-scrollbar{
+.pop-select::-webkit-scrollbar {
   width: 4px;
 }
-.pop-select::-webkit-scrollbar-thumb{
-  background: #5E5E5E;
+.pop-select::-webkit-scrollbar-thumb {
+  background: #5e5e5e;
 }
 /* new added 09-05-23 */
 .pop-select div {
@@ -584,12 +583,11 @@ today-team-names-new p:nth-child(1) {
   color: white;
   gap: 7px;
   height: 38px;
-  padding-left:18px;
+  padding-left: 18px;
 }
 
 .pop-select div:hover {
   background-color: #3c3a59;
-
 }
 .subparentsubchild5 {
   margin-top: 20px;
@@ -709,17 +707,16 @@ today-team-names-new p:nth-child(1) {
   margin-bottom: 0px !important;
 }
 
-
-.same-teams-chosed{
+.same-teams-chosed {
   color: red;
   font-family: "Poppins";
   font-size: 14px;
   text-align: center;
 }
 
-.pop-select-text{
-  font-family: 'Poppins';
+.pop-select-text {
+  font-family: "Poppins";
   font-weight: 300;
-  margin:0px;
+  margin: 0px;
   font-size: 13px;
 }
