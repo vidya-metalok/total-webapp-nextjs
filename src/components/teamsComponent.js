@@ -874,13 +874,13 @@ const PointsTable =(each,index)=>{
                             </th>
                             <th>
                               <div className="delhi-c">
-                                <Image src={each.match1Img} alt="" height={50} width={50} />
+                                <Image src={allteamLogo[2]} alt="" height={50} width={50} />
                               </div>
                             </th>
                             <th><div className="verse">VS</div> </th>
                             <th>
                               <div className="delhi-c">
-                                <Image src={each.match2Img} alt="" height={50} width={50} />
+                                <Image src={allteamLogo[8]} alt="" height={50} width={50} />
                               </div>
                             </th>
                           </tr>
@@ -931,7 +931,7 @@ const PointsTable =(each,index)=>{
 
                     <div className="hist-img-con">
                       <Image
-                        src={each.match1Img}
+                        src={allteamLogo[9]}
                         alt=""
                         height={30}
                         width={30} style={{ marginRight: "1rem" }}
@@ -941,7 +941,7 @@ const PointsTable =(each,index)=>{
 
                       </h4>
                       <Image
-                        src={each.match2Img}
+                        src={allteamLogo[0]}
                         alt=""
                         height={30}
                         width={30}

@@ -202,7 +202,7 @@
   text-align: end;
   letter-spacing: -0.312463px;
   color: #cccccc;
-  margin-right: 5px;
+  margin-right: 6px;
 }
 .matches-hist-card {
   display: flex;
@@ -255,6 +255,7 @@
 }
 .team-matches-hist::-webkit-scrollbar {
   width: 7px;
+  height: 0px;
   
 }
 .team-matches-hist::-webkit-scrollbar-button {
