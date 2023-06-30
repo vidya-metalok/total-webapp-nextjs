@@ -300,17 +300,17 @@ const PortFolioComponent = () => {
                 setgraphline(300);
             }
         };
-      
+
 
         window.addEventListener('resize', handleResize);
-  handleResize(); // Call the function immediately
+        handleResize(); // Call the function immediately
 
-  return () => {
-    window.removeEventListener('resize', handleResize);
-  };
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
 
 
-        
+
 
 
 
@@ -432,9 +432,9 @@ const PortFolioComponent = () => {
 
     const assetArr = [0, 1, 2, 3]
 
-    const [analysis,setanalyse] = useState('Weekly')
-    const [analysis2,setanalyse2] = useState('Weekly')
-    const [analysis3,setanalyse3] = useState('Weekly')
+    const [analysis, setanalyse] = useState('Weekly')
+    const [analysis2, setanalyse2] = useState('Weekly')
+    const [analysis3, setanalyse3] = useState('Weekly')
 
 
     return (
@@ -524,7 +524,7 @@ const PortFolioComponent = () => {
                                     <p>Total sportsverse Holdings</p>
                                 </div>
                                 <div className="subparentsubchild6">
-                                    <p>{netHoldings}</p>
+                                    <p>₹{netHoldings}</p>
                                     <p>+9.2%</p>
                                 </div>
                             </div>
@@ -539,7 +539,7 @@ const PortFolioComponent = () => {
                                     <p>Total Invested</p>
                                 </div>
                                 <div className="subparentsubchild6">
-                                    <p>{netHoldings}</p>
+                                    <p>₹{netHoldings}</p>
                                     {/* <p>+9.2%</p> */}
                                 </div>
                             </div>
@@ -547,10 +547,14 @@ const PortFolioComponent = () => {
                                 <div className="img-con">
                                     <Image src={empty} alt="" height={25} width={25} />
 
-                                    <p style={{ fontSize: "15px" }}>Wallet balance</p>
+                                    <p>Wallet balance</p>
+                                </div>
+                                <div className="subparentsubchild6">
+
+                                    <p style={{ fontSize: "26px", lineHeight: "31px" }}>${netHoldings}</p>
+                                    <p className="w-usdt">USDT</p>
                                 </div>
 
-                                <p style={{ fontSize: "26px", lineHeight: "31px" }}>{netHoldings}</p>
                             </div>
                         </div>
 
@@ -575,9 +579,9 @@ const PortFolioComponent = () => {
                             </div>
                             {barOpenDropDown && (
                                 <div className="chart-hist" >
-                                   <p onClick={()=>setanalyse('Weekly')} style={{color:analysis ==='Weekly' ? '' : '#D1D1D1'}}>Weekly</p>
-                                    <p onClick={()=>setanalyse('Monthly')} style={{color:analysis ==='Monthly' ? '' : '#D1D1D1'}}>Monthly</p>
-                                    <p onClick={()=>setanalyse('Yearly')} style={{color:analysis ==='Yearly' ? '' : '#D1D1D1'}}>Yearly</p>
+                                    <p onClick={() => setanalyse('Weekly')} style={{ color: analysis === 'Weekly' ? '' : '#D1D1D1' }}>Weekly</p>
+                                    <p onClick={() => setanalyse('Monthly')} style={{ color: analysis === 'Monthly' ? '' : '#D1D1D1' }}>Monthly</p>
+                                    <p onClick={() => setanalyse('Yearly')} style={{ color: analysis === 'Yearly' ? '' : '#D1D1D1' }}>Yearly</p>
                                 </div>
                             )}
                             {/* <canvas id="myChart" ref={chartRef} />  */}
@@ -618,10 +622,10 @@ const PortFolioComponent = () => {
                         </div>
                     </div>
                     {lineOpenDropDown && (
-                        <div className="chart-hist" >
-                           <p onClick={()=>setanalyse2('Weekly')} style={{color:analysis2 ==='Weekly' ? '' : '#D1D1D1'}}>Weekly</p>
-                           <p onClick={()=>setanalyse2('Monthly')} style={{color:analysis2 ==='Monthly' ? '' : '#D1D1D1'}}>Monthly</p>
-                           <p onClick={()=>setanalyse2('Yearly')} style={{color:analysis2 ==='Yearly' ? '' : '#D1D1D1'}}>Yearly</p>
+                        <div className="chart-hist" style={{ top: "120px" }}>
+                            <p onClick={() => setanalyse2('Weekly')} style={{ color: analysis2 === 'Weekly' ? '' : '#D1D1D1' }}>Weekly</p>
+                            <p onClick={() => setanalyse2('Monthly')} style={{ color: analysis2 === 'Monthly' ? '' : '#D1D1D1' }}>Monthly</p>
+                            <p onClick={() => setanalyse2('Yearly')} style={{ color: analysis2 === 'Yearly' ? '' : '#D1D1D1' }}>Yearly</p>
                         </div>
                     )}
 
@@ -640,7 +644,7 @@ const PortFolioComponent = () => {
                     <Image src={down} alt="" height={10} width={10} />
                   </div> */}
 
-                            <div onClick={() => setPieOpenDropDown(!pieOpenDropDown)} className="trans-settings">
+                            {/* <div onClick={() => setPieOpenDropDown(!pieOpenDropDown)} className="trans-settings">
                                 <div>
                                     <h6>{analysis3}</h6>
                                 </div>
@@ -649,15 +653,15 @@ const PortFolioComponent = () => {
                                     <Image src={transArr} alt="" height={15} width={15} />
                                 </div>
 
-                            </div>
+                            </div> */}
                         </div>
-                        {pieOpenDropDown && (
+                        {/* {pieOpenDropDown && (
                             <div className="chart-hist" >
-                                <p onClick={()=>setanalyse3('Weekly')} style={{color:analysis3 ==='Weekly' ? '' : '#D1D1D1'}}>Weekly</p>
-                                <p onClick={()=>setanalyse3('Monthly')} style={{color:analysis3 ==='Monthly' ? '' : '#D1D1D1'}}>Monthly</p>
-                                <p onClick={()=>setanalyse3('Yearly')} style={{color:analysis3 ==='Yearly' ? '' : '#D1D1D1'}}>Yearly</p>
+                                <p onClick={() => setanalyse3('Weekly')} style={{ color: analysis3 === 'Weekly' ? '' : '#D1D1D1' }}>Weekly</p>
+                                <p onClick={() => setanalyse3('Monthly')} style={{ color: analysis3 === 'Monthly' ? '' : '#D1D1D1' }}>Monthly</p>
+                                <p onClick={() => setanalyse3('Yearly')} style={{ color: analysis3 === 'Yearly' ? '' : '#D1D1D1' }}>Yearly</p>
                             </div>
-                        )}
+                        )} */}
                         <div style={{ height: '350px', padding: "20px" }} >
 
                             {userLoginInfo == null ? (

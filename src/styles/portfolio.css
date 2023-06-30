@@ -11,11 +11,13 @@
   position: relative;
   height: 370px;
   /* width: 100%; */
-  /* text-align: start; */
+  text-align: left;
   background-color: #232234;
   padding: 30px;
+  display: flex;
+  flex-direction: column;
 }
-.bar-chart-con::-webkit-scrollbar{
+.bar-chart-con::-webkit-scrollbar {
   width: 0;
 }
 
@@ -144,8 +146,8 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
-  line-height: 10px;
+  font-size: 22px !important;
+  line-height: 9.6px;
   /* identical to box height, or 44% */
   letter-spacing: 0.416826px;
   text-transform: capitalize;
@@ -263,7 +265,6 @@
   width: 100%;
   text-align: center;
 }
-
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
