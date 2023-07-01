@@ -61,12 +61,30 @@ const Home = (props) => {
   );
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const getWalletBalance = async (tokenAddress, walletAddress) => {
-    let contrct = new web3.eth.Contract(abi, tokenAddress);
-    const USDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F'; //  USDT token address
-    var tmp = await contrct.methods.balanceOf(walletAddress).call({ from: walletAddress });
-    let balance = contrct.options.address == USDT ?
-      web3.utils.fromWei(tmp, 'ether') : web3.utils.fromWei(tmp, 'ether');
-    return parseFloat(balance).toFixed(3)
+    if (walletAddress) {
+      try {
+        let contrct = new web3.eth.Contract(abi, tokenAddress);
+        const USDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F'; //  USDT token address
+        var tmp = await contrct.methods.balanceOf(walletAddress).call({ from: walletAddress });
+        let balance = contrct.options.address == USDT ?
+          web3.utils.fromWei(tmp, 'ether') : web3.utils.fromWei(tmp, 'ether');
+        return parseFloat(balance).toFixed(3)
+      }
+      catch (error) {
+        // Handle the error gracefully
+        console.error('An error occurred during contract interaction:', error);
+        // Return a default or fallback value to display in the frontend
+        return '';
+
+      }
+
+    }
+    else {
+      // Handle the case when userWallet is undefined or has an invalid value
+      console.error('Invalid user wallet address');
+      return 'N/A';
+    }
+
 
   }
 

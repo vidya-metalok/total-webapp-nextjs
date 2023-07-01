@@ -26,26 +26,48 @@ const DashboardComponent = () => {
 
 
     const getUsdtBalance = async (tokenAddress) => {
-        let contrct = new web3.eth.Contract(abi, tokenAddress);
-        let USDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F';
-        //  USDT token address
-        var tmp = await contrct.methods
-            .balanceOf(userWallet)
-            .call({ from: userWallet });
-        let balance =
-            contrct.options.address == USDT
-                ? web3.utils.fromWei(tmp, 'mwei')
-                : web3.utils.fromWei(tmp, 'ether');
-        return balance;
+        if (tokenAddress) {
+            try {
+                let contrct = new web3.eth.Contract(abi, tokenAddress);
+                let USDT = '0xc2132D05D31c914a87C6611C10748AEb04B58e8F';
+                //  USDT token address
+                var tmp = await contrct.methods
+                    .balanceOf(userWallet)
+                    .call({ from: userWallet });
+                let balance =
+                    contrct.options.address == USDT
+                        ? web3.utils.fromWei(tmp, 'mwei')
+                        : web3.utils.fromWei(tmp, 'ether');
+                return balance;
+
+            }
+            catch (err) {
+                console.log("err", err)
+            }
+        }
+        else {
+            console.log("error")
+        }
+
+
     };
 
 
     const getMaticBalance = async (tokenAddress) => {
-        let tmp = await web3.eth.getBalance(userWallet);
-        //  USDT token address
+        if (tokenAddress || userWallet) {
+            try {
+                let tmp = await web3.eth.getBalance(userWallet);
+                //  USDT token address
 
-        let balance = web3.utils.fromWei(tmp, 'ether');
-        return balance;
+                let balance = web3.utils.fromWei(tmp, 'ether');
+                return balance;
+
+            }
+            catch (err) {
+                console.log("err", err)
+            }
+        }
+
     };
 
     useEffect(() => {

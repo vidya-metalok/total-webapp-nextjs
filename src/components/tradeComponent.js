@@ -705,8 +705,8 @@ const TradeComponent = () => {
         <div style={{ color: 'white' }} className="trade-tokens-main">
           <div className='sidebar-tocken'>
             {/* <p className='my-tokens-text' onClick={mytokenClick} style={{color:mytokenclick ? "white" : '#5a5967'}}>My Tokens <span className="all-tokens-text"></span></p> */}
-            <p className='my-tokens-text' onClick={onClickMyTokensTab}>My Tokens</p>
-            <p className='all-tokens-text' onClick={onClickAllTokensTab}>All Tokens</p>
+            <p className='my-tokens-text' onClick={onClickMyTokensTab} style={{ color: myTokensTab ? "white" : '#5a5967' }}>My Tokens</p>
+            <p className='all-tokens-text' onClick={onClickAllTokensTab} style={{ color: myTokensTab ? "#5a5967" : "white" }}>All Tokens</p>
           </div>
           {myTokensTab && (
             <table>
