@@ -64,17 +64,40 @@ import {
   getDoc,
 } from "firebase/firestore";
 
-var rajasthanBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rajsthan-royals_banner.png"
-var rcbBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rcbBanner.png"
-var cskBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/cskBanner.png"
-var delhiBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhiBanner.png"
-var gujarathBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gtBanner.png"
-var sunriseBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/hsvBanner.png"
-var kkrBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkrBanner.png"
-var lkBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lkBanner.png"
-var mumbaiBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/mumbaiBanner.png"
-var punjabBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/psvBanner.png"
-var rsvcBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rrBanner.png";
+// var rajasthanBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rajsthan-royals_banner.png"
+// var rcbBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rcbBanner.png"
+// // var cskBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/cskBanner.png"
+// var delhiBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/delhiBanner.png"
+// var gujarathBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/gtBanner.png"
+// var sunriseBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/hsvBanner.png"
+// var kkrBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/kkrBanner.png"
+// var lkBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/lkBanner.png"
+// var mumbaiBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/mumbaiBanner.png"
+// var punjabBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/psvBanner.png"
+// var rsvcBanner = "https://metalok-testbucket.s3.ap-south-1.amazonaws.com/webapp-images/rrBanner.png";
+
+
+
+//teja given banner svgs //
+import rajasthanBanner from "../../public/images/RR-banner-svg.svg"
+import rcbBanner from "../../public/images/RCB-banner-svg.svg"
+import cskBanner from "../../public/images/CSK-banner-svg.svg"
+import delhiBanner from "../../public/images/DC-banner-svg.svg"
+import gujarathBanner from "../../public/images/GT-banner-svg.svg"
+import sunriseBanner from "../../public/images/SRH-banner-svg.svg"
+import kkrBanner from "../../public/images/KKR-banner-svg.svg"
+import lkBanner from "../../public/images/LSG-banner-svg.svg"
+import mumbaiBanner from "../../public/images/MI-banner-svg.svg"
+import punjabBanner from "../../public/images/PBKS-banner-svg.svg"
+import rsvcBanner from "../../public/images/RR-banner-svg.svg";
+
+
+
+
+
+
+// ended here 
+
 
 // import rajasthanBanner from "../../public/images/rr(1).svg"
 // import rcbBanner from "../../public/images/rcb(1).svg"
@@ -450,8 +473,8 @@ const TeamsComponent = (props) => {
 
 
 
-  const [analysis,setanalyse] = useState('Weekly')
-  const [analysis2,setanalyse2] = useState('Weekly')
+  const [analysis, setanalyse] = useState('Weekly')
+  const [analysis2, setanalyse2] = useState('Weekly')
 
 
 
@@ -463,7 +486,7 @@ const TeamsComponent = (props) => {
       try {
         const firestore = getFirestore();
 
-        const tokenKeys = ['rcb', 'csk', 'dc', 'gt', 'srh', 'kkr', 'lsg', 'mi','pbks', 'rr'];
+        const tokenKeys = ['rcb', 'csk', 'dc', 'gt', 'srh', 'kkr', 'lsg', 'mi', 'pbks', 'rr'];
         const unsubscribeFunctions = [];
 
         tokenKeys.forEach((tokenKey) => {
@@ -472,7 +495,7 @@ const TeamsComponent = (props) => {
             if (doc.exists()) {
               const updatedMatchHistory = { [tokenKey]: doc.data() };
 
-              console.log("eaccccccccccccccccccccccccccccc", "dataaaaa",doc.data().team_code)
+              console.log("eaccccccccccccccccccccccccccccc", "dataaaaa", doc.data().team_code)
               setMatchHistory((prevMatchHistory) => {
                 const existingMatchHistory = prevMatchHistory.find((item) => Object.keys(item)[0] === tokenKey);
                 if (existingMatchHistory) {
@@ -505,7 +528,7 @@ const TeamsComponent = (props) => {
   }, []);
 
 
-console.log("eaccccccccccccccccccccccccccccccmatchHistory", matchHistory, "tokendetails", tokenDetails )
+  console.log("eaccccccccccccccccccccccccccccccmatchHistory", matchHistory, "tokendetails", tokenDetails)
 
 
 
@@ -523,22 +546,22 @@ console.log("eaccccccccccccccccccccccccccccccmatchHistory", matchHistory, "token
 
 
 
-console.log("eacccccccccccccc", "team" , teamsData)
+  console.log("eacccccccccccccc", "team", teamsData)
 
-console.log('eaccccccccccccccccccteams', allteamLogo, "team" , teamsData )
-
-
+  console.log('eaccccccccccccccccccteams', allteamLogo, "team", teamsData)
 
 
-const PointsTable =(each,index)=>{
+
+
+  const PointsTable = (each, index) => {
 
     console.log("eaccccccccccccccccccc", each.index)
 
 
-   return(
+    return (
       <div className="single-team-score">
-      <div className="points-teams-heading-section" style={{width:'32%'}}>
-        <h6 className="points-teams-heading index-change" >{each.index+1}</h6>
+        <div className="points-teams-heading-section" style={{ width: '32%' }}>
+          <h6 className="points-teams-heading index-change" >{each.index + 1}</h6>
           <Image src={allteamLogo[each.index]} alt="img" width={20} height={20} />
           <h6 className="points-teams-heading table-team-nm">{each.each.team_code}</h6>
         </div>
@@ -954,7 +977,7 @@ const PointsTable =(each,index)=>{
                         {each.matchLost}
                       </h3> */}
                       <h4>
-                        <span style={{marginRight:'4px'}}>Lost</span>
+                        <span style={{ marginRight: '4px' }}>Lost</span>
                         <span className="match-lost-txt-1"> {each.matchLost}</span>{" "}
                       </h4>
                     </div>
@@ -1000,8 +1023,8 @@ const PointsTable =(each,index)=>{
                   </div>
 
 
-                  {teamsData.map((each,index)=>(
-                    <PointsTable each={each} index={index} key={index}/>
+                  {teamsData.map((each, index) => (
+                    <PointsTable each={each} index={index} key={index} />
                   ))
 
                   }
@@ -1042,9 +1065,9 @@ const PointsTable =(each,index)=>{
             </div>
             {openDropDown && (
               <div className="chart-hist" style={{ top: "24px", zIndex: 20 }} >
-                   <p onClick={()=>setanalyse('Weekly')} style={{color:analysis ==='Weekly' ? '' : '#D1D1D1'}}>Weekly</p>
-                    <p onClick={()=>setanalyse('Monthly')} style={{color:analysis ==='Monthly' ? '' : '#D1D1D1'}}>Monthly</p>
-                    <p onClick={()=>setanalyse('Yearly')} style={{color:analysis ==='Yearly' ? '' : '#D1D1D1'}}>Yearly</p>
+                <p onClick={() => setanalyse('Weekly')} style={{ color: analysis === 'Weekly' ? '' : '#D1D1D1' }}>Weekly</p>
+                <p onClick={() => setanalyse('Monthly')} style={{ color: analysis === 'Monthly' ? '' : '#D1D1D1' }}>Monthly</p>
+                <p onClick={() => setanalyse('Yearly')} style={{ color: analysis === 'Yearly' ? '' : '#D1D1D1' }}>Yearly</p>
               </div>
             )}
 
@@ -1131,9 +1154,9 @@ const PointsTable =(each,index)=>{
                 </div>
                 {openDropDown && (
                   <div className="chart-hist" >
-                      <p onClick={()=>setanalyse2('Weekly')} style={{color:analysis2 ==='Weekly' ? '' : '#D1D1D1'}}>Weekly</p>
-                      <p onClick={()=>setanalyse2('Monthly')} style={{color:analysis2 ==='Monthly' ? '' : '#D1D1D1'}}>Monthly</p>
-                      <p onClick={()=>setanalyse2('Yearly')} style={{color:analysis2 ==='Yearly' ? '' : '#D1D1D1'}}>Yearly</p>
+                    <p onClick={() => setanalyse2('Weekly')} style={{ color: analysis2 === 'Weekly' ? '' : '#D1D1D1' }}>Weekly</p>
+                    <p onClick={() => setanalyse2('Monthly')} style={{ color: analysis2 === 'Monthly' ? '' : '#D1D1D1' }}>Monthly</p>
+                    <p onClick={() => setanalyse2('Yearly')} style={{ color: analysis2 === 'Yearly' ? '' : '#D1D1D1' }}>Yearly</p>
                   </div>
                 )}
                 <div className="bar-main">
