@@ -285,7 +285,9 @@ const Sidebar = () => {
                                             <tbody>
                                                 {
                                                     newTokenList.map((eachToken, index) => (
-                                                        <Link href={{ pathname: "/teamspage", query: { eachToken: JSON.stringify(eachToken) } }} as="/teamspage" key={index}>
+                                                        // <Link href={{ pathname: `/teamspage/${eachToken?.tokenName}`, query: { eachToken: JSON.stringify(eachToken) } }} as={`/teamspage/${eachToken?.tokenName}`} key={index}>
+
+                                                        <Link href={{ pathname: `/teamspage/${eachToken?.tokenName}`, query: { eachToken: JSON.stringify(eachToken) } }} as={`/teamspage/${eachToken?.tokenName}`} key={index}>
 
                                                             <tr className="token-container" key={index}>
                                                                 <td>

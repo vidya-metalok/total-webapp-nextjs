@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import Sidebar from '@/components/sidebarComponent.js'
 import { eachTeamDetails } from '@/components/redux/userSlice.js'
-const TeamsComponent = dynamic(() => import('../components/teamsComponent.js'), { ssr: false })
-const LayoutComponent = dynamic(() => import("../components/layoutComponent.js"), { ssr: false })
+const TeamsComponent = dynamic(() => import('../../components/teamsComponent.js'), { ssr: false })
+const LayoutComponent = dynamic(() => import("../../components/layoutComponent.js"), { ssr: false })
 const TeamPage = () => {
   const router = useRouter()
   const dispatch = useDispatch()
@@ -46,10 +46,10 @@ const TeamPage = () => {
     </LayoutComponent>
 
   )
- 
 
-  
-} 
 
-    
+
+}
+
+
 export { TeamPage as default }
